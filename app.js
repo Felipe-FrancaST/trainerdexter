@@ -5,9 +5,10 @@ const LOCAL_STATE=JSON.parse(localStorage.getItem(KEY)||"null");
 const state=LOCAL_STATE||structuredClone(DEFAULT);
 const SOURCE_DATA_VERSION=2;
 
-// Persistência: o localStorage continua como cache/offline e o Supabase passa a ser a fonte
-// persistente. O app mantém o mesmo formato de estado para não quebrar as telas existentes.
-const DB_TABLE="trainerdex_state";
+// Persistência: localStorage continua como cache/offline, enquanto o Supabase
+// guarda os dados em tabelas organizadas. O formato de estado do frontend é mantido
+// para que as telas existentes continuem funcionando sem uma reescrita completa.
+const DB_BUCKET="trainerdex-images";
 let dbReady=false;
 let dbSaveChain=Promise.resolve();
 let dbSaveTimer=null;
@@ -17,39 +18,83 @@ function dbConfigured(){
   else console.warn("TrainerDex: Supabase não está configurado ou não foi carregado.");
   return configured;
 }
+async function migrateLegacyStateInSupabase(){
+  if(!dbConfigured()) return false;
+  try{
+    const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_migrate_legacy");
+    if(error){console.error("Supabase: migração do estado antigo falhou:",error);return false;}
+    return !!data;
+  }catch(error){console.error("Supabase: erro ao migrar estado antigo:",error);return false;}
+}
 async function loadStateFromSupabase(){
   if(!dbConfigured()) return false;
-  const client=window.trainerdexSupabase;
-  const {data,error}=await client.from(DB_TABLE).select("state,updated_at").eq("id","main").maybeSingle();
-  if(error){console.error("Supabase: erro ao carregar trainerdex_state:",error);return false;}
+  await migrateLegacyStateInSupabase();
+  const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_load_state");
+  if(error){console.error("Supabase: erro ao carregar estado organizado:",error);return false;}
   dbReady=true;
-  if(data?.state && typeof data.state==="object"){
+  if(data && typeof data==="object"){
     Object.keys(state).forEach(k=>delete state[k]);
-    Object.assign(state,data.state);
+    Object.assign(state,data);
     localStorage.setItem(KEY,JSON.stringify(state));
     return true;
   }
-  // Primeira execução: migra automaticamente o estado que já estava no navegador.
-  if(LOCAL_STATE){
-    const {error:insertError}=await client.from(DB_TABLE).upsert({id:"main",state:LOCAL_STATE,updated_at:new Date().toISOString()});
-    if(insertError) console.error("Supabase: migração inicial falhou:",insertError);
-    else { console.info("Supabase: migração inicial concluída."); }
-  }
   return false;
+}
+function dataUrlToBlob(dataUrl){
+  const parts=String(dataUrl||"").split(",");
+  if(parts.length!==2 || !parts[0].includes("base64")) throw new Error("Imagem inválida.");
+  const mime=(parts[0].match(/data:([^;]+)/)||[])[1]||"image/png";
+  const binary=atob(parts[1]);
+  const bytes=new Uint8Array(binary.length);
+  for(let i=0;i<binary.length;i++) bytes[i]=binary.charCodeAt(i);
+  return new Blob([bytes],{type:mime});
+}
+function publicImageUrl(path){
+  return window.trainerdexSupabase.storage.from(DB_BUCKET).getPublicUrl(path).data.publicUrl;
+}
+async function removePokemonStorageImage(image){
+  if(!dbConfigured() || !image) return;
+  const marker=`/storage/v1/object/public/${DB_BUCKET}/`;
+  const index=String(image).indexOf(marker);
+  if(index<0) return;
+  const path=decodeURIComponent(String(image).slice(index+marker.length));
+  if(!path.startsWith("pokemon/")) return;
+  const {error}=await window.trainerdexSupabase.storage.from(DB_BUCKET).remove([path]);
+  if(error) console.warn("TrainerDex: não foi possível remover a imagem antiga:",error);
+}
+async function uploadPendingPokemonImages(){
+  const list=Array.isArray(state.pokemonCatalog)?state.pokemonCatalog:[];
+  for(const p of list){
+    if(!p?._newImage) continue;
+    const blob=dataUrlToBlob(p._newImage);
+    if(blob.size>8*1024*1024) throw new Error(`A imagem de ${p.nome||"Pokémon"} é maior que 8 MB.`);
+    const path=`pokemon/${encodeURIComponent(String(p.id))}/cover`;
+    const {error}=await window.trainerdexSupabase.storage.from(DB_BUCKET).upload(path,blob,{
+      upsert:true,contentType:blob.type||"image/png",cacheControl:"3600"
+    });
+    if(error) throw error;
+    p.imagem=publicImageUrl(path);
+    delete p._newImage;
+  }
 }
 function queueDbSave(){
   if(!dbConfigured() || !dbReady) return;
   clearTimeout(dbSaveTimer);
   dbSaveTimer=setTimeout(()=>{
-    const snapshot=structuredClone(state);
     dbSaveChain=dbSaveChain.then(async()=>{
-      const {error}=await window.trainerdexSupabase.from(DB_TABLE).upsert({
-        id:"main",state:snapshot,updated_at:new Date().toISOString()
-      });
-      if(error) console.error("Supabase: falha ao salvar estado:",error);
-      else console.info("TrainerDex: estado sincronizado com Supabase.");
+      try{
+        await uploadPendingPokemonImages();
+        const snapshot=structuredClone(state);
+        const {error}=await window.trainerdexSupabase.rpc("trainerdex_save_state",{payload:snapshot});
+        if(error) throw error;
+        localStorage.setItem(KEY,JSON.stringify(state));
+        console.info("TrainerDex: dados sincronizados com Supabase.");
+      }catch(error){
+        console.error("Supabase: falha ao salvar dados:",error);
+        toast("Não foi possível sincronizar com o Supabase. Os dados continuam salvos localmente.");
+      }
     });
-  },180);
+  },300);
 }
 const save=()=>{
   localStorage.setItem(KEY,JSON.stringify(state));
@@ -262,7 +307,15 @@ function openPokemonMaster(p){
  const toggleParent=()=>$("#pkParentField").classList.toggle("hidden",$("#pkEvolutionType").value!=="evolution");$("#pkEvolutionType").onchange=toggleParent;toggleParent();
  $("#pokemonImage").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{$("#previewImage").src=r.result;p._newImage=r.result};r.readAsDataURL(f)};
  $("#savePokemon").onclick=()=>{try{p.numero=$("#pkNumero").value.trim();p.nome=$("#pkNome").value.trim();p.tipo=selectedTypes("#pkTypePicker .type-choice").join(" / ");if(!p.tipo)return toast("Selecione pelo menos um tipo.");p.descricao=$("#pkDescricao").value;p.sr=$("#pkSr").value.trim();p.ca=Math.max(0,Number($("#pkCa").value)||0);p.habilidades=collectAbilities();p.hp=Math.max(1,Number($("#pkHp").value)||1);p.dadoVida=normalizeLifeDice($("#pkLifeDie").value);p.vulnerabilidades=selectedTypes("#pkVulnPicker .type-choice");p.resistencia=selectedTypes("#pkResPicker .type-choice");p.status=Object.fromEntries(DND_ATTRIBUTES.map(([k])=>[k,Math.max(1,Math.min(30,Number($(`.pokemon-attr[data-attr="${k}"]`)?.value)||10))]));p.pericias=collectSkills();p.bonusProficiencia=Math.max(0,Math.min(20,Number($("#pkBonusProf").value)||0));p.ataques=collectAttacks();if((p.ataques||[]).some(a=>!a.nome))return toast("Preencha o nome dos ataques.");p.evolutionType=$("#pkEvolutionType").value;if(p.evolutionType==="evolution"){const parentId=Number($("#pkParent").value);if(!parentId)return toast("Selecione de qual Pokémon esta evolução vem.");if(parentId===Number(p.id))return toast("Um Pokémon não pode evoluir de si mesmo.");p.evolvesFromId=parentId;p.evolutionStage=(pokemonById(parentId)?.evolutionStage||1)+1}else{delete p.evolvesFromId;p.evolutionStage=1}if(p._newImage){p.imagem=p._newImage;delete p._newImage};state.pokemonCatalog=pokemons;save();closeModal();renderAll();toast("Pokémon salvo com sucesso.")}catch(e){toast("Verifique o JSON dos status.")}};
- $("#deletePokemon").onclick=()=>{if(!confirm(`Excluir ${p.nome}?`))return;pokemons=pokemons.filter(x=>x.id!==p.id);state.pokemonCatalog=pokemons;save();closeModal();renderDex();toast("Pokémon excluído da campanha.")};
+ $("#deletePokemon").onclick=()=>{
+   if(!confirm(`Excluir ${p.nome}?`))return;
+   const imageToRemove=p.imagem;
+   pokemons=pokemons.filter(x=>x.id!==p.id);
+   state.pokemonCatalog=pokemons;
+   save();
+   removePokemonStorageImage(imageToRemove);
+   closeModal();renderDex();toast("Pokémon excluído da campanha.");
+ };
 }
 
 function newPokemon(){const id=Math.max(0,...pokemons.map(x=>Number(x.id)))+1;const p={id,numero:"#"+String(id).padStart(3,"0"),nome:"Novo Pokémon",tipo:"Normal",descricao:"",imagem:"img/icons/trainerdex-home.png",hp:50,dadoVida:10,sr:"",ca:0,status:{forca:10,destreza:10,constituicao:10,inteligencia:10,sabedoria:10,carisma:10},pericias:{},bonusProficiencia:2,vulnerabilidades:[],resistencia:[],ataques:[],evolutionType:"basic",evolutionStage:1,habilidades:[{nome:"",descricao:""},{nome:"",descricao:""}]};pokemons.push(p);openPokemonMaster(p)}
@@ -618,10 +671,8 @@ async function init(){
  state.pokemonCatalog=pokemons;
  save();
  if(dbConfigured() && !dbReady){
-   const snapshot=structuredClone(state);
-   const {error}=await window.trainerdexSupabase.from(DB_TABLE).upsert({id:"main",state:snapshot,updated_at:new Date().toISOString()});
-   if(error) console.error("Supabase: não foi possível criar o estado inicial:",error);
-   else { dbReady=true; console.info("Supabase: estado inicial criado."); }
+   dbReady=true;
+   queueDbSave();
  }
  loginUI();
  }catch(e){console.error(e);toast("Não foi possível carregar a Pokédex.")}

@@ -1,4 +1,4 @@
-const CACHE="trainerdex-v23";
+const CACHE="trainerdex-v24";
 const ASSETS=["./","./index.html","./style.css","./app.js","./data/pokemon.json","./data/moves.json","./img/icons/trainerdex-home.png"];
 
 self.addEventListener("install", event => {
