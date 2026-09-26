@@ -255,3 +255,77 @@ input,select,textarea{max-width:100%}
 @media(max-width:700px){.attribute-editor{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* Perícias D&D */
 .skills-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.skill-card{display:grid;grid-template-columns:18px 1fr auto;align-items:center;gap:7px;padding:9px 10px;border:1px solid #e3e8ee;border-radius:12px;background:#fff}.skill-card.proficient{border-color:#9fc8ee;background:#f4f9ff}.skill-card .skill-dot{font-size:13px;color:var(--muted)}.skill-card.proficient .skill-dot{color:#2879c7}.skill-card strong{display:block;font-size:12px}.skill-card small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.skill-card b{font-size:16px}.skills-edit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.skill-edit{display:flex;align-items:center;gap:9px;padding:9px 10px;border:1px solid var(--border);border-radius:12px;background:#f8fafc;cursor:pointer}.skill-edit:has(input:checked){background:#f1f8ff;border-color:#8dbfe8}.skill-edit input{width:17px;height:17px}.skill-edit strong{display:block;font-size:12px}.skill-edit small{display:block;color:var(--muted);font-size:10px;margin-top:2px}@media(max-width:700px){.skills-grid,.skills-edit-grid{grid-template-columns:1fr}}
+
+/* Ajustes finais: ataques sem marcador e experiência mobile */
+.attack-list{padding-left:0;list-style:none;display:grid;gap:8px}
+.attack-list li{margin:0}
+.attack-detail-item details{border:1px solid var(--border);border-radius:14px;background:#fff;overflow:hidden}
+.attack-detail-item summary{list-style:none;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:8px;padding:11px 12px;cursor:pointer}
+.attack-detail-item summary::-webkit-details-marker{display:none}
+.attack-detail-item summary::marker{display:none}
+.attack-detail-item summary strong{min-width:0;overflow-wrap:anywhere}
+.attack-detail-item summary small{color:var(--muted);font-size:11px;min-width:0;overflow-wrap:anywhere}
+.attack-detail-item summary>span{float:none;white-space:nowrap}
+.attack-description{padding:10px 12px 12px;border-top:1px solid var(--border);color:var(--muted);line-height:1.5;font-size:13px}
+
+/* Touch targets e contenção de conteúdo */
+button,.btn,.nav button,.mobile-nav button,summary{touch-action:manipulation}
+input,select,textarea{max-width:100%;min-width:0}
+.card,.modal-box,.attack-card,.move-library-card,.battle-combatant,.battle-attacks-panel{min-width:0}
+.table-wrap{-webkit-overflow-scrolling:touch}
+
+@media(max-width:700px){
+  .content{padding-left:10px;padding-right:10px}
+  .card{padding:13px}
+  .top-actions{grid-template-columns:1fr}
+  .top-actions .btn{min-height:42px;font-size:13px}
+  .section-title{gap:8px;flex-wrap:wrap}
+  .section-title>.btn{width:100%}
+  .toolbar{gap:7px}
+  .input,.select,.textarea{font-size:16px;padding:11px 12px}
+  .pokemon{grid-template-columns:64px minmax(0,1fr);gap:9px}
+  .pokemon img{width:64px;height:64px}
+  .pokemon h3{font-size:14px;overflow-wrap:anywhere}
+  .pokemon small{font-size:11px}
+  .tag{font-size:10px}
+  .attack-detail-item summary{grid-template-columns:minmax(0,1fr) auto;gap:6px;padding:10px}
+  .attack-detail-item summary .type-tag{grid-column:2;grid-row:1}
+  .attack-detail-item summary>span:last-of-type{grid-column:2;grid-row:2;font-size:11px}
+  .attack-detail-item summary small{grid-column:1;grid-row:2;font-size:10px}
+  .attack-description{font-size:12px;padding:9px 10px 11px}
+  .attack-card{padding:11px!important}
+  .attack-fields{grid-template-columns:1fr!important}
+  .attack-name-field{grid-column:auto!important}
+  .attack-selected-info{font-size:12px;gap:7px}
+  .attack-selected-info strong{width:100%;flex-basis:100%}
+  .mobile-nav{padding:6px 4px calc(6px + env(safe-area-inset-bottom));gap:2px;overflow-x:auto;justify-content:flex-start}
+  .mobile-nav button{flex:1 0 auto;min-width:72px;min-height:44px;padding:6px 5px;font-size:10px}
+  .modal-box{max-height:calc(100dvh - 8px)}
+  .form-grid{grid-template-columns:1fr!important}
+  .inline-fields,.two,.three,.encounter-grid{grid-template-columns:1fr!important}
+  .pokemon-admin-grid{grid-template-columns:1fr!important}
+  .type-picker{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .initiative-row{grid-template-columns:28px minmax(0,1fr) 62px 54px;gap:5px}
+  .battle-target-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .battle-summary{grid-template-columns:1fr 1fr}
+  .battle-summary>div:last-child{grid-column:1/-1}
+}
+
+@media(max-width:420px){
+  .content{padding-left:8px;padding-right:8px}
+  .stats{gap:7px}
+  .stat{padding:11px}
+  .stat strong{font-size:21px}
+  .pokemon-grid{gap:8px}
+  .pokemon{padding:9px}
+  .team{gap:6px}
+  .slot{min-height:100px}
+  .battle-target-grid{grid-template-columns:1fr 1fr}
+  .modal-box{padding:12px}
+}
+
+@media(max-width:340px){
+  .mobile-nav button{min-width:62px;font-size:9px}
+  .team{grid-template-columns:1fr}
+  .battle-target-grid{grid-template-columns:1fr}
+}
