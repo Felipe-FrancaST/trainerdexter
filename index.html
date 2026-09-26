@@ -14,9 +14,8 @@
     <div class="login-tabs"><button class="btn active" data-login-role="master">Mestre</button><button class="btn" data-login-role="player">Jogador</button></div>
     <div id="masterLogin" class="login-panel">
       <div class="field"><label>Usuário</label><input class="input" id="masterUser" autocomplete="username" placeholder="mestre"></div>
-      <div class="field"><label>Senha</label><input class="input" id="masterPass" type="password" autocomplete="current-password" placeholder="1234"></div>
+      <div class="field"><label>Senha</label><input class="input" id="masterPass" type="password" autocomplete="current-password" placeholder="Senha do Mestre"></div>
       <button class="btn primary full" id="masterLoginBtn">Entrar como Mestre</button>
-      <small class="muted">Primeiro acesso padrão: mestre / 1234</small>
     </div>
     <div id="playerLogin" class="login-panel hidden">
       <div class="field"><label>Jogador</label><select class="select" id="playerSelect"></select></div>
@@ -44,6 +43,22 @@
   </div>
   <div class="grid two"><section class="card"><div class="section-title"><div><h2>Jogadores</h2><p>Resumo da campanha.</p></div></div><div id="dashboardTrainers" class="list"></div></section>
   <section class="card"><div class="section-title"><div><h2>Atalhos</h2><p>Ferramentas disponíveis para este acesso.</p></div></div><div id="dashboardShortcuts" class="list"></div></section></div>
+</section>
+
+<section class="page" id="page-settings">
+  <div class="topbar"><div><h1>Configurações do Mestre</h1><p>Gerencie as credenciais de acesso do Mestre.</p></div></div>
+  <div class="grid two">
+    <section class="card">
+      <div class="section-title"><div><h2>🔐 Alterar senha</h2><p>Usuário atual: <strong id="masterSettingsUser">mestre</strong></p></div></div>
+      <form id="masterPasswordForm" class="form-grid" autocomplete="off">
+        <div class="field"><label>Senha atual</label><input class="input" id="masterCurrentPassword" type="password" autocomplete="current-password" required></div>
+        <div class="field"><label>Nova senha</label><input class="input" id="masterNewPassword" type="password" autocomplete="new-password" minlength="4" required></div>
+        <div class="field"><label>Confirmar nova senha</label><input class="input" id="masterConfirmPassword" type="password" autocomplete="new-password" minlength="4" required></div>
+        <div id="masterPasswordError" class="login-error"></div>
+        <button class="btn primary" type="submit">Salvar nova senha</button>
+      </form>
+    </section>
+  </div>
 </section>
 
 <section class="page" id="page-team">

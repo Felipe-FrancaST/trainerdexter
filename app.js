@@ -1,8 +1,9 @@
 const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
 const KEY="trainerdex_mestre_v2";
-const DEFAULT={campaign:{name:"Minha Campanha Pokémon"},master:{user:"mestre",pass:"1234"},trainers:[],dex:{},encounter:{round:1,active:0,notes:"",combatants:[]},notes:[]};
+const DEFAULT={campaign:{name:"Minha Campanha Pokémon"},master:{user:"mestre",pass:"king"},trainers:[],dex:{},encounter:{round:1,active:0,notes:"",combatants:[]},notes:[]};
 const state=JSON.parse(localStorage.getItem(KEY)||"null")||DEFAULT;
 const SOURCE_DATA_VERSION=2;
+state.masterPasswordVersion??=0;
 state.moveDescriptions??={};
 state.moveOverrides??={};
 let pokemons=[], moves=[], session=null;
@@ -97,14 +98,14 @@ function applyKnownEvolutionStructure(){
  Object.entries(special).forEach(([c,parent])=>{const x=pokemonById(c);if(x)x.evolvesFromId=Number(parent)});
  pokemons.forEach(p=>{p.evolutionType=p.evolvesFromId?'evolution':'basic';let stage=1,cur=p;const seen=new Set();while(cur?.evolvesFromId&& !seen.has(Number(cur.id))){seen.add(Number(cur.id));cur=pokemonById(cur.evolvesFromId);stage++;}p.evolutionStage=stage;});
 }
-function migrate(){state.master??=DEFAULT.master;state.trainers??=[];state.dex??={};state.notes??=[];state.encounter??=DEFAULT.encounter;state.pokemonCatalog??=null;
+function migrate(){state.master??={...DEFAULT.master};state.master.user??="mestre";state.master.pass??="king";if(Number(state.masterPasswordVersion||0)<1 && state.master.pass==="1234"){state.master.pass="king";state.masterPasswordVersion=1;}else if(Number(state.masterPasswordVersion||0)<1){state.masterPasswordVersion=1;}state.trainers??=[];state.dex??={};state.notes??=[];state.encounter??=DEFAULT.encounter;state.pokemonCatalog??=null;
 state.trainers.forEach(t=>{t.username??=norm(t.name).replace(/\s+/g,"")||("jogador"+String(t.id).slice(0,4));t.password??="1234";t.captured??=[];t.visible??=[];t.team??=[];t.pokemonNotes??={};t.pendingEvolutionEvents??=[];t.team=t.team.map(x=>typeof x==="object"?x:{pokemonId:Number(x),level:1,status:"captured"}).filter(a=>a.status==="captured");t.team.forEach(a=>{a.pokemonId=Number(a.pokemonId);a.level=Number(a.level)||1;a.status="captured";const pp=pokemonById(a.pokemonId);a.currentHp=Number.isFinite(Number(a.currentHp))?Math.max(0,Number(a.currentHp)):Number(pp?.hp)||0;if(!t.visible.includes(a.pokemonId))t.visible.push(a.pokemonId);if(!t.captured.includes(a.pokemonId))t.captured.push(a.pokemonId)});t.captured=[...new Set(t.captured.map(Number))];t.visible=[...new Set(t.visible.map(Number))];t.team.forEach(a=>{a.abilityIndexes=Array.isArray(a.abilityIndexes)?a.abilityIndexes.map(Number).filter(x=>x===0||x===1).slice(0,2):[]});});save()}
 migrate();
 
 function nav(page){$$(".page").forEach(x=>x.classList.toggle("active",x.id==="page-"+page));$$("[data-page]").forEach(x=>x.classList.toggle("active",x.dataset.page===page));history.replaceState(null,"","#"+page);if(page==="team"&&!isMaster())setTimeout(()=>playNextEvolution(),180)}
 function setupNav(){
  const master=session?.role==="master";
- const items=master?[["dashboard","🏠 Visão geral"],["pokedex","📖 Pokédex"],["moves","⚔️ Ataques"],["encounter","⚔️ Batalha"],["trainers","👥 Jogadores"],["notes","📝 Notas"]]: [["dashboard","🏠 Início"],["pokedex","📖 Minha Pokédex"],["team","🎒 Meu Time"]];
+ const items=master?[["dashboard","🏠 Visão geral"],["pokedex","📖 Pokédex"],["moves","⚔️ Ataques"],["encounter","⚔️ Batalha"],["trainers","👥 Jogadores"],["notes","📝 Notas"],["settings","⚙️ Configurações"]]: [["dashboard","🏠 Início"],["pokedex","📖 Minha Pokédex"],["team","🎒 Meu Time"]];
  $("#desktopNav").innerHTML=items.map(x=>`<button data-page="${x[0]}">${x[1]}</button>`).join("");
  $("#mobileNav").innerHTML=items.map(x=>`<button data-page="${x[0]}">${x[1].split(" ")[0]}<br>${x[1].split(" ").slice(1).join(" ")}</button>`).join("");
  $$("[data-page]").forEach(b=>b.onclick=()=>nav(b.dataset.page));
@@ -342,7 +343,36 @@ function openNote(n=null){$("#modalContent").innerHTML=`<div class="modal-head">
 $("#addNote").onclick=()=>openNote();
 function openForm(title,labels,cb){$("#modalContent").innerHTML=`<div class="modal-head"><h2>${title}</h2><button class="btn" data-close>Fechar</button></div><div class="form-grid">${labels.map((l,i)=>`<div class="field"><label>${l}</label><input class="input" id="form${i}" ${i>0?'type="number"':''}></div>`).join("")}<button class="btn primary" id="formSave">Salvar</button></div>`;$("#modal").classList.add("open");$("[data-close]").onclick=closeModal;$("#formSave").onclick=()=>{cb(labels.map((_,i)=>$("#form"+i).value));if($("#modal").classList.contains("open"))closeModal()}}
 function closeModal(){$("#modal").classList.remove("open")}$("#modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
-function renderAll(){renderDashboard();renderDex();renderMoves();renderTrainers();renderTeam();renderEncounter();renderNotes()}
+function renderMasterSettings(){
+ if(!isMaster())return;
+ const u=state.master?.user||"mestre";
+ $("#masterSettingsUser").textContent=u;
+ $("#masterCurrentPassword").value="";
+ $("#masterNewPassword").value="";
+ $("#masterConfirmPassword").value="";
+ $("#masterPasswordError").textContent="";
+}
+function bindMasterSettings(){
+ const form=$("#masterPasswordForm"); if(!form)return;
+ form.onsubmit=e=>{
+   e.preventDefault();
+   if(!isMaster())return;
+   const current=$("#masterCurrentPassword").value;
+   const next=$("#masterNewPassword").value;
+   const confirm=$("#masterConfirmPassword").value;
+   const err=$("#masterPasswordError");
+   err.textContent="";
+   if(current!==state.master.pass){err.textContent="A senha atual está incorreta.";return;}
+   if(next.length<4){err.textContent="A nova senha deve ter pelo menos 4 caracteres.";return;}
+   if(next!==confirm){err.textContent="A confirmação da nova senha não confere.";return;}
+   state.master.pass=next;
+   state.masterPasswordVersion=1;
+   save();
+   form.reset();
+   toast("Senha do Mestre alterada com sucesso.");
+ };
+}
+function renderAll(){renderDashboard();renderDex();renderMoves();renderTrainers();renderTeam();renderEncounter();renderNotes();renderMasterSettings();bindMasterSettings()}
 
 /* =========================
    BATALHA v14
@@ -404,7 +434,7 @@ $("#moveSearch").oninput=renderMoves;$("#moveTypeFilter").onchange=renderMoves;
 
 function setupNav(){
  const master=session?.role==="master";const playerBattle=battleIsPlayerIn();
- const items=master?[["dashboard","🏠 Visão geral"],["pokedex","📖 Pokédex"],["moves","⚔️ Ataques"],["encounter","⚔️ Batalha"],["trainers","👥 Jogadores"],["notes","📝 Notas"]]:[["dashboard","🏠 Início"],["pokedex","📖 Minha Pokédex"],["team","🎒 Meu Time"]].concat(playerBattle?[["encounter","⚔️ Batalha"]]:[]);
+ const items=master?[["dashboard","🏠 Visão geral"],["pokedex","📖 Pokédex"],["moves","⚔️ Ataques"],["encounter","⚔️ Batalha"],["trainers","👥 Jogadores"],["notes","📝 Notas"],["settings","⚙️ Configurações"]]:[["dashboard","🏠 Início"],["pokedex","📖 Minha Pokédex"],["team","🎒 Meu Time"]].concat(playerBattle?[["encounter","⚔️ Batalha"]]:[]);
  $("#desktopNav").innerHTML=items.map(x=>`<button data-page="${x[0]}">${x[1]}</button>`).join("");$("#mobileNav").innerHTML=items.map(x=>`<button data-page="${x[0]}">${x[1].split(" ")[0]}<br>${x[1].split(" ").slice(1).join(" ")}</button>`).join("")+`<button class="mobile-logout" data-mobile-logout>🚪<br>Sair</button>`;$$('[data-page]').forEach(b=>b.onclick=()=>nav(b.dataset.page));$('[data-mobile-logout]').onclick=()=>$("#logout").click();
 }
 function nav(page){$$('.page').forEach(x=>x.classList.toggle('active',x.id==='page-'+page));$$('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===page));history.replaceState(null,'','#'+page);if(page==='team'&&!isMaster())setTimeout(()=>playNextEvolution(),180);if(page==='encounter')setTimeout(()=>renderBattleAll(),0)}
