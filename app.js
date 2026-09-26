@@ -218,7 +218,26 @@ $("#logout").onclick=()=>{session=null;$("#app").classList.add("hidden");$("#log
 function isMaster(){return session?.role==="master"} function me(){return state.trainers.find(t=>t.id===session?.trainerId)}
 function getAssignment(t,pid){
  const id=Number(pid);
- return t?.team?.find(a=>Number(a.pokemonId)===id)||t?.pc?.find(a=>Number(a.pokemonId)===id)||null;
+ if(!t||!Number.isFinite(id))return null;
+ // O Pokémon pode estar em apenas um dos dois locais. Procuramos sempre no
+ // estado atual, inclusive imediatamente depois de uma troca.
+ const teamHit=Array.isArray(t.team)?t.team.find(a=>Number(a.pokemonId)===id):null;
+ if(teamHit)return teamHit;
+ const pcHit=Array.isArray(t.pc)?t.pc.find(a=>Number(a.pokemonId)===id):null;
+ return pcHit||null;
+}
+function openAssignedPokemon(id){
+ const t=me();
+ const p=pokemonById(Number(id));
+ if(!t||!p)return;
+ // Reconstrói a lista capturada a partir da localização atual antes de abrir a ficha.
+ normalizeTrainerStorage(t);
+ const assignment=getAssignment(t,p.id);
+ if(!assignment){
+   console.warn("TrainerDex: Pokémon sem assignment ao tentar abrir a ficha",p.id);
+   return toast("Não foi possível localizar este Pokémon. Atualize a página e tente novamente.");
+ }
+ openPokemonPlayer(p);
 }
 function normalizeTrainerStorage(t){
  t.pc??=[];
@@ -475,8 +494,8 @@ function renderTeam(){
  const grid=$("#teamGrid");if(!grid)return;
  grid.innerHTML=team.map(a=>{const p=pokemonById(a.pokemonId);if(!p)return "";const hp=hpData(a,p);return `<article class="pokemon team-card" data-team-pokemon="${p.id}" role="button" tabindex="0"><img src="${p.imagem}" alt="${esc(p.nome)}"><div><h3>${esc(p.nome)}</h3><span class="team-level">Nível ${a.level}</span><div class="health-wrap"><div class="health-label"><span>HP</span><strong>${hp.current}/${hp.max}</strong></div><div class="health-bar"><span style="width:${hp.pct}%"></span></div></div></div></article>`}).join("")||`<div class="empty">Você ainda não possui Pokémon no seu time.</div>`;
  $("#teamIntro").textContent=`${team.length}/6 Pokémon no time. ${t.pc?.length||0} no PC.`;
- grid.onclick=e=>{const card=e.target.closest("[data-team-pokemon]");if(card)openPokemonPlayer(pokemonById(Number(card.dataset.teamPokemon)));};
- grid.onkeydown=e=>{const card=e.target.closest("[data-team-pokemon]");if(card&&(e.key==="Enter"||e.key===" ")){e.preventDefault();openPokemonPlayer(pokemonById(Number(card.dataset.teamPokemon)));}};
+ grid.onclick=e=>{const card=e.target.closest("[data-team-pokemon]");if(card){e.preventDefault();e.stopPropagation();openAssignedPokemon(Number(card.dataset.teamPokemon));}};
+ grid.onkeydown=e=>{const card=e.target.closest("[data-team-pokemon]");if(card&&(e.key==="Enter"||e.key===" ")){e.preventDefault();e.stopPropagation();openAssignedPokemon(Number(card.dataset.teamPokemon));}};
 }
 function renderPC(){
  if(isMaster())return;
@@ -484,8 +503,8 @@ function renderPC(){
  const grid=$("#pcGrid");if(!grid)return;
  grid.innerHTML=pc.map(a=>{const p=pokemonById(a.pokemonId);if(!p)return "";const hp=hpData(a,p);return `<article class="pokemon team-card pc-card" data-pc-pokemon="${p.id}" role="button" tabindex="0"><img src="${p.imagem}" alt="${esc(p.nome)}"><div><h3>${esc(p.nome)}</h3><span class="team-level">Nível ${a.level}</span><div class="health-wrap"><div class="health-label"><span>HP</span><strong>${hp.current}/${hp.max}</strong></div><div class="health-bar"><span style="width:${hp.pct}%"></span></div></div></div></article>`}).join("")||`<div class="empty">Seu PC está vazio. Pokémon capturados além dos 6 do time aparecerão aqui.</div>`;
  $("#pcIntro").textContent=`${pc.length} Pokémon armazenado${pc.length===1?"":"s"} no PC. O time pode ter no máximo 6.`;
- grid.onclick=e=>{const card=e.target.closest("[data-pc-pokemon]");if(card)openPokemonPlayer(pokemonById(Number(card.dataset.pcPokemon)));};
- grid.onkeydown=e=>{const card=e.target.closest("[data-pc-pokemon]");if(card&&(e.key==="Enter"||e.key===" ")){e.preventDefault();openPokemonPlayer(pokemonById(Number(card.dataset.pcPokemon)));}};
+ grid.onclick=e=>{const card=e.target.closest("[data-pc-pokemon]");if(card){e.preventDefault();e.stopPropagation();openAssignedPokemon(Number(card.dataset.pcPokemon));}};
+ grid.onkeydown=e=>{const card=e.target.closest("[data-pc-pokemon]");if(card&&(e.key==="Enter"||e.key===" ")){e.preventDefault();e.stopPropagation();openAssignedPokemon(Number(card.dataset.pcPokemon));}};
 }
 function ensureEvolutionOverlay(){
  let overlay=$("#evolutionOverlay");
@@ -515,6 +534,15 @@ function openNote(n=null){$("#modalContent").innerHTML=`<div class="modal-head">
 $("#addNote").onclick=()=>openNote();
 function openForm(title,labels,cb){$("#modalContent").innerHTML=`<div class="modal-head"><h2>${title}</h2><button class="btn" data-close>Fechar</button></div><div class="form-grid">${labels.map((l,i)=>`<div class="field"><label>${l}</label><input class="input" id="form${i}" ${i>0?'type="number"':''}></div>`).join("")}<button class="btn primary" id="formSave">Salvar</button></div>`;$("#modal").classList.add("open");$("[data-close]").onclick=closeModal;$("#formSave").onclick=()=>{cb(labels.map((_,i)=>$("#form"+i).value));if($("#modal").classList.contains("open"))closeModal()}}
 function closeModal(){$("#modal").classList.remove("open")}$("#modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
+// Fallback robusto para cards recriados após troca Time ↔ PC.
+// Assim a ficha continua abrindo mesmo que uma renderização substitua os listeners da grade.
+document.addEventListener("click",e=>{
+ const card=e.target.closest?.("[data-team-pokemon],[data-pc-pokemon]");
+ if(!card)return;
+ if(e.target.closest("button,a,input,textarea,select"))return;
+ const id=card.dataset.teamPokemon??card.dataset.pcPokemon;
+ if(id!=null){e.preventDefault();e.stopPropagation();openAssignedPokemon(Number(id));}
+},true);
 function renderMasterSettings(){
  if(!isMaster())return;
  const u=state.master?.user||"mestre";
