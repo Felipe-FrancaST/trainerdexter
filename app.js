@@ -1,13 +1,60 @@
 const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
 const KEY="trainerdex_mestre_v2";
 const DEFAULT={campaign:{name:"Minha Campanha Pokémon"},master:{user:"mestre",pass:"king"},trainers:[],dex:{},encounter:{round:1,active:0,notes:"",combatants:[]},notes:[]};
-const state=JSON.parse(localStorage.getItem(KEY)||"null")||DEFAULT;
+const LOCAL_STATE=JSON.parse(localStorage.getItem(KEY)||"null");
+const state=LOCAL_STATE||structuredClone(DEFAULT);
 const SOURCE_DATA_VERSION=2;
+
+// Persistência: o localStorage continua como cache/offline e o Supabase passa a ser a fonte
+// persistente. O app mantém o mesmo formato de estado para não quebrar as telas existentes.
+const DB_TABLE="trainerdex_state";
+let dbReady=false;
+let dbSaveChain=Promise.resolve();
+let dbSaveTimer=null;
+function dbConfigured(){
+  return !!(window.trainerdexSupabase && window.TRAINERDEX_SUPABASE_CONFIG?.enabled);
+}
+async function loadStateFromSupabase(){
+  if(!dbConfigured()) return false;
+  const client=window.trainerdexSupabase;
+  const {data,error}=await client.from(DB_TABLE).select("state,updated_at").eq("id","main").maybeSingle();
+  if(error){console.warn("Supabase: não foi possível carregar o estado.",error);return false;}
+  if(data?.state && typeof data.state==="object"){
+    Object.keys(state).forEach(k=>delete state[k]);
+    Object.assign(state,data.state);
+    localStorage.setItem(KEY,JSON.stringify(state));
+    return true;
+  }
+  // Primeira execução: migra automaticamente o estado que já estava no navegador.
+  if(LOCAL_STATE){
+    const {error:insertError}=await client.from(DB_TABLE).upsert({id:"main",state:LOCAL_STATE,updated_at:new Date().toISOString()});
+    if(insertError) console.warn("Supabase: migração inicial falhou.",insertError);
+    else dbReady=true;
+  }
+  return false;
+}
+function queueDbSave(){
+  if(!dbConfigured() || !dbReady) return;
+  clearTimeout(dbSaveTimer);
+  dbSaveTimer=setTimeout(()=>{
+    const snapshot=structuredClone(state);
+    dbSaveChain=dbSaveChain.then(async()=>{
+      const {error}=await window.trainerdexSupabase.from(DB_TABLE).upsert({
+        id:"main",state:snapshot,updated_at:new Date().toISOString()
+      });
+      if(error) console.warn("Supabase: falha ao salvar estado.",error);
+    });
+  },180);
+}
+const save=()=>{
+  localStorage.setItem(KEY,JSON.stringify(state));
+  queueDbSave();
+};
+
 state.masterPasswordVersion??=0;
 state.moveDescriptions??={};
 state.moveOverrides??={};
 let pokemons=[], moves=[], session=null;
-const save=()=>localStorage.setItem(KEY,JSON.stringify(state));
 const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove("show"),2400)};
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
 const norm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
@@ -554,10 +601,24 @@ $("#clearEncounter").onclick=openEndBattleConfirm;
 // Atualização em tempo real entre abas do mesmo navegador/dispositivo.
 window.addEventListener('storage',e=>{if(e.key!==KEY||!e.newValue)return;try{const incoming=JSON.parse(e.newValue);Object.keys(incoming).forEach(k=>state[k]=incoming[k]);setupNav();renderAll();}catch(err){console.warn('Falha ao sincronizar estado',err)}});
 
-async function init(){const [r,mr]=await Promise.all([fetch("data/pokemon.json"),fetch("data/moves.json")]);const base=await r.json();moves=await mr.json();pokemons=(Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length>=1&&state.pokemonCatalog.some(p=>p&&p.id&&p.nome))?state.pokemonCatalog:base;
+async function init(){
+ try{
+  const loadedFromDb=await loadStateFromSupabase();
+  if(dbConfigured()) dbReady=true;
+  const [r,mr]=await Promise.all([fetch("data/pokemon.json"),fetch("data/moves.json")]);const base=await r.json();moves=await mr.json();pokemons=(Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length>=1&&state.pokemonCatalog.some(p=>p&&p.id&&p.nome))?state.pokemonCatalog:base;
  const baseById=Object.fromEntries(base.map(p=>[Number(p.id),p]));
  pokemons.forEach(p=>{const source=baseById[Number(p.id)];if(source&&Number(p._dadosFichaVersion||0)<SOURCE_DATA_VERSION){p.ca=source.ca;p.sr=source.sr;p.hp=source.hp;p.dadoVida=source.dadoVida;p.status=source.status;p.pericias=source.pericias;p.ataques=source.ataques;p._dadosFichaVersion=SOURCE_DATA_VERSION;}normalizeAbilities(p);p.hp=Math.max(1,Number(p.hp)||50);p.dadoVida=normalizeLifeDice(p.dadoVida);p.sr??="";p.ca=Math.max(0,Number(p.ca)||0);delete p.nivel;p.status=normalizePokemonStats(p.status||{});p.pericias=normalizeSkills(p.pericias||{});p.bonusProficiencia=Math.max(0,Math.min(20,Number(p.bonusProficiencia ?? proficiencyBonus(1))||0));p.vulnerabilidades??=[];p.resistencia??=[];p.ataques??=[];if((!p.vulnerabilidades||p.vulnerabilidades.length===0)&&(!p.resistencia||p.resistencia.length===0)){const rel=calcTypeRelations(p.tipo);p.vulnerabilidades=rel.vulnerabilidades;p.resistencia=rel.resistencia}});state.trainers.forEach(t=>{t.team??=[];t.team.forEach(a=>{const p=pokemonById(a.pokemonId);if(!p)return;a.level=Math.max(1,Number(a.level)||1);const max=hpMaxForLevel(p,a.level);const legacyBase=Math.max(1,Number(p.hp)||1);if(!Number.isFinite(Number(a.currentHp))|| (a.level>1&&Number(a.currentHp)===legacyBase))a.currentHp=max;else a.currentHp=Math.max(0,Math.min(max,Number(a.currentHp)));a.abilityIndexes=Array.isArray(a.abilityIndexes)?a.abilityIndexes.map(Number).filter(x=>x===0||x===1).slice(0,2):[]})});applyKnownEvolutionStructure();
  if(Number(state.moveLibraryVersion||0)<1){state.moveLibraryVersion=1;}
  pokemons.forEach(p=>(p.ataques||[]).forEach(a=>ensureMoveForAttack(a)));
- state.pokemonCatalog=pokemons;save();loginUI()}
+ state.pokemonCatalog=pokemons;
+ save();
+ if(dbConfigured() && !dbReady){
+   const snapshot=structuredClone(state);
+   const {error}=await window.trainerdexSupabase.from(DB_TABLE).upsert({id:"main",state:snapshot,updated_at:new Date().toISOString()});
+   if(error) console.warn("Supabase: não foi possível criar o estado inicial.",error);
+   else dbReady=true;
+ }
+ loginUI();
+ }catch(e){console.error(e);toast("Não foi possível carregar a Pokédex.")}
+}
 init().catch(e=>{console.error(e);toast("Não foi possível carregar a Pokédex.")});
