@@ -9,7 +9,7 @@ window.TRAINERDEX_SUPABASE_CONFIG = window.TRAINERDEX_SUPABASE_CONFIG || {
 (function initTrainerDexSupabase(){
   const cfg = window.TRAINERDEX_SUPABASE_CONFIG;
   const hasValues = cfg && cfg.enabled && cfg.url && cfg.publishableKey &&
-    !cfg.url.includes("SEU-PROJETO") && !cfg.publishableKey.includes("SUA_PUBLISHABLE_KEY");
+    !cfg.url.includes("https://kytbkjigsapdhxpdchqz.supabase.co/rest/v1/") && !cfg.publishableKey.includes("sb_publishable_uLrls7BdXf67Q3DGH78fXA_Kmlg9SVd");
   if (!hasValues) {
     console.warn("TrainerDex: supabase-config.js foi carregado, mas a configuração está desativada ou incompleta.");
     return;
