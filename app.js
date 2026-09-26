@@ -22,6 +22,7 @@ async function loadStateFromSupabase(){
   const client=window.trainerdexSupabase;
   const {data,error}=await client.from(DB_TABLE).select("state,updated_at").eq("id","main").maybeSingle();
   if(error){console.error("Supabase: erro ao carregar trainerdex_state:",error);return false;}
+  dbReady=true;
   if(data?.state && typeof data.state==="object"){
     Object.keys(state).forEach(k=>delete state[k]);
     Object.assign(state,data.state);
@@ -32,7 +33,7 @@ async function loadStateFromSupabase(){
   if(LOCAL_STATE){
     const {error:insertError}=await client.from(DB_TABLE).upsert({id:"main",state:LOCAL_STATE,updated_at:new Date().toISOString()});
     if(insertError) console.error("Supabase: migração inicial falhou:",insertError);
-    else { dbReady=true; console.info("Supabase: migração inicial concluída."); }
+    else { console.info("Supabase: migração inicial concluída."); }
   }
   return false;
 }
