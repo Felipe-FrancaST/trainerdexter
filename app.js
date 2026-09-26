@@ -532,31 +532,40 @@ function openNote(n=null){$("#modalContent").innerHTML=`<div class="modal-head">
 $("#addNote").onclick=()=>openNote();
 function openForm(title,labels,cb){$("#modalContent").innerHTML=`<div class="modal-head"><h2>${title}</h2><button class="btn" data-close>Fechar</button></div><div class="form-grid">${labels.map((l,i)=>`<div class="field"><label>${l}</label><input class="input" id="form${i}" ${i>0?'type="number"':''}></div>`).join("")}<button class="btn primary" id="formSave">Salvar</button></div>`;$("#modal").classList.add("open");$("[data-close]").onclick=closeModal;$("#formSave").onclick=()=>{cb(labels.map((_,i)=>$("#form"+i).value));if($("#modal").classList.contains("open"))closeModal()}}
 function closeModal(){$("#modal").classList.remove("open")}$("#modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
-// Controlador único para abrir Pokémon do Time/PC.
-// As grades são recriadas após uma troca; por isso não colocamos listeners
-// diretamente nos cards. A delegação no documento continua válida mesmo
-// quando o DOM é reconstruído.
-let __pokemonCardOpening=false;
-function handlePokemonCardOpen(e){
- const card=e.target?.closest?.("[data-team-pokemon],[data-pc-pokemon]");
- if(!card || !document.body.contains(card))return;
- if(e.target.closest("button,a,input,textarea,select"))return;
- const rawId=card.dataset.teamPokemon ?? card.dataset.pcPokemon;
- const id=Number(rawId);
- if(!Number.isFinite(id))return;
- e.preventDefault();
- e.stopPropagation();
- if(__pokemonCardOpening)return;
- __pokemonCardOpening=true;
- try{ openAssignedPokemon(id); } finally { setTimeout(()=>{__pokemonCardOpening=false},0); }
+// Controlador delegado para abrir Pokémon do Time e do PC.
+// Os grids permanecem no DOM; apenas seus cards internos são reconstruídos.
+function bindPokemonStorageCards(){
+  const bindGrid=(grid)=>{
+    if(!grid || grid.dataset.pokemonClickBound==='1') return;
+    grid.dataset.pokemonClickBound='1';
+    grid.addEventListener('click',(e)=>{
+      const card=e.target?.closest?.('[data-team-pokemon],[data-pc-pokemon]');
+      if(!card || !grid.contains(card)) return;
+      if(e.target.closest('button,a,input,textarea,select')) return;
+      const rawId=card.dataset.teamPokemon ?? card.dataset.pcPokemon;
+      const id=Number(rawId);
+      if(!Number.isFinite(id)) return;
+      e.preventDefault();
+      e.stopPropagation();
+      openAssignedPokemon(id);
+    });
+    grid.addEventListener('keydown',(e)=>{
+      if(e.key!=='Enter' && e.key!==' ') return;
+      const card=e.target?.closest?.('[data-team-pokemon],[data-pc-pokemon]');
+      if(!card || !grid.contains(card)) return;
+      const rawId=card.dataset.teamPokemon ?? card.dataset.pcPokemon;
+      const id=Number(rawId);
+      if(!Number.isFinite(id)) return;
+      e.preventDefault();
+      e.stopPropagation();
+      openAssignedPokemon(id);
+    });
+  };
+  bindGrid(document.querySelector('#teamGrid'));
+  bindGrid(document.querySelector('#pcGrid'));
 }
-document.addEventListener("click",handlePokemonCardOpen,true);
-document.addEventListener("keydown",e=>{
- if(e.key!=="Enter" && e.key!==" ")return;
- const card=e.target?.closest?.("[data-team-pokemon],[data-pc-pokemon]");
- if(!card)return;
- handlePokemonCardOpen(e);
-},true);
+bindPokemonStorageCards();
+
 function renderMasterSettings(){
  if(!isMaster())return;
  const u=state.master?.user||"mestre";
