@@ -196,13 +196,13 @@ function applyKnownEvolutionStructure(){
  pokemons.forEach(p=>{p.evolutionType=p.evolvesFromId?'evolution':'basic';let stage=1,cur=p;const seen=new Set();while(cur?.evolvesFromId&& !seen.has(Number(cur.id))){seen.add(Number(cur.id));cur=pokemonById(cur.evolvesFromId);stage++;}p.evolutionStage=stage;});
 }
 function migrate(){state.master??={...DEFAULT.master};state.master.user??="mestre";state.master.pass??="king";if(Number(state.masterPasswordVersion||0)<1 && state.master.pass==="1234"){state.master.pass="king";state.masterPasswordVersion=1;}else if(Number(state.masterPasswordVersion||0)<1){state.masterPasswordVersion=1;}state.trainers??=[];state.dex??={};state.notes??=[];state.encounter??=DEFAULT.encounter;state.pokemonCatalog??=null;
-state.trainers.forEach(t=>{t.username??=norm(t.name).replace(/\s+/g,"")||("jogador"+String(t.id).slice(0,4));t.password??="1234";t.captured??=[];t.visible??=[];t.team??=[];t.pokemonNotes??={};t.pendingEvolutionEvents??=[];t.team=t.team.map(x=>typeof x==="object"?x:{pokemonId:Number(x),level:1,status:"captured"}).filter(a=>a.status==="captured");t.team.forEach(a=>{a.pokemonId=Number(a.pokemonId);a.level=Number(a.level)||1;a.status="captured";const pp=pokemonById(a.pokemonId);a.currentHp=Number.isFinite(Number(a.currentHp))?Math.max(0,Number(a.currentHp)):Number(pp?.hp)||0;if(!t.visible.includes(a.pokemonId))t.visible.push(a.pokemonId);if(!t.captured.includes(a.pokemonId))t.captured.push(a.pokemonId)});t.captured=[...new Set(t.captured.map(Number))];t.visible=[...new Set(t.visible.map(Number))];t.team.forEach(a=>{a.abilityIndexes=Array.isArray(a.abilityIndexes)?a.abilityIndexes.map(Number).filter(x=>x===0||x===1).slice(0,2):[]});});save()}
+state.trainers.forEach(t=>{t.username??=norm(t.name).replace(/\s+/g,"")||("jogador"+String(t.id).slice(0,4));t.password??="1234";t.captured??=[];t.visible??=[];t.team??=[];t.pc??=[];normalizeTrainerStorage(t);t.pokemonNotes??={};t.pendingEvolutionEvents??=[];[...t.team,...t.pc].forEach(a=>{a.pokemonId=Number(a.pokemonId);a.level=Number(a.level)||1;a.status="captured";const pp=pokemonById(a.pokemonId);a.currentHp=Number.isFinite(Number(a.currentHp))?Math.max(0,Number(a.currentHp)):Number(pp?.hp)||0;if(!t.visible.includes(a.pokemonId))t.visible.push(a.pokemonId)});t.captured=[...new Set([...t.team,...t.pc].map(a=>Number(a.pokemonId)))] ;t.visible=[...new Set(t.visible.map(Number))];[...t.team,...t.pc].forEach(a=>{a.abilityIndexes=Array.isArray(a.abilityIndexes)?a.abilityIndexes.map(Number).filter(x=>x===0||x===1).slice(0,2):[]});});save()}
 migrate();
 
 function nav(page){$$(".page").forEach(x=>x.classList.toggle("active",x.id==="page-"+page));$$("[data-page]").forEach(x=>x.classList.toggle("active",x.dataset.page===page));history.replaceState(null,"","#"+page);if(page==="team"&&!isMaster())setTimeout(()=>playNextEvolution(),180)}
 function setupNav(){
  const master=session?.role==="master";
- const items=master?[["dashboard","🏠 Visão geral"],["pokedex","📖 Pokédex"],["moves","⚔️ Ataques"],["encounter","⚔️ Batalha"],["trainers","👥 Jogadores"],["notes","📝 Notas"],["settings","⚙️ Configurações"]]: [["dashboard","🏠 Início"],["pokedex","📖 Minha Pokédex"],["team","🎒 Meu Time"]];
+ const items=master?[["dashboard","🏠 Visão geral"],["pokedex","📖 Pokédex"],["moves","⚔️ Ataques"],["encounter","⚔️ Batalha"],["trainers","👥 Jogadores"],["notes","📝 Notas"],["settings","⚙️ Configurações"]]: [["dashboard","🏠 Início"],["pokedex","📖 Minha Pokédex"],["team","🎒 Meu Time"],["pc","💻 Meu PC"]];
  $("#desktopNav").innerHTML=items.map(x=>`<button data-page="${x[0]}">${x[1]}</button>`).join("");
  $("#mobileNav").innerHTML=items.map(x=>`<button data-page="${x[0]}">${x[1].split(" ")[0]}<br>${x[1].split(" ").slice(1).join(" ")}</button>`).join("");
  $$("[data-page]").forEach(b=>b.onclick=()=>nav(b.dataset.page));
@@ -216,7 +216,27 @@ $("#masterLoginBtn").onclick=()=>{if($("#masterUser").value===state.master.user&
 $("#playerLoginBtn").onclick=()=>{const t=state.trainers.find(x=>x.id===$("#playerSelect").value);if(t&&$("#playerPass").value===t.password)start("player",t.id);else $("#loginError").textContent="Jogador ou senha inválidos."};
 $("#logout").onclick=()=>{session=null;$("#app").classList.add("hidden");$("#loginScreen").classList.remove("hidden");$("#masterPass").value="";$("#playerPass").value="";loginUI()};
 function isMaster(){return session?.role==="master"} function me(){return state.trainers.find(t=>t.id===session?.trainerId)}
-function getAssignment(t,pid){return t?.team?.find(a=>Number(a.pokemonId)===Number(pid))||null}
+function getAssignment(t,pid){
+ const id=Number(pid);
+ return t?.team?.find(a=>Number(a.pokemonId)===id)||t?.pc?.find(a=>Number(a.pokemonId)===id)||null;
+}
+function normalizeTrainerStorage(t){
+ t.pc??=[];
+ t.team??=[];
+ t.captured??=[];
+ const normalizeList=list=>(Array.isArray(list)?list:[]).map(x=>typeof x==="object"?x:{pokemonId:Number(x),level:1,status:"captured"});
+ t.team=normalizeList(t.team).filter(a=>a.status==="captured");
+ t.pc=normalizeList(t.pc).filter(a=>a.status==="captured");
+ const assigned=new Set([...t.team,...t.pc].map(a=>Number(a.pokemonId)));
+ // Qualquer capturado antigo sem assignment vai para o PC, sem ultrapassar o limite do time.
+ (Array.isArray(t.captured)?t.captured:[]).map(Number).filter(Boolean).forEach(id=>{
+   if(!assigned.has(id)){t.pc.push({pokemonId:id,level:1,status:"captured"});assigned.add(id);}
+ });
+ while(t.team.length>6)t.pc.push(t.team.pop());
+ t.captured=[...new Set([...t.team,...t.pc].map(a=>Number(a.pokemonId)).filter(Boolean))];
+ t.team.forEach(a=>a.status="captured");
+ t.pc.forEach(a=>a.status="captured");
+}
 function getPokemonNote(t,pid){return t?.pokemonNotes?.[String(pid)]||""}
 const LIFE_DICE=[4,6,8,10,12,20];
 function normalizeLifeDice(v){const n=Number(v);return LIFE_DICE.includes(n)?n:10}
@@ -284,8 +304,9 @@ function npcAttacksPreviewHtml(p,level){const attacks=npcAttacksForLevel(p,level
 function openPokemonPlayer(p){
  const t=me(),st=getStatusForPlayer(p,t);if(st==="hidden")return;const level=playerLevel(p,t),a=getAssignment(t,p.id);
  if(st==="seen"){$("#modalContent").innerHTML=`<div class="modal-head"><h2>${esc(p.nome)}</h2><button class="btn" data-close>Fechar</button></div><div class="pokemon-detail"><img src="${p.imagem}"><div><div class="muted">${esc(p.numero)}</div><div class="tags detail-types">${typeTags(p.tipo)}</div><p>${esc(p.descricao||"")}</p><p><strong>Tipo:</strong> ${esc(p.tipo||"—")}</p><span class="status seen">👁 Avistado</span></div></div>`;}
- else {const hp=hpData(a,p),note=getPokemonNote(t,p.id);$("#modalContent").innerHTML=`<div class="modal-head"><h2>${esc(p.nome)}</h2><button class="btn" data-close>Fechar</button></div><div class="pokemon-detail"><img src="${p.imagem}"><div><div class="muted">${esc(p.numero)} • Nível ${level} • HP ${hp.current}/${hp.max}</div><div class="tags detail-types"><span class="tag">SR: ${esc(p.sr||"—")}</span><span class="tag">CA: ${Number(p.ca)||0}</span><span class="tag">Dado de Vida: d${normalizeLifeDice(p.dadoVida)}</span></div><div class="health-wrap detail-health"><div class="health-label"><span>Vida</span><strong>${hp.current}/${hp.max}</strong></div><div class="health-bar"><span style="width:${hp.pct}%"></span></div></div><div class="tags detail-types">${typeTags(p.tipo)}</div><p>${esc(p.descricao||"")}</p><div class="attribute-section"><div class="section-kicker">Atributos</div>${statsHtml(p.status)}</div>${skillsHtml(p,level)}<div class="relation-block"><strong>Vulnerabilidades:</strong><div class="tags relation-tags">${typeTags((p.vulnerabilidades||[]).join(" / "))||`<span class="muted">Nenhuma</span>`}</div></div><div class="relation-block"><strong>Resistências:</strong><div class="tags relation-tags">${typeTags((p.resistencia||[]).join(" / "))||`<span class="muted">Nenhuma</span>`}</div></div>${abilitiesHtml(p,a)}<h3>Ataques atuais no nível ${level}</h3><ul class="attack-list">${attacksHtml(p,level)}</ul><span class="status caught">🎒 Capturado • Nível ${level}</span><div class="pokemon-notes"><h3>Anotações</h3><textarea class="textarea" id="pokemonNote" placeholder="Escreva uma anotação sobre este Pokémon...">${esc(note)}</textarea><small class="muted" id="noteSaved">As anotações são salvas automaticamente.</small></div></div></div>`;}
+ else {const hp=hpData(a,p),note=getPokemonNote(t,p.id);$("#modalContent").innerHTML=`<div class="modal-head"><h2>${esc(p.nome)}</h2><button class="btn" data-close>Fechar</button></div><div class="pokemon-detail"><img src="${p.imagem}"><div><div class="muted">${esc(p.numero)} • Nível ${level} • HP ${hp.current}/${hp.max}</div><div class="tags detail-types"><span class="tag">SR: ${esc(p.sr||"—")}</span><span class="tag">CA: ${Number(p.ca)||0}</span><span class="tag">Dado de Vida: d${normalizeLifeDice(p.dadoVida)}</span></div><div class="health-wrap detail-health"><div class="health-label"><span>Vida</span><strong>${hp.current}/${hp.max}</strong></div><div class="health-bar"><span style="width:${hp.pct}%"></span></div></div><div class="tags detail-types">${typeTags(p.tipo)}</div><p>${esc(p.descricao||"")}</p><div class="attribute-section"><div class="section-kicker">Atributos</div>${statsHtml(p.status)}</div>${skillsHtml(p,level)}<div class="relation-block"><strong>Vulnerabilidades:</strong><div class="tags relation-tags">${typeTags((p.vulnerabilidades||[]).join(" / "))||`<span class="muted">Nenhuma</span>`}</div></div><div class="relation-block"><strong>Resistências:</strong><div class="tags relation-tags">${typeTags((p.resistencia||[]).join(" / "))||`<span class="muted">Nenhuma</span>`}</div></div>${abilitiesHtml(p,a)}<h3>Ataques atuais no nível ${level}</h3><ul class="attack-list">${attacksHtml(p,level)}</ul><span class="status caught">🎒 Capturado • Nível ${level} • ${t.team.some(x=>Number(x.pokemonId)===Number(p.id))?"No time":"No PC"}</span><div class="top-actions" style="margin-top:12px"><button class="btn" id="swapLocationAction">${t.team.some(x=>Number(x.pokemonId)===Number(p.id))?"🔄 Trocar com um Pokémon do PC":"🔄 Trocar com um Pokémon do time"}</button></div><div class="pokemon-notes"><h3>Anotações</h3><textarea class="textarea" id="pokemonNote" placeholder="Escreva uma anotação sobre este Pokémon...">${esc(note)}</textarea><small class="muted" id="noteSaved">As anotações são salvas automaticamente.</small></div></div></div>`;}
  $("#modal").classList.add("open");$("[data-close]").onclick=closeModal;
+ const swapBtn=$("#swapLocationAction");if(swapBtn){swapBtn.onclick=()=>{const inPc=t.pc?.some(x=>Number(x.pokemonId)===Number(p.id));openSwapPokemon(t,p.id,!!inPc);};}
  const noteEl=$("#pokemonNote");if(noteEl){noteEl.oninput=()=>{t.pokemonNotes??={};t.pokemonNotes[String(p.id)]=noteEl.value;save();$("#noteSaved").textContent="Anotação salva.";clearTimeout(window.__noteTimer);window.__noteTimer=setTimeout(()=>{$("#noteSaved").textContent="As anotações são salvas automaticamente."},1200);}}
 }
 function evolutionOptions(selected){return pokemons.filter(x=>Number(x.id)!==Number(selected.id)).sort((a,b)=>Number(a.id)-Number(b.id)).map(x=>`<option value="${x.id}" ${Number(selected.evolvesFromId)===Number(x.id)?"selected":""}>${esc(x.numero)} — ${esc(x.nome)}</option>`).join("")}
@@ -359,7 +380,7 @@ function renderTrainers(){
  $$('[data-pokemon-action]').forEach(b=>b.onclick=()=>openPokemonPlayerAdmin(b.dataset.pokemonAction));
 }
 function openPokemonPlayerAdmin(key){
- const [tid,pid]=key.split(":");const t=state.trainers.find(x=>x.id===tid),a=t?.team?.find(x=>Number(x.pokemonId)===Number(pid)),p=pokemonById(pid);if(!t||!a||!p)return;
+ const [tid,pid]=key.split(":");const t=state.trainers.find(x=>x.id===tid),a=getAssignment(t,pid),p=pokemonById(pid);if(!t||!a||!p)return;
  const next=nextEvolutions(p.id);
  $("#modalContent").innerHTML=`<div class="modal-head"><h2>${esc(p.nome)}</h2><button class="btn" data-close>Fechar</button></div><p class="muted">${esc(t.name)} • Nível <strong>${a.level}</strong></p><div class="pokemon-detail compact-admin"><img src="${p.imagem}"><div><div class="tags detail-types">${typeTags(p.tipo)}</div><p>Estágio evolutivo: <strong>${p.evolutionStage||1}</strong></p>${next.length?`<div class="field"><label>Próxima evolução</label><select class="select" id="evolveTarget">${next.map(x=>`<option value="${x.id}">${esc(x.nome)} — estágio ${x.evolutionStage||((p.evolutionStage||1)+1)}</option>`).join("")}</select></div>`:`<p class="muted">Este Pokémon não possui evolução cadastrada.</p>`}<div class="top-actions"><button class="btn primary" id="levelUpAction">Subir nível</button>${next.length?`<button class="btn success" id="evolveAction">Evoluir</button>`:""}${getPokemonNote(t,p.id).trim()?`<button class="btn" id="viewPokemonNote">Ver anotações</button>`:`<button class="btn" id="viewPokemonNote">Ver anotações</button>`}</div></div></div>`;
  $("#modal").classList.add("open");$("[data-close]").onclick=closeModal;
@@ -368,7 +389,7 @@ function openPokemonPlayerAdmin(key){
  $("#viewPokemonNote").onclick=()=>{const note=getPokemonNote(t,p.id);$("#modalContent").innerHTML=`<div class="modal-head"><h2>Anotações — ${esc(p.nome)}</h2><button class="btn" data-close>Fechar</button></div><p class="muted">Anotações feitas por ${esc(t.name)}.</p><div class="note-view">${note.trim()?esc(note).replace(/\n/g,"<br>"):`<span class="muted">Nenhuma anotação feita para este Pokémon.</span>`}</div>`;$("#modal").classList.add("open");$("[data-close]").onclick=closeModal};
 }
 function openLevelUp(key){
- const [tid,pid]=key.split(":");const t=state.trainers.find(x=>x.id===tid),a=t?.team?.find(x=>Number(x.pokemonId)===Number(pid)),p=pokemonById(pid);if(!t||!a||!p)return;
+ const [tid,pid]=key.split(":");const t=state.trainers.find(x=>x.id===tid),a=getAssignment(t,pid),p=pokemonById(pid);if(!t||!a||!p)return;
  $("#modalContent").innerHTML=`<div class="modal-head"><h2>Subir nível — ${esc(p.nome)}</h2><button class="btn" data-close>Fechar</button></div><p class="muted">${esc(t.name)} está com este Pokémon no nível <strong>${a.level}</strong>. Escolha o novo nível.</p><div class="form-grid"><div class="field"><label>Novo nível</label><input class="input" id="levelUpValue" type="number" min="1" max="100" value="${a.level}"></div><button class="btn primary" id="confirmLevelUp">Salvar novo nível</button></div>`;
  $("#modal").classList.add("open");$("[data-close]").onclick=closeModal;
  $("#confirmLevelUp").onclick=()=>{const level=Math.max(1,Math.min(100,Number($("#levelUpValue").value)||a.level));if(level<a.level)return toast("O novo nível não pode ser menor que o atual.");const oldMax=hpMaxForLevel(p,a.level),oldCurrent=Math.max(0,Number(a.currentHp??oldMax));a.level=level;const newMax=hpMaxForLevel(p,level);const gained=Math.max(0,newMax-oldMax);a.currentHp=Math.min(newMax,oldCurrent+gained);save();closeModal();renderTrainers();renderDashboard();renderDex();renderTeam();toast(`${p.nome} agora está no nível ${level}. A vida máxima passou para ${newMax} HP.`)};
@@ -381,44 +402,87 @@ function evolvePlayerPokemon(t,a,current,targetId){
  t.pokemonNotes??={};
 t.pendingEvolutionEvents??=[];
 t.pendingEvolutionEvents.push({id:uid(),oldPokemonId:oldId,newPokemonId:Number(target.id),level:a.level,consumed:false});
- state.pokemonCatalog=pokemons;save();closeModal();renderTrainers();renderDashboard();renderDex();renderTeam();toast(`${current.nome} evoluiu para ${target.nome}! O nível ${a.level} foi mantido.`);
+ state.pokemonCatalog=pokemons;save();closeModal();renderTrainers();renderDashboard();renderDex();renderTeam();renderPC();toast(`${current.nome} evoluiu para ${target.nome}! O nível ${a.level} foi mantido.`);
 }
 function editTrainer(id){const t=state.trainers.find(x=>x.id===id);$("#modalContent").innerHTML=`<div class="modal-head"><h2>Editar acesso</h2><button class="btn" data-close>Fechar</button></div><div class="form-grid"><div class="field"><label>Nome</label><input class="input" id="trName" value="${esc(t.name)}"></div><div class="field"><label>Usuário</label><input class="input" id="trUser" value="${esc(t.username)}"></div><div class="field"><label>Senha</label><input class="input" id="trPass" value="${esc(t.password)}"></div><button class="btn primary" id="saveTrainer">Salvar</button></div>`;$("#modal").classList.add("open");$("[data-close]").onclick=closeModal;$("#saveTrainer").onclick=()=>{t.name=$("#trName").value.trim();t.username=$("#trUser").value.trim();t.password=$("#trPass").value;save();loginUI();closeModal();renderTrainers();renderDashboard();toast("Acesso atualizado.")}}
-$("#addTrainer").onclick=()=>{$("#modalContent").innerHTML=`<div class="modal-head"><h2>Novo jogador</h2><button class="btn" data-close>Fechar</button></div><div class="form-grid"><div class="field"><label>Nome</label><input class="input" id="trName"></div><div class="field"><label>Usuário</label><input class="input" id="trUser"></div><div class="field"><label>Senha</label><input class="input" id="trPass" value="1234"></div><button class="btn primary" id="saveTrainer">Criar jogador</button></div>`;$("#modal").classList.add("open");$("[data-close]").onclick=closeModal;$("#saveTrainer").onclick=()=>{const name=$("#trName").value.trim(),username=$("#trUser").value.trim(),password=$("#trPass").value;if(!name||!username||!password)return toast("Preencha todos os campos.");if(state.trainers.some(t=>t.username===username))return toast("Este usuário já existe.");state.trainers.push({id:uid(),name,username,password,team:[],captured:[],visible:[]});save();loginUI();closeModal();renderTrainers();renderDashboard();toast("Jogador criado.")}};
+$("#addTrainer").onclick=()=>{$("#modalContent").innerHTML=`<div class="modal-head"><h2>Novo jogador</h2><button class="btn" data-close>Fechar</button></div><div class="form-grid"><div class="field"><label>Nome</label><input class="input" id="trName"></div><div class="field"><label>Usuário</label><input class="input" id="trUser"></div><div class="field"><label>Senha</label><input class="input" id="trPass" value="1234"></div><button class="btn primary" id="saveTrainer">Criar jogador</button></div>`;$("#modal").classList.add("open");$("[data-close]").onclick=closeModal;$("#saveTrainer").onclick=()=>{const name=$("#trName").value.trim(),username=$("#trUser").value.trim(),password=$("#trPass").value;if(!name||!username||!password)return toast("Preencha todos os campos.");if(state.trainers.some(t=>t.username===username))return toast("Este usuário já existe.");state.trainers.push({id:uid(),name,username,password,team:[],pc:[],captured:[],visible:[]});save();loginUI();closeModal();renderTrainers();renderDashboard();toast("Jogador criado.")}};
 
 function openTeamPicker(tid){
  const t=state.trainers.find(x=>x.id===tid);
- $("#modalContent").innerHTML=`<div class="modal-head"><h2>Adicionar Pokémon para ${esc(t.name)}</h2><button class="btn" data-close>Fechar</button></div><p class="muted">Avistados são ilimitados e não ocupam o time. Somente os capturados ocupam os 6 espaços.</p><div class="toolbar"><input class="input" id="teamSearch" placeholder="Buscar Pokémon..."></div><div class="pokemon-grid" id="teamPicker"></div>`;
+ $("#modalContent").innerHTML=`<div class="modal-head"><h2>Adicionar Pokémon para ${esc(t.name)}</h2><button class="btn" data-close>Fechar</button></div><p class="muted">Avistados são ilimitados e não ocupam o time. Capturados ocupam o time até completar 6; os demais vão automaticamente para o PC.</p><div class="toolbar"><input class="input" id="teamSearch" placeholder="Buscar Pokémon..."></div><div class="pokemon-grid" id="teamPicker"></div>`;
  $("#modal").classList.add("open");$("[data-close]").onclick=closeModal;
- const render=()=>$("#teamPicker").innerHTML=pokemons.filter(p=>norm(p.nome).includes(norm($("#teamSearch").value))).slice(0,60).map(p=>{const id=Number(p.id),seen=t.visible.includes(id),caught=t.captured.includes(id);return `<button class="pokemon" data-pick="${p.id}"><img src="${p.imagem}"><div><small>${p.numero}</small><h3>${esc(p.nome)}</h3><span class="status ${caught?"caught":seen?"seen":""}">${caught?"Já capturado":seen?"Já avistado — clique para capturar":"Novo para o jogador"}</span></div></button>`}).join("")||`<div class="empty">Nenhum Pokémon encontrado.</div>`;
+ const render=()=>$("#teamPicker").innerHTML=pokemons.filter(p=>norm(p.nome).includes(norm($("#teamSearch").value))).map(p=>{const id=Number(p.id),seen=t.visible.includes(id),caught=t.captured.includes(id);return `<button class="pokemon" data-pick="${p.id}"><img src="${p.imagem}"><div><small>${p.numero}</small><h3>${esc(p.nome)}</h3><span class="status ${caught?"caught":seen?"seen":""}">${caught?"Já capturado":seen?"Já avistado — clique para capturar":"Novo para o jogador"}</span></div></button>`}).join("")||`<div class="empty">Nenhum Pokémon encontrado.</div>`;
  $("#teamSearch").oninput=render;render();
  $$('[data-pick]').forEach(b=>b.onclick=()=>{
   const p=pokemonById(Number(b.dataset.pick)),id=Number(p.id),seen=t.visible.includes(id),caught=t.captured.includes(id);
-  if(caught)return toast(`${p.nome} já está entre os 6 capturados de ${t.name}.`);
-  $("#modalContent").innerHTML=`<div class="modal-head"><h2>${seen?"Capturar":"Adicionar"} ${esc(p.nome)}</h2><button class="btn" data-close>Cancelar</button></div><p class="muted">${seen?"Este Pokémon já foi avistado. Ao capturá-lo, ele passará a ocupar um dos 6 espaços do time.":"Defina como o Pokémon foi descoberto pelo jogador. Avistados não ocupam o time e podem ser ilimitados; somente capturados ocupam os 6 espaços."}</p><div class="form-grid"><div class="field"><label>Nível do Pokémon</label><input class="input" id="assignLevel" type="number" min="1" max="100" value="${getAssignment(t,id)?.level||1}"></div>${seen?`<input type="hidden" id="assignStatus" value="captured">`:`<div class="field"><label>Como o jogador recebeu?</label><select class="select" id="assignStatus"><option value="seen">Avistado — ilimitado e não ocupa o time</option><option value="captured">Capturado — ocupa um dos 6 espaços</option></select></div>`}<div class="field ability-assignment-field"><label>Habilidades que o Pokémon terá</label><p class="field-help">Escolha nenhuma, uma ou as duas habilidades. Essa escolha fica exclusiva para este jogador.</p><div class="ability-assignment-list">${normalizeAbilities(p).map((ab,i)=>`<label class="ability-check"><input type="checkbox" class="assign-ability" value="${i}" ${selectedAbilityIndexes(getAssignment(t,id)).includes(i)?"checked":""} ${!ab.nome?"disabled":""}><span><strong>${esc(ab.nome||`Habilidade ${i+1} não cadastrada`)}</strong><small>${esc(ab.descricao||"")}</small></span></label>`).join("")}</div></div><button class="btn primary" id="confirmAssign">${seen?"Confirmar captura":"Adicionar"}</button></div>`;
+  if(caught)return toast(`${p.nome} já está capturado por ${t.name}. Ele pode estar no time ou no PC.`);
+  $("#modalContent").innerHTML=`<div class="modal-head"><h2>${seen?"Capturar":"Adicionar"} ${esc(p.nome)}</h2><button class="btn" data-close>Cancelar</button></div><p class="muted">${seen?"Este Pokémon já foi avistado. Ao capturá-lo, ele entrará no time se houver espaço; caso contrário, irá para o PC.":"Defina como o Pokémon foi descoberto pelo jogador. Avistados não ocupam o time e podem ser ilimitados. Capturados entram no time até o limite de 6; os excedentes ficam no PC."}</p><div class="form-grid"><div class="field"><label>Nível do Pokémon</label><input class="input" id="assignLevel" type="number" min="1" max="100" value="${getAssignment(t,id)?.level||1}"></div>${seen?`<input type="hidden" id="assignStatus" value="captured">`:`<div class="field"><label>Como o jogador recebeu?</label><select class="select" id="assignStatus"><option value="seen">Avistado — ilimitado e não ocupa o time</option><option value="captured">Capturado — vai para o time se houver espaço; excedentes vão para o PC</option></select></div>`}<div class="field ability-assignment-field"><label>Habilidades que o Pokémon terá</label><p class="field-help">Escolha nenhuma, uma ou as duas habilidades. Essa escolha fica exclusiva para este jogador.</p><div class="ability-assignment-list">${normalizeAbilities(p).map((ab,i)=>`<label class="ability-check"><input type="checkbox" class="assign-ability" value="${i}" ${selectedAbilityIndexes(getAssignment(t,id)).includes(i)?"checked":""} ${!ab.nome?"disabled":""}><span><strong>${esc(ab.nome||`Habilidade ${i+1} não cadastrada`)}</strong><small>${esc(ab.descricao||"")}</small></span></label>`).join("")}</div></div><button class="btn primary" id="confirmAssign">${seen?"Confirmar captura":"Adicionar"}</button></div>`;
   $("[data-close]").onclick=closeModal;
   $("#confirmAssign").onclick=()=>{
    const level=Math.max(1,Math.min(100,Number($("#assignLevel").value)||1)),status=$("#assignStatus").value;
    const abilityIndexes=$$(".assign-ability:checked").map(x=>Number(x.value));
    if(abilityIndexes.length>2)return toast("Um Pokémon pode receber no máximo 2 habilidades.");
-   if(status==="captured"&&t.team.length>=6)return toast("O time já tem 6 Pokémon capturados.");
    if(!t.visible.includes(id))t.visible.push(id);
    if(status==="captured"){
     if(!t.captured.includes(id))t.captured.push(id);
-    if(!getAssignment(t,id))t.team.push({pokemonId:id,level,status:"captured",currentHp:hpMaxForLevel(p,level),abilityIndexes});
-    else {const a=getAssignment(t,id);a.level=level;a.status="captured";a.abilityIndexes=abilityIndexes}
+    const existing=getAssignment(t,id);
+    if(!existing){
+      const assignment={pokemonId:id,level,status:"captured",currentHp:hpMaxForLevel(p,level),abilityIndexes};
+      if(t.team.length<6)t.team.push(assignment);
+      else {t.pc??=[];t.pc.push(assignment);}
+    } else {
+      existing.level=level;existing.status="captured";existing.abilityIndexes=abilityIndexes;
+    }
+    normalizeTrainerStorage(t);
    }
-   save();closeModal();renderTrainers();renderDashboard();renderDex();renderTeam();
-   toast(`${p.nome} ${status==="captured"?"agora está capturado e ocupa um dos 6 espaços":"foi marcado como avistado. Ele não ocupa o time."}.`);
+   save();closeModal();renderTrainers();renderDashboard();renderDex();renderTeam();renderPC();
+   toast(`${p.nome} ${status==="captured"?(t.team.some(a=>Number(a.pokemonId)===id)?"foi adicionado ao time.":"foi capturado e enviado para o PC."):"foi marcado como avistado. Ele não ocupa o time."}`);
   }
  })
 }
+function swapTeamAndPc(t,teamId,pcId){
+ const ti=t.team.findIndex(a=>Number(a.pokemonId)===Number(teamId));
+ const pi=t.pc.findIndex(a=>Number(a.pokemonId)===Number(pcId));
+ if(ti<0||pi<0)return false;
+ const tmp=t.team[ti];t.team[ti]=t.pc[pi];t.pc[pi]=tmp;
+ normalizeTrainerStorage(t);save();
+ return true;
+}
+function openSwapPokemon(t,sourceId,fromPc){
+ const source=fromPc?(t.pc||[]).find(a=>Number(a.pokemonId)===Number(sourceId)):t.team.find(a=>Number(a.pokemonId)===Number(sourceId));
+ if(!source)return;
+ const options=fromPc?(t.team||[]):(t.pc||[]);
+ if(!options.length){
+   if(fromPc)return toast("Seu time está vazio. Esse Pokémon pode entrar no time.");
+   return toast("Seu PC está vazio.");
+ }
+ $("#modalContent").innerHTML=`<div class="modal-head"><h2>${fromPc?"Enviar para o Time":"Enviar para o PC"}</h2><button class="btn" data-close>Fechar</button></div>
+ <p class="muted">${fromPc?"Escolha qual Pokémon do time será trocado com este Pokémon do PC.":"Escolha qual Pokémon do PC será trocado com este Pokémon do time."}</p>
+ <div class="pokemon-grid swap-grid">${options.map(a=>{const p=pokemonById(a.pokemonId);return p?`<button class="pokemon" data-swap-target="${p.id}"><img src="${p.imagem}" alt="${esc(p.nome)}"><div><h3>${esc(p.nome)}</h3><span class="team-level">Nível ${a.level}</span></div></button>`:""}).join("")}</div>`;
+ $("#modal").classList.add("open");$("[data-close]").onclick=closeModal;
+ $$("[data-swap-target]").forEach(b=>b.onclick=()=>{
+   const targetId=Number(b.dataset.swapTarget);
+   if(fromPc){
+     if(swapTeamAndPc(t,targetId,sourceId)){closeModal();renderTeam();renderPC();renderDashboard();renderDex();toast(`${pokemonById(sourceId)?.nome||"Pokémon"} entrou no time.`);}
+   }else{
+     if(swapTeamAndPc(t,sourceId,targetId)){closeModal();renderTeam();renderPC();renderDashboard();renderDex();toast(`${pokemonById(sourceId)?.nome||"Pokémon"} foi enviado para o PC.`);}
+   }
+ });
+}
 function renderTeam(){
  if(isMaster())return;
- const t=me();const team=t?.team||[];
- $("#teamGrid").innerHTML=team.map(a=>{const p=pokemonById(a.pokemonId);if(!p)return "";const hp=hpData(a,p);return `<article class="pokemon team-card" data-team-pokemon="${p.id}" role="button" tabindex="0"><img src="${p.imagem}" alt="${esc(p.nome)}"><div><h3>${esc(p.nome)}</h3><span class="team-level">Nível ${a.level}</span><div class="health-wrap"><div class="health-label"><span>HP</span><strong>${hp.current}/${hp.max}</strong></div><div class="health-bar"><span style="width:${hp.pct}%"></span></div></div></div></article>`}).join("")||`<div class="empty">Você ainda não possui Pokémon capturados no seu time.</div>`;
- $("#teamIntro").textContent=`Estes são os ${team.length} Pokémon capturados que você está carregando. O limite é 6.`; 
+ const t=me();normalizeTrainerStorage(t);const team=t?.team||[];
+ $("#teamGrid").innerHTML=team.map(a=>{const p=pokemonById(a.pokemonId);if(!p)return "";const hp=hpData(a,p);return `<article class="pokemon team-card" data-team-pokemon="${p.id}" role="button" tabindex="0"><img src="${p.imagem}" alt="${esc(p.nome)}"><div><h3>${esc(p.nome)}</h3><span class="team-level">Nível ${a.level}</span><div class="health-wrap"><div class="health-label"><span>HP</span><strong>${hp.current}/${hp.max}</strong></div><div class="health-bar"><span style="width:${hp.pct}%"></span></div></div></div></article>`}).join("")||`<div class="empty">Você ainda não possui Pokémon no seu time.</div>`;
+ $("#teamIntro").textContent=`${team.length}/6 Pokémon no time. ${t.pc?.length||0} no PC.`;
  $$('[data-team-pokemon]').forEach(c=>{const open=()=>openPokemonPlayer(pokemonById(Number(c.dataset.teamPokemon)));c.onclick=open;c.onkeydown=e=>{if(e.key==="Enter"||e.key===" ")open()}});
+}
+function renderPC(){
+ if(isMaster())return;
+ const t=me();normalizeTrainerStorage(t);const pc=t?.pc||[];
+ const grid=$("#pcGrid");if(!grid)return;
+ grid.innerHTML=pc.map(a=>{const p=pokemonById(a.pokemonId);if(!p)return "";const hp=hpData(a,p);return `<article class="pokemon team-card pc-card" data-pc-pokemon="${p.id}" role="button" tabindex="0"><img src="${p.imagem}" alt="${esc(p.nome)}"><div><h3>${esc(p.nome)}</h3><span class="team-level">Nível ${a.level}</span><div class="health-wrap"><div class="health-label"><span>HP</span><strong>${hp.current}/${hp.max}</strong></div><div class="health-bar"><span style="width:${hp.pct}%"></span></div></div></div></article>`}).join("")||`<div class="empty">Seu PC está vazio. Pokémon capturados além dos 6 do time aparecerão aqui.</div>`;
+ $("#pcIntro").textContent=`${pc.length} Pokémon armazenado${pc.length===1?"":"s"} no PC. O time pode ter no máximo 6.`;
+ $$('[data-pc-pokemon]').forEach(c=>{const open=()=>openPokemonPlayer(pokemonById(Number(c.dataset.pcPokemon)));c.onclick=open;c.onkeydown=e=>{if(e.key==="Enter"||e.key===" ")open()}});
 }
 function ensureEvolutionOverlay(){
  let overlay=$("#evolutionOverlay");
@@ -477,7 +541,7 @@ function bindMasterSettings(){
    toast("Senha do Mestre alterada com sucesso.");
  };
 }
-function renderAll(){renderDashboard();renderDex();renderMoves();renderTrainers();renderTeam();renderEncounter();renderNotes();renderMasterSettings();bindMasterSettings()}
+function renderAll(){renderDashboard();renderDex();renderMoves();renderTrainers();renderTeam();renderPC();renderEncounter();renderNotes();renderMasterSettings();bindMasterSettings()}
 
 /* =========================
    BATALHA v14
@@ -539,7 +603,7 @@ $("#moveSearch").oninput=renderMoves;$("#moveTypeFilter").onchange=renderMoves;
 
 function setupNav(){
  const master=session?.role==="master";const playerBattle=battleIsPlayerIn();
- const items=master?[["dashboard","🏠 Visão geral"],["pokedex","📖 Pokédex"],["moves","⚔️ Ataques"],["encounter","⚔️ Batalha"],["trainers","👥 Jogadores"],["notes","📝 Notas"],["settings","⚙️ Configurações"]]:[["dashboard","🏠 Início"],["pokedex","📖 Minha Pokédex"],["team","🎒 Meu Time"]].concat(playerBattle?[["encounter","⚔️ Batalha"]]:[]);
+ const items=master?[["dashboard","🏠 Visão geral"],["pokedex","📖 Pokédex"],["moves","⚔️ Ataques"],["encounter","⚔️ Batalha"],["trainers","👥 Jogadores"],["notes","📝 Notas"],["settings","⚙️ Configurações"]]:[["dashboard","🏠 Início"],["pokedex","📖 Minha Pokédex"],["team","🎒 Meu Time"],["pc","💻 Meu PC"]].concat(playerBattle?[["encounter","⚔️ Batalha"]]:[]);
  $("#desktopNav").innerHTML=items.map(x=>`<button data-page="${x[0]}">${x[1]}</button>`).join("");$("#mobileNav").innerHTML=items.map(x=>`<button data-page="${x[0]}">${x[1].split(" ")[0]}<br>${x[1].split(" ").slice(1).join(" ")}</button>`).join("")+`<button class="mobile-logout" data-mobile-logout>🚪<br>Sair</button>`;$$('[data-page]').forEach(b=>b.onclick=()=>nav(b.dataset.page));$('[data-mobile-logout]').onclick=()=>$("#logout").click();
 }
 function nav(page){$$('.page').forEach(x=>x.classList.toggle('active',x.id==='page-'+page));$$('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===page));history.replaceState(null,'','#'+page);if(page==='team'&&!isMaster())setTimeout(()=>playNextEvolution(),180);if(page==='encounter')setTimeout(()=>renderBattleAll(),0)}
@@ -665,7 +729,7 @@ async function init(){
   if(dbConfigured()) dbReady=true;
   const [r,mr]=await Promise.all([fetch("data/pokemon.json"),fetch("data/moves.json")]);const base=await r.json();moves=await mr.json();pokemons=(Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length>=1&&state.pokemonCatalog.some(p=>p&&p.id&&p.nome))?state.pokemonCatalog:base;
  const baseById=Object.fromEntries(base.map(p=>[Number(p.id),p]));
- pokemons.forEach(p=>{const source=baseById[Number(p.id)];if(source&&Number(p._dadosFichaVersion||0)<SOURCE_DATA_VERSION){p.ca=source.ca;p.sr=source.sr;p.hp=source.hp;p.dadoVida=source.dadoVida;p.status=source.status;p.pericias=source.pericias;p.ataques=source.ataques;p._dadosFichaVersion=SOURCE_DATA_VERSION;}normalizeAbilities(p);p.hp=Math.max(1,Number(p.hp)||50);p.dadoVida=normalizeLifeDice(p.dadoVida);p.sr??="";p.ca=Math.max(0,Number(p.ca)||0);delete p.nivel;p.status=normalizePokemonStats(p.status||{});p.pericias=normalizeSkills(p.pericias||{});p.bonusProficiencia=Math.max(0,Math.min(20,Number(p.bonusProficiencia ?? proficiencyBonus(1))||0));p.vulnerabilidades??=[];p.resistencia??=[];p.ataques??=[];if((!p.vulnerabilidades||p.vulnerabilidades.length===0)&&(!p.resistencia||p.resistencia.length===0)){const rel=calcTypeRelations(p.tipo);p.vulnerabilidades=rel.vulnerabilidades;p.resistencia=rel.resistencia}});state.trainers.forEach(t=>{t.team??=[];t.team.forEach(a=>{const p=pokemonById(a.pokemonId);if(!p)return;a.level=Math.max(1,Number(a.level)||1);const max=hpMaxForLevel(p,a.level);const legacyBase=Math.max(1,Number(p.hp)||1);if(!Number.isFinite(Number(a.currentHp))|| (a.level>1&&Number(a.currentHp)===legacyBase))a.currentHp=max;else a.currentHp=Math.max(0,Math.min(max,Number(a.currentHp)));a.abilityIndexes=Array.isArray(a.abilityIndexes)?a.abilityIndexes.map(Number).filter(x=>x===0||x===1).slice(0,2):[]})});applyKnownEvolutionStructure();
+ pokemons.forEach(p=>{const source=baseById[Number(p.id)];if(source&&Number(p._dadosFichaVersion||0)<SOURCE_DATA_VERSION){p.ca=source.ca;p.sr=source.sr;p.hp=source.hp;p.dadoVida=source.dadoVida;p.status=source.status;p.pericias=source.pericias;p.ataques=source.ataques;p._dadosFichaVersion=SOURCE_DATA_VERSION;}normalizeAbilities(p);p.hp=Math.max(1,Number(p.hp)||50);p.dadoVida=normalizeLifeDice(p.dadoVida);p.sr??="";p.ca=Math.max(0,Number(p.ca)||0);delete p.nivel;p.status=normalizePokemonStats(p.status||{});p.pericias=normalizeSkills(p.pericias||{});p.bonusProficiencia=Math.max(0,Math.min(20,Number(p.bonusProficiencia ?? proficiencyBonus(1))||0));p.vulnerabilidades??=[];p.resistencia??=[];p.ataques??=[];if((!p.vulnerabilidades||p.vulnerabilidades.length===0)&&(!p.resistencia||p.resistencia.length===0)){const rel=calcTypeRelations(p.tipo);p.vulnerabilidades=rel.vulnerabilidades;p.resistencia=rel.resistencia}});state.trainers.forEach(t=>{normalizeTrainerStorage(t);[...t.team,...t.pc].forEach(a=>{const p=pokemonById(a.pokemonId);if(!p)return;a.level=Math.max(1,Number(a.level)||1);const max=hpMaxForLevel(p,a.level);const legacyBase=Math.max(1,Number(p.hp)||1);if(!Number.isFinite(Number(a.currentHp))|| (a.level>1&&Number(a.currentHp)===legacyBase))a.currentHp=max;else a.currentHp=Math.max(0,Math.min(max,Number(a.currentHp)));a.abilityIndexes=Array.isArray(a.abilityIndexes)?a.abilityIndexes.map(Number).filter(x=>x===0||x===1).slice(0,2):[]})});applyKnownEvolutionStructure();
  if(Number(state.moveLibraryVersion||0)<1){state.moveLibraryVersion=1;}
  pokemons.forEach(p=>(p.ataques||[]).forEach(a=>ensureMoveForAttack(a)));
  state.pokemonCatalog=pokemons;
