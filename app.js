@@ -12,13 +12,16 @@ let dbReady=false;
 let dbSaveChain=Promise.resolve();
 let dbSaveTimer=null;
 function dbConfigured(){
-  return !!(window.trainerdexSupabase && window.TRAINERDEX_SUPABASE_CONFIG?.enabled);
+  const configured=!!(window.trainerdexSupabase && window.TRAINERDEX_SUPABASE_CONFIG?.enabled);
+  if(configured) console.info("TrainerDex: Supabase configurado.");
+  else console.warn("TrainerDex: Supabase não está configurado ou não foi carregado.");
+  return configured;
 }
 async function loadStateFromSupabase(){
   if(!dbConfigured()) return false;
   const client=window.trainerdexSupabase;
   const {data,error}=await client.from(DB_TABLE).select("state,updated_at").eq("id","main").maybeSingle();
-  if(error){console.warn("Supabase: não foi possível carregar o estado.",error);return false;}
+  if(error){console.error("Supabase: erro ao carregar trainerdex_state:",error);return false;}
   if(data?.state && typeof data.state==="object"){
     Object.keys(state).forEach(k=>delete state[k]);
     Object.assign(state,data.state);
@@ -28,8 +31,8 @@ async function loadStateFromSupabase(){
   // Primeira execução: migra automaticamente o estado que já estava no navegador.
   if(LOCAL_STATE){
     const {error:insertError}=await client.from(DB_TABLE).upsert({id:"main",state:LOCAL_STATE,updated_at:new Date().toISOString()});
-    if(insertError) console.warn("Supabase: migração inicial falhou.",insertError);
-    else dbReady=true;
+    if(insertError) console.error("Supabase: migração inicial falhou:",insertError);
+    else { dbReady=true; console.info("Supabase: migração inicial concluída."); }
   }
   return false;
 }
@@ -42,7 +45,8 @@ function queueDbSave(){
       const {error}=await window.trainerdexSupabase.from(DB_TABLE).upsert({
         id:"main",state:snapshot,updated_at:new Date().toISOString()
       });
-      if(error) console.warn("Supabase: falha ao salvar estado.",error);
+      if(error) console.error("Supabase: falha ao salvar estado:",error);
+      else console.info("TrainerDex: estado sincronizado com Supabase.");
     });
   },180);
 }
@@ -615,8 +619,8 @@ async function init(){
  if(dbConfigured() && !dbReady){
    const snapshot=structuredClone(state);
    const {error}=await window.trainerdexSupabase.from(DB_TABLE).upsert({id:"main",state:snapshot,updated_at:new Date().toISOString()});
-   if(error) console.warn("Supabase: não foi possível criar o estado inicial.",error);
-   else dbReady=true;
+   if(error) console.error("Supabase: não foi possível criar o estado inicial:",error);
+   else { dbReady=true; console.info("Supabase: estado inicial criado."); }
  }
  loginUI();
  }catch(e){console.error(e);toast("Não foi possível carregar a Pokédex.")}
