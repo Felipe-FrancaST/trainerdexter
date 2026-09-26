@@ -1,0 +1,4730 @@
+[
+  {
+    "id": "Absorb",
+    "nome": "Absorver",
+    "nomeOriginal": "Absorb",
+    "tipo": "Grama",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "Accelerock",
+    "nome": "Rocha Veloz",
+    "nomeOriginal": "Accelerock",
+    "tipo": "Pedra",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "AerialAce",
+    "nome": "Golpe Aéreo",
+    "nomeOriginal": "AerialAce",
+    "tipo": "Voador",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "AfterYou",
+    "nome": "Depoisde Você",
+    "nomeOriginal": "AfterYou",
+    "tipo": "Normal",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Agility",
+    "nome": "Agilidade",
+    "nomeOriginal": "Agility",
+    "tipo": "Psíquico",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "AirCutter",
+    "nome": "Ar Cortante",
+    "nomeOriginal": "AirCutter",
+    "tipo": "Voador",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "AnchorShot",
+    "nome": "Tirode Âncora",
+    "nomeOriginal": "AnchorShot",
+    "tipo": "Aço",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "AncientPower",
+    "nome": "Poder Ancestral",
+    "nomeOriginal": "AncientPower",
+    "tipo": "Pedra",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "AquaJet",
+    "nome": "Aqua Jato",
+    "nomeOriginal": "AquaJet",
+    "tipo": "Água",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "AquaRing",
+    "nome": "Aqua Arco",
+    "nomeOriginal": "AquaRing",
+    "tipo": "Água",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Assist",
+    "nome": "Assistência",
+    "nomeOriginal": "Assist",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Assurance",
+    "nome": "Garantia",
+    "nomeOriginal": "Assurance",
+    "tipo": "Sombrio",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Astonish",
+    "nome": "Abismar",
+    "nomeOriginal": "Astonish",
+    "tipo": "Fantasma",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "AttackOrder",
+    "nome": "Ordemde Ataque",
+    "nomeOriginal": "AttackOrder",
+    "tipo": "Inseto",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Attract",
+    "nome": "Atração",
+    "nomeOriginal": "Attract",
+    "tipo": "Normal",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "AuraSphere",
+    "nome": "Aura Esférica",
+    "nomeOriginal": "AuraSphere",
+    "tipo": "Lutador",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "AuroraBeam",
+    "nome": "Raio Aurora",
+    "nomeOriginal": "AuroraBeam",
+    "tipo": "Gelo",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "AuroraVeil",
+    "nome": "Véude Aurora",
+    "nomeOriginal": "AuroraVeil",
+    "tipo": "Gelo",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Autotomize",
+    "nome": "Autotomizar",
+    "nomeOriginal": "Autotomize",
+    "tipo": "Aço",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Avalanche",
+    "nome": "Avalanche",
+    "nomeOriginal": "Avalanche",
+    "tipo": "Gelo",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Barrier",
+    "nome": "Barreira",
+    "nomeOriginal": "Barrier",
+    "tipo": "Psíquico",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Belch",
+    "nome": "Arrotar",
+    "nomeOriginal": "Belch",
+    "tipo": "Venenoso",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "BellyDrum",
+    "nome": "Tamborde Barriga",
+    "nomeOriginal": "BellyDrum",
+    "tipo": "Normal",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Bestow",
+    "nome": "Oferenda",
+    "nomeOriginal": "Bestow",
+    "tipo": "Normal",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Bide",
+    "nome": "Aguardar",
+    "nomeOriginal": "Bide",
+    "tipo": "Normal",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Bind",
+    "nome": "Enlaçar",
+    "nomeOriginal": "Bind",
+    "tipo": "Normal",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "BugBite",
+    "nome": "Mordidade Inseto",
+    "nomeOriginal": "BugBite",
+    "tipo": "Inseto",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Camouflage",
+    "nome": "Camuflagem",
+    "nomeOriginal": "Camouflage",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Captivate",
+    "nome": "Cativar",
+    "nomeOriginal": "Captivate",
+    "tipo": "Normal",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Charge",
+    "nome": "Carga",
+    "nomeOriginal": "Charge",
+    "tipo": "Elétrico",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "ChargeBeam",
+    "nome": "Raiode Ataque",
+    "nomeOriginal": "ChargeBeam",
+    "tipo": "Elétrico",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Clamp",
+    "nome": "Prender",
+    "nomeOriginal": "Clamp",
+    "tipo": "Água",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "ClearSmog",
+    "nome": "Fumaçalimpa",
+    "nomeOriginal": "ClearSmog",
+    "tipo": "Venenoso",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "ConfuseRay",
+    "nome": "Raioda Confusão",
+    "nomeOriginal": "ConfuseRay",
+    "tipo": "Fantasma",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Conversion",
+    "nome": "Conversão2",
+    "nomeOriginal": "Conversion",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "CottonSpore",
+    "nome": "Esporosde Algodão",
+    "nomeOriginal": "CottonSpore",
+    "tipo": "Grama",
+    "pp": 20,
+    "descricao": ""
+  },
+  {
+    "id": "CrushClaw",
+    "nome": "Garra Esmagadora",
+    "nomeOriginal": "CrushClaw",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Cut",
+    "nome": "Cortar",
+    "nomeOriginal": "Cut",
+    "tipo": "Normal",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "DefendOrder",
+    "nome": "Ordemde Defesa",
+    "nomeOriginal": "DefendOrder",
+    "tipo": "Inseto",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "DefenseCurl",
+    "nome": "Espiralde Defesa",
+    "nomeOriginal": "DefenseCurl",
+    "tipo": "Normal",
+    "pp": 20,
+    "descricao": ""
+  },
+  {
+    "id": "Defog",
+    "nome": "Descondensar",
+    "nomeOriginal": "Defog",
+    "tipo": "Voador",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "DestinyBond",
+    "nome": "Vínculodo Destino",
+    "nomeOriginal": "DestinyBond",
+    "tipo": "Fantasma",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Detect",
+    "nome": "Detectar",
+    "nomeOriginal": "Detect",
+    "tipo": "Lutador",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Dig",
+    "nome": "Cavar",
+    "nomeOriginal": "Dig",
+    "tipo": "Terra",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Disable",
+    "nome": "Desabilitar",
+    "nomeOriginal": "Disable",
+    "tipo": "Normal",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "DoubleSlap",
+    "nome": "Tapa Duplo",
+    "nomeOriginal": "DoubleSlap",
+    "tipo": "Normal",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Double-Edge",
+    "nome": "Corte Duplo",
+    "nomeOriginal": "Double-Edge",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "DrainingKiss",
+    "nome": "Beijo Drenante",
+    "nomeOriginal": "DrainingKiss",
+    "tipo": "Fada",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "DreamEater",
+    "nome": "Devoradorde Sonhos",
+    "nomeOriginal": "DreamEater",
+    "tipo": "Psíquico",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "DrillRun",
+    "nome": "Broca Veloz",
+    "nomeOriginal": "DrillRun",
+    "tipo": "Terra",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "EchoedVoice",
+    "nome": "Voz Ecoante",
+    "nomeOriginal": "EchoedVoice",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Ember",
+    "nome": "Brasas",
+    "nomeOriginal": "Ember",
+    "tipo": "Fogo",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "Encore",
+    "nome": "Bis",
+    "nomeOriginal": "Encore",
+    "tipo": "Normal",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Endeavor",
+    "nome": "Esforço",
+    "nomeOriginal": "Endeavor",
+    "tipo": "Normal",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Extrasensory",
+    "nome": "Extrassensorial",
+    "nomeOriginal": "Extrasensory",
+    "tipo": "Psíquico",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Facade",
+    "nome": "Fachada",
+    "nomeOriginal": "Facade",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "FairyLock",
+    "nome": "Aprisionamentode Fada",
+    "nomeOriginal": "FairyLock",
+    "tipo": "Fada",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "FireLash",
+    "nome": "Chicotede Fogo",
+    "nomeOriginal": "FireLash",
+    "tipo": "Fogo",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "FirePledge",
+    "nome": "Pilarde Fogo",
+    "nomeOriginal": "FirePledge",
+    "tipo": "Fogo",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "FireSpin",
+    "nome": "Furacãode Chamas",
+    "nomeOriginal": "FireSpin",
+    "tipo": "Fogo",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "FlameCharge",
+    "nome": "Ataquede Chamas",
+    "nomeOriginal": "FlameCharge",
+    "tipo": "Fogo",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "FlameWheel",
+    "nome": "Rodade Fogo",
+    "nomeOriginal": "FlameWheel",
+    "tipo": "Fogo",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "Flamethrower",
+    "nome": "Lança- Chamas",
+    "nomeOriginal": "Flamethrower",
+    "tipo": "Fogo",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "FlareBlitz",
+    "nome": "Blitzde Labaredas",
+    "nomeOriginal": "FlareBlitz",
+    "tipo": "Fogo",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Fling",
+    "nome": "Arremessar",
+    "nomeOriginal": "Fling",
+    "tipo": "Sombrio",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "sRockAtordoaToxicOrbEnvenenaRazorFangAtordoaLightBallParalisaPoisonBarbEnvenenFloralHealing",
+    "nome": "Cura Floral",
+    "nomeOriginal": "sRockAtordoaToxicOrbEnvenenaRazorFangAtordoaLightBallParalisaPoisonBarbEnvenenFloralHealing",
+    "tipo": "Fada",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Fly",
+    "nome": "Voar",
+    "nomeOriginal": "Fly",
+    "tipo": "Voador",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "FlyingPress",
+    "nome": "Aperto Voador",
+    "nomeOriginal": "FlyingPress",
+    "tipo": "Lutador",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "FollowMe",
+    "nome": "Isca- Viva",
+    "nomeOriginal": "FollowMe",
+    "tipo": "Normal",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "ForcePalm",
+    "nome": "Palmada Força",
+    "nomeOriginal": "ForcePalm",
+    "tipo": "Lutador",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "sCurse",
+    "nome": "Maldiçãoda Floresta",
+    "nomeOriginal": "sCurse",
+    "tipo": "Grama",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Freeze-Dry",
+    "nome": "Liofilização",
+    "nomeOriginal": "Freeze-Dry",
+    "tipo": "Gelo",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "FrostBreath",
+    "nome": "Respiraçãode Gelo",
+    "nomeOriginal": "FrostBreath",
+    "tipo": "Gelo",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Frustration",
+    "nome": "Frustração",
+    "nomeOriginal": "Frustration",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "FusionFlare",
+    "nome": "Chamade Fusão",
+    "nomeOriginal": "FusionFlare",
+    "tipo": "Fogo",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "GastroAcid",
+    "nome": "Ácido Gástrico",
+    "nomeOriginal": "GastroAcid",
+    "tipo": "Venenoso",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "GearGrind",
+    "nome": "Moedor",
+    "nomeOriginal": "GearGrind",
+    "tipo": "Aço",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "GearUp",
+    "nome": "Engrenar",
+    "nomeOriginal": "GearUp",
+    "tipo": "Aço",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "Glaciate",
+    "nome": "Glaciar",
+    "nomeOriginal": "Glaciate",
+    "tipo": "Gelo",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Growth",
+    "nome": "Crescimento",
+    "nomeOriginal": "Growth",
+    "tipo": "Normal",
+    "pp": 20,
+    "descricao": ""
+  },
+  {
+    "id": "Hail",
+    "nome": "Granizo",
+    "nomeOriginal": "Hail",
+    "tipo": "Gelo",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "HealBell",
+    "nome": "Sinoda Cura",
+    "nomeOriginal": "HealBell",
+    "tipo": "Normal",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "HealBlock",
+    "nome": "Bloqueiode Cura",
+    "nomeOriginal": "HealBlock",
+    "tipo": "Psíquico",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "HealingWish",
+    "nome": "Desejode Cura",
+    "nomeOriginal": "HealingWish",
+    "tipo": "Psíquico",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "HeavySlam",
+    "nome": "Golpe Pesado",
+    "nomeOriginal": "HeavySlam",
+    "tipo": "Aço",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Hex",
+    "nome": "Feitiço",
+    "nomeOriginal": "Hex",
+    "tipo": "Fantasma",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "HoldBack",
+    "nome": "Reter",
+    "nomeOriginal": "HoldBack",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Howl",
+    "nome": "Uivo",
+    "nomeOriginal": "Howl",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "HydroCannon",
+    "nome": "Hidro Canhão",
+    "nomeOriginal": "HydroCannon",
+    "tipo": "Água",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "HydroPump",
+    "nome": "Hidro Bomba",
+    "nomeOriginal": "HydroPump",
+    "tipo": "Água",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Hypnosis",
+    "nome": "Hypnose",
+    "nomeOriginal": "Hypnosis",
+    "tipo": "Psíquico",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "IcicleCrash",
+    "nome": "Choquede Gelo",
+    "nomeOriginal": "IcicleCrash",
+    "tipo": "Gelo",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "LeafTornado",
+    "nome": "Tornadode Folhas",
+    "nomeOriginal": "LeafTornado",
+    "tipo": "Grama",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Liquidation",
+    "nome": "Liquidação",
+    "nomeOriginal": "Liquidation",
+    "tipo": "Água",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Lock-On",
+    "nome": "Mira",
+    "nomeOriginal": "Lock-On",
+    "tipo": "Normal",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "LovelyKiss",
+    "nome": "Beijo Amoroso",
+    "nomeOriginal": "LovelyKiss",
+    "tipo": "Normal",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "LowKick",
+    "nome": "Chutebaixo",
+    "nomeOriginal": "LowKick",
+    "tipo": "Lutador",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "LusterPurge",
+    "nome": "Purgade Esplendor",
+    "nomeOriginal": "LusterPurge",
+    "tipo": "Psíquico",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "MachPunch",
+    "nome": "Soco Rápido",
+    "nomeOriginal": "MachPunch",
+    "tipo": "Lutador",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "MagicCoat",
+    "nome": "Tela Mágica",
+    "nomeOriginal": "MagicCoat",
+    "tipo": "Psíquico",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "MagicRoom",
+    "nome": "Sala Mágica",
+    "nomeOriginal": "MagicRoom",
+    "tipo": "Psíquico",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "MegaPunch",
+    "nome": "Mega Soco",
+    "nomeOriginal": "MegaPunch",
+    "tipo": "Normal",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "Memento",
+    "nome": "Sacrifício",
+    "nomeOriginal": "Memento",
+    "tipo": "Sombrio",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "MetalBurst",
+    "nome": "Explosão Metálica",
+    "nomeOriginal": "MetalBurst",
+    "tipo": "Aço",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "MilkDrink",
+    "nome": "Leitede Cura",
+    "nomeOriginal": "MilkDrink",
+    "tipo": "Normal",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "MindBlown",
+    "nome": "Explosão Mental",
+    "nomeOriginal": "MindBlown",
+    "tipo": "Fogo",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "MindReader",
+    "nome": "Leitura Mental",
+    "nomeOriginal": "MindReader",
+    "tipo": "Normal",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Minimize",
+    "nome": "Minimizar",
+    "nomeOriginal": "Minimize",
+    "tipo": "Normal",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "MirrorShot",
+    "nome": "Tiro Espelhado",
+    "nomeOriginal": "MirrorShot",
+    "tipo": "Aço",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Mist",
+    "nome": "Névoa",
+    "nomeOriginal": "Mist",
+    "tipo": "Gelo",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "MistBall",
+    "nome": "Bolade Névoa",
+    "nomeOriginal": "MistBall",
+    "tipo": "Psíquico",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "MistyTerrain",
+    "nome": "Campo Enevoado",
+    "nomeOriginal": "MistyTerrain",
+    "tipo": "Fada",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "MudBomb",
+    "nome": "Bombade Lama",
+    "nomeOriginal": "MudBomb",
+    "tipo": "Terra",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "MudShot",
+    "nome": "Tirode Lama",
+    "nomeOriginal": "MudShot",
+    "tipo": "Terra",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Mud-Slap",
+    "nome": "Ataquede Lama",
+    "nomeOriginal": "Mud-Slap",
+    "tipo": "Terra",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "NightSlash",
+    "nome": "Corte Noturno",
+    "nomeOriginal": "NightSlash",
+    "tipo": "Sombrio",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "OriginPulse",
+    "nome": "Pulso Original",
+    "nomeOriginal": "OriginPulse",
+    "tipo": "Água",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Outrage",
+    "nome": "Ultraje",
+    "nomeOriginal": "Outrage",
+    "tipo": "Dragão",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "PainSplit",
+    "nome": "Divisãode Dor",
+    "nomeOriginal": "PainSplit",
+    "tipo": "Normal",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "ParabolicCharge",
+    "nome": "Ataque Parabólico",
+    "nomeOriginal": "ParabolicCharge",
+    "tipo": "Elétrico",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "PartingShot",
+    "nome": "Tiro Divisor",
+    "nomeOriginal": "PartingShot",
+    "tipo": "Sombrio",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "PayDay",
+    "nome": "Diado Pagamento",
+    "nomeOriginal": "PayDay",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "PoisonSting",
+    "nome": "Picada Venenosa",
+    "nomeOriginal": "PoisonSting",
+    "tipo": "Venenoso",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "PowerSwap",
+    "nome": "Trocade Poderes",
+    "nomeOriginal": "PowerSwap",
+    "tipo": "Psíquico",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "PowerTrick",
+    "nome": "Truqueda Troca",
+    "nomeOriginal": "PowerTrick",
+    "tipo": "Psíquico",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "PowerTrip",
+    "nome": "Topadade Poder",
+    "nomeOriginal": "PowerTrip",
+    "tipo": "Sombrio",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "PowerWhip",
+    "nome": "Chicote Poderoso",
+    "nomeOriginal": "PowerWhip",
+    "tipo": "Grama",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Power-UpPunch",
+    "nome": "Soco Empoderador",
+    "nomeOriginal": "Power-UpPunch",
+    "tipo": "Lutador",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "PsychoShift",
+    "nome": "Mudança Psíquica",
+    "nomeOriginal": "PsychoShift",
+    "tipo": "Psíquico",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Psyshock",
+    "nome": "Choque Psíquico",
+    "nomeOriginal": "Psyshock",
+    "tipo": "Psíquico",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Psystrike",
+    "nome": "Golpe Psíquico",
+    "nomeOriginal": "Psystrike",
+    "tipo": "Psíquico",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Psywave",
+    "nome": "Onda Psíquica",
+    "nomeOriginal": "Psywave",
+    "tipo": "Psíquico",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Punishment",
+    "nome": "Punição",
+    "nomeOriginal": "Punishment",
+    "tipo": "Sombrio",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "QuickAttack",
+    "nome": "Ataque Rápido",
+    "nomeOriginal": "QuickAttack",
+    "tipo": "Normal",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "QuickGuard",
+    "nome": "Prevenção",
+    "nomeOriginal": "QuickGuard",
+    "tipo": "Lutador",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "RazorShell",
+    "nome": "Concha Navalha",
+    "nomeOriginal": "RazorShell",
+    "tipo": "Água",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Recover",
+    "nome": "Recuperação",
+    "nomeOriginal": "Recover",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Retaliate",
+    "nome": "Retaliação",
+    "nomeOriginal": "Retaliate",
+    "tipo": "Normal",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Return",
+    "nome": "Retorno",
+    "nomeOriginal": "Return",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Revenge",
+    "nome": "Vingança",
+    "nomeOriginal": "Revenge",
+    "tipo": "Lutador",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "RoarofTime",
+    "nome": "Rugidodo Tempo",
+    "nomeOriginal": "RoarofTime",
+    "tipo": "Dragão",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "RockBlast",
+    "nome": "Explosãode Rocha",
+    "nomeOriginal": "RockBlast",
+    "tipo": "Pedra",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "RockWrecker",
+    "nome": "Demolidorde Pedras",
+    "nomeOriginal": "RockWrecker",
+    "tipo": "Pedra",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "SacredSword",
+    "nome": "Espada Sagrada",
+    "nomeOriginal": "SacredSword",
+    "tipo": "Lutador",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Safeguard",
+    "nome": "Salvaguarda",
+    "nomeOriginal": "Safeguard",
+    "tipo": "Normal",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "SandAttack",
+    "nome": "Ataquede Areia",
+    "nomeOriginal": "SandAttack",
+    "tipo": "Terra",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Screech",
+    "nome": "Agudo",
+    "nomeOriginal": "Screech",
+    "tipo": "Normal",
+    "pp": 20,
+    "descricao": ""
+  },
+  {
+    "id": "SearingShot",
+    "nome": "Tiro Secante",
+    "nomeOriginal": "SearingShot",
+    "tipo": "Fogo",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Self-Destruct",
+    "nome": "Autodestruição",
+    "nomeOriginal": "Self-Destruct",
+    "tipo": "Normal",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "ShadowBone",
+    "nome": "Osso Sombrio",
+    "nomeOriginal": "ShadowBone",
+    "tipo": "Fantasma",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "ShadowClaw",
+    "nome": "Garra Sombria",
+    "nomeOriginal": "ShadowClaw",
+    "tipo": "Fantasma",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "ShadowForce",
+    "nome": "Força Sombria",
+    "nomeOriginal": "ShadowForce",
+    "tipo": "Fantasma",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "SheerCold",
+    "nome": "Frio Extremo",
+    "nomeOriginal": "SheerCold",
+    "tipo": "Gelo",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "SimpleBeam",
+    "nome": "Raio Simplificador",
+    "nomeOriginal": "SimpleBeam",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Sing",
+    "nome": "Cançãode Ninar",
+    "nomeOriginal": "Sing",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Sketch",
+    "nome": "Rascunho",
+    "nomeOriginal": "Sketch",
+    "tipo": "Normal",
+    "pp": 1,
+    "descricao": ""
+  },
+  {
+    "id": "SkyAttack",
+    "nome": "Ataquedo Céu",
+    "nomeOriginal": "SkyAttack",
+    "tipo": "Voador",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "SludgeWave",
+    "nome": "Ondade Lama",
+    "nomeOriginal": "SludgeWave",
+    "tipo": "Venenoso",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "SmackDown",
+    "nome": "Derrubada",
+    "nomeOriginal": "SmackDown",
+    "tipo": "Pedra",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "SmellingSalts",
+    "nome": "Essência Salgada",
+    "nomeOriginal": "SmellingSalts",
+    "tipo": "Normal",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Snatch",
+    "nome": "Arrebatar",
+    "nomeOriginal": "Snatch",
+    "tipo": "Sombrio",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Snore",
+    "nome": "Roncar",
+    "nomeOriginal": "Snore",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Soak",
+    "nome": "Ensopar",
+    "nomeOriginal": "Soak",
+    "tipo": "Água",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Soft-Boiled",
+    "nome": "Ovode Cura",
+    "nomeOriginal": "Soft-Boiled",
+    "tipo": "Normal",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "SolarBeam",
+    "nome": "Raio Solar",
+    "nomeOriginal": "SolarBeam",
+    "tipo": "Grama",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "SolarBlade",
+    "nome": "Lâmina Solar",
+    "nomeOriginal": "SolarBlade",
+    "tipo": "Grama",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "SparklingAria",
+    "nome": "Ária Cintilante",
+    "nomeOriginal": "SparklingAria",
+    "tipo": "Água",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "SpectralThief",
+    "nome": "Ladrão Espectral",
+    "nomeOriginal": "SpectralThief",
+    "tipo": "Fantasma",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "SpeedSwap",
+    "nome": "Trocade Velocidade",
+    "nomeOriginal": "SpeedSwap",
+    "tipo": "Psíquico",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "SpiderWeb",
+    "nome": "Teiade Aranha",
+    "nomeOriginal": "SpiderWeb",
+    "tipo": "Inseto",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "SpitUp",
+    "nome": "Liberação",
+    "nomeOriginal": "SpitUp",
+    "tipo": "Normal",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "Splash",
+    "nome": "Saltitar",
+    "nomeOriginal": "Splash",
+    "tipo": "Normal",
+    "pp": 20,
+    "descricao": ""
+  },
+  {
+    "id": "Spotlight",
+    "nome": "Holofote",
+    "nomeOriginal": "Spotlight",
+    "tipo": "Normal",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "StickyWeb",
+    "nome": "Teia Pegajosa",
+    "nomeOriginal": "StickyWeb",
+    "tipo": "Inseto",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Stockpile",
+    "nome": "Estocagem",
+    "nomeOriginal": "Stockpile",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Stomp",
+    "nome": "Pisotear",
+    "nomeOriginal": "Stomp",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "StrengthSap",
+    "nome": "Seiva Forte",
+    "nomeOriginal": "StrengthSap",
+    "tipo": "Grama",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "StringShot",
+    "nome": "Jatode Seda",
+    "nomeOriginal": "StringShot",
+    "tipo": "Inseto",
+    "pp": 20,
+    "descricao": ""
+  },
+  {
+    "id": "StunSpore",
+    "nome": "Esporos Atordoantes",
+    "nomeOriginal": "StunSpore",
+    "tipo": "Grama",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "SuckerPunch",
+    "nome": "Soco Surpresa",
+    "nomeOriginal": "SuckerPunch",
+    "tipo": "Sombrio",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "SunnyDay",
+    "nome": "Dia Ensolarado",
+    "nomeOriginal": "SunnyDay",
+    "tipo": "Fogo",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "TailGlow",
+    "nome": "Brilhode Cauda",
+    "nomeOriginal": "TailGlow",
+    "tipo": "Inseto",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "TailSlap",
+    "nome": "Tapade Cauda",
+    "nomeOriginal": "TailSlap",
+    "tipo": "Normal",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "TailWhip",
+    "nome": "Chicotede Cauda",
+    "nomeOriginal": "TailWhip",
+    "tipo": "Normal",
+    "pp": 15,
+    "descricao": ""
+  },
+  {
+    "id": "Tailwind",
+    "nome": "Caudade Vento",
+    "nomeOriginal": "Tailwind",
+    "tipo": "Voador",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "ThroatChop",
+    "nome": "Golpe Enfeitiçado",
+    "nomeOriginal": "ThroatChop",
+    "tipo": "Sombrio",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Topsy-Turvy",
+    "nome": "Reversão",
+    "nomeOriginal": "Topsy-Turvy",
+    "tipo": "Sombrio",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "ToxicSpikes",
+    "nome": "Espinhos Venenosos",
+    "nomeOriginal": "ToxicSpikes",
+    "tipo": "Venenoso",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Uproar",
+    "nome": "Tumulto",
+    "nomeOriginal": "Uproar",
+    "tipo": "Normal",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "V-Create",
+    "nome": "Criação- V",
+    "nomeOriginal": "V-Create",
+    "tipo": "Fogo",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "VacuumWave",
+    "nome": "Ondade Vácuo",
+    "nomeOriginal": "VacuumWave",
+    "tipo": "Lutador",
+    "pp": 20,
+    "descricao": ""
+  },
+  {
+    "id": "VenomDrench",
+    "nome": "Poção Venenosa",
+    "nomeOriginal": "VenomDrench",
+    "tipo": "Venenoso",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Will-O-Wisp",
+    "nome": "Fogo Fátuo",
+    "nomeOriginal": "Will-O-Wisp",
+    "tipo": "Fogo",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "Withdraw",
+    "nome": "Retirada",
+    "nomeOriginal": "Withdraw",
+    "tipo": "Água",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "WringOut",
+    "nome": "Despedaçar",
+    "nomeOriginal": "WringOut",
+    "tipo": "Normal",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "Yawn",
+    "nome": "Bocejo",
+    "nomeOriginal": "Yawn",
+    "tipo": "Normal",
+    "pp": 5,
+    "descricao": ""
+  },
+  {
+    "id": "ZapCannon",
+    "nome": "Canhão Elétrico",
+    "nomeOriginal": "ZapCannon",
+    "tipo": "Elétrico",
+    "pp": 3,
+    "descricao": ""
+  },
+  {
+    "id": "custom-tackle",
+    "nome": "Tackle",
+    "nomeOriginal": "Tackle",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-growl",
+    "nome": "Growl",
+    "nomeOriginal": "Growl",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-vine-whip",
+    "nome": "Vine Whip",
+    "nomeOriginal": "Vine Whip",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-leech-seed",
+    "nome": "Leech Seed",
+    "nomeOriginal": "Leech Seed",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-poison-powder",
+    "nome": "Poison Powder",
+    "nomeOriginal": "Poison Powder",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sleep-powder",
+    "nome": "Sleep Powder",
+    "nomeOriginal": "Sleep Powder",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-take-down",
+    "nome": "Take Down",
+    "nomeOriginal": "Take Down",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-razor-leaf",
+    "nome": "Razor Leaf",
+    "nomeOriginal": "Razor Leaf",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sweet-scent",
+    "nome": "Sweet Scent",
+    "nomeOriginal": "Sweet Scent",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-worry-seed",
+    "nome": "Worry Seed",
+    "nomeOriginal": "Worry Seed",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-synthesis",
+    "nome": "Synthesis",
+    "nomeOriginal": "Synthesis",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-seed-bomb",
+    "nome": "Seed Bomb",
+    "nomeOriginal": "Seed Bomb",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-solar-beam",
+    "nome": "Solar Beam",
+    "nomeOriginal": "Solar Beam",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-petal-dance",
+    "nome": "Petal Dance",
+    "nomeOriginal": "Petal Dance",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-petal-blizzard",
+    "nome": "Petal Blizzard",
+    "nomeOriginal": "Petal Blizzard",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-scratch",
+    "nome": "Scratch",
+    "nomeOriginal": "Scratch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-smokescreen",
+    "nome": "Smokescreen",
+    "nomeOriginal": "Smokescreen",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-dragon-rage",
+    "nome": "Dragon Rage",
+    "nomeOriginal": "Dragon Rage",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-scary-face",
+    "nome": "Scary Face",
+    "nomeOriginal": "Scary Face",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-fire-fang",
+    "nome": "Fire Fang",
+    "nomeOriginal": "Fire Fang",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-slash",
+    "nome": "Slash",
+    "nomeOriginal": "Slash",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-flame-burst",
+    "nome": "Flame Burst",
+    "nomeOriginal": "Flame Burst",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-fire-spin",
+    "nome": "Fire Spin",
+    "nomeOriginal": "Fire Spin",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-inferno",
+    "nome": "Inferno",
+    "nomeOriginal": "Inferno",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-air-slash",
+    "nome": "Air Slash",
+    "nomeOriginal": "Air Slash",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-dragon-claw",
+    "nome": "Dragon Claw",
+    "nomeOriginal": "Dragon Claw",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-shadow-claw",
+    "nome": "Shadow Claw",
+    "nomeOriginal": "Shadow Claw",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-wing-attack",
+    "nome": "Wing Attack",
+    "nomeOriginal": "Wing Attack",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-heat-wave",
+    "nome": "Heat Wave",
+    "nomeOriginal": "Heat Wave",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-flare-blitz",
+    "nome": "Flare Blitz",
+    "nomeOriginal": "Flare Blitz",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-tail-whip",
+    "nome": "Tail Whip",
+    "nomeOriginal": "Tail Whip",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-water-gun",
+    "nome": "Water Gun",
+    "nomeOriginal": "Water Gun",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-bubble",
+    "nome": "Bubble",
+    "nomeOriginal": "Bubble",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-bite",
+    "nome": "Bite",
+    "nomeOriginal": "Bite",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-rapid-spin",
+    "nome": "Rapid Spin",
+    "nomeOriginal": "Rapid Spin",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-protect",
+    "nome": "Protect",
+    "nomeOriginal": "Protect",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-water-pulse",
+    "nome": "Water Pulse",
+    "nomeOriginal": "Water Pulse",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-aqua-tail",
+    "nome": "Aqua Tail",
+    "nomeOriginal": "Aqua Tail",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-skull-bash",
+    "nome": "Skull Bash",
+    "nomeOriginal": "Skull Bash",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-iron-defense",
+    "nome": "Iron Defense",
+    "nomeOriginal": "Iron Defense",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-rain-dance",
+    "nome": "Rain Dance",
+    "nomeOriginal": "Rain Dance",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-hydro-pump",
+    "nome": "Hydro Pump",
+    "nomeOriginal": "Hydro Pump",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-flash-cannon",
+    "nome": "Flash Cannon",
+    "nomeOriginal": "Flash Cannon",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-string-shot",
+    "nome": "String Shot",
+    "nomeOriginal": "String Shot",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-bug-bite",
+    "nome": "Bug Bite",
+    "nomeOriginal": "Bug Bite",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-harden",
+    "nome": "Harden",
+    "nomeOriginal": "Harden",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-confusion",
+    "nome": "Confusion",
+    "nomeOriginal": "Confusion",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-gust",
+    "nome": "Gust",
+    "nomeOriginal": "Gust",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-stun-spore",
+    "nome": "Stun Spore",
+    "nomeOriginal": "Stun Spore",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-psybeam",
+    "nome": "Psybeam",
+    "nomeOriginal": "Psybeam",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-silver-wind",
+    "nome": "Silver Wind",
+    "nomeOriginal": "Silver Wind",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-supersonic",
+    "nome": "Supersonic",
+    "nomeOriginal": "Supersonic",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-whirlwind",
+    "nome": "Whirlwind",
+    "nomeOriginal": "Whirlwind",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-bug-buzz",
+    "nome": "Bug Buzz",
+    "nomeOriginal": "Bug Buzz",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-rage-powder",
+    "nome": "Rage Powder",
+    "nomeOriginal": "Rage Powder",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-quiver-dance",
+    "nome": "Quiver Dance",
+    "nomeOriginal": "Quiver Dance",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-poison-sting",
+    "nome": "Poison Sting",
+    "nomeOriginal": "Poison Sting",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-fury-attack",
+    "nome": "Fury Attack",
+    "nomeOriginal": "Fury Attack",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-twineedle",
+    "nome": "Twineedle",
+    "nomeOriginal": "Twineedle",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-rage",
+    "nome": "Rage",
+    "nomeOriginal": "Rage",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-pursuit",
+    "nome": "Pursuit",
+    "nomeOriginal": "Pursuit",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-focus-energy",
+    "nome": "Focus Energy",
+    "nomeOriginal": "Focus Energy",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-venoshock",
+    "nome": "Venoshock",
+    "nomeOriginal": "Venoshock",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-toxic-spikes",
+    "nome": "Toxic Spikes",
+    "nomeOriginal": "Toxic Spikes",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-pin-missile",
+    "nome": "Pin Missile",
+    "nomeOriginal": "Pin Missile",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-poison-jab",
+    "nome": "Poison Jab",
+    "nomeOriginal": "Poison Jab",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-fell-stinger",
+    "nome": "Fell Stinger",
+    "nomeOriginal": "Fell Stinger",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sand-attack",
+    "nome": "Sand Attack",
+    "nomeOriginal": "Sand Attack",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-quick-attack",
+    "nome": "Quick Attack",
+    "nomeOriginal": "Quick Attack",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-twister",
+    "nome": "Twister",
+    "nomeOriginal": "Twister",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-feather-dance",
+    "nome": "Feather Dance",
+    "nomeOriginal": "Feather Dance",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-roost",
+    "nome": "Roost",
+    "nomeOriginal": "Roost",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-mirror-move",
+    "nome": "Mirror Move",
+    "nomeOriginal": "Mirror Move",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-hurricane",
+    "nome": "Hurricane",
+    "nomeOriginal": "Hurricane",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-hyper-fang",
+    "nome": "Hyper Fang",
+    "nomeOriginal": "Hyper Fang",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-crunch",
+    "nome": "Crunch",
+    "nomeOriginal": "Crunch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sucker-punch",
+    "nome": "Sucker Punch",
+    "nomeOriginal": "Sucker Punch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-super-fang",
+    "nome": "Super Fang",
+    "nomeOriginal": "Super Fang",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-swords-dance",
+    "nome": "Swords Dance",
+    "nomeOriginal": "Swords Dance",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-peck",
+    "nome": "Peck",
+    "nomeOriginal": "Peck",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-leer",
+    "nome": "Leer",
+    "nomeOriginal": "Leer",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-aerial-ace",
+    "nome": "Aerial Ace",
+    "nomeOriginal": "Aerial Ace",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-drill-peck",
+    "nome": "Drill Peck",
+    "nomeOriginal": "Drill Peck",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-pluck",
+    "nome": "Pluck",
+    "nomeOriginal": "Pluck",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-drill-run",
+    "nome": "Drill Run",
+    "nomeOriginal": "Drill Run",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-wrap",
+    "nome": "Wrap",
+    "nomeOriginal": "Wrap",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-glare",
+    "nome": "Glare",
+    "nomeOriginal": "Glare",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-acid",
+    "nome": "Acid",
+    "nomeOriginal": "Acid",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-spit-up",
+    "nome": "Spit Up",
+    "nomeOriginal": "Spit Up",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-swallow",
+    "nome": "Swallow",
+    "nomeOriginal": "Swallow",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-acid-spray",
+    "nome": "Acid Spray",
+    "nomeOriginal": "Acid Spray",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-mud-bomb",
+    "nome": "Mud Bomb",
+    "nomeOriginal": "Mud Bomb",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-gastro-acid",
+    "nome": "Gastro Acid",
+    "nomeOriginal": "Gastro Acid",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-haze",
+    "nome": "Haze",
+    "nomeOriginal": "Haze",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-coil",
+    "nome": "Coil",
+    "nomeOriginal": "Coil",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-gunk-shot",
+    "nome": "Gunk Shot",
+    "nomeOriginal": "Gunk Shot",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-ice-fang",
+    "nome": "Ice Fang",
+    "nomeOriginal": "Ice Fang",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-thunder-fang",
+    "nome": "Thunder Fang",
+    "nomeOriginal": "Thunder Fang",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-thunder-shock",
+    "nome": "Thunder Shock",
+    "nomeOriginal": "Thunder Shock",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-play-nice",
+    "nome": "Play Nice",
+    "nomeOriginal": "Play Nice",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-electro-ball",
+    "nome": "Electro Ball",
+    "nomeOriginal": "Electro Ball",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-thunder-wave",
+    "nome": "Thunder Wave",
+    "nomeOriginal": "Thunder Wave",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-feint",
+    "nome": "Feint",
+    "nomeOriginal": "Feint",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-double-team",
+    "nome": "Double Team",
+    "nomeOriginal": "Double Team",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-spark",
+    "nome": "Spark",
+    "nomeOriginal": "Spark",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-discharge",
+    "nome": "Discharge",
+    "nomeOriginal": "Discharge",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-nuzzle",
+    "nome": "Nuzzle",
+    "nomeOriginal": "Nuzzle",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-slam",
+    "nome": "Slam",
+    "nomeOriginal": "Slam",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-thunderbolt",
+    "nome": "Thunderbolt",
+    "nomeOriginal": "Thunderbolt",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-wild-charge",
+    "nome": "Wild Charge",
+    "nomeOriginal": "Wild Charge",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-light-screen",
+    "nome": "Light Screen",
+    "nomeOriginal": "Light Screen",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-thunder",
+    "nome": "Thunder",
+    "nomeOriginal": "Thunder",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-defense-curl",
+    "nome": "Defense Curl",
+    "nomeOriginal": "Defense Curl",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-rollout",
+    "nome": "Rollout",
+    "nomeOriginal": "Rollout",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-fury-cutter",
+    "nome": "Fury Cutter",
+    "nomeOriginal": "Fury Cutter",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-magnitude",
+    "nome": "Magnitude",
+    "nomeOriginal": "Magnitude",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-swift",
+    "nome": "Swift",
+    "nomeOriginal": "Swift",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-fury-swipes",
+    "nome": "Fury Swipes",
+    "nomeOriginal": "Fury Swipes",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sand-tomb",
+    "nome": "Sand Tomb",
+    "nomeOriginal": "Sand Tomb",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-gyro-ball",
+    "nome": "Gyro Ball",
+    "nomeOriginal": "Gyro Ball",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sandstorm",
+    "nome": "Sandstorm",
+    "nomeOriginal": "Sandstorm",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-earthquake",
+    "nome": "Earthquake",
+    "nomeOriginal": "Earthquake",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-crush-claw",
+    "nome": "Crush Claw",
+    "nomeOriginal": "Crush Claw",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-double-kick",
+    "nome": "Double Kick",
+    "nomeOriginal": "Double Kick",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-helping-hand",
+    "nome": "Helping Hand",
+    "nomeOriginal": "Helping Hand",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-flatter",
+    "nome": "Flatter",
+    "nomeOriginal": "Flatter",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-poison-fang",
+    "nome": "Poison Fang",
+    "nomeOriginal": "Poison Fang",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-chip-away",
+    "nome": "Chip Away",
+    "nomeOriginal": "Chip Away",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-body-slam",
+    "nome": "Body Slam",
+    "nomeOriginal": "Body Slam",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-earth-power",
+    "nome": "Earth Power",
+    "nomeOriginal": "Earth Power",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-superpower",
+    "nome": "Superpower",
+    "nomeOriginal": "Superpower",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-horn-attack",
+    "nome": "Horn Attack",
+    "nomeOriginal": "Horn Attack",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-horn-drill",
+    "nome": "Horn Drill",
+    "nomeOriginal": "Horn Drill",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-thrash",
+    "nome": "Thrash",
+    "nomeOriginal": "Thrash",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-megahorn",
+    "nome": "Megahorn",
+    "nomeOriginal": "Megahorn",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-disarming-voice",
+    "nome": "Disarming Voice",
+    "nomeOriginal": "Disarming Voice",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-pound",
+    "nome": "Pound",
+    "nomeOriginal": "Pound",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-double-slap",
+    "nome": "Double Slap",
+    "nomeOriginal": "Double Slap",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-follow-me",
+    "nome": "Follow Me",
+    "nomeOriginal": "Follow Me",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-wake-up-slap",
+    "nome": "Wake-Up Slap",
+    "nomeOriginal": "Wake-Up Slap",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-stored-power",
+    "nome": "Stored Power",
+    "nomeOriginal": "Stored Power",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-metronome",
+    "nome": "Metronome",
+    "nomeOriginal": "Metronome",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-cosmic-power",
+    "nome": "Cosmic Power",
+    "nomeOriginal": "Cosmic Power",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-lucky-chant",
+    "nome": "Lucky Chant",
+    "nomeOriginal": "Lucky Chant",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-moonlight",
+    "nome": "Moonlight",
+    "nomeOriginal": "Moonlight",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-moonblast",
+    "nome": "Moonblast",
+    "nomeOriginal": "Moonblast",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-gravity",
+    "nome": "Gravity",
+    "nomeOriginal": "Gravity",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-meteor-mash",
+    "nome": "Meteor Mash",
+    "nomeOriginal": "Meteor Mash",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-healing-wish",
+    "nome": "Healing Wish",
+    "nomeOriginal": "Healing Wish",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-after-you",
+    "nome": "After You",
+    "nomeOriginal": "After You",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-roar",
+    "nome": "Roar",
+    "nomeOriginal": "Roar",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-baby-doll-eyes",
+    "nome": "Baby-Doll Eyes",
+    "nomeOriginal": "Baby-Doll Eyes",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-confuse-ray",
+    "nome": "Confuse Ray",
+    "nomeOriginal": "Confuse Ray",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-payback",
+    "nome": "Payback",
+    "nomeOriginal": "Payback",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-feint-attack",
+    "nome": "Feint Attack",
+    "nomeOriginal": "Feint Attack",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-imprison",
+    "nome": "Imprison",
+    "nomeOriginal": "Imprison",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-fire-blast",
+    "nome": "Fire Blast",
+    "nomeOriginal": "Fire Blast",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-grudge",
+    "nome": "Grudge",
+    "nomeOriginal": "Grudge",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-nasty-plot",
+    "nome": "Nasty Plot",
+    "nomeOriginal": "Nasty Plot",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-round",
+    "nome": "Round",
+    "nomeOriginal": "Round",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-rest",
+    "nome": "Rest",
+    "nomeOriginal": "Rest",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-mimic",
+    "nome": "Mimic",
+    "nomeOriginal": "Mimic",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-hyper-voice",
+    "nome": "Hyper Voice",
+    "nomeOriginal": "Hyper Voice",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-play-rough",
+    "nome": "Play Rough",
+    "nomeOriginal": "Play Rough",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-air-cutter",
+    "nome": "Air Cutter",
+    "nomeOriginal": "Air Cutter",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-mean-look",
+    "nome": "Mean Look",
+    "nomeOriginal": "Mean Look",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-leech-life",
+    "nome": "Leech Life",
+    "nomeOriginal": "Leech Life",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-quick-guard",
+    "nome": "Quick Guard",
+    "nomeOriginal": "Quick Guard",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-mega-drain",
+    "nome": "Mega Drain",
+    "nomeOriginal": "Mega Drain",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-giga-drain",
+    "nome": "Giga Drain",
+    "nomeOriginal": "Giga Drain",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-toxic",
+    "nome": "Toxic",
+    "nomeOriginal": "Toxic",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-natural-gift",
+    "nome": "Natural Gift",
+    "nomeOriginal": "Natural Gift",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-grassy-terrain",
+    "nome": "Grassy Terrain",
+    "nomeOriginal": "Grassy Terrain",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-aromatherapy",
+    "nome": "Aromatherapy",
+    "nomeOriginal": "Aromatherapy",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-spore",
+    "nome": "Spore",
+    "nomeOriginal": "Spore",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-x-scissor",
+    "nome": "X-Scissor",
+    "nomeOriginal": "X-Scissor",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-cross-poison",
+    "nome": "Cross Poison",
+    "nomeOriginal": "Cross Poison",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-foresight",
+    "nome": "Foresight",
+    "nomeOriginal": "Foresight",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-signal-beam",
+    "nome": "Signal Beam",
+    "nomeOriginal": "Signal Beam",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-zen-headbutt",
+    "nome": "Zen Headbutt",
+    "nomeOriginal": "Zen Headbutt",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-psychic",
+    "nome": "Psychic",
+    "nomeOriginal": "Psychic",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-bulldoze",
+    "nome": "Bulldoze",
+    "nomeOriginal": "Bulldoze",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-fissure",
+    "nome": "Fissure",
+    "nomeOriginal": "Fissure",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-night-slash",
+    "nome": "Night Slash",
+    "nomeOriginal": "Night Slash",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-tri-attack",
+    "nome": "Tri Attack",
+    "nomeOriginal": "Tri Attack",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-rototiller",
+    "nome": "Rototiller",
+    "nomeOriginal": "Rototiller",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-fake-out",
+    "nome": "Fake Out",
+    "nomeOriginal": "Fake Out",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-taunt",
+    "nome": "Taunt",
+    "nomeOriginal": "Taunt",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-pay-day",
+    "nome": "Pay Day",
+    "nomeOriginal": "Pay Day",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-switcheroo",
+    "nome": "Switcheroo",
+    "nomeOriginal": "Switcheroo",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-power-gem",
+    "nome": "Power Gem",
+    "nomeOriginal": "Power Gem",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-water-sport",
+    "nome": "Water Sport",
+    "nomeOriginal": "Water Sport",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-psych-up",
+    "nome": "Psych Up",
+    "nomeOriginal": "Psych Up",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-amnesia",
+    "nome": "Amnesia",
+    "nomeOriginal": "Amnesia",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-wonder-room",
+    "nome": "Wonder Room",
+    "nomeOriginal": "Wonder Room",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-aqua-jet",
+    "nome": "Aqua Jet",
+    "nomeOriginal": "Aqua Jet",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-me-first",
+    "nome": "Me First",
+    "nomeOriginal": "Me First",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-covet",
+    "nome": "Covet",
+    "nomeOriginal": "Covet",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-low-kick",
+    "nome": "Low Kick",
+    "nomeOriginal": "Low Kick",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-karate-chop",
+    "nome": "Karate Chop",
+    "nomeOriginal": "Karate Chop",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-seismic-toss",
+    "nome": "Seismic Toss",
+    "nomeOriginal": "Seismic Toss",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-swagger",
+    "nome": "Swagger",
+    "nomeOriginal": "Swagger",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-cross-chop",
+    "nome": "Cross Chop",
+    "nomeOriginal": "Cross Chop",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-stomping-tantrum",
+    "nome": "Stomping Tantrum",
+    "nomeOriginal": "Stomping Tantrum",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-close-combat",
+    "nome": "Close Combat",
+    "nomeOriginal": "Close Combat",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-final-gambit",
+    "nome": "Final Gambit",
+    "nomeOriginal": "Final Gambit",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-odor-sleuth",
+    "nome": "Odor Sleuth",
+    "nomeOriginal": "Odor Sleuth",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-flame-wheel",
+    "nome": "Flame Wheel",
+    "nomeOriginal": "Flame Wheel",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-reversal",
+    "nome": "Reversal",
+    "nomeOriginal": "Reversal",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-extreme-speed",
+    "nome": "Extreme Speed",
+    "nomeOriginal": "Extreme Speed",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-bubble-beam",
+    "nome": "Bubble Beam",
+    "nomeOriginal": "Bubble Beam",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-mud-shot",
+    "nome": "Mud Shot",
+    "nomeOriginal": "Mud Shot",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-belly-drum",
+    "nome": "Belly Drum",
+    "nomeOriginal": "Belly Drum",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-submission",
+    "nome": "Submission",
+    "nomeOriginal": "Submission",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-dynamic-punch",
+    "nome": "Dynamic Punch",
+    "nomeOriginal": "Dynamic Punch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-mind-reader",
+    "nome": "Mind Reader",
+    "nomeOriginal": "Mind Reader",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-circle-throw",
+    "nome": "Circle Throw",
+    "nomeOriginal": "Circle Throw",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-teleport",
+    "nome": "Teleport",
+    "nomeOriginal": "Teleport",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-kinesis",
+    "nome": "Kinesis",
+    "nomeOriginal": "Kinesis",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-miracle-eye",
+    "nome": "Miracle Eye",
+    "nomeOriginal": "Miracle Eye",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-reflect",
+    "nome": "Reflect",
+    "nomeOriginal": "Reflect",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-psycho-cut",
+    "nome": "Psycho Cut",
+    "nomeOriginal": "Psycho Cut",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-telekinesis",
+    "nome": "Telekinesis",
+    "nomeOriginal": "Telekinesis",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-ally-switch",
+    "nome": "Ally Switch",
+    "nomeOriginal": "Ally Switch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-role-play",
+    "nome": "Role Play",
+    "nomeOriginal": "Role Play",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-future-sight",
+    "nome": "Future Sight",
+    "nomeOriginal": "Future Sight",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-trick",
+    "nome": "Trick",
+    "nomeOriginal": "Trick",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-calm-mind",
+    "nome": "Calm Mind",
+    "nomeOriginal": "Calm Mind",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-low-sweep",
+    "nome": "Low Sweep",
+    "nomeOriginal": "Low Sweep",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-knock-off",
+    "nome": "Knock Off",
+    "nomeOriginal": "Knock Off",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-vital-throw",
+    "nome": "Vital Throw",
+    "nomeOriginal": "Vital Throw",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-dual-chop",
+    "nome": "Dual Chop",
+    "nomeOriginal": "Dual Chop",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-bulk-up",
+    "nome": "Bulk Up",
+    "nomeOriginal": "Bulk Up",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-strength",
+    "nome": "Strength",
+    "nomeOriginal": "Strength",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-wide-guard",
+    "nome": "Wide Guard",
+    "nomeOriginal": "Wide Guard",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-wring-out",
+    "nome": "Wring Out",
+    "nomeOriginal": "Wring Out",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-leaf-tornado",
+    "nome": "Leaf Tornado",
+    "nomeOriginal": "Leaf Tornado",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-leaf-storm",
+    "nome": "Leaf Storm",
+    "nomeOriginal": "Leaf Storm",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-leaf-blade",
+    "nome": "Leaf Blade",
+    "nomeOriginal": "Leaf Blade",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-constrict",
+    "nome": "Constrict",
+    "nomeOriginal": "Constrict",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-brine",
+    "nome": "Brine",
+    "nomeOriginal": "Brine",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sludge-wave",
+    "nome": "Sludge Wave",
+    "nomeOriginal": "Sludge Wave",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-reflect-type",
+    "nome": "Reflect Type",
+    "nomeOriginal": "Reflect Type",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-mud-sport",
+    "nome": "Mud Sport",
+    "nomeOriginal": "Mud Sport",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-rock-polish",
+    "nome": "Rock Polish",
+    "nomeOriginal": "Rock Polish",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-rock-throw",
+    "nome": "Rock Throw",
+    "nomeOriginal": "Rock Throw",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-smack-down",
+    "nome": "Smack Down",
+    "nomeOriginal": "Smack Down",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-stealth-rock",
+    "nome": "Stealth Rock",
+    "nomeOriginal": "Stealth Rock",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-rock-blast",
+    "nome": "Rock Blast",
+    "nomeOriginal": "Rock Blast",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-explosion",
+    "nome": "Explosion",
+    "nomeOriginal": "Explosion",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-stone-edge",
+    "nome": "Stone Edge",
+    "nomeOriginal": "Stone Edge",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-steamroller",
+    "nome": "Steamroller",
+    "nomeOriginal": "Steamroller",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-heavy-slam",
+    "nome": "Heavy Slam",
+    "nomeOriginal": "Heavy Slam",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-flame-charge",
+    "nome": "Flame Charge",
+    "nomeOriginal": "Flame Charge",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-bounce",
+    "nome": "Bounce",
+    "nomeOriginal": "Bounce",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-curse",
+    "nome": "Curse",
+    "nomeOriginal": "Curse",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-headbutt",
+    "nome": "Headbutt",
+    "nomeOriginal": "Headbutt",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-slack-off",
+    "nome": "Slack Off",
+    "nomeOriginal": "Slack Off",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-heal-pulse",
+    "nome": "Heal Pulse",
+    "nomeOriginal": "Heal Pulse",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-magnet-bomb",
+    "nome": "Magnet Bomb",
+    "nomeOriginal": "Magnet Bomb",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sonic-boom",
+    "nome": "Sonic Boom",
+    "nomeOriginal": "Sonic Boom",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-mirror-shot",
+    "nome": "Mirror Shot",
+    "nomeOriginal": "Mirror Shot",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-metal-sound",
+    "nome": "Metal Sound",
+    "nomeOriginal": "Metal Sound",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-magnet-rise",
+    "nome": "Magnet Rise",
+    "nomeOriginal": "Magnet Rise",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-zap-cannon",
+    "nome": "Zap Cannon",
+    "nomeOriginal": "Zap Cannon",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-electric-terrain",
+    "nome": "Electric Terrain",
+    "nomeOriginal": "Electric Terrain",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-acrobatics",
+    "nome": "Acrobatics",
+    "nomeOriginal": "Acrobatics",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-false-swipe",
+    "nome": "False Swipe",
+    "nomeOriginal": "False Swipe",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-brave-bird",
+    "nome": "Brave Bird",
+    "nomeOriginal": "Brave Bird",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-double-hit",
+    "nome": "Double Hit",
+    "nomeOriginal": "Double Hit",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-acupressure",
+    "nome": "Acupressure",
+    "nomeOriginal": "Acupressure",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-jump-kick",
+    "nome": "Jump Kick",
+    "nomeOriginal": "Jump Kick",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-icy-wind",
+    "nome": "Icy Wind",
+    "nomeOriginal": "Icy Wind",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-ice-shard",
+    "nome": "Ice Shard",
+    "nomeOriginal": "Ice Shard",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-aqua-ring",
+    "nome": "Aqua Ring",
+    "nomeOriginal": "Aqua Ring",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-aurora-beam",
+    "nome": "Aurora Beam",
+    "nomeOriginal": "Aurora Beam",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-dive",
+    "nome": "Dive",
+    "nomeOriginal": "Dive",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-ice-beam",
+    "nome": "Ice Beam",
+    "nomeOriginal": "Ice Beam",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sheer-cold",
+    "nome": "Sheer Cold",
+    "nomeOriginal": "Sheer Cold",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-poison-gas",
+    "nome": "Poison Gas",
+    "nomeOriginal": "Poison Gas",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sludge",
+    "nome": "Sludge",
+    "nomeOriginal": "Sludge",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sludge-bomb",
+    "nome": "Sludge Bomb",
+    "nomeOriginal": "Sludge Bomb",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-acid-armor",
+    "nome": "Acid Armor",
+    "nomeOriginal": "Acid Armor",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-venom-drench",
+    "nome": "Venom Drench",
+    "nomeOriginal": "Venom Drench",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-icicle-spear",
+    "nome": "Icicle Spear",
+    "nomeOriginal": "Icicle Spear",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-razor-shell",
+    "nome": "Razor Shell",
+    "nomeOriginal": "Razor Shell",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-whirlpool",
+    "nome": "Whirlpool",
+    "nomeOriginal": "Whirlpool",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-shell-smash",
+    "nome": "Shell Smash",
+    "nomeOriginal": "Shell Smash",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-spike-cannon",
+    "nome": "Spike Cannon",
+    "nomeOriginal": "Spike Cannon",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-spikes",
+    "nome": "Spikes",
+    "nomeOriginal": "Spikes",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-icicle-crash",
+    "nome": "Icicle Crash",
+    "nomeOriginal": "Icicle Crash",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-lick",
+    "nome": "Lick",
+    "nomeOriginal": "Lick",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-spite",
+    "nome": "Spite",
+    "nomeOriginal": "Spite",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-night-shade",
+    "nome": "Night Shade",
+    "nomeOriginal": "Night Shade",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-shadow-ball",
+    "nome": "Shadow Ball",
+    "nomeOriginal": "Shadow Ball",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-dream-eater",
+    "nome": "Dream Eater",
+    "nomeOriginal": "Dream Eater",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-dark-pulse",
+    "nome": "Dark Pulse",
+    "nomeOriginal": "Dark Pulse",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-destiny-bond",
+    "nome": "Destiny Bond",
+    "nomeOriginal": "Destiny Bond",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-nightmare",
+    "nome": "Nightmare",
+    "nomeOriginal": "Nightmare",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-shadow-punch",
+    "nome": "Shadow Punch",
+    "nomeOriginal": "Shadow Punch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-rock-tomb",
+    "nome": "Rock Tomb",
+    "nomeOriginal": "Rock Tomb",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-dragon-breath",
+    "nome": "Dragon Breath",
+    "nomeOriginal": "Dragon Breath",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-rock-slide",
+    "nome": "Rock Slide",
+    "nomeOriginal": "Rock Slide",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-iron-tail",
+    "nome": "Iron Tail",
+    "nomeOriginal": "Iron Tail",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-meditate",
+    "nome": "Meditate",
+    "nomeOriginal": "Meditate",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-synchronoise",
+    "nome": "Synchronoise",
+    "nomeOriginal": "Synchronoise",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-vice-grip",
+    "nome": "Vice Grip",
+    "nomeOriginal": "Vice Grip",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-metal-claw",
+    "nome": "Metal Claw",
+    "nomeOriginal": "Metal Claw",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-guillotine",
+    "nome": "Guillotine",
+    "nomeOriginal": "Guillotine",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-crabhammer",
+    "nome": "Crabhammer",
+    "nomeOriginal": "Crabhammer",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-flail",
+    "nome": "Flail",
+    "nomeOriginal": "Flail",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-eerie-impulse",
+    "nome": "Eerie Impulse",
+    "nomeOriginal": "Eerie Impulse",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-charge-beam",
+    "nome": "Charge Beam",
+    "nomeOriginal": "Charge Beam",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-mirror-coat",
+    "nome": "Mirror Coat",
+    "nomeOriginal": "Mirror Coat",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-magnetic-flux",
+    "nome": "Magnetic Flux",
+    "nomeOriginal": "Magnetic Flux",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-barrage",
+    "nome": "Barrage",
+    "nomeOriginal": "Barrage",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-bullet-seed",
+    "nome": "Bullet Seed",
+    "nomeOriginal": "Bullet Seed",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-egg-bomb",
+    "nome": "Egg Bomb",
+    "nomeOriginal": "Egg Bomb",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-wood-hammer",
+    "nome": "Wood Hammer",
+    "nomeOriginal": "Wood Hammer",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-bone-club",
+    "nome": "Bone Club",
+    "nomeOriginal": "Bone Club",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-bonemerang",
+    "nome": "Bonemerang",
+    "nomeOriginal": "Bonemerang",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-bone-rush",
+    "nome": "Bone Rush",
+    "nomeOriginal": "Bone Rush",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-rolling-kick",
+    "nome": "Rolling Kick",
+    "nomeOriginal": "Rolling Kick",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-brick-break",
+    "nome": "Brick Break",
+    "nomeOriginal": "Brick Break",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-high-jump-kick",
+    "nome": "High Jump Kick",
+    "nomeOriginal": "High Jump Kick",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-blaze-kick",
+    "nome": "Blaze Kick",
+    "nomeOriginal": "Blaze Kick",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-endure",
+    "nome": "Endure",
+    "nomeOriginal": "Endure",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-mega-kick",
+    "nome": "Mega Kick",
+    "nomeOriginal": "Mega Kick",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-comet-punch",
+    "nome": "Comet Punch",
+    "nomeOriginal": "Comet Punch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-bullet-punch",
+    "nome": "Bullet Punch",
+    "nomeOriginal": "Bullet Punch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-mach-punch",
+    "nome": "Mach Punch",
+    "nomeOriginal": "Mach Punch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-vacuum-wave",
+    "nome": "Vacuum Wave",
+    "nomeOriginal": "Vacuum Wave",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-fire-punch",
+    "nome": "Fire Punch",
+    "nomeOriginal": "Fire Punch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-ice-punch",
+    "nome": "Ice Punch",
+    "nomeOriginal": "Ice Punch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-thunder-punch",
+    "nome": "Thunder Punch",
+    "nomeOriginal": "Thunder Punch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sky-uppercut",
+    "nome": "Sky Uppercut",
+    "nomeOriginal": "Sky Uppercut",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-mega-punch",
+    "nome": "Mega Punch",
+    "nomeOriginal": "Mega Punch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-focus-punch",
+    "nome": "Focus Punch",
+    "nomeOriginal": "Focus Punch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-counter",
+    "nome": "Counter",
+    "nomeOriginal": "Counter",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-refresh",
+    "nome": "Refresh",
+    "nomeOriginal": "Refresh",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-power-whip",
+    "nome": "Power Whip",
+    "nomeOriginal": "Power Whip",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-smog",
+    "nome": "Smog",
+    "nomeOriginal": "Smog",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-clear-smog",
+    "nome": "Clear Smog",
+    "nomeOriginal": "Clear Smog",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-head-smash",
+    "nome": "Head Smash",
+    "nomeOriginal": "Head Smash",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-hammer-arm",
+    "nome": "Hammer Arm",
+    "nomeOriginal": "Hammer Arm",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-ingrain",
+    "nome": "Ingrain",
+    "nomeOriginal": "Ingrain",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-ancient-power",
+    "nome": "Ancient Power",
+    "nomeOriginal": "Ancient Power",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-tickle",
+    "nome": "Tickle",
+    "nomeOriginal": "Tickle",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-dizzy-punch",
+    "nome": "Dizzy Punch",
+    "nomeOriginal": "Dizzy Punch",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-dragon-pulse",
+    "nome": "Dragon Pulse",
+    "nomeOriginal": "Dragon Pulse",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-dragon-dance",
+    "nome": "Dragon Dance",
+    "nomeOriginal": "Dragon Dance",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-waterfall",
+    "nome": "Waterfall",
+    "nomeOriginal": "Waterfall",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-guard-swap",
+    "nome": "Guard Swap",
+    "nomeOriginal": "Guard Swap",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-magical-leaf",
+    "nome": "Magical Leaf",
+    "nomeOriginal": "Magical Leaf",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-misty-terrain",
+    "nome": "Misty Terrain",
+    "nomeOriginal": "Misty Terrain",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-power-swap",
+    "nome": "Power Swap",
+    "nomeOriginal": "Power Swap",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-copycat",
+    "nome": "Copycat",
+    "nomeOriginal": "Copycat",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-substitute",
+    "nome": "Substitute",
+    "nomeOriginal": "Substitute",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-recycle",
+    "nome": "Recycle",
+    "nomeOriginal": "Recycle",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-baton-pass",
+    "nome": "Baton Pass",
+    "nomeOriginal": "Baton Pass",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-razor-wind",
+    "nome": "Razor Wind",
+    "nomeOriginal": "Razor Wind",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-draining-kiss",
+    "nome": "Draining Kiss",
+    "nomeOriginal": "Draining Kiss",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-lovely-kiss",
+    "nome": "Lovely Kiss",
+    "nomeOriginal": "Lovely Kiss",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-powder-snow",
+    "nome": "Powder Snow",
+    "nomeOriginal": "Powder Snow",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-heart-stamp",
+    "nome": "Heart Stamp",
+    "nomeOriginal": "Heart Stamp",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-fake-tears",
+    "nome": "Fake Tears",
+    "nomeOriginal": "Fake Tears",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-perish-song",
+    "nome": "Perish Song",
+    "nomeOriginal": "Perish Song",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-blizzard",
+    "nome": "Blizzard",
+    "nomeOriginal": "Blizzard",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-shock-wave",
+    "nome": "Shock Wave",
+    "nomeOriginal": "Shock Wave",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sunny-day",
+    "nome": "Sunny Day",
+    "nomeOriginal": "Sunny Day",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-lava-plume",
+    "nome": "Lava Plume",
+    "nomeOriginal": "Lava Plume",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-storm-throw",
+    "nome": "Storm Throw",
+    "nomeOriginal": "Storm Throw",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-work-up",
+    "nome": "Work Up",
+    "nomeOriginal": "Work Up",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-giga-impact",
+    "nome": "Giga Impact",
+    "nomeOriginal": "Giga Impact",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-hyper-beam",
+    "nome": "Hyper Beam",
+    "nomeOriginal": "Hyper Beam",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-transform",
+    "nome": "Transform",
+    "nomeOriginal": "Transform",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-charm",
+    "nome": "Charm",
+    "nomeOriginal": "Charm",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-last-resort",
+    "nome": "Last Resort",
+    "nomeOriginal": "Last Resort",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-trump-card",
+    "nome": "Trump Card",
+    "nomeOriginal": "Trump Card",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-muddy-water",
+    "nome": "Muddy Water",
+    "nomeOriginal": "Muddy Water",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-conversion-2",
+    "nome": "Conversion 2",
+    "nomeOriginal": "Conversion 2",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sharpen",
+    "nome": "Sharpen",
+    "nomeOriginal": "Sharpen",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-magic-coat",
+    "nome": "Magic Coat",
+    "nomeOriginal": "Magic Coat",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-iron-head",
+    "nome": "Iron Head",
+    "nomeOriginal": "Iron Head",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sky-drop",
+    "nome": "Sky Drop",
+    "nomeOriginal": "Sky Drop",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sleep-talk",
+    "nome": "Sleep Talk",
+    "nomeOriginal": "Sleep Talk",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-high-horsepower",
+    "nome": "High Horsepower",
+    "nomeOriginal": "High Horsepower",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-block",
+    "nome": "Block",
+    "nomeOriginal": "Block",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-burn-up",
+    "nome": "Burn Up",
+    "nomeOriginal": "Burn Up",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-sky-attack",
+    "nome": "Sky Attack",
+    "nomeOriginal": "Sky Attack",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-dragon-tail",
+    "nome": "Dragon Tail",
+    "nomeOriginal": "Dragon Tail",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-dragon-rush",
+    "nome": "Dragon Rush",
+    "nomeOriginal": "Dragon Rush",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-aura-sphere",
+    "nome": "Aura Sphere",
+    "nomeOriginal": "Aura Sphere",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  },
+  {
+    "id": "custom-laser-focus",
+    "nome": "Laser Focus",
+    "nomeOriginal": "Laser Focus",
+    "tipo": "Normal",
+    "pp": 10,
+    "descricao": ""
+  }
+]

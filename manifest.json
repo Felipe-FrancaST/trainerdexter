@@ -1,0 +1,17 @@
+{
+  "name": "TrainerDex • Mestre Pokémon",
+  "short_name": "TrainerDex",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#eef3f7",
+  "theme_color": "#121922",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "img/icons/trainerdex-home.png",
+      "sizes": "2048x2048",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

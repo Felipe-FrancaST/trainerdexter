@@ -1,0 +1,11 @@
+# TrainerDex v23 — SR, CA e Vida por Dado
+
+Alterações desta versão:
+- Cada Pokémon possui **SR (raridade)** e **CA** editáveis pelo Mestre.
+- Cada Pokémon possui **Dado de Vida** editável (d4, d6, d8, d10, d12 ou d20).
+- A **Vida padrão** é definida para o nível 1.
+- Vida máxima: `Vida do nível 1 + (nível - 1) × valor máximo do Dado de Vida`.
+- Exemplo: Vida 40 + d10 → nível 1 = 40 HP, nível 2 = 50 HP, nível 3 = 60 HP.
+- Ao subir de nível, o HP máximo aumenta automaticamente e o HP atual recebe o mesmo aumento, mantendo o dano já sofrido.
+- NPCs também usam automaticamente a vida calculada pelo nível e dado de vida.
+- Mantidos os sistemas anteriores de habilidades, ataques, capturas, evolução e batalha.
