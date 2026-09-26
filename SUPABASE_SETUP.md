@@ -31,3 +31,7 @@ O site aceita imagens de até 8 MB por arquivo.
 ## Observação de segurança
 
 O projeto atual ainda usa o login Mestre/Jogador implementado no frontend, porque essa mudança preserva a aplicação existente. Portanto, as credenciais não devem ser consideradas uma autenticação forte de produção. O próximo passo, se quiser, é migrar o login para **Supabase Auth + RLS por campanha/jogador**.
+
+
+## Correção Time + PC
+Se a coluna `in_team` já foi criada, rode `SUPABASE_PC_CORRECAO.sql` no SQL Editor do Supabase para atualizar as RPCs de carregamento e salvamento do Time/PC.
