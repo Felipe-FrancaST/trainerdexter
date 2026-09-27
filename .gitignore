@@ -1,0 +1,14 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Dependências / builds (se adicionados futuramente)
+node_modules/
+dist/
+build/
+.next/
+
+# Arquivos locais e segredos
+.env
+.env.*
+!.env.example
