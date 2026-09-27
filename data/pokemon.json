@@ -385,14 +385,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Solar Beam",
-        "nomeOriginal": "Solar Beam",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raio Solar",
+        "nomeOriginal": "SolarBeam",
+        "tipo": "Grama",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-solar-beam"
+        "moveId": "SolarBeam"
       }
     ],
     "evolutionType": "evolution",
@@ -608,14 +608,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Solar Beam",
-        "nomeOriginal": "Solar Beam",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raio Solar",
+        "nomeOriginal": "SolarBeam",
+        "tipo": "Grama",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-solar-beam"
+        "moveId": "SolarBeam"
       },
       {
         "nivel": 18,
@@ -799,14 +799,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Fire Spin",
-        "nomeOriginal": "Fire Spin",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Furacãode Chamas",
+        "nomeOriginal": "FireSpin",
+        "tipo": "Fogo",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-fire-spin"
+        "moveId": "FireSpin"
       },
       {
         "nivel": 18,
@@ -986,14 +986,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Fire Spin",
-        "nomeOriginal": "Fire Spin",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Furacãode Chamas",
+        "nomeOriginal": "FireSpin",
+        "tipo": "Fogo",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-fire-spin"
+        "moveId": "FireSpin"
       },
       {
         "nivel": 18,
@@ -1120,14 +1120,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Shadow Claw",
-        "nomeOriginal": "Shadow Claw",
-        "tipo": "Normal",
+        "nome": "Garra Sombria",
+        "nomeOriginal": "ShadowClaw",
+        "tipo": "Fantasma",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-shadow-claw"
+        "moveId": "ShadowClaw"
       },
       {
         "nivel": 1,
@@ -1219,14 +1219,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Fire Spin",
-        "nomeOriginal": "Fire Spin",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Furacãode Chamas",
+        "nomeOriginal": "FireSpin",
+        "tipo": "Fogo",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-fire-spin"
+        "moveId": "FireSpin"
       },
       {
         "nivel": 18,
@@ -1252,14 +1252,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Flare Blitz",
-        "nomeOriginal": "Flare Blitz",
-        "tipo": "Normal",
+        "nome": "Blitzde Labaredas",
+        "nomeOriginal": "FlareBlitz",
+        "tipo": "Fogo",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-flare-blitz"
+        "moveId": "FlareBlitz"
       }
     ],
     "evolutionType": "evolution",
@@ -1330,14 +1330,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 2,
@@ -1462,14 +1462,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       }
     ],
     "evolutionType": "basic",
@@ -1536,14 +1536,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -1668,14 +1668,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       }
     ],
     "evolutionType": "evolution",
@@ -1754,14 +1754,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -1886,14 +1886,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       }
     ],
     "evolutionType": "evolution",
@@ -1951,14 +1951,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "String Shot",
-        "nomeOriginal": "String Shot",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Jatode Seda",
+        "nomeOriginal": "StringShot",
+        "tipo": "Inseto",
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-string-shot"
+        "moveId": "StringShot"
       },
       {
         "nivel": 1,
@@ -1973,14 +1973,14 @@
       },
       {
         "nivel": 2,
-        "nome": "Bug Bite",
-        "nomeOriginal": "Bug Bite",
-        "tipo": "Normal",
+        "nome": "Mordidade Inseto",
+        "nomeOriginal": "BugBite",
+        "tipo": "Inseto",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-bug-bite"
+        "moveId": "BugBite"
       }
     ],
     "evolutionType": "basic",
@@ -2145,14 +2145,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Stun Spore",
-        "nomeOriginal": "Stun Spore",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Esporos Atordoantes",
+        "nomeOriginal": "StunSpore",
+        "tipo": "Grama",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-stun-spore"
+        "moveId": "StunSpore"
       },
       {
         "nivel": 6,
@@ -2336,36 +2336,36 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Poison Sting",
-        "nomeOriginal": "Poison Sting",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Picada Venenosa",
+        "nomeOriginal": "PoisonSting",
+        "tipo": "Venenoso",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-poison-sting"
+        "moveId": "PoisonSting"
       },
       {
         "nivel": 1,
-        "nome": "String Shot",
-        "nomeOriginal": "String Shot",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Jatode Seda",
+        "nomeOriginal": "StringShot",
+        "tipo": "Inseto",
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-string-shot"
+        "moveId": "StringShot"
       },
       {
         "nivel": 2,
-        "nome": "Bug Bite",
-        "nomeOriginal": "Bug Bite",
-        "tipo": "Normal",
+        "nome": "Mordidade Inseto",
+        "nomeOriginal": "BugBite",
+        "tipo": "Inseto",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-bug-bite"
+        "moveId": "BugBite"
       }
     ],
     "evolutionType": "basic",
@@ -2564,14 +2564,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Toxic Spikes",
-        "nomeOriginal": "Toxic Spikes",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Espinhos Venenosos",
+        "nomeOriginal": "ToxicSpikes",
+        "tipo": "Venenoso",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-toxic-spikes"
+        "moveId": "ToxicSpikes"
       },
       {
         "nivel": 14,
@@ -2699,14 +2699,14 @@
       },
       {
         "nivel": 2,
-        "nome": "Sand Attack",
-        "nomeOriginal": "Sand Attack",
-        "tipo": "Normal",
+        "nome": "Ataquede Areia",
+        "nomeOriginal": "SandAttack",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-sand-attack"
+        "moveId": "SandAttack"
       },
       {
         "nivel": 2,
@@ -2721,14 +2721,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 6,
@@ -2907,14 +2907,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Sand Attack",
-        "nomeOriginal": "Sand Attack",
-        "tipo": "Normal",
+        "nome": "Ataquede Areia",
+        "nomeOriginal": "SandAttack",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-sand-attack"
+        "moveId": "SandAttack"
       },
       {
         "nivel": 1,
@@ -2929,14 +2929,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 6,
@@ -3116,25 +3116,25 @@
       },
       {
         "nivel": 1,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 1,
-        "nome": "Sand Attack",
-        "nomeOriginal": "Sand Attack",
-        "tipo": "Normal",
+        "nome": "Ataquede Areia",
+        "nomeOriginal": "SandAttack",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-sand-attack"
+        "moveId": "SandAttack"
       },
       {
         "nivel": 1,
@@ -3319,25 +3319,25 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 2,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 2,
@@ -3407,14 +3407,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Sucker Punch",
-        "nomeOriginal": "Sucker Punch",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Soco Surpresa",
+        "nomeOriginal": "SuckerPunch",
+        "tipo": "Sombrio",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-sucker-punch"
+        "moveId": "SuckerPunch"
       },
       {
         "nivel": 14,
@@ -3502,14 +3502,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 1,
@@ -3524,14 +3524,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -3623,14 +3623,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Sucker Punch",
-        "nomeOriginal": "Sucker Punch",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Soco Surpresa",
+        "nomeOriginal": "SuckerPunch",
+        "tipo": "Sombrio",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-sucker-punch"
+        "moveId": "SuckerPunch"
       },
       {
         "nivel": 14,
@@ -3780,14 +3780,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Aerial Ace",
-        "nomeOriginal": "Aerial Ace",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Golpe Aéreo",
+        "nomeOriginal": "AerialAce",
+        "tipo": "Voador",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-aerial-ace"
+        "moveId": "AerialAce"
       },
       {
         "nivel": 6,
@@ -3977,14 +3977,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Aerial Ace",
-        "nomeOriginal": "Aerial Ace",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Golpe Aéreo",
+        "nomeOriginal": "AerialAce",
+        "tipo": "Voador",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-aerial-ace"
+        "moveId": "AerialAce"
       },
       {
         "nivel": 6,
@@ -4054,14 +4054,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Drill Run",
-        "nomeOriginal": "Drill Run",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Broca Veloz",
+        "nomeOriginal": "DrillRun",
+        "tipo": "Terra",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-drill-run"
+        "moveId": "DrillRun"
       }
     ],
     "evolutionType": "evolution",
@@ -4142,14 +4142,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Poison Sting",
-        "nomeOriginal": "Poison Sting",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Picada Venenosa",
+        "nomeOriginal": "PoisonSting",
+        "tipo": "Venenoso",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-poison-sting"
+        "moveId": "PoisonSting"
       },
       {
         "nivel": 2,
@@ -4197,14 +4197,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Spit Up",
-        "nomeOriginal": "Spit Up",
+        "nome": "Liberação",
+        "nomeOriginal": "SpitUp",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-spit-up"
+        "moveId": "SpitUp"
       },
       {
         "nivel": 10,
@@ -4241,25 +4241,25 @@
       },
       {
         "nivel": 14,
-        "nome": "Mud Bomb",
-        "nomeOriginal": "Mud Bomb",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Bombade Lama",
+        "nomeOriginal": "MudBomb",
+        "tipo": "Terra",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-mud-bomb"
+        "moveId": "MudBomb"
       },
       {
         "nivel": 14,
-        "nome": "Gastro Acid",
-        "nomeOriginal": "Gastro Acid",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Ácido Gástrico",
+        "nomeOriginal": "GastroAcid",
+        "tipo": "Venenoso",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-gastro-acid"
+        "moveId": "GastroAcid"
       },
       {
         "nivel": 18,
@@ -4419,14 +4419,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Poison Sting",
-        "nomeOriginal": "Poison Sting",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Picada Venenosa",
+        "nomeOriginal": "PoisonSting",
+        "tipo": "Venenoso",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-poison-sting"
+        "moveId": "PoisonSting"
       },
       {
         "nivel": 1,
@@ -4485,14 +4485,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Spit Up",
-        "nomeOriginal": "Spit Up",
+        "nome": "Liberação",
+        "nomeOriginal": "SpitUp",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-spit-up"
+        "moveId": "SpitUp"
       },
       {
         "nivel": 10,
@@ -4529,25 +4529,25 @@
       },
       {
         "nivel": 14,
-        "nome": "Mud Bomb",
-        "nomeOriginal": "Mud Bomb",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Bombade Lama",
+        "nomeOriginal": "MudBomb",
+        "tipo": "Terra",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-mud-bomb"
+        "moveId": "MudBomb"
       },
       {
         "nivel": 14,
-        "nome": "Gastro Acid",
-        "nomeOriginal": "Gastro Acid",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Ácido Gástrico",
+        "nomeOriginal": "GastroAcid",
+        "tipo": "Venenoso",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-gastro-acid"
+        "moveId": "GastroAcid"
       },
       {
         "nivel": 18,
@@ -4652,14 +4652,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -4696,14 +4696,14 @@
       },
       {
         "nivel": 2,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 6,
@@ -4903,25 +4903,25 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -4992,14 +4992,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Defense Curl",
-        "nomeOriginal": "Defense Curl",
+        "nome": "Espiralde Defesa",
+        "nomeOriginal": "DefenseCurl",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-defense-curl"
+        "moveId": "DefenseCurl"
       },
       {
         "nivel": 1,
@@ -5014,25 +5014,25 @@
       },
       {
         "nivel": 1,
-        "nome": "Sand Attack",
-        "nomeOriginal": "Sand Attack",
-        "tipo": "Normal",
+        "nome": "Ataquede Areia",
+        "nomeOriginal": "SandAttack",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-sand-attack"
+        "moveId": "SandAttack"
       },
       {
         "nivel": 2,
-        "nome": "Poison Sting",
-        "nomeOriginal": "Poison Sting",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Picada Venenosa",
+        "nomeOriginal": "PoisonSting",
+        "tipo": "Venenoso",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-poison-sting"
+        "moveId": "PoisonSting"
       },
       {
         "nivel": 2,
@@ -5223,47 +5223,47 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Crush Claw",
-        "nomeOriginal": "Crush Claw",
+        "nome": "Garra Esmagadora",
+        "nomeOriginal": "CrushClaw",
         "tipo": "Normal",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-crush-claw"
+        "moveId": "CrushClaw"
       },
       {
         "nivel": 1,
-        "nome": "Defense Curl",
-        "nomeOriginal": "Defense Curl",
+        "nome": "Espiralde Defesa",
+        "nomeOriginal": "DefenseCurl",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-defense-curl"
+        "moveId": "DefenseCurl"
       },
       {
         "nivel": 1,
-        "nome": "Poison Sting",
-        "nomeOriginal": "Poison Sting",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Picada Venenosa",
+        "nomeOriginal": "PoisonSting",
+        "tipo": "Venenoso",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-poison-sting"
+        "moveId": "PoisonSting"
       },
       {
         "nivel": 1,
-        "nome": "Sand Attack",
-        "nomeOriginal": "Sand Attack",
-        "tipo": "Normal",
+        "nome": "Ataquede Areia",
+        "nomeOriginal": "SandAttack",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-sand-attack"
+        "moveId": "SandAttack"
       },
       {
         "nivel": 1,
@@ -5498,14 +5498,14 @@
       },
       {
         "nivel": 2,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 2,
@@ -5520,14 +5520,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Poison Sting",
-        "nomeOriginal": "Poison Sting",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Picada Venenosa",
+        "nomeOriginal": "PoisonSting",
+        "tipo": "Venenoso",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-poison-sting"
+        "moveId": "PoisonSting"
       },
       {
         "nivel": 6,
@@ -5564,14 +5564,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Toxic Spikes",
-        "nomeOriginal": "Toxic Spikes",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Espinhos Venenosos",
+        "nomeOriginal": "ToxicSpikes",
+        "tipo": "Venenoso",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-toxic-spikes"
+        "moveId": "ToxicSpikes"
       },
       {
         "nivel": 14,
@@ -5695,14 +5695,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -5717,14 +5717,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Poison Sting",
-        "nomeOriginal": "Poison Sting",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Picada Venenosa",
+        "nomeOriginal": "PoisonSting",
+        "tipo": "Venenoso",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-poison-sting"
+        "moveId": "PoisonSting"
       },
       {
         "nivel": 10,
@@ -5761,14 +5761,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Toxic Spikes",
-        "nomeOriginal": "Toxic Spikes",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Espinhos Venenosos",
+        "nomeOriginal": "ToxicSpikes",
+        "tipo": "Venenoso",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-toxic-spikes"
+        "moveId": "ToxicSpikes"
       },
       {
         "nivel": 18,
@@ -5882,14 +5882,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Poison Sting",
-        "nomeOriginal": "Poison Sting",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Picada Venenosa",
+        "nomeOriginal": "PoisonSting",
+        "tipo": "Venenoso",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-poison-sting"
+        "moveId": "PoisonSting"
       },
       {
         "nivel": 1,
@@ -5904,14 +5904,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -6061,14 +6061,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Poison Sting",
-        "nomeOriginal": "Poison Sting",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Picada Venenosa",
+        "nomeOriginal": "PoisonSting",
+        "tipo": "Venenoso",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-poison-sting"
+        "moveId": "PoisonSting"
       },
       {
         "nivel": 6,
@@ -6105,14 +6105,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Toxic Spikes",
-        "nomeOriginal": "Toxic Spikes",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Espinhos Venenosos",
+        "nomeOriginal": "ToxicSpikes",
+        "tipo": "Venenoso",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-toxic-spikes"
+        "moveId": "ToxicSpikes"
       },
       {
         "nivel": 14,
@@ -6258,14 +6258,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Poison Sting",
-        "nomeOriginal": "Poison Sting",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Picada Venenosa",
+        "nomeOriginal": "PoisonSting",
+        "tipo": "Venenoso",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-poison-sting"
+        "moveId": "PoisonSting"
       },
       {
         "nivel": 10,
@@ -6302,14 +6302,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Toxic Spikes",
-        "nomeOriginal": "Toxic Spikes",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Espinhos Venenosos",
+        "nomeOriginal": "ToxicSpikes",
+        "tipo": "Venenoso",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-toxic-spikes"
+        "moveId": "ToxicSpikes"
       },
       {
         "nivel": 18,
@@ -6445,14 +6445,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Poison Sting",
-        "nomeOriginal": "Poison Sting",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Picada Venenosa",
+        "nomeOriginal": "PoisonSting",
+        "tipo": "Venenoso",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-poison-sting"
+        "moveId": "PoisonSting"
       },
       {
         "nivel": 1,
@@ -6622,36 +6622,36 @@
       },
       {
         "nivel": 2,
-        "nome": "Double Slap",
-        "nomeOriginal": "Double Slap",
+        "nome": "Tapa Duplo",
+        "nomeOriginal": "DoubleSlap",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-double-slap"
+        "moveId": "DoubleSlap"
       },
       {
         "nivel": 6,
-        "nome": "Defense Curl",
-        "nomeOriginal": "Defense Curl",
+        "nome": "Espiralde Defesa",
+        "nomeOriginal": "DefenseCurl",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-defense-curl"
+        "moveId": "DefenseCurl"
       },
       {
         "nivel": 6,
-        "nome": "Follow Me",
-        "nomeOriginal": "Follow Me",
+        "nome": "Isca- Viva",
+        "nomeOriginal": "FollowMe",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-follow-me"
+        "moveId": "FollowMe"
       },
       {
         "nivel": 6,
@@ -6787,25 +6787,25 @@
       },
       {
         "nivel": 18,
-        "nome": "Healing Wish",
-        "nomeOriginal": "Healing Wish",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Desejode Cura",
+        "nomeOriginal": "HealingWish",
+        "tipo": "Psíquico",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-healing-wish"
+        "moveId": "HealingWish"
       },
       {
         "nivel": 18,
-        "nome": "After You",
-        "nomeOriginal": "After You",
+        "nome": "Depoisde Você",
+        "nomeOriginal": "AfterYou",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-after-you"
+        "moveId": "AfterYou"
       }
     ],
     "evolutionType": "basic",
@@ -6875,14 +6875,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Double Slap",
-        "nomeOriginal": "Double Slap",
+        "nome": "Tapa Duplo",
+        "nomeOriginal": "DoubleSlap",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-double-slap"
+        "moveId": "DoubleSlap"
       },
       {
         "nivel": 1,
@@ -7000,14 +7000,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 2,
@@ -7033,36 +7033,36 @@
       },
       {
         "nivel": 2,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 6,
-        "nome": "Confuse Ray",
-        "nomeOriginal": "Confuse Ray",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raioda Confusão",
+        "nomeOriginal": "ConfuseRay",
+        "tipo": "Fantasma",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-confuse-ray"
+        "moveId": "ConfuseRay"
       },
       {
         "nivel": 6,
-        "nome": "Fire Spin",
-        "nomeOriginal": "Fire Spin",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Furacãode Chamas",
+        "nomeOriginal": "FireSpin",
+        "tipo": "Fogo",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-fire-spin"
+        "moveId": "FireSpin"
       },
       {
         "nivel": 6,
@@ -7267,14 +7267,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Confuse Ray",
-        "nomeOriginal": "Confuse Ray",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raioda Confusão",
+        "nomeOriginal": "ConfuseRay",
+        "tipo": "Fantasma",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-confuse-ray"
+        "moveId": "ConfuseRay"
       },
       {
         "nivel": 1,
@@ -7311,14 +7311,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 1,
@@ -7400,14 +7400,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Defense Curl",
-        "nomeOriginal": "Defense Curl",
+        "nome": "Espiralde Defesa",
+        "nomeOriginal": "DefenseCurl",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-defense-curl"
+        "moveId": "DefenseCurl"
       },
       {
         "nivel": 2,
@@ -7455,14 +7455,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Double Slap",
-        "nomeOriginal": "Double Slap",
+        "nome": "Tapa Duplo",
+        "nomeOriginal": "DoubleSlap",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-double-slap"
+        "moveId": "DoubleSlap"
       },
       {
         "nivel": 10,
@@ -7488,14 +7488,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Spit Up",
-        "nomeOriginal": "Spit Up",
+        "nome": "Liberação",
+        "nomeOriginal": "SpitUp",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-spit-up"
+        "moveId": "SpitUp"
       },
       {
         "nivel": 10,
@@ -7653,14 +7653,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Defense Curl",
-        "nomeOriginal": "Defense Curl",
+        "nome": "Espiralde Defesa",
+        "nomeOriginal": "DefenseCurl",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-defense-curl"
+        "moveId": "DefenseCurl"
       },
       {
         "nivel": 1,
@@ -7686,14 +7686,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Double Slap",
-        "nomeOriginal": "Double Slap",
+        "nome": "Tapa Duplo",
+        "nomeOriginal": "DoubleSlap",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-double-slap"
+        "moveId": "DoubleSlap"
       },
       {
         "nivel": 1,
@@ -7836,25 +7836,25 @@
       },
       {
         "nivel": 6,
-        "nome": "Confuse Ray",
-        "nomeOriginal": "Confuse Ray",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raioda Confusão",
+        "nomeOriginal": "ConfuseRay",
+        "tipo": "Fantasma",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-confuse-ray"
+        "moveId": "ConfuseRay"
       },
       {
         "nivel": 6,
-        "nome": "Air Cutter",
-        "nomeOriginal": "Air Cutter",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Ar Cortante",
+        "nomeOriginal": "AirCutter",
+        "tipo": "Voador",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-air-cutter"
+        "moveId": "AirCutter"
       },
       {
         "nivel": 10,
@@ -7935,14 +7935,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Quick Guard",
-        "nomeOriginal": "Quick Guard",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Prevenção",
+        "nomeOriginal": "QuickGuard",
+        "tipo": "Lutador",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-quick-guard"
+        "moveId": "QuickGuard"
       }
     ],
     "evolutionType": "basic",
@@ -8070,25 +8070,25 @@
       },
       {
         "nivel": 6,
-        "nome": "Confuse Ray",
-        "nomeOriginal": "Confuse Ray",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raioda Confusão",
+        "nomeOriginal": "ConfuseRay",
+        "tipo": "Fantasma",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-confuse-ray"
+        "moveId": "ConfuseRay"
       },
       {
         "nivel": 6,
-        "nome": "Air Cutter",
-        "nomeOriginal": "Air Cutter",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Ar Cortante",
+        "nomeOriginal": "AirCutter",
+        "tipo": "Voador",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-air-cutter"
+        "moveId": "AirCutter"
       },
       {
         "nivel": 10,
@@ -8169,14 +8169,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Quick Guard",
-        "nomeOriginal": "Quick Guard",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Prevenção",
+        "nomeOriginal": "QuickGuard",
+        "tipo": "Lutador",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-quick-guard"
+        "moveId": "QuickGuard"
       }
     ],
     "evolutionType": "evolution",
@@ -8290,14 +8290,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Stun Spore",
-        "nomeOriginal": "Stun Spore",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Esporos Atordoantes",
+        "nomeOriginal": "StunSpore",
+        "tipo": "Grama",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-stun-spore"
+        "moveId": "StunSpore"
       },
       {
         "nivel": 6,
@@ -8523,14 +8523,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Stun Spore",
-        "nomeOriginal": "Stun Spore",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Esporos Atordoantes",
+        "nomeOriginal": "StunSpore",
+        "tipo": "Grama",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-stun-spore"
+        "moveId": "StunSpore"
       },
       {
         "nivel": 6,
@@ -8735,14 +8735,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Stun Spore",
-        "nomeOriginal": "Stun Spore",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Esporos Atordoantes",
+        "nomeOriginal": "StunSpore",
+        "tipo": "Grama",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-stun-spore"
+        "moveId": "StunSpore"
       },
       {
         "nivel": 18,
@@ -8757,14 +8757,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Solar Beam",
-        "nomeOriginal": "Solar Beam",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raio Solar",
+        "nomeOriginal": "SolarBeam",
+        "tipo": "Grama",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-solar-beam"
+        "moveId": "SolarBeam"
       },
       {
         "nivel": 18,
@@ -8861,14 +8861,14 @@
       },
       {
         "nivel": 2,
-        "nome": "Stun Spore",
-        "nomeOriginal": "Stun Spore",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Esporos Atordoantes",
+        "nomeOriginal": "StunSpore",
+        "tipo": "Grama",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-stun-spore"
+        "moveId": "StunSpore"
       },
       {
         "nivel": 2,
@@ -9068,14 +9068,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Stun Spore",
-        "nomeOriginal": "Stun Spore",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Esporos Atordoantes",
+        "nomeOriginal": "StunSpore",
+        "tipo": "Grama",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-stun-spore"
+        "moveId": "StunSpore"
       },
       {
         "nivel": 6,
@@ -9303,14 +9303,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Stun Spore",
-        "nomeOriginal": "Stun Spore",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Esporos Atordoantes",
+        "nomeOriginal": "StunSpore",
+        "tipo": "Grama",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-stun-spore"
+        "moveId": "StunSpore"
       },
       {
         "nivel": 10,
@@ -9545,14 +9545,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Stun Spore",
-        "nomeOriginal": "Stun Spore",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Esporos Atordoantes",
+        "nomeOriginal": "StunSpore",
+        "tipo": "Grama",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-stun-spore"
+        "moveId": "StunSpore"
       },
       {
         "nivel": 10,
@@ -9678,14 +9678,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Sand Attack",
-        "nomeOriginal": "Sand Attack",
-        "tipo": "Normal",
+        "nome": "Ataquede Areia",
+        "nomeOriginal": "SandAttack",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-sand-attack"
+        "moveId": "SandAttack"
       },
       {
         "nivel": 1,
@@ -9755,25 +9755,25 @@
       },
       {
         "nivel": 10,
-        "nome": "Sucker Punch",
-        "nomeOriginal": "Sucker Punch",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Soco Surpresa",
+        "nomeOriginal": "SuckerPunch",
+        "tipo": "Sombrio",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-sucker-punch"
+        "moveId": "SuckerPunch"
       },
       {
         "nivel": 10,
-        "nome": "Mud Bomb",
-        "nomeOriginal": "Mud Bomb",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Bombade Lama",
+        "nomeOriginal": "MudBomb",
+        "tipo": "Terra",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-mud-bomb"
+        "moveId": "MudBomb"
       },
       {
         "nivel": 14,
@@ -9890,25 +9890,25 @@
       },
       {
         "nivel": 1,
-        "nome": "Night Slash",
-        "nomeOriginal": "Night Slash",
-        "tipo": "Normal",
+        "nome": "Corte Noturno",
+        "nomeOriginal": "NightSlash",
+        "tipo": "Sombrio",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-night-slash"
+        "moveId": "NightSlash"
       },
       {
         "nivel": 1,
-        "nome": "Sand Attack",
-        "nomeOriginal": "Sand Attack",
-        "tipo": "Normal",
+        "nome": "Ataquede Areia",
+        "nomeOriginal": "SandAttack",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-sand-attack"
+        "moveId": "SandAttack"
       },
       {
         "nivel": 1,
@@ -10000,25 +10000,25 @@
       },
       {
         "nivel": 10,
-        "nome": "Sucker Punch",
-        "nomeOriginal": "Sucker Punch",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Soco Surpresa",
+        "nomeOriginal": "SuckerPunch",
+        "tipo": "Sombrio",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-sucker-punch"
+        "moveId": "SuckerPunch"
       },
       {
         "nivel": 10,
-        "nome": "Mud Bomb",
-        "nomeOriginal": "Mud Bomb",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Bombade Lama",
+        "nomeOriginal": "MudBomb",
+        "tipo": "Terra",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-mud-bomb"
+        "moveId": "MudBomb"
       },
       {
         "nivel": 14,
@@ -10217,14 +10217,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Pay Day",
-        "nomeOriginal": "Pay Day",
+        "nome": "Diado Pagamento",
+        "nomeOriginal": "PayDay",
         "tipo": "Normal",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-pay-day"
+        "moveId": "PayDay"
       },
       {
         "nivel": 14,
@@ -10272,14 +10272,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Night Slash",
-        "nomeOriginal": "Night Slash",
-        "tipo": "Normal",
+        "nome": "Corte Noturno",
+        "nomeOriginal": "NightSlash",
+        "tipo": "Sombrio",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-night-slash"
+        "moveId": "NightSlash"
       },
       {
         "nivel": 18,
@@ -10521,14 +10521,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Night Slash",
-        "nomeOriginal": "Night Slash",
-        "tipo": "Normal",
+        "nome": "Corte Noturno",
+        "nomeOriginal": "NightSlash",
+        "tipo": "Sombrio",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-night-slash"
+        "moveId": "NightSlash"
       },
       {
         "nivel": 18,
@@ -10621,14 +10621,14 @@
       },
       {
         "nivel": 2,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 2,
@@ -10753,14 +10753,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       },
       {
         "nivel": 18,
@@ -10827,14 +10827,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Aqua Jet",
-        "nomeOriginal": "Aqua Jet",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Aqua Jato",
+        "nomeOriginal": "AquaJet",
+        "tipo": "Água",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-aqua-jet"
+        "moveId": "AquaJet"
       },
       {
         "nivel": 1,
@@ -10860,14 +10860,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -11003,14 +11003,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       },
       {
         "nivel": 18,
@@ -11113,14 +11113,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Low Kick",
-        "nomeOriginal": "Low Kick",
-        "tipo": "Normal",
+        "nome": "Chutebaixo",
+        "nomeOriginal": "LowKick",
+        "tipo": "Lutador",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-low-kick"
+        "moveId": "LowKick"
       },
       {
         "nivel": 1,
@@ -11379,14 +11379,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Low Kick",
-        "nomeOriginal": "Low Kick",
-        "tipo": "Normal",
+        "nome": "Chutebaixo",
+        "nomeOriginal": "LowKick",
+        "tipo": "Lutador",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-low-kick"
+        "moveId": "LowKick"
       },
       {
         "nivel": 1,
@@ -11691,14 +11691,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Flame Wheel",
-        "nomeOriginal": "Flame Wheel",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Rodade Fogo",
+        "nomeOriginal": "FlameWheel",
+        "tipo": "Fogo",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-flame-wheel"
+        "moveId": "FlameWheel"
       },
       {
         "nivel": 10,
@@ -11812,14 +11812,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Flare Blitz",
-        "nomeOriginal": "Flare Blitz",
-        "tipo": "Normal",
+        "nome": "Blitzde Labaredas",
+        "nomeOriginal": "FlareBlitz",
+        "tipo": "Fogo",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-flare-blitz"
+        "moveId": "FlareBlitz"
       }
     ],
     "evolutionType": "basic",
@@ -12044,14 +12044,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Double Slap",
-        "nomeOriginal": "Double Slap",
+        "nome": "Tapa Duplo",
+        "nomeOriginal": "DoubleSlap",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-double-slap"
+        "moveId": "DoubleSlap"
       },
       {
         "nivel": 6,
@@ -12088,25 +12088,25 @@
       },
       {
         "nivel": 14,
-        "nome": "Mud Shot",
-        "nomeOriginal": "Mud Shot",
-        "tipo": "Normal",
+        "nome": "Tirode Lama",
+        "nomeOriginal": "MudShot",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-mud-shot"
+        "moveId": "MudShot"
       },
       {
         "nivel": 14,
-        "nome": "Belly Drum",
-        "nomeOriginal": "Belly Drum",
+        "nome": "Tamborde Barriga",
+        "nomeOriginal": "BellyDrum",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-belly-drum"
+        "moveId": "BellyDrum"
       },
       {
         "nivel": 14,
@@ -12121,25 +12121,25 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       },
       {
         "nivel": 18,
-        "nome": "Mud Bomb",
-        "nomeOriginal": "Mud Bomb",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Bombade Lama",
+        "nomeOriginal": "MudBomb",
+        "tipo": "Terra",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-mud-bomb"
+        "moveId": "MudBomb"
       }
     ],
     "evolutionType": "basic",
@@ -12239,14 +12239,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Double Slap",
-        "nomeOriginal": "Double Slap",
+        "nome": "Tapa Duplo",
+        "nomeOriginal": "DoubleSlap",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-double-slap"
+        "moveId": "DoubleSlap"
       },
       {
         "nivel": 6,
@@ -12283,25 +12283,25 @@
       },
       {
         "nivel": 14,
-        "nome": "Mud Shot",
-        "nomeOriginal": "Mud Shot",
-        "tipo": "Normal",
+        "nome": "Tirode Lama",
+        "nomeOriginal": "MudShot",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-mud-shot"
+        "moveId": "MudShot"
       },
       {
         "nivel": 18,
-        "nome": "Belly Drum",
-        "nomeOriginal": "Belly Drum",
+        "nome": "Tamborde Barriga",
+        "nomeOriginal": "BellyDrum",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-belly-drum"
+        "moveId": "BellyDrum"
       },
       {
         "nivel": 18,
@@ -12316,25 +12316,25 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       },
       {
         "nivel": 18,
-        "nome": "Mud Bomb",
-        "nomeOriginal": "Mud Bomb",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Bombade Lama",
+        "nomeOriginal": "MudBomb",
+        "tipo": "Terra",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-mud-bomb"
+        "moveId": "MudBomb"
       }
     ],
     "evolutionType": "evolution",
@@ -12409,14 +12409,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Double Slap",
-        "nomeOriginal": "Double Slap",
+        "nome": "Tapa Duplo",
+        "nomeOriginal": "DoubleSlap",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-double-slap"
+        "moveId": "DoubleSlap"
       },
       {
         "nivel": 1,
@@ -12453,14 +12453,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Mind Reader",
-        "nomeOriginal": "Mind Reader",
+        "nome": "Leitura Mental",
+        "nomeOriginal": "MindReader",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-mind-reader"
+        "moveId": "MindReader"
       },
       {
         "nivel": 18,
@@ -13063,14 +13063,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Low Kick",
-        "nomeOriginal": "Low Kick",
-        "tipo": "Normal",
+        "nome": "Chutebaixo",
+        "nomeOriginal": "LowKick",
+        "tipo": "Lutador",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-low-kick"
+        "moveId": "LowKick"
       },
       {
         "nivel": 1,
@@ -13329,14 +13329,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Low Kick",
-        "nomeOriginal": "Low Kick",
-        "tipo": "Normal",
+        "nome": "Chutebaixo",
+        "nomeOriginal": "LowKick",
+        "tipo": "Lutador",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-low-kick"
+        "moveId": "LowKick"
       },
       {
         "nivel": 1,
@@ -13574,14 +13574,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Low Kick",
-        "nomeOriginal": "Low Kick",
-        "tipo": "Normal",
+        "nome": "Chutebaixo",
+        "nomeOriginal": "LowKick",
+        "tipo": "Lutador",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-low-kick"
+        "moveId": "LowKick"
       },
       {
         "nivel": 1,
@@ -13863,14 +13863,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Stun Spore",
-        "nomeOriginal": "Stun Spore",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Esporos Atordoantes",
+        "nomeOriginal": "StunSpore",
+        "tipo": "Grama",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-stun-spore"
+        "moveId": "StunSpore"
       },
       {
         "nivel": 10,
@@ -13907,14 +13907,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Gastro Acid",
-        "nomeOriginal": "Gastro Acid",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Ácido Gástrico",
+        "nomeOriginal": "GastroAcid",
+        "tipo": "Venenoso",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-gastro-acid"
+        "moveId": "GastroAcid"
       },
       {
         "nivel": 18,
@@ -13951,14 +13951,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Wring Out",
-        "nomeOriginal": "Wring Out",
+        "nome": "Despedaçar",
+        "nomeOriginal": "WringOut",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-wring-out"
+        "moveId": "WringOut"
       }
     ],
     "evolutionType": "basic",
@@ -14074,14 +14074,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Stun Spore",
-        "nomeOriginal": "Stun Spore",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Esporos Atordoantes",
+        "nomeOriginal": "StunSpore",
+        "tipo": "Grama",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-stun-spore"
+        "moveId": "StunSpore"
       },
       {
         "nivel": 10,
@@ -14118,14 +14118,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Gastro Acid",
-        "nomeOriginal": "Gastro Acid",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Ácido Gástrico",
+        "nomeOriginal": "GastroAcid",
+        "tipo": "Venenoso",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-gastro-acid"
+        "moveId": "GastroAcid"
       },
       {
         "nivel": 18,
@@ -14162,14 +14162,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Wring Out",
-        "nomeOriginal": "Wring Out",
+        "nome": "Despedaçar",
+        "nomeOriginal": "WringOut",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-wring-out"
+        "moveId": "WringOut"
       }
     ],
     "evolutionType": "evolution",
@@ -14231,14 +14231,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Leaf Tornado",
-        "nomeOriginal": "Leaf Tornado",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Tornadode Folhas",
+        "nomeOriginal": "LeafTornado",
+        "tipo": "Grama",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-leaf-tornado"
+        "moveId": "LeafTornado"
       },
       {
         "nivel": 1,
@@ -14264,14 +14264,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Spit Up",
-        "nomeOriginal": "Spit Up",
+        "nome": "Liberação",
+        "nomeOriginal": "SpitUp",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-spit-up"
+        "moveId": "SpitUp"
       },
       {
         "nivel": 1,
@@ -14403,14 +14403,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Poison Sting",
-        "nomeOriginal": "Poison Sting",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Picada Venenosa",
+        "nomeOriginal": "PoisonSting",
+        "tipo": "Venenoso",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-poison-sting"
+        "moveId": "PoisonSting"
       },
       {
         "nivel": 2,
@@ -14447,14 +14447,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Toxic Spikes",
-        "nomeOriginal": "Toxic Spikes",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Espinhos Venenosos",
+        "nomeOriginal": "ToxicSpikes",
+        "tipo": "Venenoso",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-toxic-spikes"
+        "moveId": "ToxicSpikes"
       },
       {
         "nivel": 6,
@@ -14557,36 +14557,36 @@
       },
       {
         "nivel": 18,
-        "nome": "Sludge Wave",
-        "nomeOriginal": "Sludge Wave",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Ondade Lama",
+        "nomeOriginal": "SludgeWave",
+        "tipo": "Venenoso",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-sludge-wave"
+        "moveId": "SludgeWave"
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       },
       {
         "nivel": 18,
-        "nome": "Wring Out",
-        "nomeOriginal": "Wring Out",
+        "nome": "Despedaçar",
+        "nomeOriginal": "WringOut",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-wring-out"
+        "moveId": "WringOut"
       }
     ],
     "evolutionType": "basic",
@@ -14670,14 +14670,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Poison Sting",
-        "nomeOriginal": "Poison Sting",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Picada Venenosa",
+        "nomeOriginal": "PoisonSting",
+        "tipo": "Venenoso",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-poison-sting"
+        "moveId": "PoisonSting"
       },
       {
         "nivel": 1,
@@ -14703,14 +14703,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Toxic Spikes",
-        "nomeOriginal": "Toxic Spikes",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Espinhos Venenosos",
+        "nomeOriginal": "ToxicSpikes",
+        "tipo": "Venenoso",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-toxic-spikes"
+        "moveId": "ToxicSpikes"
       },
       {
         "nivel": 6,
@@ -14813,36 +14813,36 @@
       },
       {
         "nivel": 18,
-        "nome": "Sludge Wave",
-        "nomeOriginal": "Sludge Wave",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Ondade Lama",
+        "nomeOriginal": "SludgeWave",
+        "tipo": "Venenoso",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-sludge-wave"
+        "moveId": "SludgeWave"
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       },
       {
         "nivel": 18,
-        "nome": "Wring Out",
-        "nomeOriginal": "Wring Out",
+        "nome": "Despedaçar",
+        "nomeOriginal": "WringOut",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-wring-out"
+        "moveId": "WringOut"
       }
     ],
     "evolutionType": "evolution",
@@ -14903,14 +14903,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Defense Curl",
-        "nomeOriginal": "Defense Curl",
+        "nome": "Espiralde Defesa",
+        "nomeOriginal": "DefenseCurl",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-defense-curl"
+        "moveId": "DefenseCurl"
       },
       {
         "nivel": 1,
@@ -14980,14 +14980,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Smack Down",
-        "nomeOriginal": "Smack Down",
-        "tipo": "Normal",
+        "nome": "Derrubada",
+        "nomeOriginal": "SmackDown",
+        "tipo": "Pedra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-smack-down"
+        "moveId": "SmackDown"
       },
       {
         "nivel": 10,
@@ -15024,14 +15024,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Rock Blast",
-        "nomeOriginal": "Rock Blast",
-        "tipo": "Normal",
+        "nome": "Explosãode Rocha",
+        "nomeOriginal": "RockBlast",
+        "tipo": "Pedra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-rock-blast"
+        "moveId": "RockBlast"
       },
       {
         "nivel": 14,
@@ -15138,14 +15138,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Defense Curl",
-        "nomeOriginal": "Defense Curl",
+        "nome": "Espiralde Defesa",
+        "nomeOriginal": "DefenseCurl",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-defense-curl"
+        "moveId": "DefenseCurl"
       },
       {
         "nivel": 1,
@@ -15215,14 +15215,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Smack Down",
-        "nomeOriginal": "Smack Down",
-        "tipo": "Normal",
+        "nome": "Derrubada",
+        "nomeOriginal": "SmackDown",
+        "tipo": "Pedra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-smack-down"
+        "moveId": "SmackDown"
       },
       {
         "nivel": 10,
@@ -15259,14 +15259,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Rock Blast",
-        "nomeOriginal": "Rock Blast",
-        "tipo": "Normal",
+        "nome": "Explosãode Rocha",
+        "nomeOriginal": "RockBlast",
+        "tipo": "Pedra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-rock-blast"
+        "moveId": "RockBlast"
       },
       {
         "nivel": 14,
@@ -15374,14 +15374,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Defense Curl",
-        "nomeOriginal": "Defense Curl",
+        "nome": "Espiralde Defesa",
+        "nomeOriginal": "DefenseCurl",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-defense-curl"
+        "moveId": "DefenseCurl"
       },
       {
         "nivel": 1,
@@ -15451,14 +15451,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Smack Down",
-        "nomeOriginal": "Smack Down",
-        "tipo": "Normal",
+        "nome": "Derrubada",
+        "nomeOriginal": "SmackDown",
+        "tipo": "Pedra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-smack-down"
+        "moveId": "SmackDown"
       },
       {
         "nivel": 1,
@@ -15495,14 +15495,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Rock Blast",
-        "nomeOriginal": "Rock Blast",
-        "tipo": "Normal",
+        "nome": "Explosãode Rocha",
+        "nomeOriginal": "RockBlast",
+        "tipo": "Pedra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-rock-blast"
+        "moveId": "RockBlast"
       },
       {
         "nivel": 14,
@@ -15550,14 +15550,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Heavy Slam",
-        "nomeOriginal": "Heavy Slam",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Golpe Pesado",
+        "nomeOriginal": "HeavySlam",
+        "tipo": "Aço",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-heavy-slam"
+        "moveId": "HeavySlam"
       }
     ],
     "evolutionType": "evolution",
@@ -15642,14 +15642,14 @@
       },
       {
         "nivel": 2,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 2,
@@ -15664,14 +15664,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Flame Wheel",
-        "nomeOriginal": "Flame Wheel",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Rodade Fogo",
+        "nomeOriginal": "FlameWheel",
+        "tipo": "Fogo",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-flame-wheel"
+        "moveId": "FlameWheel"
       },
       {
         "nivel": 6,
@@ -15686,25 +15686,25 @@
       },
       {
         "nivel": 10,
-        "nome": "Flame Charge",
-        "nomeOriginal": "Flame Charge",
-        "tipo": "Normal",
+        "nome": "Ataquede Chamas",
+        "nomeOriginal": "FlameCharge",
+        "tipo": "Fogo",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-flame-charge"
+        "moveId": "FlameCharge"
       },
       {
         "nivel": 10,
-        "nome": "Fire Spin",
-        "nomeOriginal": "Fire Spin",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Furacãode Chamas",
+        "nomeOriginal": "FireSpin",
+        "tipo": "Fogo",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-fire-spin"
+        "moveId": "FireSpin"
       },
       {
         "nivel": 14,
@@ -15763,14 +15763,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Flare Blitz",
-        "nomeOriginal": "Flare Blitz",
-        "tipo": "Normal",
+        "nome": "Blitzde Labaredas",
+        "nomeOriginal": "FlareBlitz",
+        "tipo": "Fogo",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-flare-blitz"
+        "moveId": "FlareBlitz"
       }
     ],
     "evolutionType": "basic",
@@ -15884,36 +15884,36 @@
       },
       {
         "nivel": 1,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
-        "nome": "Flame Wheel",
-        "nomeOriginal": "Flame Wheel",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Rodade Fogo",
+        "nomeOriginal": "FlameWheel",
+        "tipo": "Fogo",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-flame-wheel"
+        "moveId": "FlameWheel"
       },
       {
         "nivel": 1,
@@ -15928,25 +15928,25 @@
       },
       {
         "nivel": 1,
-        "nome": "Flame Charge",
-        "nomeOriginal": "Flame Charge",
-        "tipo": "Normal",
+        "nome": "Ataquede Chamas",
+        "nomeOriginal": "FlameCharge",
+        "tipo": "Fogo",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-flame-charge"
+        "moveId": "FlameCharge"
       },
       {
         "nivel": 1,
-        "nome": "Fire Spin",
-        "nomeOriginal": "Fire Spin",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Furacãode Chamas",
+        "nomeOriginal": "FireSpin",
+        "tipo": "Fogo",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-fire-spin"
+        "moveId": "FireSpin"
       },
       {
         "nivel": 14,
@@ -16005,14 +16005,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Flare Blitz",
-        "nomeOriginal": "Flare Blitz",
-        "tipo": "Normal",
+        "nome": "Blitzde Labaredas",
+        "nomeOriginal": "FlareBlitz",
+        "tipo": "Fogo",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-flare-blitz"
+        "moveId": "FlareBlitz"
       }
     ],
     "evolutionType": "evolution",
@@ -16639,14 +16639,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Mirror Shot",
-        "nomeOriginal": "Mirror Shot",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Tiro Espelhado",
+        "nomeOriginal": "MirrorShot",
+        "tipo": "Aço",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-mirror-shot"
+        "moveId": "MirrorShot"
       },
       {
         "nivel": 10,
@@ -16738,14 +16738,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Zap Cannon",
-        "nomeOriginal": "Zap Cannon",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Canhão Elétrico",
+        "nomeOriginal": "ZapCannon",
+        "tipo": "Elétrico",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-zap-cannon"
+        "moveId": "ZapCannon"
       }
     ],
     "evolutionType": "basic",
@@ -16912,14 +16912,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Mirror Shot",
-        "nomeOriginal": "Mirror Shot",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Tiro Espelhado",
+        "nomeOriginal": "MirrorShot",
+        "tipo": "Aço",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-mirror-shot"
+        "moveId": "MirrorShot"
       },
       {
         "nivel": 10,
@@ -17011,14 +17011,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Zap Cannon",
-        "nomeOriginal": "Zap Cannon",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Canhão Elétrico",
+        "nomeOriginal": "ZapCannon",
+        "tipo": "Elétrico",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-zap-cannon"
+        "moveId": "ZapCannon"
       }
     ],
     "evolutionType": "evolution",
@@ -17124,14 +17124,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Sand Attack",
-        "nomeOriginal": "Sand Attack",
-        "tipo": "Normal",
+        "nome": "Ataquede Areia",
+        "nomeOriginal": "SandAttack",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-sand-attack"
+        "moveId": "SandAttack"
       },
       {
         "nivel": 2,
@@ -17146,14 +17146,14 @@
       },
       {
         "nivel": 2,
-        "nome": "Aerial Ace",
-        "nomeOriginal": "Aerial Ace",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Golpe Aéreo",
+        "nomeOriginal": "AerialAce",
+        "tipo": "Voador",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-aerial-ace"
+        "moveId": "AerialAce"
       },
       {
         "nivel": 6,
@@ -17179,14 +17179,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Air Cutter",
-        "nomeOriginal": "Air Cutter",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Ar Cortante",
+        "nomeOriginal": "AirCutter",
+        "tipo": "Voador",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-air-cutter"
+        "moveId": "AirCutter"
       },
       {
         "nivel": 10,
@@ -17212,14 +17212,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Night Slash",
-        "nomeOriginal": "Night Slash",
-        "tipo": "Normal",
+        "nome": "Corte Noturno",
+        "nomeOriginal": "NightSlash",
+        "tipo": "Sombrio",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-night-slash"
+        "moveId": "NightSlash"
       },
       {
         "nivel": 18,
@@ -17357,14 +17357,14 @@
       },
       {
         "nivel": 2,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 2,
@@ -17590,14 +17590,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 1,
@@ -17888,36 +17888,36 @@
       },
       {
         "nivel": 10,
-        "nome": "Aqua Ring",
-        "nomeOriginal": "Aqua Ring",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Aqua Arco",
+        "nomeOriginal": "AquaRing",
+        "tipo": "Água",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-aqua-ring"
+        "moveId": "AquaRing"
       },
       {
         "nivel": 10,
-        "nome": "Aurora Beam",
-        "nomeOriginal": "Aurora Beam",
-        "tipo": "Normal",
+        "nome": "Raio Aurora",
+        "nomeOriginal": "AuroraBeam",
+        "tipo": "Gelo",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-aurora-beam"
+        "moveId": "AuroraBeam"
       },
       {
         "nivel": 14,
-        "nome": "Aqua Jet",
-        "nomeOriginal": "Aqua Jet",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Aqua Jato",
+        "nomeOriginal": "AquaJet",
+        "tipo": "Água",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-aqua-jet"
+        "moveId": "AquaJet"
       },
       {
         "nivel": 14,
@@ -18083,14 +18083,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Sheer Cold",
-        "nomeOriginal": "Sheer Cold",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Frio Extremo",
+        "nomeOriginal": "SheerCold",
+        "tipo": "Gelo",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-sheer-cold"
+        "moveId": "SheerCold"
       },
       {
         "nivel": 1,
@@ -18138,36 +18138,36 @@
       },
       {
         "nivel": 10,
-        "nome": "Aqua Ring",
-        "nomeOriginal": "Aqua Ring",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Aqua Arco",
+        "nomeOriginal": "AquaRing",
+        "tipo": "Água",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-aqua-ring"
+        "moveId": "AquaRing"
       },
       {
         "nivel": 10,
-        "nome": "Aurora Beam",
-        "nomeOriginal": "Aurora Beam",
-        "tipo": "Normal",
+        "nome": "Raio Aurora",
+        "nomeOriginal": "AuroraBeam",
+        "tipo": "Gelo",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-aurora-beam"
+        "moveId": "AuroraBeam"
       },
       {
         "nivel": 14,
-        "nome": "Aqua Jet",
-        "nomeOriginal": "Aqua Jet",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Aqua Jato",
+        "nomeOriginal": "AquaJet",
+        "tipo": "Água",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-aqua-jet"
+        "moveId": "AquaJet"
       },
       {
         "nivel": 14,
@@ -18369,14 +18369,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Mud Bomb",
-        "nomeOriginal": "Mud Bomb",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Bombade Lama",
+        "nomeOriginal": "MudBomb",
+        "tipo": "Terra",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-mud-bomb"
+        "moveId": "MudBomb"
       },
       {
         "nivel": 10,
@@ -18413,14 +18413,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Sludge Wave",
-        "nomeOriginal": "Sludge Wave",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Ondade Lama",
+        "nomeOriginal": "SludgeWave",
+        "tipo": "Venenoso",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-sludge-wave"
+        "moveId": "SludgeWave"
       },
       {
         "nivel": 14,
@@ -18599,25 +18599,25 @@
       },
       {
         "nivel": 1,
-        "nome": "Mud Bomb",
-        "nomeOriginal": "Mud Bomb",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Bombade Lama",
+        "nomeOriginal": "MudBomb",
+        "tipo": "Terra",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-mud-bomb"
+        "moveId": "MudBomb"
       },
       {
         "nivel": 1,
-        "nome": "Venom Drench",
-        "nomeOriginal": "Venom Drench",
-        "tipo": "Normal",
+        "nome": "Poção Venenosa",
+        "nomeOriginal": "VenomDrench",
+        "tipo": "Venenoso",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-venom-drench"
+        "moveId": "VenomDrench"
       },
       {
         "nivel": 10,
@@ -18654,14 +18654,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Sludge Wave",
-        "nomeOriginal": "Sludge Wave",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Ondade Lama",
+        "nomeOriginal": "SludgeWave",
+        "tipo": "Venenoso",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-sludge-wave"
+        "moveId": "SludgeWave"
       },
       {
         "nivel": 14,
@@ -18872,25 +18872,25 @@
       },
       {
         "nivel": 14,
-        "nome": "Razor Shell",
-        "nomeOriginal": "Razor Shell",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Concha Navalha",
+        "nomeOriginal": "RazorShell",
+        "tipo": "Água",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-razor-shell"
+        "moveId": "RazorShell"
       },
       {
         "nivel": 14,
-        "nome": "Aurora Beam",
-        "nomeOriginal": "Aurora Beam",
-        "tipo": "Normal",
+        "nome": "Raio Aurora",
+        "nomeOriginal": "AuroraBeam",
+        "tipo": "Gelo",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-aurora-beam"
+        "moveId": "AuroraBeam"
       },
       {
         "nivel": 14,
@@ -18949,14 +18949,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       }
     ],
     "evolutionType": "basic",
@@ -19012,25 +19012,25 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Aurora Beam",
-        "nomeOriginal": "Aurora Beam",
-        "tipo": "Normal",
+        "nome": "Raio Aurora",
+        "nomeOriginal": "AuroraBeam",
+        "tipo": "Gelo",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-aurora-beam"
+        "moveId": "AuroraBeam"
       },
       {
         "nivel": 1,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       },
       {
         "nivel": 1,
@@ -19067,14 +19067,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Toxic Spikes",
-        "nomeOriginal": "Toxic Spikes",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Espinhos Venenosos",
+        "nomeOriginal": "ToxicSpikes",
+        "tipo": "Venenoso",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-toxic-spikes"
+        "moveId": "ToxicSpikes"
       },
       {
         "nivel": 1,
@@ -19111,14 +19111,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Icicle Crash",
-        "nomeOriginal": "Icicle Crash",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Choquede Gelo",
+        "nomeOriginal": "IcicleCrash",
+        "tipo": "Gelo",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-icicle-crash"
+        "moveId": "IcicleCrash"
       }
     ],
     "evolutionType": "evolution",
@@ -19246,25 +19246,25 @@
       },
       {
         "nivel": 10,
-        "nome": "Confuse Ray",
-        "nomeOriginal": "Confuse Ray",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raioda Confusão",
+        "nomeOriginal": "ConfuseRay",
+        "tipo": "Fantasma",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-confuse-ray"
+        "moveId": "ConfuseRay"
       },
       {
         "nivel": 10,
-        "nome": "Sucker Punch",
-        "nomeOriginal": "Sucker Punch",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Soco Surpresa",
+        "nomeOriginal": "SuckerPunch",
+        "tipo": "Sombrio",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-sucker-punch"
+        "moveId": "SuckerPunch"
       },
       {
         "nivel": 10,
@@ -19290,14 +19290,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Dream Eater",
-        "nomeOriginal": "Dream Eater",
-        "tipo": "Normal",
+        "nome": "Devoradorde Sonhos",
+        "nomeOriginal": "DreamEater",
+        "tipo": "Psíquico",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-dream-eater"
+        "moveId": "DreamEater"
       },
       {
         "nivel": 18,
@@ -19312,14 +19312,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Destiny Bond",
-        "nomeOriginal": "Destiny Bond",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Vínculodo Destino",
+        "nomeOriginal": "DestinyBond",
+        "tipo": "Fantasma",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-destiny-bond"
+        "moveId": "DestinyBond"
       },
       {
         "nivel": 18,
@@ -19482,25 +19482,25 @@
       },
       {
         "nivel": 10,
-        "nome": "Confuse Ray",
-        "nomeOriginal": "Confuse Ray",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raioda Confusão",
+        "nomeOriginal": "ConfuseRay",
+        "tipo": "Fantasma",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-confuse-ray"
+        "moveId": "ConfuseRay"
       },
       {
         "nivel": 10,
-        "nome": "Sucker Punch",
-        "nomeOriginal": "Sucker Punch",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Soco Surpresa",
+        "nomeOriginal": "SuckerPunch",
+        "tipo": "Sombrio",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-sucker-punch"
+        "moveId": "SuckerPunch"
       },
       {
         "nivel": 14,
@@ -19526,14 +19526,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Dream Eater",
-        "nomeOriginal": "Dream Eater",
-        "tipo": "Normal",
+        "nome": "Devoradorde Sonhos",
+        "nomeOriginal": "DreamEater",
+        "tipo": "Psíquico",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-dream-eater"
+        "moveId": "DreamEater"
       },
       {
         "nivel": 18,
@@ -19548,14 +19548,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Destiny Bond",
-        "nomeOriginal": "Destiny Bond",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Vínculodo Destino",
+        "nomeOriginal": "DestinyBond",
+        "tipo": "Fantasma",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-destiny-bond"
+        "moveId": "DestinyBond"
       },
       {
         "nivel": 18,
@@ -19719,25 +19719,25 @@
       },
       {
         "nivel": 1,
-        "nome": "Confuse Ray",
-        "nomeOriginal": "Confuse Ray",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raioda Confusão",
+        "nomeOriginal": "ConfuseRay",
+        "tipo": "Fantasma",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-confuse-ray"
+        "moveId": "ConfuseRay"
       },
       {
         "nivel": 1,
-        "nome": "Sucker Punch",
-        "nomeOriginal": "Sucker Punch",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Soco Surpresa",
+        "nomeOriginal": "SuckerPunch",
+        "tipo": "Sombrio",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-sucker-punch"
+        "moveId": "SuckerPunch"
       },
       {
         "nivel": 14,
@@ -19763,14 +19763,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Dream Eater",
-        "nomeOriginal": "Dream Eater",
-        "tipo": "Normal",
+        "nome": "Devoradorde Sonhos",
+        "nomeOriginal": "DreamEater",
+        "tipo": "Psíquico",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-dream-eater"
+        "moveId": "DreamEater"
       },
       {
         "nivel": 18,
@@ -19785,14 +19785,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Destiny Bond",
-        "nomeOriginal": "Destiny Bond",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Vínculodo Destino",
+        "nomeOriginal": "DestinyBond",
+        "tipo": "Fantasma",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-destiny-bond"
+        "moveId": "DestinyBond"
       },
       {
         "nivel": 18,
@@ -19999,14 +19999,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Smack Down",
-        "nomeOriginal": "Smack Down",
-        "tipo": "Normal",
+        "nome": "Derrubada",
+        "nomeOriginal": "SmackDown",
+        "tipo": "Pedra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-smack-down"
+        "moveId": "SmackDown"
       },
       {
         "nivel": 10,
@@ -20723,14 +20723,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Mud Shot",
-        "nomeOriginal": "Mud Shot",
-        "tipo": "Normal",
+        "nome": "Tirode Lama",
+        "nomeOriginal": "MudShot",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-mud-shot"
+        "moveId": "MudShot"
       },
       {
         "nivel": 10,
@@ -20954,14 +20954,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Mud Shot",
-        "nomeOriginal": "Mud Shot",
-        "tipo": "Normal",
+        "nome": "Tirode Lama",
+        "nomeOriginal": "MudShot",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-mud-shot"
+        "moveId": "MudShot"
       },
       {
         "nivel": 10,
@@ -21184,14 +21184,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Charge Beam",
-        "nomeOriginal": "Charge Beam",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raiode Ataque",
+        "nomeOriginal": "ChargeBeam",
+        "tipo": "Elétrico",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-charge-beam"
+        "moveId": "ChargeBeam"
       },
       {
         "nivel": 10,
@@ -21432,14 +21432,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Charge Beam",
-        "nomeOriginal": "Charge Beam",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raiode Ataque",
+        "nomeOriginal": "ChargeBeam",
+        "tipo": "Elétrico",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-charge-beam"
+        "moveId": "ChargeBeam"
       },
       {
         "nivel": 10,
@@ -21661,14 +21661,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Stun Spore",
-        "nomeOriginal": "Stun Spore",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Esporos Atordoantes",
+        "nomeOriginal": "StunSpore",
+        "tipo": "Grama",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-stun-spore"
+        "moveId": "StunSpore"
       },
       {
         "nivel": 10,
@@ -21727,14 +21727,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Solar Beam",
-        "nomeOriginal": "Solar Beam",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raio Solar",
+        "nomeOriginal": "SolarBeam",
+        "tipo": "Grama",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-solar-beam"
+        "moveId": "SolarBeam"
       },
       {
         "nivel": 18,
@@ -21967,14 +21967,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 2,
@@ -22209,14 +22209,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 6,
@@ -22531,14 +22531,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Mind Reader",
-        "nomeOriginal": "Mind Reader",
+        "nome": "Leitura Mental",
+        "nomeOriginal": "MindReader",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-mind-reader"
+        "moveId": "MindReader"
       },
       {
         "nivel": 18,
@@ -22709,14 +22709,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Mach Punch",
-        "nomeOriginal": "Mach Punch",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Soco Rápido",
+        "nomeOriginal": "MachPunch",
+        "tipo": "Lutador",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-mach-punch"
+        "moveId": "MachPunch"
       },
       {
         "nivel": 10,
@@ -22731,14 +22731,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Vacuum Wave",
-        "nomeOriginal": "Vacuum Wave",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Ondade Vácuo",
+        "nomeOriginal": "VacuumWave",
+        "tipo": "Lutador",
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-vacuum-wave"
+        "moveId": "VacuumWave"
       },
       {
         "nivel": 10,
@@ -22775,14 +22775,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Quick Guard",
-        "nomeOriginal": "Quick Guard",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Prevenção",
+        "nomeOriginal": "QuickGuard",
+        "tipo": "Lutador",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-quick-guard"
+        "moveId": "QuickGuard"
       },
       {
         "nivel": 14,
@@ -22797,14 +22797,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Mega Punch",
-        "nomeOriginal": "Mega Punch",
+        "nome": "Mega Soco",
+        "nomeOriginal": "MegaPunch",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-mega-punch"
+        "moveId": "MegaPunch"
       },
       {
         "nivel": 18,
@@ -22925,14 +22925,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Defense Curl",
-        "nomeOriginal": "Defense Curl",
+        "nome": "Espiralde Defesa",
+        "nomeOriginal": "DefenseCurl",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-defense-curl"
+        "moveId": "DefenseCurl"
       },
       {
         "nivel": 6,
@@ -23046,25 +23046,25 @@
       },
       {
         "nivel": 18,
-        "nome": "Power Whip",
-        "nomeOriginal": "Power Whip",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Chicote Poderoso",
+        "nomeOriginal": "PowerWhip",
+        "tipo": "Grama",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-power-whip"
+        "moveId": "PowerWhip"
       },
       {
         "nivel": 18,
-        "nome": "Wring Out",
-        "nomeOriginal": "Wring Out",
+        "nome": "Despedaçar",
+        "nomeOriginal": "WringOut",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-wring-out"
+        "moveId": "WringOut"
       }
     ],
     "evolutionType": "basic",
@@ -23177,14 +23177,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Clear Smog",
-        "nomeOriginal": "Clear Smog",
-        "tipo": "Normal",
+        "nome": "Fumaçalimpa",
+        "nomeOriginal": "ClearSmog",
+        "tipo": "Venenoso",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-clear-smog"
+        "moveId": "ClearSmog"
       },
       {
         "nivel": 6,
@@ -23254,14 +23254,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Destiny Bond",
-        "nomeOriginal": "Destiny Bond",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Vínculodo Destino",
+        "nomeOriginal": "DestinyBond",
+        "tipo": "Fantasma",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-destiny-bond"
+        "moveId": "DestinyBond"
       },
       {
         "nivel": 18,
@@ -23407,14 +23407,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Clear Smog",
-        "nomeOriginal": "Clear Smog",
-        "tipo": "Normal",
+        "nome": "Fumaçalimpa",
+        "nomeOriginal": "ClearSmog",
+        "tipo": "Venenoso",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-clear-smog"
+        "moveId": "ClearSmog"
       },
       {
         "nivel": 1,
@@ -23484,14 +23484,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Destiny Bond",
-        "nomeOriginal": "Destiny Bond",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Vínculodo Destino",
+        "nomeOriginal": "DestinyBond",
+        "tipo": "Fantasma",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-destiny-bond"
+        "moveId": "DestinyBond"
       },
       {
         "nivel": 18,
@@ -23585,14 +23585,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 2,
@@ -23618,14 +23618,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Smack Down",
-        "nomeOriginal": "Smack Down",
-        "tipo": "Normal",
+        "nome": "Derrubada",
+        "nomeOriginal": "SmackDown",
+        "tipo": "Pedra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-smack-down"
+        "moveId": "SmackDown"
       },
       {
         "nivel": 6,
@@ -23673,25 +23673,25 @@
       },
       {
         "nivel": 14,
-        "nome": "Rock Blast",
-        "nomeOriginal": "Rock Blast",
-        "tipo": "Normal",
+        "nome": "Explosãode Rocha",
+        "nomeOriginal": "RockBlast",
+        "tipo": "Pedra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-rock-blast"
+        "moveId": "RockBlast"
       },
       {
         "nivel": 14,
-        "nome": "Drill Run",
-        "nomeOriginal": "Drill Run",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Broca Veloz",
+        "nomeOriginal": "DrillRun",
+        "tipo": "Terra",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-drill-run"
+        "moveId": "DrillRun"
       },
       {
         "nivel": 14,
@@ -23861,25 +23861,25 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
-        "nome": "Smack Down",
-        "nomeOriginal": "Smack Down",
-        "tipo": "Normal",
+        "nome": "Derrubada",
+        "nomeOriginal": "SmackDown",
+        "tipo": "Pedra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-smack-down"
+        "moveId": "SmackDown"
       },
       {
         "nivel": 1,
@@ -23916,25 +23916,25 @@
       },
       {
         "nivel": 14,
-        "nome": "Rock Blast",
-        "nomeOriginal": "Rock Blast",
-        "tipo": "Normal",
+        "nome": "Explosãode Rocha",
+        "nomeOriginal": "RockBlast",
+        "tipo": "Pedra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-rock-blast"
+        "moveId": "RockBlast"
       },
       {
         "nivel": 14,
-        "nome": "Drill Run",
-        "nomeOriginal": "Drill Run",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Broca Veloz",
+        "nomeOriginal": "DrillRun",
+        "tipo": "Terra",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-drill-run"
+        "moveId": "DrillRun"
       },
       {
         "nivel": 14,
@@ -24075,14 +24075,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Defense Curl",
-        "nomeOriginal": "Defense Curl",
+        "nome": "Espiralde Defesa",
+        "nomeOriginal": "DefenseCurl",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-defense-curl"
+        "moveId": "DefenseCurl"
       },
       {
         "nivel": 1,
@@ -24108,14 +24108,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -24130,14 +24130,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Double Slap",
-        "nomeOriginal": "Double Slap",
+        "nome": "Tapa Duplo",
+        "nomeOriginal": "DoubleSlap",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-double-slap"
+        "moveId": "DoubleSlap"
       },
       {
         "nivel": 6,
@@ -24240,14 +24240,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Healing Wish",
-        "nomeOriginal": "Healing Wish",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Desejode Cura",
+        "nomeOriginal": "HealingWish",
+        "tipo": "Psíquico",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-healing-wish"
+        "moveId": "HealingWish"
       },
       {
         "nivel": 18,
@@ -24419,14 +24419,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Stun Spore",
-        "nomeOriginal": "Stun Spore",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Esporos Atordoantes",
+        "nomeOriginal": "StunSpore",
+        "tipo": "Grama",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-stun-spore"
+        "moveId": "StunSpore"
       },
       {
         "nivel": 14,
@@ -24441,14 +24441,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Ancient Power",
-        "nomeOriginal": "Ancient Power",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Poder Ancestral",
+        "nomeOriginal": "AncientPower",
+        "tipo": "Pedra",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-ancient-power"
+        "moveId": "AncientPower"
       },
       {
         "nivel": 18,
@@ -24485,25 +24485,25 @@
       },
       {
         "nivel": 18,
-        "nome": "Wring Out",
-        "nomeOriginal": "Wring Out",
+        "nome": "Despedaçar",
+        "nomeOriginal": "WringOut",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-wring-out"
+        "moveId": "WringOut"
       },
       {
         "nivel": 18,
-        "nome": "Power Whip",
-        "nomeOriginal": "Power Whip",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Chicote Poderoso",
+        "nomeOriginal": "PowerWhip",
+        "tipo": "Grama",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-power-whip"
+        "moveId": "PowerWhip"
       },
       {
         "nivel": 18,
@@ -24599,14 +24599,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -24643,14 +24643,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Mega Punch",
-        "nomeOriginal": "Mega Punch",
+        "nome": "Mega Soco",
+        "nomeOriginal": "MegaPunch",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-mega-punch"
+        "moveId": "MegaPunch"
       },
       {
         "nivel": 14,
@@ -24709,14 +24709,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Sucker Punch",
-        "nomeOriginal": "Sucker Punch",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Soco Surpresa",
+        "nomeOriginal": "SuckerPunch",
+        "tipo": "Sombrio",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-sucker-punch"
+        "moveId": "SuckerPunch"
       },
       {
         "nivel": 18,
@@ -24910,14 +24910,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       }
     ],
     "evolutionType": "basic",
@@ -24984,14 +24984,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       },
       {
         "nivel": 1,
@@ -25169,14 +25169,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -25235,14 +25235,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Aqua Ring",
-        "nomeOriginal": "Aqua Ring",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Aqua Arco",
+        "nomeOriginal": "AquaRing",
+        "tipo": "Água",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-aqua-ring"
+        "moveId": "AquaRing"
       },
       {
         "nivel": 10,
@@ -25386,14 +25386,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -25452,14 +25452,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Aqua Ring",
-        "nomeOriginal": "Aqua Ring",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Aqua Arco",
+        "nomeOriginal": "AquaRing",
+        "tipo": "Água",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-aqua-ring"
+        "moveId": "AquaRing"
       },
       {
         "nivel": 10,
@@ -25725,14 +25725,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Confuse Ray",
-        "nomeOriginal": "Confuse Ray",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raioda Confusão",
+        "nomeOriginal": "ConfuseRay",
+        "tipo": "Fantasma",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-confuse-ray"
+        "moveId": "ConfuseRay"
       },
       {
         "nivel": 18,
@@ -25780,14 +25780,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       }
     ],
     "evolutionType": "basic",
@@ -25848,14 +25848,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       },
       {
         "nivel": 1,
@@ -25914,14 +25914,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Confuse Ray",
-        "nomeOriginal": "Confuse Ray",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raioda Confusão",
+        "nomeOriginal": "ConfuseRay",
+        "tipo": "Fantasma",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-confuse-ray"
+        "moveId": "ConfuseRay"
       }
     ],
     "evolutionType": "evolution",
@@ -26021,36 +26021,36 @@
       },
       {
         "nivel": 1,
-        "nome": "Misty Terrain",
-        "nomeOriginal": "Misty Terrain",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Campo Enevoado",
+        "nomeOriginal": "MistyTerrain",
+        "tipo": "Fada",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-misty-terrain"
+        "moveId": "MistyTerrain"
       },
       {
         "nivel": 1,
-        "nome": "Power Swap",
-        "nomeOriginal": "Power Swap",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Trocade Poderes",
+        "nomeOriginal": "PowerSwap",
+        "tipo": "Psíquico",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-power-swap"
+        "moveId": "PowerSwap"
       },
       {
         "nivel": 1,
-        "nome": "Quick Guard",
-        "nomeOriginal": "Quick Guard",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Prevenção",
+        "nomeOriginal": "QuickGuard",
+        "tipo": "Lutador",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-quick-guard"
+        "moveId": "QuickGuard"
       },
       {
         "nivel": 1,
@@ -26087,14 +26087,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Double Slap",
-        "nomeOriginal": "Double Slap",
+        "nome": "Tapa Duplo",
+        "nomeOriginal": "DoubleSlap",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-double-slap"
+        "moveId": "DoubleSlap"
       },
       {
         "nivel": 6,
@@ -26308,25 +26308,25 @@
       },
       {
         "nivel": 1,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 1,
-        "nome": "Vacuum Wave",
-        "nomeOriginal": "Vacuum Wave",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Ondade Vácuo",
+        "nomeOriginal": "VacuumWave",
+        "tipo": "Lutador",
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-vacuum-wave"
+        "moveId": "VacuumWave"
       },
       {
         "nivel": 1,
@@ -26440,14 +26440,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Night Slash",
-        "nomeOriginal": "Night Slash",
-        "tipo": "Normal",
+        "nome": "Corte Noturno",
+        "nomeOriginal": "NightSlash",
+        "tipo": "Sombrio",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-night-slash"
+        "moveId": "NightSlash"
       },
       {
         "nivel": 18,
@@ -26548,14 +26548,14 @@
     "ataques": [
       {
         "nivel": 1,
-        "nome": "Draining Kiss",
-        "nomeOriginal": "Draining Kiss",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Beijo Drenante",
+        "nomeOriginal": "DrainingKiss",
+        "tipo": "Fada",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-draining-kiss"
+        "moveId": "DrainingKiss"
       },
       {
         "nivel": 1,
@@ -26581,14 +26581,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Lovely Kiss",
-        "nomeOriginal": "Lovely Kiss",
+        "nome": "Beijo Amoroso",
+        "nomeOriginal": "LovelyKiss",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-lovely-kiss"
+        "moveId": "LovelyKiss"
       },
       {
         "nivel": 1,
@@ -26603,14 +26603,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Double Slap",
-        "nomeOriginal": "Double Slap",
+        "nome": "Tapa Duplo",
+        "nomeOriginal": "DoubleSlap",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-double-slap"
+        "moveId": "DoubleSlap"
       },
       {
         "nivel": 6,
@@ -26691,14 +26691,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Wring Out",
-        "nomeOriginal": "Wring Out",
+        "nome": "Despedaçar",
+        "nomeOriginal": "WringOut",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-wring-out"
+        "moveId": "WringOut"
       },
       {
         "nivel": 18,
@@ -26788,14 +26788,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 1,
@@ -26810,14 +26810,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Low Kick",
-        "nomeOriginal": "Low Kick",
-        "tipo": "Normal",
+        "nome": "Chutebaixo",
+        "nomeOriginal": "LowKick",
+        "tipo": "Lutador",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-low-kick"
+        "moveId": "LowKick"
       },
       {
         "nivel": 6,
@@ -27041,25 +27041,25 @@
       },
       {
         "nivel": 6,
-        "nome": "Fire Spin",
-        "nomeOriginal": "Fire Spin",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Furacãode Chamas",
+        "nomeOriginal": "FireSpin",
+        "tipo": "Fogo",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-fire-spin"
+        "moveId": "FireSpin"
       },
       {
         "nivel": 6,
-        "nome": "Clear Smog",
-        "nomeOriginal": "Clear Smog",
-        "tipo": "Normal",
+        "nome": "Fumaçalimpa",
+        "nomeOriginal": "ClearSmog",
+        "tipo": "Venenoso",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-clear-smog"
+        "moveId": "ClearSmog"
       },
       {
         "nivel": 10,
@@ -27074,14 +27074,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Confuse Ray",
-        "nomeOriginal": "Confuse Ray",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raioda Confusão",
+        "nomeOriginal": "ConfuseRay",
+        "tipo": "Fantasma",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-confuse-ray"
+        "moveId": "ConfuseRay"
       },
       {
         "nivel": 14,
@@ -27096,14 +27096,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Sunny Day",
-        "nomeOriginal": "Sunny Day",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Dia Ensolarado",
+        "nomeOriginal": "SunnyDay",
+        "tipo": "Fogo",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-sunny-day"
+        "moveId": "SunnyDay"
       },
       {
         "nivel": 18,
@@ -27428,14 +27428,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -27808,14 +27808,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       },
       {
         "nivel": 18,
@@ -27963,14 +27963,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Confuse Ray",
-        "nomeOriginal": "Confuse Ray",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raioda Confusão",
+        "nomeOriginal": "ConfuseRay",
+        "tipo": "Fantasma",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-confuse-ray"
+        "moveId": "ConfuseRay"
       },
       {
         "nivel": 1,
@@ -28062,25 +28062,25 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       },
       {
         "nivel": 18,
-        "nome": "Sheer Cold",
-        "nomeOriginal": "Sheer Cold",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Frio Extremo",
+        "nomeOriginal": "SheerCold",
+        "tipo": "Gelo",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-sheer-cold"
+        "moveId": "SheerCold"
       }
     ],
     "evolutionType": "basic",
@@ -28241,25 +28241,25 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 2,
-        "nome": "Sand Attack",
-        "nomeOriginal": "Sand Attack",
-        "tipo": "Normal",
+        "nome": "Ataquede Areia",
+        "nomeOriginal": "SandAttack",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-sand-attack"
+        "moveId": "SandAttack"
       },
       {
         "nivel": 2,
@@ -28274,14 +28274,14 @@
       },
       {
         "nivel": 2,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 6,
@@ -28461,14 +28461,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -28483,14 +28483,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Sand Attack",
-        "nomeOriginal": "Sand Attack",
-        "tipo": "Normal",
+        "nome": "Ataquede Areia",
+        "nomeOriginal": "SandAttack",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-sand-attack"
+        "moveId": "SandAttack"
       },
       {
         "nivel": 1,
@@ -28505,14 +28505,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 6,
@@ -28527,25 +28527,25 @@
       },
       {
         "nivel": 10,
-        "nome": "Aurora Beam",
-        "nomeOriginal": "Aurora Beam",
-        "tipo": "Normal",
+        "nome": "Raio Aurora",
+        "nomeOriginal": "AuroraBeam",
+        "tipo": "Gelo",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-aurora-beam"
+        "moveId": "AuroraBeam"
       },
       {
         "nivel": 10,
-        "nome": "Aqua Ring",
-        "nomeOriginal": "Aqua Ring",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Aqua Arco",
+        "nomeOriginal": "AquaRing",
+        "tipo": "Água",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-aqua-ring"
+        "moveId": "AquaRing"
       },
       {
         "nivel": 14,
@@ -28593,14 +28593,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       }
     ],
     "evolutionType": "evolution",
@@ -28680,14 +28680,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
@@ -28702,14 +28702,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Sand Attack",
-        "nomeOriginal": "Sand Attack",
-        "tipo": "Normal",
+        "nome": "Ataquede Areia",
+        "nomeOriginal": "SandAttack",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-sand-attack"
+        "moveId": "SandAttack"
       },
       {
         "nivel": 1,
@@ -28724,14 +28724,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 6,
@@ -28915,25 +28915,25 @@
       },
       {
         "nivel": 1,
-        "nome": "Tail Whip",
-        "nomeOriginal": "Tail Whip",
+        "nome": "Chicotede Cauda",
+        "nomeOriginal": "TailWhip",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-tail-whip"
+        "moveId": "TailWhip"
       },
       {
         "nivel": 1,
-        "nome": "Sand Attack",
-        "nomeOriginal": "Sand Attack",
-        "tipo": "Normal",
+        "nome": "Ataquede Areia",
+        "nomeOriginal": "SandAttack",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-sand-attack"
+        "moveId": "SandAttack"
       },
       {
         "nivel": 1,
@@ -28948,14 +28948,14 @@
       },
       {
         "nivel": 6,
-        "nome": "Quick Attack",
-        "nomeOriginal": "Quick Attack",
+        "nome": "Ataque Rápido",
+        "nomeOriginal": "QuickAttack",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-quick-attack"
+        "moveId": "QuickAttack"
       },
       {
         "nivel": 6,
@@ -28981,14 +28981,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Fire Spin",
-        "nomeOriginal": "Fire Spin",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Furacãode Chamas",
+        "nomeOriginal": "FireSpin",
+        "tipo": "Fogo",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-fire-spin"
+        "moveId": "FireSpin"
       },
       {
         "nivel": 14,
@@ -29036,14 +29036,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Flare Blitz",
-        "nomeOriginal": "Flare Blitz",
-        "tipo": "Normal",
+        "nome": "Blitzde Labaredas",
+        "nomeOriginal": "FlareBlitz",
+        "tipo": "Fogo",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-flare-blitz"
+        "moveId": "FlareBlitz"
       }
     ],
     "evolutionType": "evolution",
@@ -29242,25 +29242,25 @@
       },
       {
         "nivel": 18,
-        "nome": "Magic Coat",
-        "nomeOriginal": "Magic Coat",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Tela Mágica",
+        "nomeOriginal": "MagicCoat",
+        "tipo": "Psíquico",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-magic-coat"
+        "moveId": "MagicCoat"
       },
       {
         "nivel": 18,
-        "nome": "Zap Cannon",
-        "nomeOriginal": "Zap Cannon",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Canhão Elétrico",
+        "nomeOriginal": "ZapCannon",
+        "tipo": "Elétrico",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-zap-cannon"
+        "moveId": "ZapCannon"
       }
     ],
     "evolutionType": "basic",
@@ -29384,14 +29384,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Mud Shot",
-        "nomeOriginal": "Mud Shot",
-        "tipo": "Normal",
+        "nome": "Tirode Lama",
+        "nomeOriginal": "MudShot",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-mud-shot"
+        "moveId": "MudShot"
       },
       {
         "nivel": 14,
@@ -29417,14 +29417,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Ancient Power",
-        "nomeOriginal": "Ancient Power",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Poder Ancestral",
+        "nomeOriginal": "AncientPower",
+        "tipo": "Pedra",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-ancient-power"
+        "moveId": "AncientPower"
       },
       {
         "nivel": 18,
@@ -29439,14 +29439,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Rock Blast",
-        "nomeOriginal": "Rock Blast",
-        "tipo": "Normal",
+        "nome": "Explosãode Rocha",
+        "nomeOriginal": "RockBlast",
+        "tipo": "Pedra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-rock-blast"
+        "moveId": "RockBlast"
       },
       {
         "nivel": 18,
@@ -29461,14 +29461,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       }
     ],
     "evolutionType": "basic",
@@ -29603,14 +29603,14 @@
       },
       {
         "nivel": 10,
-        "nome": "Mud Shot",
-        "nomeOriginal": "Mud Shot",
-        "tipo": "Normal",
+        "nome": "Tirode Lama",
+        "nomeOriginal": "MudShot",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-mud-shot"
+        "moveId": "MudShot"
       },
       {
         "nivel": 14,
@@ -29636,14 +29636,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Ancient Power",
-        "nomeOriginal": "Ancient Power",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Poder Ancestral",
+        "nomeOriginal": "AncientPower",
+        "tipo": "Pedra",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-ancient-power"
+        "moveId": "AncientPower"
       },
       {
         "nivel": 18,
@@ -29658,14 +29658,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Rock Blast",
-        "nomeOriginal": "Rock Blast",
-        "tipo": "Normal",
+        "nome": "Explosãode Rocha",
+        "nomeOriginal": "RockBlast",
+        "tipo": "Pedra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-rock-blast"
+        "moveId": "RockBlast"
       },
       {
         "nivel": 18,
@@ -29680,14 +29680,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Hydro Pump",
-        "nomeOriginal": "Hydro Pump",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Hidro Bomba",
+        "nomeOriginal": "HydroPump",
+        "tipo": "Água",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-hydro-pump"
+        "moveId": "HydroPump"
       }
     ],
     "evolutionType": "evolution",
@@ -29793,25 +29793,25 @@
       },
       {
         "nivel": 6,
-        "nome": "Mud Shot",
-        "nomeOriginal": "Mud Shot",
-        "tipo": "Normal",
+        "nome": "Tirode Lama",
+        "nomeOriginal": "MudShot",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-mud-shot"
+        "moveId": "MudShot"
       },
       {
         "nivel": 10,
-        "nome": "Sand Attack",
-        "nomeOriginal": "Sand Attack",
-        "tipo": "Normal",
+        "nome": "Ataquede Areia",
+        "nomeOriginal": "SandAttack",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-sand-attack"
+        "moveId": "SandAttack"
       },
       {
         "nivel": 10,
@@ -29826,14 +29826,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Aqua Jet",
-        "nomeOriginal": "Aqua Jet",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Aqua Jato",
+        "nomeOriginal": "AquaJet",
+        "tipo": "Água",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-aqua-jet"
+        "moveId": "AquaJet"
       },
       {
         "nivel": 14,
@@ -29859,25 +29859,25 @@
       },
       {
         "nivel": 18,
-        "nome": "Ancient Power",
-        "nomeOriginal": "Ancient Power",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Poder Ancestral",
+        "nomeOriginal": "AncientPower",
+        "tipo": "Pedra",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-ancient-power"
+        "moveId": "AncientPower"
       },
       {
         "nivel": 18,
-        "nome": "Wring Out",
-        "nomeOriginal": "Wring Out",
+        "nome": "Despedaçar",
+        "nomeOriginal": "WringOut",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-wring-out"
+        "moveId": "WringOut"
       }
     ],
     "evolutionType": "basic",
@@ -30001,25 +30001,25 @@
       },
       {
         "nivel": 1,
-        "nome": "Mud Shot",
-        "nomeOriginal": "Mud Shot",
-        "tipo": "Normal",
+        "nome": "Tirode Lama",
+        "nomeOriginal": "MudShot",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-mud-shot"
+        "moveId": "MudShot"
       },
       {
         "nivel": 10,
-        "nome": "Sand Attack",
-        "nomeOriginal": "Sand Attack",
-        "tipo": "Normal",
+        "nome": "Ataquede Areia",
+        "nomeOriginal": "SandAttack",
+        "tipo": "Terra",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-sand-attack"
+        "moveId": "SandAttack"
       },
       {
         "nivel": 10,
@@ -30034,14 +30034,14 @@
       },
       {
         "nivel": 14,
-        "nome": "Aqua Jet",
-        "nomeOriginal": "Aqua Jet",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "nome": "Aqua Jato",
+        "nomeOriginal": "AquaJet",
+        "tipo": "Água",
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-aqua-jet"
+        "moveId": "AquaJet"
       },
       {
         "nivel": 14,
@@ -30067,36 +30067,36 @@
       },
       {
         "nivel": 18,
-        "nome": "Ancient Power",
-        "nomeOriginal": "Ancient Power",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Poder Ancestral",
+        "nomeOriginal": "AncientPower",
+        "tipo": "Pedra",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-ancient-power"
+        "moveId": "AncientPower"
       },
       {
         "nivel": 18,
-        "nome": "Wring Out",
-        "nomeOriginal": "Wring Out",
+        "nome": "Despedaçar",
+        "nomeOriginal": "WringOut",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-wring-out"
+        "moveId": "WringOut"
       },
       {
         "nivel": 18,
-        "nome": "Night Slash",
-        "nomeOriginal": "Night Slash",
-        "tipo": "Normal",
+        "nome": "Corte Noturno",
+        "nomeOriginal": "NightSlash",
+        "tipo": "Sombrio",
         "pp": 10,
         "ppMax": 10,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-night-slash"
+        "moveId": "NightSlash"
       }
     ],
     "evolutionType": "evolution",
@@ -30270,14 +30270,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Ancient Power",
-        "nomeOriginal": "Ancient Power",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Poder Ancestral",
+        "nomeOriginal": "AncientPower",
+        "tipo": "Pedra",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-ancient-power"
+        "moveId": "AncientPower"
       },
       {
         "nivel": 14,
@@ -30409,14 +30409,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Defense Curl",
-        "nomeOriginal": "Defense Curl",
+        "nome": "Espiralde Defesa",
+        "nomeOriginal": "DefenseCurl",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 20,
+        "ppMax": 20,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-defense-curl"
+        "moveId": "DefenseCurl"
       },
       {
         "nivel": 1,
@@ -30552,14 +30552,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Belly Drum",
-        "nomeOriginal": "Belly Drum",
+        "nome": "Tamborde Barriga",
+        "nomeOriginal": "BellyDrum",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-belly-drum"
+        "moveId": "BellyDrum"
       },
       {
         "nivel": 18,
@@ -30574,14 +30574,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Heavy Slam",
-        "nomeOriginal": "Heavy Slam",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Golpe Pesado",
+        "nomeOriginal": "HeavySlam",
+        "tipo": "Aço",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-heavy-slam"
+        "moveId": "HeavySlam"
       }
     ],
     "evolutionType": "basic",
@@ -30681,25 +30681,25 @@
       },
       {
         "nivel": 1,
-        "nome": "Mind Reader",
-        "nomeOriginal": "Mind Reader",
+        "nome": "Leitura Mental",
+        "nomeOriginal": "MindReader",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-mind-reader"
+        "moveId": "MindReader"
       },
       {
         "nivel": 1,
-        "nome": "Ancient Power",
-        "nomeOriginal": "Ancient Power",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Poder Ancestral",
+        "nomeOriginal": "AncientPower",
+        "tipo": "Pedra",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-ancient-power"
+        "moveId": "AncientPower"
       },
       {
         "nivel": 1,
@@ -30791,14 +30791,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Sheer Cold",
-        "nomeOriginal": "Sheer Cold",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Frio Extremo",
+        "nomeOriginal": "SheerCold",
+        "tipo": "Gelo",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-sheer-cold"
+        "moveId": "SheerCold"
       },
       {
         "nivel": 18,
@@ -30928,14 +30928,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Ancient Power",
-        "nomeOriginal": "Ancient Power",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Poder Ancestral",
+        "nomeOriginal": "AncientPower",
+        "tipo": "Pedra",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-ancient-power"
+        "moveId": "AncientPower"
       },
       {
         "nivel": 1,
@@ -31027,14 +31027,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Zap Cannon",
-        "nomeOriginal": "Zap Cannon",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Canhão Elétrico",
+        "nomeOriginal": "ZapCannon",
+        "tipo": "Elétrico",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-zap-cannon"
+        "moveId": "ZapCannon"
       },
       {
         "nivel": 18,
@@ -31133,14 +31133,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Fire Spin",
-        "nomeOriginal": "Fire Spin",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Furacãode Chamas",
+        "nomeOriginal": "FireSpin",
+        "tipo": "Fogo",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-fire-spin"
+        "moveId": "FireSpin"
       },
       {
         "nivel": 1,
@@ -31166,14 +31166,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Ancient Power",
-        "nomeOriginal": "Ancient Power",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Poder Ancestral",
+        "nomeOriginal": "AncientPower",
+        "tipo": "Pedra",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-ancient-power"
+        "moveId": "AncientPower"
       },
       {
         "nivel": 1,
@@ -31221,14 +31221,14 @@
       },
       {
         "nivel": 18,
-        "nome": "Sunny Day",
-        "nomeOriginal": "Sunny Day",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Dia Ensolarado",
+        "nomeOriginal": "SunnyDay",
+        "tipo": "Fogo",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-sunny-day"
+        "moveId": "SunnyDay"
       },
       {
         "nivel": 18,
@@ -31243,25 +31243,25 @@
       },
       {
         "nivel": 18,
-        "nome": "Solar Beam",
-        "nomeOriginal": "Solar Beam",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Raio Solar",
+        "nomeOriginal": "SolarBeam",
+        "tipo": "Grama",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-solar-beam"
+        "moveId": "SolarBeam"
       },
       {
         "nivel": 18,
-        "nome": "Sky Attack",
-        "nomeOriginal": "Sky Attack",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Ataquedo Céu",
+        "nomeOriginal": "SkyAttack",
+        "tipo": "Voador",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-sky-attack"
+        "moveId": "SkyAttack"
       },
       {
         "nivel": 18,
@@ -32142,14 +32142,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Power Swap",
-        "nomeOriginal": "Power Swap",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Trocade Poderes",
+        "nomeOriginal": "PowerSwap",
+        "tipo": "Psíquico",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-power-swap"
+        "moveId": "PowerSwap"
       },
       {
         "nivel": 1,
@@ -32186,14 +32186,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Aura Sphere",
-        "nomeOriginal": "Aura Sphere",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Aura Esférica",
+        "nomeOriginal": "AuraSphere",
+        "tipo": "Lutador",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-aura-sphere"
+        "moveId": "AuraSphere"
       },
       {
         "nivel": 1,
@@ -32346,14 +32346,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Mega Punch",
-        "nomeOriginal": "Mega Punch",
+        "nome": "Mega Soco",
+        "nomeOriginal": "MegaPunch",
         "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
+        "pp": 15,
+        "ppMax": 15,
         "ppAtual": 10,
         "descricao": "",
-        "moveId": "custom-mega-punch"
+        "moveId": "MegaPunch"
       },
       {
         "nivel": 1,
@@ -32390,14 +32390,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Ancient Power",
-        "nomeOriginal": "Ancient Power",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Poder Ancestral",
+        "nomeOriginal": "AncientPower",
+        "tipo": "Pedra",
+        "pp": 3,
+        "ppMax": 3,
+        "ppAtual": 3,
         "descricao": "",
-        "moveId": "custom-ancient-power"
+        "moveId": "AncientPower"
       },
       {
         "nivel": 1,
@@ -32445,14 +32445,14 @@
       },
       {
         "nivel": 1,
-        "nome": "Aura Sphere",
-        "nomeOriginal": "Aura Sphere",
-        "tipo": "Normal",
-        "pp": 10,
-        "ppMax": 10,
-        "ppAtual": 10,
+        "nome": "Aura Esférica",
+        "nomeOriginal": "AuraSphere",
+        "tipo": "Lutador",
+        "pp": 5,
+        "ppMax": 5,
+        "ppAtual": 5,
         "descricao": "",
-        "moveId": "custom-aura-sphere"
+        "moveId": "AuraSphere"
       }
     ],
     "evolutionType": "basic",

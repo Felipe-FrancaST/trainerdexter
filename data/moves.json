@@ -1672,14 +1672,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-solar-beam",
-    "nome": "Solar Beam",
-    "nomeOriginal": "Solar Beam",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-petal-dance",
     "nome": "Petal Dance",
     "nomeOriginal": "Petal Dance",
@@ -1752,14 +1744,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-fire-spin",
-    "nome": "Fire Spin",
-    "nomeOriginal": "Fire Spin",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-inferno",
     "nome": "Inferno",
     "nomeOriginal": "Inferno",
@@ -1784,14 +1768,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-shadow-claw",
-    "nome": "Shadow Claw",
-    "nomeOriginal": "Shadow Claw",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-wing-attack",
     "nome": "Wing Attack",
     "nomeOriginal": "Wing Attack",
@@ -1803,22 +1779,6 @@
     "id": "custom-heat-wave",
     "nome": "Heat Wave",
     "nomeOriginal": "Heat Wave",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-flare-blitz",
-    "nome": "Flare Blitz",
-    "nomeOriginal": "Flare Blitz",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-tail-whip",
-    "nome": "Tail Whip",
-    "nomeOriginal": "Tail Whip",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -1904,33 +1864,9 @@
     "descricao": ""
   },
   {
-    "id": "custom-hydro-pump",
-    "nome": "Hydro Pump",
-    "nomeOriginal": "Hydro Pump",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-flash-cannon",
     "nome": "Flash Cannon",
     "nomeOriginal": "Flash Cannon",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-string-shot",
-    "nome": "String Shot",
-    "nomeOriginal": "String Shot",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-bug-bite",
-    "nome": "Bug Bite",
-    "nomeOriginal": "Bug Bite",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -1955,14 +1891,6 @@
     "id": "custom-gust",
     "nome": "Gust",
     "nomeOriginal": "Gust",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-stun-spore",
-    "nome": "Stun Spore",
-    "nomeOriginal": "Stun Spore",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -2024,14 +1952,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-poison-sting",
-    "nome": "Poison Sting",
-    "nomeOriginal": "Poison Sting",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-fury-attack",
     "nome": "Fury Attack",
     "nomeOriginal": "Fury Attack",
@@ -2080,14 +2000,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-toxic-spikes",
-    "nome": "Toxic Spikes",
-    "nomeOriginal": "Toxic Spikes",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-pin-missile",
     "nome": "Pin Missile",
     "nomeOriginal": "Pin Missile",
@@ -2107,22 +2019,6 @@
     "id": "custom-fell-stinger",
     "nome": "Fell Stinger",
     "nomeOriginal": "Fell Stinger",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-sand-attack",
-    "nome": "Sand Attack",
-    "nomeOriginal": "Sand Attack",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-quick-attack",
-    "nome": "Quick Attack",
-    "nomeOriginal": "Quick Attack",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -2184,14 +2080,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-sucker-punch",
-    "nome": "Sucker Punch",
-    "nomeOriginal": "Sucker Punch",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-super-fang",
     "nome": "Super Fang",
     "nomeOriginal": "Super Fang",
@@ -2224,14 +2112,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-aerial-ace",
-    "nome": "Aerial Ace",
-    "nomeOriginal": "Aerial Ace",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-drill-peck",
     "nome": "Drill Peck",
     "nomeOriginal": "Drill Peck",
@@ -2243,14 +2123,6 @@
     "id": "custom-pluck",
     "nome": "Pluck",
     "nomeOriginal": "Pluck",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-drill-run",
-    "nome": "Drill Run",
-    "nomeOriginal": "Drill Run",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -2280,14 +2152,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-spit-up",
-    "nome": "Spit Up",
-    "nomeOriginal": "Spit Up",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-swallow",
     "nome": "Swallow",
     "nomeOriginal": "Swallow",
@@ -2299,22 +2163,6 @@
     "id": "custom-acid-spray",
     "nome": "Acid Spray",
     "nomeOriginal": "Acid Spray",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-mud-bomb",
-    "nome": "Mud Bomb",
-    "nomeOriginal": "Mud Bomb",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-gastro-acid",
-    "nome": "Gastro Acid",
-    "nomeOriginal": "Gastro Acid",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -2472,14 +2320,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-defense-curl",
-    "nome": "Defense Curl",
-    "nomeOriginal": "Defense Curl",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-rollout",
     "nome": "Rollout",
     "nomeOriginal": "Rollout",
@@ -2547,14 +2387,6 @@
     "id": "custom-earthquake",
     "nome": "Earthquake",
     "nomeOriginal": "Earthquake",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-crush-claw",
-    "nome": "Crush Claw",
-    "nomeOriginal": "Crush Claw",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -2672,22 +2504,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-double-slap",
-    "nome": "Double Slap",
-    "nomeOriginal": "Double Slap",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-follow-me",
-    "nome": "Follow Me",
-    "nomeOriginal": "Follow Me",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-wake-up-slap",
     "nome": "Wake-Up Slap",
     "nomeOriginal": "Wake-Up Slap",
@@ -2760,22 +2576,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-healing-wish",
-    "nome": "Healing Wish",
-    "nomeOriginal": "Healing Wish",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-after-you",
-    "nome": "After You",
-    "nomeOriginal": "After You",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-roar",
     "nome": "Roar",
     "nomeOriginal": "Roar",
@@ -2787,14 +2587,6 @@
     "id": "custom-baby-doll-eyes",
     "nome": "Baby-Doll Eyes",
     "nomeOriginal": "Baby-Doll Eyes",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-confuse-ray",
-    "nome": "Confuse Ray",
-    "nomeOriginal": "Confuse Ray",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -2888,14 +2680,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-air-cutter",
-    "nome": "Air Cutter",
-    "nomeOriginal": "Air Cutter",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-mean-look",
     "nome": "Mean Look",
     "nomeOriginal": "Mean Look",
@@ -2907,14 +2691,6 @@
     "id": "custom-leech-life",
     "nome": "Leech Life",
     "nomeOriginal": "Leech Life",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-quick-guard",
-    "nome": "Quick Guard",
-    "nomeOriginal": "Quick Guard",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -3040,14 +2816,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-night-slash",
-    "nome": "Night Slash",
-    "nomeOriginal": "Night Slash",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-tri-attack",
     "nome": "Tri Attack",
     "nomeOriginal": "Tri Attack",
@@ -3075,14 +2843,6 @@
     "id": "custom-taunt",
     "nome": "Taunt",
     "nomeOriginal": "Taunt",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-pay-day",
-    "nome": "Pay Day",
-    "nomeOriginal": "Pay Day",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -3136,14 +2896,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-aqua-jet",
-    "nome": "Aqua Jet",
-    "nomeOriginal": "Aqua Jet",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-me-first",
     "nome": "Me First",
     "nomeOriginal": "Me First",
@@ -3155,14 +2907,6 @@
     "id": "custom-covet",
     "nome": "Covet",
     "nomeOriginal": "Covet",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-low-kick",
-    "nome": "Low Kick",
-    "nomeOriginal": "Low Kick",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -3232,14 +2976,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-flame-wheel",
-    "nome": "Flame Wheel",
-    "nomeOriginal": "Flame Wheel",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-reversal",
     "nome": "Reversal",
     "nomeOriginal": "Reversal",
@@ -3264,22 +3000,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-mud-shot",
-    "nome": "Mud Shot",
-    "nomeOriginal": "Mud Shot",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-belly-drum",
-    "nome": "Belly Drum",
-    "nomeOriginal": "Belly Drum",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-submission",
     "nome": "Submission",
     "nomeOriginal": "Submission",
@@ -3291,14 +3011,6 @@
     "id": "custom-dynamic-punch",
     "nome": "Dynamic Punch",
     "nomeOriginal": "Dynamic Punch",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-mind-reader",
-    "nome": "Mind Reader",
-    "nomeOriginal": "Mind Reader",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -3456,22 +3168,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-wring-out",
-    "nome": "Wring Out",
-    "nomeOriginal": "Wring Out",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-leaf-tornado",
-    "nome": "Leaf Tornado",
-    "nomeOriginal": "Leaf Tornado",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-leaf-storm",
     "nome": "Leaf Storm",
     "nomeOriginal": "Leaf Storm",
@@ -3499,14 +3195,6 @@
     "id": "custom-brine",
     "nome": "Brine",
     "nomeOriginal": "Brine",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-sludge-wave",
-    "nome": "Sludge Wave",
-    "nomeOriginal": "Sludge Wave",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -3544,25 +3232,9 @@
     "descricao": ""
   },
   {
-    "id": "custom-smack-down",
-    "nome": "Smack Down",
-    "nomeOriginal": "Smack Down",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-stealth-rock",
     "nome": "Stealth Rock",
     "nomeOriginal": "Stealth Rock",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-rock-blast",
-    "nome": "Rock Blast",
-    "nomeOriginal": "Rock Blast",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -3587,22 +3259,6 @@
     "id": "custom-steamroller",
     "nome": "Steamroller",
     "nomeOriginal": "Steamroller",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-heavy-slam",
-    "nome": "Heavy Slam",
-    "nomeOriginal": "Heavy Slam",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-flame-charge",
-    "nome": "Flame Charge",
-    "nomeOriginal": "Flame Charge",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -3664,14 +3320,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-mirror-shot",
-    "nome": "Mirror Shot",
-    "nomeOriginal": "Mirror Shot",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-metal-sound",
     "nome": "Metal Sound",
     "nomeOriginal": "Metal Sound",
@@ -3683,14 +3331,6 @@
     "id": "custom-magnet-rise",
     "nome": "Magnet Rise",
     "nomeOriginal": "Magnet Rise",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-zap-cannon",
-    "nome": "Zap Cannon",
-    "nomeOriginal": "Zap Cannon",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -3768,22 +3408,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-aqua-ring",
-    "nome": "Aqua Ring",
-    "nomeOriginal": "Aqua Ring",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-aurora-beam",
-    "nome": "Aurora Beam",
-    "nomeOriginal": "Aurora Beam",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-dive",
     "nome": "Dive",
     "nomeOriginal": "Dive",
@@ -3795,14 +3419,6 @@
     "id": "custom-ice-beam",
     "nome": "Ice Beam",
     "nomeOriginal": "Ice Beam",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-sheer-cold",
-    "nome": "Sheer Cold",
-    "nomeOriginal": "Sheer Cold",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -3840,25 +3456,9 @@
     "descricao": ""
   },
   {
-    "id": "custom-venom-drench",
-    "nome": "Venom Drench",
-    "nomeOriginal": "Venom Drench",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-icicle-spear",
     "nome": "Icicle Spear",
     "nomeOriginal": "Icicle Spear",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-razor-shell",
-    "nome": "Razor Shell",
-    "nomeOriginal": "Razor Shell",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -3896,14 +3496,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-icicle-crash",
-    "nome": "Icicle Crash",
-    "nomeOriginal": "Icicle Crash",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-lick",
     "nome": "Lick",
     "nomeOriginal": "Lick",
@@ -3936,25 +3528,9 @@
     "descricao": ""
   },
   {
-    "id": "custom-dream-eater",
-    "nome": "Dream Eater",
-    "nomeOriginal": "Dream Eater",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-dark-pulse",
     "nome": "Dark Pulse",
     "nomeOriginal": "Dark Pulse",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-destiny-bond",
-    "nome": "Destiny Bond",
-    "nomeOriginal": "Destiny Bond",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -4067,14 +3643,6 @@
     "id": "custom-eerie-impulse",
     "nome": "Eerie Impulse",
     "nomeOriginal": "Eerie Impulse",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-charge-beam",
-    "nome": "Charge Beam",
-    "nomeOriginal": "Charge Beam",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -4216,22 +3784,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-mach-punch",
-    "nome": "Mach Punch",
-    "nomeOriginal": "Mach Punch",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-vacuum-wave",
-    "nome": "Vacuum Wave",
-    "nomeOriginal": "Vacuum Wave",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-fire-punch",
     "nome": "Fire Punch",
     "nomeOriginal": "Fire Punch",
@@ -4264,14 +3816,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-mega-punch",
-    "nome": "Mega Punch",
-    "nomeOriginal": "Mega Punch",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-focus-punch",
     "nome": "Focus Punch",
     "nomeOriginal": "Focus Punch",
@@ -4296,25 +3840,9 @@
     "descricao": ""
   },
   {
-    "id": "custom-power-whip",
-    "nome": "Power Whip",
-    "nomeOriginal": "Power Whip",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-smog",
     "nome": "Smog",
     "nomeOriginal": "Smog",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-clear-smog",
-    "nome": "Clear Smog",
-    "nomeOriginal": "Clear Smog",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -4339,14 +3867,6 @@
     "id": "custom-ingrain",
     "nome": "Ingrain",
     "nomeOriginal": "Ingrain",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-ancient-power",
-    "nome": "Ancient Power",
-    "nomeOriginal": "Ancient Power",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -4408,22 +3928,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-misty-terrain",
-    "nome": "Misty Terrain",
-    "nomeOriginal": "Misty Terrain",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-power-swap",
-    "nome": "Power Swap",
-    "nomeOriginal": "Power Swap",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-copycat",
     "nome": "Copycat",
     "nomeOriginal": "Copycat",
@@ -4459,22 +3963,6 @@
     "id": "custom-razor-wind",
     "nome": "Razor Wind",
     "nomeOriginal": "Razor Wind",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-draining-kiss",
-    "nome": "Draining Kiss",
-    "nomeOriginal": "Draining Kiss",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-lovely-kiss",
-    "nome": "Lovely Kiss",
-    "nomeOriginal": "Lovely Kiss",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -4523,14 +4011,6 @@
     "id": "custom-shock-wave",
     "nome": "Shock Wave",
     "nomeOriginal": "Shock Wave",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-sunny-day",
-    "nome": "Sunny Day",
-    "nomeOriginal": "Sunny Day",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""
@@ -4632,14 +4112,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-magic-coat",
-    "nome": "Magic Coat",
-    "nomeOriginal": "Magic Coat",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-iron-head",
     "nome": "Iron Head",
     "nomeOriginal": "Iron Head",
@@ -4688,14 +4160,6 @@
     "descricao": ""
   },
   {
-    "id": "custom-sky-attack",
-    "nome": "Sky Attack",
-    "nomeOriginal": "Sky Attack",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
     "id": "custom-dragon-tail",
     "nome": "Dragon Tail",
     "nomeOriginal": "Dragon Tail",
@@ -4707,14 +4171,6 @@
     "id": "custom-dragon-rush",
     "nome": "Dragon Rush",
     "nomeOriginal": "Dragon Rush",
-    "tipo": "Normal",
-    "pp": 10,
-    "descricao": ""
-  },
-  {
-    "id": "custom-aura-sphere",
-    "nome": "Aura Sphere",
-    "nomeOriginal": "Aura Sphere",
     "tipo": "Normal",
     "pp": 10,
     "descricao": ""

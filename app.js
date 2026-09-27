@@ -9,7 +9,7 @@ try{
  console.warn("TrainerDex: estado local inválido; iniciando estado padrão.",error);
 }
 const state=LOCAL_STATE&&typeof LOCAL_STATE==="object"?LOCAL_STATE:structuredClone(DEFAULT);
-const SOURCE_DATA_VERSION=2;
+const SOURCE_DATA_VERSION=3;
 
 // Persistência: localStorage continua como cache/offline, enquanto o Supabase
 // guarda os dados em tabelas organizadas. O formato de estado do frontend é mantido
@@ -177,13 +177,110 @@ function statsHtml(s){const attrs=normalizePokemonStats(s);return `<div class="a
 function moveOptionsHtml(selectedId=""){
  return moves.map(m=>`<option value="${esc(m.id)}" ${String(m.id)===String(selectedId)?"selected":""}>${esc(m.nomeOriginal)} — ${esc(m.nome)} • ${esc(m.tipo)} • PP ${m.pp}</option>`).join("");
 }
-function moveById(id){const m=moves.find(m=>String(m.id)===String(id));if(!m)return null;const o=state.moveOverrides?.[String(m.id)]||{};if(o.nome!==undefined)m.nome=String(o.nome);if(o.nomeOriginal!==undefined)m.nomeOriginal=String(o.nomeOriginal);if(o.tipo!==undefined)m.tipo=String(o.tipo);if(o.pp!==undefined)m.pp=Math.max(0,Number(o.pp)||0);if(Object.prototype.hasOwnProperty.call(state.moveDescriptions||{},String(m.id)))m.descricao=String(state.moveDescriptions[String(m.id)]||"");return m;}
+function moveKey(value){
+ return norm(value).replace(/[^a-z0-9]/g,"");
+}
+function moveById(id){
+ const m=moves.find(m=>String(m.id)===String(id));
+ if(!m)return null;
+ const o=state.moveOverrides?.[String(m.id)]||{};
+ if(o.nome!==undefined)m.nome=String(o.nome);
+ if(o.nomeOriginal!==undefined)m.nomeOriginal=String(o.nomeOriginal);
+ if(o.tipo!==undefined)m.tipo=String(o.tipo);
+ if(o.pp!==undefined)m.pp=Math.max(0,Number(o.pp)||0);
+ if(Object.prototype.hasOwnProperty.call(state.moveDescriptions||{},String(m.id)))m.descricao=String(state.moveDescriptions[String(m.id)]||"");
+ return m;
+}
 function moveDescription(m){return String(state.moveDescriptions?.[String(m?.id)] ?? m?.descricao ?? "");}
+
+/*
+ * Fonte única dos ataques:
+ * - moves[] é o catálogo mestre.
+ * - cada Pokémon guarda apenas a referência moveId + nível/PP atual.
+ * - ataques antigos que foram criados como "custom-..." são migrados para
+ *   o ID oficial do mesmo ataque quando existir.
+ */
+function normalizeMoveLibrary(){
+ state.moveOverrides??={};
+ state.moveDescriptions??={};
+
+ const groups=new Map();
+ const aliases={};
+ moves.forEach(m=>{
+   const key=moveKey(m.nomeOriginal||m.nome);
+   if(!key)return;
+   if(!groups.has(key))groups.set(key,[]);
+   groups.get(key).push(m);
+ });
+
+ const canonical=[];
+ groups.forEach(list=>{
+   const preferred=list.find(m=>!String(m.id).startsWith("custom-"))||list[0];
+   const preferredId=String(preferred.id);
+   canonical.push(preferred);
+   list.forEach(m=>{aliases[String(m.id)]=preferredId;});
+
+   // Se uma definição antiga tinha edição salva e a oficial não tinha,
+   // transfere a edição para a definição única.
+   const oldOverrides=list.map(m=>state.moveOverrides[String(m.id)]).find(Boolean);
+   if(oldOverrides && !state.moveOverrides[preferredId])state.moveOverrides[preferredId]=oldOverrides;
+   const oldDescription=list.map(m=>state.moveDescriptions[String(m.id)]).find(v=>v!==undefined&&String(v).trim());
+   if(oldDescription!==undefined && !String(state.moveDescriptions[preferredId]||"").trim()){
+     state.moveDescriptions[preferredId]=String(oldDescription);
+   }
+ });
+ moves=canonical;
+
+ // Limpa overrides/descrições dos IDs duplicados.
+ Object.keys(state.moveOverrides).forEach(id=>{
+   const target=aliases[id];
+   if(target && target!==id)delete state.moveOverrides[id];
+ });
+ Object.keys(state.moveDescriptions).forEach(id=>{
+   const target=aliases[id];
+   if(target && target!==id)delete state.moveDescriptions[id];
+ });
+
+ // Corrige todos os vínculos existentes nos Pokémon.
+ pokemons.forEach(p=>{
+   p.ataques=Array.isArray(p.ataques)?p.ataques:[];
+   p.ataques=p.ataques.map(a=>{
+     const currentId=String(a?.moveId||"");
+     let m=aliases[currentId] ? moveById(aliases[currentId]) : moveById(currentId);
+     if(!m){
+       const key=moveKey(a?.nomeOriginal||a?.nome);
+       m=moves.find(x=>moveKey(x.nomeOriginal||x.nome)===key)||null;
+     }
+     if(!m){
+       const key=moveKey(a?.nomeOriginal||a?.nome);
+       if(key){
+         let id="custom-"+key;
+         let n=2;
+         while(moves.some(x=>String(x.id)===id))id=`custom-${key}-${n++}`;
+         m={id,nome:a.nomeOriginal||a.nome,nomeOriginal:a.nomeOriginal||a.nome,tipo:a.tipo||"Normal",pp:Math.max(0,Number(a.pp)||10),descricao:a.descricao||""};
+         moves.push(m);
+         aliases[currentId]=id;
+       }
+     }
+     if(!m)return a;
+     a.moveId=String(m.id);
+     a.nome=m.nome;
+     a.nomeOriginal=m.nomeOriginal;
+     a.tipo=m.tipo;
+     a.pp=Number(m.pp)||0;
+     a.ppMax=Number(m.pp)||0;
+     a.ppAtual=Math.max(0,Math.min(Number(m.pp)||0,Number(a.ppAtual??m.pp)||Number(m.pp)||0));
+     a.descricao=moveDescription(m);
+     return a;
+   });
+ });
+}
+
 function ensureMoveForAttack(a){
- const key=norm(a?.nomeOriginal||a?.nome);
+ const key=moveKey(a?.nomeOriginal||a?.nome);
  if(!key)return null;
  let m=a?.moveId?moveById(a.moveId):null;
- if(!m)m=moves.find(x=>norm(x.nomeOriginal)===key||norm(x.nome)===key)||null;
+ if(!m)m=moves.find(x=>moveKey(x.nomeOriginal||x.nome)===key)||null;
  if(!m){
    const base="custom-"+key.replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
    let id=base||("custom-"+Date.now()); let n=2;
@@ -191,7 +288,7 @@ function ensureMoveForAttack(a){
    m={id,nome:a.nomeOriginal||a.nome,nomeOriginal:a.nomeOriginal||a.nome,tipo:a.tipo||"Normal",pp:Math.max(0,Number(a.pp)||10),descricao:a.descricao||""};
    moves.push(m);
  }
- a.moveId=m.id; a.nome=m.nome; a.nomeOriginal=m.nomeOriginal; a.tipo=m.tipo; a.pp=Number(m.pp)||0; a.ppMax=Number(m.pp)||0; a.ppAtual=Math.min(Number(a.ppAtual??m.pp)||Number(m.pp)||0,Number(m.pp)||0); a.descricao=moveDescription(m)||a.descricao||"";
+ a.moveId=m.id; a.nome=m.nome; a.nomeOriginal=m.nomeOriginal; a.tipo=m.tipo; a.pp=Number(m.pp)||0; a.ppMax=Number(m.pp)||0; a.ppAtual=Math.min(Number(a.ppAtual??m.pp)||Number(m.pp)||0,Number(m.pp)||0); a.descricao=moveDescription(m);
  return m;
 }
 function attacksEditorHtml(attacks=[]){return `<div class="attack-builder" id="attackBuilder">${(attacks||[]).map((a,i)=>attackRowHtml(a,i)).join("")}</div><button type="button" class="btn" id="addAttack">+ Adicionar ataque</button>`}
@@ -787,7 +884,10 @@ async function init(){
   const [r,mr]=await Promise.all([fetch("data/pokemon.json"),fetch("data/moves.json")]);const base=await r.json();moves=await mr.json();pokemons=(Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length>=1&&state.pokemonCatalog.some(p=>p&&p.id&&p.nome))?state.pokemonCatalog:base;
  const baseById=Object.fromEntries(base.map(p=>[Number(p.id),p]));
  pokemons.forEach(p=>{const source=baseById[Number(p.id)];if(source&&Number(p._dadosFichaVersion||0)<SOURCE_DATA_VERSION){p.ca=source.ca;p.sr=source.sr;p.hp=source.hp;p.dadoVida=source.dadoVida;p.status=source.status;p.pericias=source.pericias;p.ataques=source.ataques;p._dadosFichaVersion=SOURCE_DATA_VERSION;}normalizeAbilities(p);p.hp=Math.max(1,Number(p.hp)||50);p.dadoVida=normalizeLifeDice(p.dadoVida);p.sr??="";p.ca=Math.max(0,Number(p.ca)||0);delete p.nivel;p.status=normalizePokemonStats(p.status||{});p.pericias=normalizeSkills(p.pericias||{});p.bonusProficiencia=Math.max(0,Math.min(20,Number(p.bonusProficiencia ?? proficiencyBonus(1))||0));p.vulnerabilidades??=[];p.resistencia??=[];p.ataques??=[];if((!p.vulnerabilidades||p.vulnerabilidades.length===0)&&(!p.resistencia||p.resistencia.length===0)){const rel=calcTypeRelations(p.tipo);p.vulnerabilidades=rel.vulnerabilidades;p.resistencia=rel.resistencia}});state.trainers.forEach(t=>{normalizeTrainerStorage(t);[...t.team,...t.pc].forEach(a=>{const p=pokemonById(a.pokemonId);if(!p)return;a.level=Math.max(1,Number(a.level)||1);const max=hpMaxForLevel(p,a.level);const legacyBase=Math.max(1,Number(p.hp)||1);if(!Number.isFinite(Number(a.currentHp))|| (a.level>1&&Number(a.currentHp)===legacyBase))a.currentHp=max;else a.currentHp=Math.max(0,Math.min(max,Number(a.currentHp)));a.abilityIndexes=Array.isArray(a.abilityIndexes)?a.abilityIndexes.map(Number).filter(x=>x===0||x===1).slice(0,2):[];a.natureza=pokemonNature(a.natureza).id})});applyKnownEvolutionStructure();
- if(Number(state.moveLibraryVersion||0)<1){state.moveLibraryVersion=1;}
+ if(Number(state.moveLibraryVersion||0)<3){
+   state.moveLibraryVersion=3;
+ }
+ normalizeMoveLibrary();
  pokemons.forEach(p=>(p.ataques||[]).forEach(a=>ensureMoveForAttack(a)));
  state.pokemonCatalog=pokemons;
  save();
