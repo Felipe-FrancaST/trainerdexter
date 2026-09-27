@@ -4,7 +4,7 @@
     "nome": "Absorver",
     "nomeOriginal": "Absorb",
     "tipo": "Grama",
-    "pp": 15,
+    "pp": 25,
     "descricao": ""
   },
   {
@@ -12,7 +12,7 @@
     "nome": "Rocha Veloz",
     "nomeOriginal": "Accelerock",
     "tipo": "Pedra",
-    "pp": 15,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -20,7 +20,7 @@
     "nome": "Golpe Aéreo",
     "nomeOriginal": "AerialAce",
     "tipo": "Voador",
-    "pp": 5,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -28,7 +28,7 @@
     "nome": "Depoisde Você",
     "nomeOriginal": "AfterYou",
     "tipo": "Normal",
-    "pp": 3,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -36,7 +36,7 @@
     "nome": "Agilidade",
     "nomeOriginal": "Agility",
     "tipo": "Psíquico",
-    "pp": 15,
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -44,7 +44,7 @@
     "nome": "Ar Cortante",
     "nomeOriginal": "AirCutter",
     "tipo": "Voador",
-    "pp": 15,
+    "pp": 25,
     "descricao": ""
   },
   {
@@ -52,7 +52,7 @@
     "nome": "Tirode Âncora",
     "nomeOriginal": "AnchorShot",
     "tipo": "Aço",
-    "pp": 15,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -60,7 +60,7 @@
     "nome": "Poder Ancestral",
     "nomeOriginal": "AncientPower",
     "tipo": "Pedra",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -68,7 +68,7 @@
     "nome": "Aqua Jato",
     "nomeOriginal": "AquaJet",
     "tipo": "Água",
-    "pp": 15,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -76,7 +76,7 @@
     "nome": "Aqua Arco",
     "nomeOriginal": "AquaRing",
     "tipo": "Água",
-    "pp": 5,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -84,7 +84,7 @@
     "nome": "Assistência",
     "nomeOriginal": "Assist",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -92,7 +92,7 @@
     "nome": "Garantia",
     "nomeOriginal": "Assurance",
     "tipo": "Sombrio",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -100,7 +100,7 @@
     "nome": "Abismar",
     "nomeOriginal": "Astonish",
     "tipo": "Fantasma",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -108,7 +108,7 @@
     "nome": "Ordemde Ataque",
     "nomeOriginal": "AttackOrder",
     "tipo": "Inseto",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -116,7 +116,7 @@
     "nome": "Atração",
     "nomeOriginal": "Attract",
     "tipo": "Normal",
-    "pp": 5,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -124,7 +124,7 @@
     "nome": "Aura Esférica",
     "nomeOriginal": "AuraSphere",
     "tipo": "Lutador",
-    "pp": 5,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -132,7 +132,7 @@
     "nome": "Raio Aurora",
     "nomeOriginal": "AuroraBeam",
     "tipo": "Gelo",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -140,7 +140,7 @@
     "nome": "Véude Aurora",
     "nomeOriginal": "AuroraVeil",
     "tipo": "Gelo",
-    "pp": 3,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -148,7 +148,7 @@
     "nome": "Autotomizar",
     "nomeOriginal": "Autotomize",
     "tipo": "Aço",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -156,7 +156,7 @@
     "nome": "Avalanche",
     "nomeOriginal": "Avalanche",
     "tipo": "Gelo",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -164,7 +164,7 @@
     "nome": "Barreira",
     "nomeOriginal": "Barrier",
     "tipo": "Psíquico",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -172,7 +172,7 @@
     "nome": "Arrotar",
     "nomeOriginal": "Belch",
     "tipo": "Venenoso",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -180,7 +180,7 @@
     "nome": "Tamborde Barriga",
     "nomeOriginal": "BellyDrum",
     "tipo": "Normal",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -188,7 +188,7 @@
     "nome": "Oferenda",
     "nomeOriginal": "Bestow",
     "tipo": "Normal",
-    "pp": 3,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -196,7 +196,7 @@
     "nome": "Aguardar",
     "nomeOriginal": "Bide",
     "tipo": "Normal",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -204,7 +204,7 @@
     "nome": "Enlaçar",
     "nomeOriginal": "Bind",
     "tipo": "Normal",
-    "pp": 15,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -212,7 +212,7 @@
     "nome": "Mordidade Inseto",
     "nomeOriginal": "BugBite",
     "tipo": "Inseto",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -220,7 +220,7 @@
     "nome": "Camuflagem",
     "nomeOriginal": "Camouflage",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -228,7 +228,7 @@
     "nome": "Cativar",
     "nomeOriginal": "Captivate",
     "tipo": "Normal",
-    "pp": 3,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -236,7 +236,7 @@
     "nome": "Carga",
     "nomeOriginal": "Charge",
     "tipo": "Elétrico",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -244,7 +244,7 @@
     "nome": "Raiode Ataque",
     "nomeOriginal": "ChargeBeam",
     "tipo": "Elétrico",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -252,7 +252,7 @@
     "nome": "Prender",
     "nomeOriginal": "Clamp",
     "tipo": "Água",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -260,7 +260,7 @@
     "nome": "Fumaçalimpa",
     "nomeOriginal": "ClearSmog",
     "tipo": "Venenoso",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -268,7 +268,7 @@
     "nome": "Raioda Confusão",
     "nomeOriginal": "ConfuseRay",
     "tipo": "Fantasma",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -276,7 +276,7 @@
     "nome": "Conversão2",
     "nomeOriginal": "Conversion",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -284,7 +284,7 @@
     "nome": "Esporosde Algodão",
     "nomeOriginal": "CottonSpore",
     "tipo": "Grama",
-    "pp": 20,
+    "pp": 40,
     "descricao": ""
   },
   {
@@ -300,7 +300,7 @@
     "nome": "Cortar",
     "nomeOriginal": "Cut",
     "tipo": "Normal",
-    "pp": 15,
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -308,7 +308,7 @@
     "nome": "Ordemde Defesa",
     "nomeOriginal": "DefendOrder",
     "tipo": "Inseto",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -316,7 +316,7 @@
     "nome": "Espiralde Defesa",
     "nomeOriginal": "DefenseCurl",
     "tipo": "Normal",
-    "pp": 20,
+    "pp": 40,
     "descricao": ""
   },
   {
@@ -324,7 +324,7 @@
     "nome": "Descondensar",
     "nomeOriginal": "Defog",
     "tipo": "Voador",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -332,7 +332,7 @@
     "nome": "Vínculodo Destino",
     "nomeOriginal": "DestinyBond",
     "tipo": "Fantasma",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -340,7 +340,7 @@
     "nome": "Detectar",
     "nomeOriginal": "Detect",
     "tipo": "Lutador",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -356,7 +356,7 @@
     "nome": "Desabilitar",
     "nomeOriginal": "Disable",
     "tipo": "Normal",
-    "pp": 5,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -364,7 +364,7 @@
     "nome": "Tapa Duplo",
     "nomeOriginal": "DoubleSlap",
     "tipo": "Normal",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -372,7 +372,7 @@
     "nome": "Corte Duplo",
     "nomeOriginal": "Double-Edge",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -380,7 +380,7 @@
     "nome": "Beijo Drenante",
     "nomeOriginal": "DrainingKiss",
     "tipo": "Fada",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -388,7 +388,7 @@
     "nome": "Devoradorde Sonhos",
     "nomeOriginal": "DreamEater",
     "tipo": "Psíquico",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -396,7 +396,7 @@
     "nome": "Broca Veloz",
     "nomeOriginal": "DrillRun",
     "tipo": "Terra",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -404,7 +404,7 @@
     "nome": "Voz Ecoante",
     "nomeOriginal": "EchoedVoice",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -412,7 +412,7 @@
     "nome": "Brasas",
     "nomeOriginal": "Ember",
     "tipo": "Fogo",
-    "pp": 15,
+    "pp": 25,
     "descricao": ""
   },
   {
@@ -420,7 +420,7 @@
     "nome": "Bis",
     "nomeOriginal": "Encore",
     "tipo": "Normal",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -428,7 +428,7 @@
     "nome": "Esforço",
     "nomeOriginal": "Endeavor",
     "tipo": "Normal",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -436,7 +436,7 @@
     "nome": "Extrassensorial",
     "nomeOriginal": "Extrasensory",
     "tipo": "Psíquico",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -444,7 +444,7 @@
     "nome": "Fachada",
     "nomeOriginal": "Facade",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -452,7 +452,7 @@
     "nome": "Aprisionamentode Fada",
     "nomeOriginal": "FairyLock",
     "tipo": "Fada",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -460,7 +460,7 @@
     "nome": "Chicotede Fogo",
     "nomeOriginal": "FireLash",
     "tipo": "Fogo",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -468,7 +468,7 @@
     "nome": "Pilarde Fogo",
     "nomeOriginal": "FirePledge",
     "tipo": "Fogo",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -476,7 +476,7 @@
     "nome": "Furacãode Chamas",
     "nomeOriginal": "FireSpin",
     "tipo": "Fogo",
-    "pp": 5,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -484,7 +484,7 @@
     "nome": "Ataquede Chamas",
     "nomeOriginal": "FlameCharge",
     "tipo": "Fogo",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -492,7 +492,7 @@
     "nome": "Rodade Fogo",
     "nomeOriginal": "FlameWheel",
     "tipo": "Fogo",
-    "pp": 15,
+    "pp": 25,
     "descricao": ""
   },
   {
@@ -500,7 +500,7 @@
     "nome": "Lança- Chamas",
     "nomeOriginal": "Flamethrower",
     "tipo": "Fogo",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -508,7 +508,7 @@
     "nome": "Blitzde Labaredas",
     "nomeOriginal": "FlareBlitz",
     "tipo": "Fogo",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -516,7 +516,7 @@
     "nome": "Arremessar",
     "nomeOriginal": "Fling",
     "tipo": "Sombrio",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -532,7 +532,7 @@
     "nome": "Voar",
     "nomeOriginal": "Fly",
     "tipo": "Voador",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -540,7 +540,7 @@
     "nome": "Aperto Voador",
     "nomeOriginal": "FlyingPress",
     "tipo": "Lutador",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -548,7 +548,7 @@
     "nome": "Isca- Viva",
     "nomeOriginal": "FollowMe",
     "tipo": "Normal",
-    "pp": 5,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -564,7 +564,7 @@
     "nome": "Maldiçãoda Floresta",
     "nomeOriginal": "sCurse",
     "tipo": "Grama",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -572,7 +572,7 @@
     "nome": "Liofilização",
     "nomeOriginal": "Freeze-Dry",
     "tipo": "Gelo",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -580,7 +580,7 @@
     "nome": "Respiraçãode Gelo",
     "nomeOriginal": "FrostBreath",
     "tipo": "Gelo",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -588,7 +588,7 @@
     "nome": "Frustração",
     "nomeOriginal": "Frustration",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -596,7 +596,7 @@
     "nome": "Chamade Fusão",
     "nomeOriginal": "FusionFlare",
     "tipo": "Fogo",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -604,7 +604,7 @@
     "nome": "Ácido Gástrico",
     "nomeOriginal": "GastroAcid",
     "tipo": "Venenoso",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -612,7 +612,7 @@
     "nome": "Moedor",
     "nomeOriginal": "GearGrind",
     "tipo": "Aço",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -620,7 +620,7 @@
     "nome": "Engrenar",
     "nomeOriginal": "GearUp",
     "tipo": "Aço",
-    "pp": 15,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -628,14 +628,14 @@
     "nome": "Glaciar",
     "nomeOriginal": "Glaciate",
     "tipo": "Gelo",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
     "id": "Growth",
     "nome": "Crescimento",
     "nomeOriginal": "Growth",
-    "tipo": "Normal",
+    "tipo": "Grama",
     "pp": 20,
     "descricao": ""
   },
@@ -644,7 +644,7 @@
     "nome": "Granizo",
     "nomeOriginal": "Hail",
     "tipo": "Gelo",
-    "pp": 3,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -652,7 +652,7 @@
     "nome": "Sinoda Cura",
     "nomeOriginal": "HealBell",
     "tipo": "Normal",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -660,7 +660,7 @@
     "nome": "Bloqueiode Cura",
     "nomeOriginal": "HealBlock",
     "tipo": "Psíquico",
-    "pp": 3,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -668,7 +668,7 @@
     "nome": "Desejode Cura",
     "nomeOriginal": "HealingWish",
     "tipo": "Psíquico",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -676,7 +676,7 @@
     "nome": "Golpe Pesado",
     "nomeOriginal": "HeavySlam",
     "tipo": "Aço",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -684,7 +684,7 @@
     "nome": "Feitiço",
     "nomeOriginal": "Hex",
     "tipo": "Fantasma",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -692,7 +692,7 @@
     "nome": "Reter",
     "nomeOriginal": "HoldBack",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 40,
     "descricao": ""
   },
   {
@@ -700,7 +700,7 @@
     "nome": "Uivo",
     "nomeOriginal": "Howl",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 40,
     "descricao": ""
   },
   {
@@ -708,7 +708,7 @@
     "nome": "Hidro Canhão",
     "nomeOriginal": "HydroCannon",
     "tipo": "Água",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -716,7 +716,7 @@
     "nome": "Hidro Bomba",
     "nomeOriginal": "HydroPump",
     "tipo": "Água",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -724,7 +724,7 @@
     "nome": "Hypnose",
     "nomeOriginal": "Hypnosis",
     "tipo": "Psíquico",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -732,7 +732,7 @@
     "nome": "Choquede Gelo",
     "nomeOriginal": "IcicleCrash",
     "tipo": "Gelo",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -740,7 +740,7 @@
     "nome": "Tornadode Folhas",
     "nomeOriginal": "LeafTornado",
     "tipo": "Grama",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -748,7 +748,7 @@
     "nome": "Liquidação",
     "nomeOriginal": "Liquidation",
     "tipo": "Água",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -756,7 +756,7 @@
     "nome": "Mira",
     "nomeOriginal": "Lock-On",
     "tipo": "Normal",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -764,7 +764,7 @@
     "nome": "Beijo Amoroso",
     "nomeOriginal": "LovelyKiss",
     "tipo": "Normal",
-    "pp": 3,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -772,7 +772,7 @@
     "nome": "Chutebaixo",
     "nomeOriginal": "LowKick",
     "tipo": "Lutador",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -780,7 +780,7 @@
     "nome": "Purgade Esplendor",
     "nomeOriginal": "LusterPurge",
     "tipo": "Psíquico",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -788,7 +788,7 @@
     "nome": "Soco Rápido",
     "nomeOriginal": "MachPunch",
     "tipo": "Lutador",
-    "pp": 15,
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -796,7 +796,7 @@
     "nome": "Tela Mágica",
     "nomeOriginal": "MagicCoat",
     "tipo": "Psíquico",
-    "pp": 3,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -804,7 +804,7 @@
     "nome": "Sala Mágica",
     "nomeOriginal": "MagicRoom",
     "tipo": "Psíquico",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -812,7 +812,7 @@
     "nome": "Mega Soco",
     "nomeOriginal": "MegaPunch",
     "tipo": "Normal",
-    "pp": 15,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -820,7 +820,7 @@
     "nome": "Sacrifício",
     "nomeOriginal": "Memento",
     "tipo": "Sombrio",
-    "pp": 3,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -828,7 +828,7 @@
     "nome": "Explosão Metálica",
     "nomeOriginal": "MetalBurst",
     "tipo": "Aço",
-    "pp": 3,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -844,7 +844,7 @@
     "nome": "Explosão Mental",
     "nomeOriginal": "MindBlown",
     "tipo": "Fogo",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -852,7 +852,7 @@
     "nome": "Leitura Mental",
     "nomeOriginal": "MindReader",
     "tipo": "Normal",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -860,7 +860,7 @@
     "nome": "Minimizar",
     "nomeOriginal": "Minimize",
     "tipo": "Normal",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -868,7 +868,7 @@
     "nome": "Tiro Espelhado",
     "nomeOriginal": "MirrorShot",
     "tipo": "Aço",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -876,7 +876,7 @@
     "nome": "Névoa",
     "nomeOriginal": "Mist",
     "tipo": "Gelo",
-    "pp": 15,
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -892,7 +892,7 @@
     "nome": "Campo Enevoado",
     "nomeOriginal": "MistyTerrain",
     "tipo": "Fada",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -900,7 +900,7 @@
     "nome": "Bombade Lama",
     "nomeOriginal": "MudBomb",
     "tipo": "Terra",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -908,7 +908,7 @@
     "nome": "Tirode Lama",
     "nomeOriginal": "MudShot",
     "tipo": "Terra",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -916,7 +916,7 @@
     "nome": "Ataquede Lama",
     "nomeOriginal": "Mud-Slap",
     "tipo": "Terra",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -924,7 +924,7 @@
     "nome": "Corte Noturno",
     "nomeOriginal": "NightSlash",
     "tipo": "Sombrio",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -932,7 +932,7 @@
     "nome": "Pulso Original",
     "nomeOriginal": "OriginPulse",
     "tipo": "Água",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -940,7 +940,7 @@
     "nome": "Ultraje",
     "nomeOriginal": "Outrage",
     "tipo": "Dragão",
-    "pp": 3,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -948,7 +948,7 @@
     "nome": "Divisãode Dor",
     "nomeOriginal": "PainSplit",
     "tipo": "Normal",
-    "pp": 3,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -956,7 +956,7 @@
     "nome": "Ataque Parabólico",
     "nomeOriginal": "ParabolicCharge",
     "tipo": "Elétrico",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -964,7 +964,7 @@
     "nome": "Tiro Divisor",
     "nomeOriginal": "PartingShot",
     "tipo": "Sombrio",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -972,7 +972,7 @@
     "nome": "Diado Pagamento",
     "nomeOriginal": "PayDay",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -980,7 +980,7 @@
     "nome": "Picada Venenosa",
     "nomeOriginal": "PoisonSting",
     "tipo": "Venenoso",
-    "pp": 15,
+    "pp": 35,
     "descricao": ""
   },
   {
@@ -988,7 +988,7 @@
     "nome": "Trocade Poderes",
     "nomeOriginal": "PowerSwap",
     "tipo": "Psíquico",
-    "pp": 3,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -996,7 +996,7 @@
     "nome": "Truqueda Troca",
     "nomeOriginal": "PowerTrick",
     "tipo": "Psíquico",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1004,7 +1004,7 @@
     "nome": "Topadade Poder",
     "nomeOriginal": "PowerTrip",
     "tipo": "Sombrio",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1012,7 +1012,7 @@
     "nome": "Chicote Poderoso",
     "nomeOriginal": "PowerWhip",
     "tipo": "Grama",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1020,7 +1020,7 @@
     "nome": "Soco Empoderador",
     "nomeOriginal": "Power-UpPunch",
     "tipo": "Lutador",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1028,7 +1028,7 @@
     "nome": "Mudança Psíquica",
     "nomeOriginal": "PsychoShift",
     "tipo": "Psíquico",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1044,7 +1044,7 @@
     "nome": "Golpe Psíquico",
     "nomeOriginal": "Psystrike",
     "tipo": "Psíquico",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1052,7 +1052,7 @@
     "nome": "Onda Psíquica",
     "nomeOriginal": "Psywave",
     "tipo": "Psíquico",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1060,7 +1060,7 @@
     "nome": "Punição",
     "nomeOriginal": "Punishment",
     "tipo": "Sombrio",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1068,7 +1068,7 @@
     "nome": "Ataque Rápido",
     "nomeOriginal": "QuickAttack",
     "tipo": "Normal",
-    "pp": 15,
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -1076,7 +1076,7 @@
     "nome": "Prevenção",
     "nomeOriginal": "QuickGuard",
     "tipo": "Lutador",
-    "pp": 3,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1084,7 +1084,7 @@
     "nome": "Concha Navalha",
     "nomeOriginal": "RazorShell",
     "tipo": "Água",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1092,7 +1092,7 @@
     "nome": "Recuperação",
     "nomeOriginal": "Recover",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1100,7 +1100,7 @@
     "nome": "Retaliação",
     "nomeOriginal": "Retaliate",
     "tipo": "Normal",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1108,7 +1108,7 @@
     "nome": "Retorno",
     "nomeOriginal": "Return",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1116,7 +1116,7 @@
     "nome": "Vingança",
     "nomeOriginal": "Revenge",
     "tipo": "Lutador",
-    "pp": 3,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1124,7 +1124,7 @@
     "nome": "Rugidodo Tempo",
     "nomeOriginal": "RoarofTime",
     "tipo": "Dragão",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1140,15 +1140,15 @@
     "nome": "Demolidorde Pedras",
     "nomeOriginal": "RockWrecker",
     "tipo": "Pedra",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "SacredSword",
     "nome": "Espada Sagrada",
     "nomeOriginal": "SacredSword",
-    "tipo": "Lutador",
-    "pp": 10,
+    "tipo": "Aço",
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1156,7 +1156,7 @@
     "nome": "Salvaguarda",
     "nomeOriginal": "Safeguard",
     "tipo": "Normal",
-    "pp": 15,
+    "pp": 25,
     "descricao": ""
   },
   {
@@ -1164,7 +1164,7 @@
     "nome": "Ataquede Areia",
     "nomeOriginal": "SandAttack",
     "tipo": "Terra",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1172,7 +1172,7 @@
     "nome": "Agudo",
     "nomeOriginal": "Screech",
     "tipo": "Normal",
-    "pp": 20,
+    "pp": 40,
     "descricao": ""
   },
   {
@@ -1180,7 +1180,7 @@
     "nome": "Tiro Secante",
     "nomeOriginal": "SearingShot",
     "tipo": "Fogo",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1188,7 +1188,7 @@
     "nome": "Autodestruição",
     "nomeOriginal": "Self-Destruct",
     "tipo": "Normal",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1196,7 +1196,7 @@
     "nome": "Osso Sombrio",
     "nomeOriginal": "ShadowBone",
     "tipo": "Fantasma",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1204,7 +1204,7 @@
     "nome": "Garra Sombria",
     "nomeOriginal": "ShadowClaw",
     "tipo": "Fantasma",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1212,7 +1212,7 @@
     "nome": "Força Sombria",
     "nomeOriginal": "ShadowForce",
     "tipo": "Fantasma",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1220,7 +1220,7 @@
     "nome": "Frio Extremo",
     "nomeOriginal": "SheerCold",
     "tipo": "Gelo",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1228,7 +1228,7 @@
     "nome": "Raio Simplificador",
     "nomeOriginal": "SimpleBeam",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1236,7 +1236,7 @@
     "nome": "Cançãode Ninar",
     "nomeOriginal": "Sing",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1252,7 +1252,7 @@
     "nome": "Ataquedo Céu",
     "nomeOriginal": "SkyAttack",
     "tipo": "Voador",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1260,7 +1260,7 @@
     "nome": "Ondade Lama",
     "nomeOriginal": "SludgeWave",
     "tipo": "Venenoso",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1268,7 +1268,7 @@
     "nome": "Derrubada",
     "nomeOriginal": "SmackDown",
     "tipo": "Pedra",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1276,7 +1276,7 @@
     "nome": "Essência Salgada",
     "nomeOriginal": "SmellingSalts",
     "tipo": "Normal",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1284,7 +1284,7 @@
     "nome": "Arrebatar",
     "nomeOriginal": "Snatch",
     "tipo": "Sombrio",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1292,7 +1292,7 @@
     "nome": "Roncar",
     "nomeOriginal": "Snore",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1300,7 +1300,7 @@
     "nome": "Ensopar",
     "nomeOriginal": "Soak",
     "tipo": "Água",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1316,7 +1316,7 @@
     "nome": "Raio Solar",
     "nomeOriginal": "SolarBeam",
     "tipo": "Grama",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1332,7 +1332,7 @@
     "nome": "Ária Cintilante",
     "nomeOriginal": "SparklingAria",
     "tipo": "Água",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1340,7 +1340,7 @@
     "nome": "Ladrão Espectral",
     "nomeOriginal": "SpectralThief",
     "tipo": "Fantasma",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1348,7 +1348,7 @@
     "nome": "Trocade Velocidade",
     "nomeOriginal": "SpeedSwap",
     "tipo": "Psíquico",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1356,7 +1356,7 @@
     "nome": "Teiade Aranha",
     "nomeOriginal": "SpiderWeb",
     "tipo": "Inseto",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1364,7 +1364,7 @@
     "nome": "Liberação",
     "nomeOriginal": "SpitUp",
     "tipo": "Normal",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1372,7 +1372,7 @@
     "nome": "Saltitar",
     "nomeOriginal": "Splash",
     "tipo": "Normal",
-    "pp": 20,
+    "pp": 40,
     "descricao": ""
   },
   {
@@ -1380,7 +1380,7 @@
     "nome": "Holofote",
     "nomeOriginal": "Spotlight",
     "tipo": "Normal",
-    "pp": 3,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1388,7 +1388,7 @@
     "nome": "Teia Pegajosa",
     "nomeOriginal": "StickyWeb",
     "tipo": "Inseto",
-    "pp": 3,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1396,7 +1396,7 @@
     "nome": "Estocagem",
     "nomeOriginal": "Stockpile",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1404,7 +1404,7 @@
     "nome": "Pisotear",
     "nomeOriginal": "Stomp",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1412,7 +1412,7 @@
     "nome": "Seiva Forte",
     "nomeOriginal": "StrengthSap",
     "tipo": "Grama",
-    "pp": 3,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1420,7 +1420,7 @@
     "nome": "Jatode Seda",
     "nomeOriginal": "StringShot",
     "tipo": "Inseto",
-    "pp": 20,
+    "pp": 40,
     "descricao": ""
   },
   {
@@ -1428,7 +1428,7 @@
     "nome": "Esporos Atordoantes",
     "nomeOriginal": "StunSpore",
     "tipo": "Grama",
-    "pp": 3,
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -1436,7 +1436,7 @@
     "nome": "Soco Surpresa",
     "nomeOriginal": "SuckerPunch",
     "tipo": "Sombrio",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1444,7 +1444,7 @@
     "nome": "Dia Ensolarado",
     "nomeOriginal": "SunnyDay",
     "tipo": "Fogo",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1452,7 +1452,7 @@
     "nome": "Brilhode Cauda",
     "nomeOriginal": "TailGlow",
     "tipo": "Inseto",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1460,7 +1460,7 @@
     "nome": "Tapade Cauda",
     "nomeOriginal": "TailSlap",
     "tipo": "Normal",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1468,7 +1468,7 @@
     "nome": "Chicotede Cauda",
     "nomeOriginal": "TailWhip",
     "tipo": "Normal",
-    "pp": 15,
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -1476,7 +1476,7 @@
     "nome": "Caudade Vento",
     "nomeOriginal": "Tailwind",
     "tipo": "Voador",
-    "pp": 3,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1484,7 +1484,7 @@
     "nome": "Golpe Enfeitiçado",
     "nomeOriginal": "ThroatChop",
     "tipo": "Sombrio",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1492,7 +1492,7 @@
     "nome": "Reversão",
     "nomeOriginal": "Topsy-Turvy",
     "tipo": "Sombrio",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1500,7 +1500,7 @@
     "nome": "Espinhos Venenosos",
     "nomeOriginal": "ToxicSpikes",
     "tipo": "Venenoso",
-    "pp": 3,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1508,7 +1508,7 @@
     "nome": "Tumulto",
     "nomeOriginal": "Uproar",
     "tipo": "Normal",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1516,7 +1516,7 @@
     "nome": "Criação- V",
     "nomeOriginal": "V-Create",
     "tipo": "Fogo",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1524,7 +1524,7 @@
     "nome": "Ondade Vácuo",
     "nomeOriginal": "VacuumWave",
     "tipo": "Lutador",
-    "pp": 20,
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -1532,7 +1532,7 @@
     "nome": "Poção Venenosa",
     "nomeOriginal": "VenomDrench",
     "tipo": "Venenoso",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1540,7 +1540,7 @@
     "nome": "Fogo Fátuo",
     "nomeOriginal": "Will-O-Wisp",
     "tipo": "Fogo",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1548,7 +1548,7 @@
     "nome": "Retirada",
     "nomeOriginal": "Withdraw",
     "tipo": "Água",
-    "pp": 3,
+    "pp": 40,
     "descricao": ""
   },
   {
@@ -1556,7 +1556,7 @@
     "nome": "Despedaçar",
     "nomeOriginal": "WringOut",
     "tipo": "Normal",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1564,7 +1564,7 @@
     "nome": "Bocejo",
     "nomeOriginal": "Yawn",
     "tipo": "Normal",
-    "pp": 5,
+    "pp": 10,
     "descricao": ""
   },
   {
@@ -1572,7 +1572,7 @@
     "nome": "Canhão Elétrico",
     "nomeOriginal": "ZapCannon",
     "tipo": "Elétrico",
-    "pp": 3,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1580,7 +1580,7 @@
     "nome": "Tackle",
     "nomeOriginal": "Tackle",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 35,
     "descricao": ""
   },
   {
@@ -1588,22 +1588,22 @@
     "nome": "Growl",
     "nomeOriginal": "Growl",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 40,
     "descricao": ""
   },
   {
     "id": "custom-vine-whip",
     "nome": "Vine Whip",
     "nomeOriginal": "Vine Whip",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 25,
     "descricao": ""
   },
   {
     "id": "custom-leech-seed",
     "nome": "Leech Seed",
     "nomeOriginal": "Leech Seed",
-    "tipo": "Normal",
+    "tipo": "Grama",
     "pp": 10,
     "descricao": ""
   },
@@ -1611,16 +1611,16 @@
     "id": "custom-poison-powder",
     "nome": "Poison Powder",
     "nomeOriginal": "Poison Powder",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Venenoso",
+    "pp": 35,
     "descricao": ""
   },
   {
     "id": "custom-sleep-powder",
     "nome": "Sleep Powder",
     "nomeOriginal": "Sleep Powder",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1628,15 +1628,15 @@
     "nome": "Take Down",
     "nomeOriginal": "Take Down",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-razor-leaf",
     "nome": "Razor Leaf",
     "nomeOriginal": "Razor Leaf",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 25,
     "descricao": ""
   },
   {
@@ -1644,14 +1644,14 @@
     "nome": "Sweet Scent",
     "nomeOriginal": "Sweet Scent",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-worry-seed",
     "nome": "Worry Seed",
     "nomeOriginal": "Worry Seed",
-    "tipo": "Normal",
+    "tipo": "Grama",
     "pp": 10,
     "descricao": ""
   },
@@ -1659,23 +1659,23 @@
     "id": "custom-synthesis",
     "nome": "Synthesis",
     "nomeOriginal": "Synthesis",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-seed-bomb",
     "nome": "Seed Bomb",
     "nomeOriginal": "Seed Bomb",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-petal-dance",
     "nome": "Petal Dance",
     "nomeOriginal": "Petal Dance",
-    "tipo": "Normal",
+    "tipo": "Grama",
     "pp": 10,
     "descricao": ""
   },
@@ -1683,8 +1683,8 @@
     "id": "custom-petal-blizzard",
     "nome": "Petal Blizzard",
     "nomeOriginal": "Petal Blizzard",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1692,7 +1692,7 @@
     "nome": "Scratch",
     "nomeOriginal": "Scratch",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 35,
     "descricao": ""
   },
   {
@@ -1700,14 +1700,14 @@
     "nome": "Smokescreen",
     "nomeOriginal": "Smokescreen",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-dragon-rage",
     "nome": "Dragon Rage",
     "nomeOriginal": "Dragon Rage",
-    "tipo": "Normal",
+    "tipo": "Dragão",
     "pp": 10,
     "descricao": ""
   },
@@ -1723,8 +1723,8 @@
     "id": "custom-fire-fang",
     "nome": "Fire Fang",
     "nomeOriginal": "Fire Fang",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fogo",
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -1732,14 +1732,14 @@
     "nome": "Slash",
     "nomeOriginal": "Slash",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-flame-burst",
     "nome": "Flame Burst",
     "nomeOriginal": "Flame Burst",
-    "tipo": "Normal",
+    "tipo": "Fogo",
     "pp": 10,
     "descricao": ""
   },
@@ -1747,39 +1747,39 @@
     "id": "custom-inferno",
     "nome": "Inferno",
     "nomeOriginal": "Inferno",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fogo",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-air-slash",
     "nome": "Air Slash",
     "nomeOriginal": "Air Slash",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Voador",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-dragon-claw",
     "nome": "Dragon Claw",
     "nomeOriginal": "Dragon Claw",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Dragão",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-wing-attack",
     "nome": "Wing Attack",
     "nomeOriginal": "Wing Attack",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Voador",
+    "pp": 35,
     "descricao": ""
   },
   {
     "id": "custom-heat-wave",
     "nome": "Heat Wave",
     "nomeOriginal": "Heat Wave",
-    "tipo": "Normal",
+    "tipo": "Fogo",
     "pp": 10,
     "descricao": ""
   },
@@ -1787,24 +1787,24 @@
     "id": "custom-water-gun",
     "nome": "Water Gun",
     "nomeOriginal": "Water Gun",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Água",
+    "pp": 25,
     "descricao": ""
   },
   {
     "id": "custom-bubble",
     "nome": "Bubble",
     "nomeOriginal": "Bubble",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Água",
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-bite",
     "nome": "Bite",
     "nomeOriginal": "Bite",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Sombrio",
+    "pp": 25,
     "descricao": ""
   },
   {
@@ -1812,7 +1812,7 @@
     "nome": "Rapid Spin",
     "nomeOriginal": "Rapid Spin",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 40,
     "descricao": ""
   },
   {
@@ -1827,15 +1827,15 @@
     "id": "custom-water-pulse",
     "nome": "Water Pulse",
     "nomeOriginal": "Water Pulse",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Água",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-aqua-tail",
     "nome": "Aqua Tail",
     "nomeOriginal": "Aqua Tail",
-    "tipo": "Normal",
+    "tipo": "Água",
     "pp": 10,
     "descricao": ""
   },
@@ -1851,23 +1851,23 @@
     "id": "custom-iron-defense",
     "nome": "Iron Defense",
     "nomeOriginal": "Iron Defense",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Aço",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-rain-dance",
     "nome": "Rain Dance",
     "nomeOriginal": "Rain Dance",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Água",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-flash-cannon",
     "nome": "Flash Cannon",
     "nomeOriginal": "Flash Cannon",
-    "tipo": "Normal",
+    "tipo": "Aço",
     "pp": 10,
     "descricao": ""
   },
@@ -1876,39 +1876,39 @@
     "nome": "Harden",
     "nomeOriginal": "Harden",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-confusion",
     "nome": "Confusion",
     "nomeOriginal": "Confusion",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 25,
     "descricao": ""
   },
   {
     "id": "custom-gust",
     "nome": "Gust",
     "nomeOriginal": "Gust",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Voador",
+    "pp": 35,
     "descricao": ""
   },
   {
     "id": "custom-psybeam",
     "nome": "Psybeam",
     "nomeOriginal": "Psybeam",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-silver-wind",
     "nome": "Silver Wind",
     "nomeOriginal": "Silver Wind",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Inseto",
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -1916,7 +1916,7 @@
     "nome": "Supersonic",
     "nomeOriginal": "Supersonic",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1924,14 +1924,14 @@
     "nome": "Whirlwind",
     "nomeOriginal": "Whirlwind",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-bug-buzz",
     "nome": "Bug Buzz",
     "nomeOriginal": "Bug Buzz",
-    "tipo": "Normal",
+    "tipo": "Inseto",
     "pp": 10,
     "descricao": ""
   },
@@ -1939,7 +1939,7 @@
     "id": "custom-rage-powder",
     "nome": "Rage Powder",
     "nomeOriginal": "Rage Powder",
-    "tipo": "Normal",
+    "tipo": "Inseto",
     "pp": 10,
     "descricao": ""
   },
@@ -1947,8 +1947,8 @@
     "id": "custom-quiver-dance",
     "nome": "Quiver Dance",
     "nomeOriginal": "Quiver Dance",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Inseto",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1956,15 +1956,15 @@
     "nome": "Fury Attack",
     "nomeOriginal": "Fury Attack",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-twineedle",
     "nome": "Twineedle",
     "nomeOriginal": "Twineedle",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Inseto",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1972,15 +1972,15 @@
     "nome": "Rage",
     "nomeOriginal": "Rage",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-pursuit",
     "nome": "Pursuit",
     "nomeOriginal": "Pursuit",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Sombrio",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -1988,14 +1988,14 @@
     "nome": "Focus Energy",
     "nomeOriginal": "Focus Energy",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-venoshock",
     "nome": "Venoshock",
     "nomeOriginal": "Venoshock",
-    "tipo": "Normal",
+    "tipo": "Venenoso",
     "pp": 10,
     "descricao": ""
   },
@@ -2003,63 +2003,63 @@
     "id": "custom-pin-missile",
     "nome": "Pin Missile",
     "nomeOriginal": "Pin Missile",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Inseto",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-poison-jab",
     "nome": "Poison Jab",
     "nomeOriginal": "Poison Jab",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Venenoso",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-fell-stinger",
     "nome": "Fell Stinger",
     "nomeOriginal": "Fell Stinger",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Inseto",
+    "pp": 25,
     "descricao": ""
   },
   {
     "id": "custom-twister",
     "nome": "Twister",
     "nomeOriginal": "Twister",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Dragão",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-feather-dance",
     "nome": "Feather Dance",
     "nomeOriginal": "Feather Dance",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Voador",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-roost",
     "nome": "Roost",
     "nomeOriginal": "Roost",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Voador",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-mirror-move",
     "nome": "Mirror Move",
     "nomeOriginal": "Mirror Move",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Voador",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-hurricane",
     "nome": "Hurricane",
     "nomeOriginal": "Hurricane",
-    "tipo": "Normal",
+    "tipo": "Voador",
     "pp": 10,
     "descricao": ""
   },
@@ -2068,15 +2068,15 @@
     "nome": "Hyper Fang",
     "nomeOriginal": "Hyper Fang",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-crunch",
     "nome": "Crunch",
     "nomeOriginal": "Crunch",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Sombrio",
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -2092,15 +2092,15 @@
     "nome": "Swords Dance",
     "nomeOriginal": "Swords Dance",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-peck",
     "nome": "Peck",
     "nomeOriginal": "Peck",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Voador",
+    "pp": 35,
     "descricao": ""
   },
   {
@@ -2108,23 +2108,23 @@
     "nome": "Leer",
     "nomeOriginal": "Leer",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-drill-peck",
     "nome": "Drill Peck",
     "nomeOriginal": "Drill Peck",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Voador",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-pluck",
     "nome": "Pluck",
     "nomeOriginal": "Pluck",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Voador",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -2132,7 +2132,7 @@
     "nome": "Wrap",
     "nomeOriginal": "Wrap",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -2140,15 +2140,15 @@
     "nome": "Glare",
     "nomeOriginal": "Glare",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-acid",
     "nome": "Acid",
     "nomeOriginal": "Acid",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Venenoso",
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -2163,16 +2163,16 @@
     "id": "custom-acid-spray",
     "nome": "Acid Spray",
     "nomeOriginal": "Acid Spray",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Venenoso",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-haze",
     "nome": "Haze",
     "nomeOriginal": "Haze",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Gelo",
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -2180,39 +2180,39 @@
     "nome": "Coil",
     "nomeOriginal": "Coil",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-gunk-shot",
     "nome": "Gunk Shot",
     "nomeOriginal": "Gunk Shot",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Venenoso",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-ice-fang",
     "nome": "Ice Fang",
     "nomeOriginal": "Ice Fang",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Gelo",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-thunder-fang",
     "nome": "Thunder Fang",
     "nomeOriginal": "Thunder Fang",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Elétrico",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-thunder-shock",
     "nome": "Thunder Shock",
     "nomeOriginal": "Thunder Shock",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Elétrico",
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -2220,14 +2220,14 @@
     "nome": "Play Nice",
     "nomeOriginal": "Play Nice",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-electro-ball",
     "nome": "Electro Ball",
     "nomeOriginal": "Electro Ball",
-    "tipo": "Normal",
+    "tipo": "Elétrico",
     "pp": 10,
     "descricao": ""
   },
@@ -2235,8 +2235,8 @@
     "id": "custom-thunder-wave",
     "nome": "Thunder Wave",
     "nomeOriginal": "Thunder Wave",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Elétrico",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -2252,31 +2252,31 @@
     "nome": "Double Team",
     "nomeOriginal": "Double Team",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-spark",
     "nome": "Spark",
     "nomeOriginal": "Spark",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Elétrico",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-discharge",
     "nome": "Discharge",
     "nomeOriginal": "Discharge",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Elétrico",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-nuzzle",
     "nome": "Nuzzle",
     "nomeOriginal": "Nuzzle",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Elétrico",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -2284,38 +2284,38 @@
     "nome": "Slam",
     "nomeOriginal": "Slam",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-thunderbolt",
     "nome": "Thunderbolt",
     "nomeOriginal": "Thunderbolt",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Elétrico",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-wild-charge",
     "nome": "Wild Charge",
     "nomeOriginal": "Wild Charge",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Elétrico",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-light-screen",
     "nome": "Light Screen",
     "nomeOriginal": "Light Screen",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-thunder",
     "nome": "Thunder",
     "nomeOriginal": "Thunder",
-    "tipo": "Normal",
+    "tipo": "Elétrico",
     "pp": 10,
     "descricao": ""
   },
@@ -2324,23 +2324,23 @@
     "nome": "Rollout",
     "nomeOriginal": "Rollout",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-fury-cutter",
     "nome": "Fury Cutter",
     "nomeOriginal": "Fury Cutter",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Inseto",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-magnitude",
     "nome": "Magnitude",
     "nomeOriginal": "Magnitude",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Terra",
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -2348,7 +2348,7 @@
     "nome": "Swift",
     "nomeOriginal": "Swift",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -2356,30 +2356,30 @@
     "nome": "Fury Swipes",
     "nomeOriginal": "Fury Swipes",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-sand-tomb",
     "nome": "Sand Tomb",
     "nomeOriginal": "Sand Tomb",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Terra",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-gyro-ball",
     "nome": "Gyro Ball",
     "nomeOriginal": "Gyro Ball",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Aço",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-sandstorm",
     "nome": "Sandstorm",
     "nomeOriginal": "Sandstorm",
-    "tipo": "Normal",
+    "tipo": "Pedra",
     "pp": 10,
     "descricao": ""
   },
@@ -2387,7 +2387,7 @@
     "id": "custom-earthquake",
     "nome": "Earthquake",
     "nomeOriginal": "Earthquake",
-    "tipo": "Normal",
+    "tipo": "Terra",
     "pp": 10,
     "descricao": ""
   },
@@ -2395,16 +2395,16 @@
     "id": "custom-double-kick",
     "nome": "Double Kick",
     "nomeOriginal": "Double Kick",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-helping-hand",
     "nome": "Helping Hand",
     "nomeOriginal": "Helping Hand",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -2412,15 +2412,15 @@
     "nome": "Flatter",
     "nomeOriginal": "Flatter",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-poison-fang",
     "nome": "Poison Fang",
     "nomeOriginal": "Poison Fang",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Venenoso",
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -2436,14 +2436,14 @@
     "nome": "Body Slam",
     "nomeOriginal": "Body Slam",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-earth-power",
     "nome": "Earth Power",
     "nomeOriginal": "Earth Power",
-    "tipo": "Normal",
+    "tipo": "Terra",
     "pp": 10,
     "descricao": ""
   },
@@ -2451,8 +2451,8 @@
     "id": "custom-superpower",
     "nome": "Superpower",
     "nomeOriginal": "Superpower",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -2460,7 +2460,7 @@
     "nome": "Horn Attack",
     "nomeOriginal": "Horn Attack",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 25,
     "descricao": ""
   },
   {
@@ -2468,7 +2468,7 @@
     "nome": "Horn Drill",
     "nomeOriginal": "Horn Drill",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -2483,7 +2483,7 @@
     "id": "custom-megahorn",
     "nome": "Megahorn",
     "nomeOriginal": "Megahorn",
-    "tipo": "Normal",
+    "tipo": "Inseto",
     "pp": 10,
     "descricao": ""
   },
@@ -2491,8 +2491,8 @@
     "id": "custom-disarming-voice",
     "nome": "Disarming Voice",
     "nomeOriginal": "Disarming Voice",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fada",
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -2500,14 +2500,14 @@
     "nome": "Pound",
     "nomeOriginal": "Pound",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 35,
     "descricao": ""
   },
   {
     "id": "custom-wake-up-slap",
     "nome": "Wake-Up Slap",
     "nomeOriginal": "Wake-Up Slap",
-    "tipo": "Normal",
+    "tipo": "Lutador",
     "pp": 10,
     "descricao": ""
   },
@@ -2515,7 +2515,7 @@
     "id": "custom-stored-power",
     "nome": "Stored Power",
     "nomeOriginal": "Stored Power",
-    "tipo": "Normal",
+    "tipo": "Psíquico",
     "pp": 10,
     "descricao": ""
   },
@@ -2531,8 +2531,8 @@
     "id": "custom-cosmic-power",
     "nome": "Cosmic Power",
     "nomeOriginal": "Cosmic Power",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -2540,7 +2540,7 @@
     "nome": "Lucky Chant",
     "nomeOriginal": "Lucky Chant",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -2548,30 +2548,30 @@
     "nome": "Moonlight",
     "nomeOriginal": "Moonlight",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-moonblast",
     "nome": "Moonblast",
     "nomeOriginal": "Moonblast",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fada",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-gravity",
     "nome": "Gravity",
     "nomeOriginal": "Gravity",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-meteor-mash",
     "nome": "Meteor Mash",
     "nomeOriginal": "Meteor Mash",
-    "tipo": "Normal",
+    "tipo": "Aço",
     "pp": 10,
     "descricao": ""
   },
@@ -2580,22 +2580,22 @@
     "nome": "Roar",
     "nomeOriginal": "Roar",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-baby-doll-eyes",
     "nome": "Baby-Doll Eyes",
     "nomeOriginal": "Baby-Doll Eyes",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fada",
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-payback",
     "nome": "Payback",
     "nomeOriginal": "Payback",
-    "tipo": "Normal",
+    "tipo": "Sombrio",
     "pp": 10,
     "descricao": ""
   },
@@ -2603,8 +2603,8 @@
     "id": "custom-feint-attack",
     "nome": "Feint Attack",
     "nomeOriginal": "Feint Attack",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Sombrio",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -2619,24 +2619,24 @@
     "id": "custom-fire-blast",
     "nome": "Fire Blast",
     "nomeOriginal": "Fire Blast",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fogo",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-grudge",
     "nome": "Grudge",
     "nomeOriginal": "Grudge",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fantasma",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-nasty-plot",
     "nome": "Nasty Plot",
     "nomeOriginal": "Nasty Plot",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Sombrio",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -2644,15 +2644,15 @@
     "nome": "Round",
     "nomeOriginal": "Round",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-rest",
     "nome": "Rest",
     "nomeOriginal": "Rest",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -2675,7 +2675,7 @@
     "id": "custom-play-rough",
     "nome": "Play Rough",
     "nomeOriginal": "Play Rough",
-    "tipo": "Normal",
+    "tipo": "Fada",
     "pp": 10,
     "descricao": ""
   },
@@ -2684,14 +2684,14 @@
     "nome": "Mean Look",
     "nomeOriginal": "Mean Look",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-leech-life",
     "nome": "Leech Life",
     "nomeOriginal": "Leech Life",
-    "tipo": "Normal",
+    "tipo": "Inseto",
     "pp": 10,
     "descricao": ""
   },
@@ -2699,15 +2699,15 @@
     "id": "custom-mega-drain",
     "nome": "Mega Drain",
     "nomeOriginal": "Mega Drain",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-giga-drain",
     "nome": "Giga Drain",
     "nomeOriginal": "Giga Drain",
-    "tipo": "Normal",
+    "tipo": "Grama",
     "pp": 10,
     "descricao": ""
   },
@@ -2715,7 +2715,7 @@
     "id": "custom-toxic",
     "nome": "Toxic",
     "nomeOriginal": "Toxic",
-    "tipo": "Normal",
+    "tipo": "Venenoso",
     "pp": 10,
     "descricao": ""
   },
@@ -2723,15 +2723,15 @@
     "id": "custom-natural-gift",
     "nome": "Natural Gift",
     "nomeOriginal": "Natural Gift",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-grassy-terrain",
     "nome": "Grassy Terrain",
     "nomeOriginal": "Grassy Terrain",
-    "tipo": "Normal",
+    "tipo": "Grama",
     "pp": 10,
     "descricao": ""
   },
@@ -2739,32 +2739,32 @@
     "id": "custom-aromatherapy",
     "nome": "Aromatherapy",
     "nomeOriginal": "Aromatherapy",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-spore",
     "nome": "Spore",
     "nomeOriginal": "Spore",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-x-scissor",
     "nome": "X-Scissor",
     "nomeOriginal": "X-Scissor",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Inseto",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-cross-poison",
     "nome": "Cross Poison",
     "nomeOriginal": "Cross Poison",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Venenoso",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -2772,30 +2772,30 @@
     "nome": "Foresight",
     "nomeOriginal": "Foresight",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 40,
     "descricao": ""
   },
   {
     "id": "custom-signal-beam",
     "nome": "Signal Beam",
     "nomeOriginal": "Signal Beam",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Inseto",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-zen-headbutt",
     "nome": "Zen Headbutt",
     "nomeOriginal": "Zen Headbutt",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-psychic",
     "nome": "Psychic",
     "nomeOriginal": "Psychic",
-    "tipo": "Normal",
+    "tipo": "Psíquico",
     "pp": 10,
     "descricao": ""
   },
@@ -2803,16 +2803,16 @@
     "id": "custom-bulldoze",
     "nome": "Bulldoze",
     "nomeOriginal": "Bulldoze",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Terra",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-fissure",
     "nome": "Fissure",
     "nomeOriginal": "Fissure",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Terra",
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -2827,7 +2827,7 @@
     "id": "custom-rototiller",
     "nome": "Rototiller",
     "nomeOriginal": "Rototiller",
-    "tipo": "Normal",
+    "tipo": "Terra",
     "pp": 10,
     "descricao": ""
   },
@@ -2843,8 +2843,8 @@
     "id": "custom-taunt",
     "nome": "Taunt",
     "nomeOriginal": "Taunt",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Sombrio",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -2859,16 +2859,16 @@
     "id": "custom-power-gem",
     "nome": "Power Gem",
     "nomeOriginal": "Power Gem",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Pedra",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-water-sport",
     "nome": "Water Sport",
     "nomeOriginal": "Water Sport",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Água",
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -2883,15 +2883,15 @@
     "id": "custom-amnesia",
     "nome": "Amnesia",
     "nomeOriginal": "Amnesia",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-wonder-room",
     "nome": "Wonder Room",
     "nomeOriginal": "Wonder Room",
-    "tipo": "Normal",
+    "tipo": "Psíquico",
     "pp": 10,
     "descricao": ""
   },
@@ -2900,7 +2900,7 @@
     "nome": "Me First",
     "nomeOriginal": "Me First",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -2908,23 +2908,23 @@
     "nome": "Covet",
     "nomeOriginal": "Covet",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 25,
     "descricao": ""
   },
   {
     "id": "custom-karate-chop",
     "nome": "Karate Chop",
     "nomeOriginal": "Karate Chop",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 25,
     "descricao": ""
   },
   {
     "id": "custom-seismic-toss",
     "nome": "Seismic Toss",
     "nomeOriginal": "Seismic Toss",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -2932,22 +2932,22 @@
     "nome": "Swagger",
     "nomeOriginal": "Swagger",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-cross-chop",
     "nome": "Cross Chop",
     "nomeOriginal": "Cross Chop",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-stomping-tantrum",
     "nome": "Stomping Tantrum",
     "nomeOriginal": "Stomping Tantrum",
-    "tipo": "Normal",
+    "tipo": "Lutador",
     "pp": 10,
     "descricao": ""
   },
@@ -2955,16 +2955,16 @@
     "id": "custom-close-combat",
     "nome": "Close Combat",
     "nomeOriginal": "Close Combat",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-final-gambit",
     "nome": "Final Gambit",
     "nomeOriginal": "Final Gambit",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -2972,15 +2972,15 @@
     "nome": "Odor Sleuth",
     "nomeOriginal": "Odor Sleuth",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 40,
     "descricao": ""
   },
   {
     "id": "custom-reversal",
     "nome": "Reversal",
     "nomeOriginal": "Reversal",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -2988,38 +2988,38 @@
     "nome": "Extreme Speed",
     "nomeOriginal": "Extreme Speed",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-bubble-beam",
     "nome": "Bubble Beam",
     "nomeOriginal": "Bubble Beam",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Água",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-submission",
     "nome": "Submission",
     "nomeOriginal": "Submission",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-dynamic-punch",
     "nome": "Dynamic Punch",
     "nomeOriginal": "Dynamic Punch",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-circle-throw",
     "nome": "Circle Throw",
     "nomeOriginal": "Circle Throw",
-    "tipo": "Normal",
+    "tipo": "Lutador",
     "pp": 10,
     "descricao": ""
   },
@@ -3027,63 +3027,63 @@
     "id": "custom-teleport",
     "nome": "Teleport",
     "nomeOriginal": "Teleport",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-kinesis",
     "nome": "Kinesis",
     "nomeOriginal": "Kinesis",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-miracle-eye",
     "nome": "Miracle Eye",
     "nomeOriginal": "Miracle Eye",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 40,
     "descricao": ""
   },
   {
     "id": "custom-reflect",
     "nome": "Reflect",
     "nomeOriginal": "Reflect",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-psycho-cut",
     "nome": "Psycho Cut",
     "nomeOriginal": "Psycho Cut",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-telekinesis",
     "nome": "Telekinesis",
     "nomeOriginal": "Telekinesis",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-ally-switch",
     "nome": "Ally Switch",
     "nomeOriginal": "Ally Switch",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-role-play",
     "nome": "Role Play",
     "nomeOriginal": "Role Play",
-    "tipo": "Normal",
+    "tipo": "Psíquico",
     "pp": 10,
     "descricao": ""
   },
@@ -3091,7 +3091,7 @@
     "id": "custom-future-sight",
     "nome": "Future Sight",
     "nomeOriginal": "Future Sight",
-    "tipo": "Normal",
+    "tipo": "Psíquico",
     "pp": 10,
     "descricao": ""
   },
@@ -3099,7 +3099,7 @@
     "id": "custom-trick",
     "nome": "Trick",
     "nomeOriginal": "Trick",
-    "tipo": "Normal",
+    "tipo": "Psíquico",
     "pp": 10,
     "descricao": ""
   },
@@ -3107,31 +3107,31 @@
     "id": "custom-calm-mind",
     "nome": "Calm Mind",
     "nomeOriginal": "Calm Mind",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-low-sweep",
     "nome": "Low Sweep",
     "nomeOriginal": "Low Sweep",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-knock-off",
     "nome": "Knock Off",
     "nomeOriginal": "Knock Off",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Sombrio",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-vital-throw",
     "nome": "Vital Throw",
     "nomeOriginal": "Vital Throw",
-    "tipo": "Normal",
+    "tipo": "Lutador",
     "pp": 10,
     "descricao": ""
   },
@@ -3139,16 +3139,16 @@
     "id": "custom-dual-chop",
     "nome": "Dual Chop",
     "nomeOriginal": "Dual Chop",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Dragão",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-bulk-up",
     "nome": "Bulk Up",
     "nomeOriginal": "Bulk Up",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -3156,14 +3156,14 @@
     "nome": "Strength",
     "nomeOriginal": "Strength",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-wide-guard",
     "nome": "Wide Guard",
     "nomeOriginal": "Wide Guard",
-    "tipo": "Normal",
+    "tipo": "Pedra",
     "pp": 10,
     "descricao": ""
   },
@@ -3171,16 +3171,16 @@
     "id": "custom-leaf-storm",
     "nome": "Leaf Storm",
     "nomeOriginal": "Leaf Storm",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-leaf-blade",
     "nome": "Leaf Blade",
     "nomeOriginal": "Leaf Blade",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -3188,14 +3188,14 @@
     "nome": "Constrict",
     "nomeOriginal": "Constrict",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 35,
     "descricao": ""
   },
   {
     "id": "custom-brine",
     "nome": "Brine",
     "nomeOriginal": "Brine",
-    "tipo": "Normal",
+    "tipo": "Água",
     "pp": 10,
     "descricao": ""
   },
@@ -3204,39 +3204,39 @@
     "nome": "Reflect Type",
     "nomeOriginal": "Reflect Type",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-mud-sport",
     "nome": "Mud Sport",
     "nomeOriginal": "Mud Sport",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Terra",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-rock-polish",
     "nome": "Rock Polish",
     "nomeOriginal": "Rock Polish",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Pedra",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-rock-throw",
     "nome": "Rock Throw",
     "nomeOriginal": "Rock Throw",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Pedra",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-stealth-rock",
     "nome": "Stealth Rock",
     "nomeOriginal": "Stealth Rock",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Pedra",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -3244,38 +3244,38 @@
     "nome": "Explosion",
     "nomeOriginal": "Explosion",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-stone-edge",
     "nome": "Stone Edge",
     "nomeOriginal": "Stone Edge",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Pedra",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-steamroller",
     "nome": "Steamroller",
     "nomeOriginal": "Steamroller",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Inseto",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-bounce",
     "nome": "Bounce",
     "nomeOriginal": "Bounce",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Voador",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-curse",
     "nome": "Curse",
     "nomeOriginal": "Curse",
-    "tipo": "Normal",
+    "tipo": "Fantasma",
     "pp": 10,
     "descricao": ""
   },
@@ -3284,7 +3284,7 @@
     "nome": "Headbutt",
     "nomeOriginal": "Headbutt",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -3292,14 +3292,14 @@
     "nome": "Slack Off",
     "nomeOriginal": "Slack Off",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-heal-pulse",
     "nome": "Heal Pulse",
     "nomeOriginal": "Heal Pulse",
-    "tipo": "Normal",
+    "tipo": "Psíquico",
     "pp": 10,
     "descricao": ""
   },
@@ -3307,8 +3307,8 @@
     "id": "custom-magnet-bomb",
     "nome": "Magnet Bomb",
     "nomeOriginal": "Magnet Bomb",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Aço",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -3316,22 +3316,22 @@
     "nome": "Sonic Boom",
     "nomeOriginal": "Sonic Boom",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-metal-sound",
     "nome": "Metal Sound",
     "nomeOriginal": "Metal Sound",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Aço",
+    "pp": 40,
     "descricao": ""
   },
   {
     "id": "custom-magnet-rise",
     "nome": "Magnet Rise",
     "nomeOriginal": "Magnet Rise",
-    "tipo": "Normal",
+    "tipo": "Aço",
     "pp": 10,
     "descricao": ""
   },
@@ -3339,7 +3339,7 @@
     "id": "custom-electric-terrain",
     "nome": "Electric Terrain",
     "nomeOriginal": "Electric Terrain",
-    "tipo": "Normal",
+    "tipo": "Elétrico",
     "pp": 10,
     "descricao": ""
   },
@@ -3347,8 +3347,8 @@
     "id": "custom-acrobatics",
     "nome": "Acrobatics",
     "nomeOriginal": "Acrobatics",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Voador",
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -3356,15 +3356,15 @@
     "nome": "False Swipe",
     "nomeOriginal": "False Swipe",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 40,
     "descricao": ""
   },
   {
     "id": "custom-brave-bird",
     "nome": "Brave Bird",
     "nomeOriginal": "Brave Bird",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Voador",
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -3380,14 +3380,14 @@
     "nome": "Acupressure",
     "nomeOriginal": "Acupressure",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-jump-kick",
     "nome": "Jump Kick",
     "nomeOriginal": "Jump Kick",
-    "tipo": "Normal",
+    "tipo": "Lutador",
     "pp": 10,
     "descricao": ""
   },
@@ -3395,23 +3395,23 @@
     "id": "custom-icy-wind",
     "nome": "Icy Wind",
     "nomeOriginal": "Icy Wind",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Gelo",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-ice-shard",
     "nome": "Ice Shard",
     "nomeOriginal": "Ice Shard",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Gelo",
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-dive",
     "nome": "Dive",
     "nomeOriginal": "Dive",
-    "tipo": "Normal",
+    "tipo": "Água",
     "pp": 10,
     "descricao": ""
   },
@@ -3419,7 +3419,7 @@
     "id": "custom-ice-beam",
     "nome": "Ice Beam",
     "nomeOriginal": "Ice Beam",
-    "tipo": "Normal",
+    "tipo": "Gelo",
     "pp": 10,
     "descricao": ""
   },
@@ -3427,23 +3427,23 @@
     "id": "custom-poison-gas",
     "nome": "Poison Gas",
     "nomeOriginal": "Poison Gas",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Venenoso",
+    "pp": 40,
     "descricao": ""
   },
   {
     "id": "custom-sludge",
     "nome": "Sludge",
     "nomeOriginal": "Sludge",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Venenoso",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-sludge-bomb",
     "nome": "Sludge Bomb",
     "nomeOriginal": "Sludge Bomb",
-    "tipo": "Normal",
+    "tipo": "Venenoso",
     "pp": 10,
     "descricao": ""
   },
@@ -3451,24 +3451,24 @@
     "id": "custom-acid-armor",
     "nome": "Acid Armor",
     "nomeOriginal": "Acid Armor",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Venenoso",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-icicle-spear",
     "nome": "Icicle Spear",
     "nomeOriginal": "Icicle Spear",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Gelo",
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-whirlpool",
     "nome": "Whirlpool",
     "nomeOriginal": "Whirlpool",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Água",
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -3476,7 +3476,7 @@
     "nome": "Shell Smash",
     "nomeOriginal": "Shell Smash",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
@@ -3484,30 +3484,30 @@
     "nome": "Spike Cannon",
     "nomeOriginal": "Spike Cannon",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-spikes",
     "nome": "Spikes",
     "nomeOriginal": "Spikes",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Terra",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-lick",
     "nome": "Lick",
     "nomeOriginal": "Lick",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fantasma",
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-spite",
     "nome": "Spite",
     "nomeOriginal": "Spite",
-    "tipo": "Normal",
+    "tipo": "Fantasma",
     "pp": 10,
     "descricao": ""
   },
@@ -3515,63 +3515,63 @@
     "id": "custom-night-shade",
     "nome": "Night Shade",
     "nomeOriginal": "Night Shade",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fantasma",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-shadow-ball",
     "nome": "Shadow Ball",
     "nomeOriginal": "Shadow Ball",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fantasma",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-dark-pulse",
     "nome": "Dark Pulse",
     "nomeOriginal": "Dark Pulse",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Sombrio",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-nightmare",
     "nome": "Nightmare",
     "nomeOriginal": "Nightmare",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fantasma",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-shadow-punch",
     "nome": "Shadow Punch",
     "nomeOriginal": "Shadow Punch",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fantasma",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-rock-tomb",
     "nome": "Rock Tomb",
     "nomeOriginal": "Rock Tomb",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Pedra",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-dragon-breath",
     "nome": "Dragon Breath",
     "nomeOriginal": "Dragon Breath",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Dragão",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-rock-slide",
     "nome": "Rock Slide",
     "nomeOriginal": "Rock Slide",
-    "tipo": "Normal",
+    "tipo": "Pedra",
     "pp": 10,
     "descricao": ""
   },
@@ -3579,23 +3579,23 @@
     "id": "custom-iron-tail",
     "nome": "Iron Tail",
     "nomeOriginal": "Iron Tail",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Aço",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-meditate",
     "nome": "Meditate",
     "nomeOriginal": "Meditate",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 40,
     "descricao": ""
   },
   {
     "id": "custom-synchronoise",
     "nome": "Synchronoise",
     "nomeOriginal": "Synchronoise",
-    "tipo": "Normal",
+    "tipo": "Psíquico",
     "pp": 10,
     "descricao": ""
   },
@@ -3604,15 +3604,15 @@
     "nome": "Vice Grip",
     "nomeOriginal": "Vice Grip",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-metal-claw",
     "nome": "Metal Claw",
     "nomeOriginal": "Metal Claw",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Aço",
+    "pp": 35,
     "descricao": ""
   },
   {
@@ -3620,14 +3620,14 @@
     "nome": "Guillotine",
     "nomeOriginal": "Guillotine",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-crabhammer",
     "nome": "Crabhammer",
     "nomeOriginal": "Crabhammer",
-    "tipo": "Normal",
+    "tipo": "Água",
     "pp": 10,
     "descricao": ""
   },
@@ -3636,31 +3636,31 @@
     "nome": "Flail",
     "nomeOriginal": "Flail",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-eerie-impulse",
     "nome": "Eerie Impulse",
     "nomeOriginal": "Eerie Impulse",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Elétrico",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-mirror-coat",
     "nome": "Mirror Coat",
     "nomeOriginal": "Mirror Coat",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-magnetic-flux",
     "nome": "Magnetic Flux",
     "nomeOriginal": "Magnetic Flux",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Elétrico",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -3668,15 +3668,15 @@
     "nome": "Barrage",
     "nomeOriginal": "Barrage",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-bullet-seed",
     "nome": "Bullet Seed",
     "nomeOriginal": "Bullet Seed",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -3691,23 +3691,23 @@
     "id": "custom-wood-hammer",
     "nome": "Wood Hammer",
     "nomeOriginal": "Wood Hammer",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-bone-club",
     "nome": "Bone Club",
     "nomeOriginal": "Bone Club",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Terra",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-bonemerang",
     "nome": "Bonemerang",
     "nomeOriginal": "Bonemerang",
-    "tipo": "Normal",
+    "tipo": "Terra",
     "pp": 10,
     "descricao": ""
   },
@@ -3715,7 +3715,7 @@
     "id": "custom-bone-rush",
     "nome": "Bone Rush",
     "nomeOriginal": "Bone Rush",
-    "tipo": "Normal",
+    "tipo": "Terra",
     "pp": 10,
     "descricao": ""
   },
@@ -3723,23 +3723,23 @@
     "id": "custom-rolling-kick",
     "nome": "Rolling Kick",
     "nomeOriginal": "Rolling Kick",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-brick-break",
     "nome": "Brick Break",
     "nomeOriginal": "Brick Break",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-high-jump-kick",
     "nome": "High Jump Kick",
     "nomeOriginal": "High Jump Kick",
-    "tipo": "Normal",
+    "tipo": "Lutador",
     "pp": 10,
     "descricao": ""
   },
@@ -3747,7 +3747,7 @@
     "id": "custom-blaze-kick",
     "nome": "Blaze Kick",
     "nomeOriginal": "Blaze Kick",
-    "tipo": "Normal",
+    "tipo": "Fogo",
     "pp": 10,
     "descricao": ""
   },
@@ -3764,7 +3764,7 @@
     "nome": "Mega Kick",
     "nomeOriginal": "Mega Kick",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -3772,63 +3772,63 @@
     "nome": "Comet Punch",
     "nomeOriginal": "Comet Punch",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-bullet-punch",
     "nome": "Bullet Punch",
     "nomeOriginal": "Bullet Punch",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Aço",
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-fire-punch",
     "nome": "Fire Punch",
     "nomeOriginal": "Fire Punch",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fogo",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-ice-punch",
     "nome": "Ice Punch",
     "nomeOriginal": "Ice Punch",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Gelo",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-thunder-punch",
     "nome": "Thunder Punch",
     "nomeOriginal": "Thunder Punch",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Elétrico",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-sky-uppercut",
     "nome": "Sky Uppercut",
     "nomeOriginal": "Sky Uppercut",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-focus-punch",
     "nome": "Focus Punch",
     "nomeOriginal": "Focus Punch",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-counter",
     "nome": "Counter",
     "nomeOriginal": "Counter",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Lutador",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -3836,30 +3836,30 @@
     "nome": "Refresh",
     "nomeOriginal": "Refresh",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-smog",
     "nome": "Smog",
     "nomeOriginal": "Smog",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Venenoso",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-head-smash",
     "nome": "Head Smash",
     "nomeOriginal": "Head Smash",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Pedra",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-hammer-arm",
     "nome": "Hammer Arm",
     "nomeOriginal": "Hammer Arm",
-    "tipo": "Normal",
+    "tipo": "Lutador",
     "pp": 10,
     "descricao": ""
   },
@@ -3867,8 +3867,8 @@
     "id": "custom-ingrain",
     "nome": "Ingrain",
     "nomeOriginal": "Ingrain",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -3876,7 +3876,7 @@
     "nome": "Tickle",
     "nomeOriginal": "Tickle",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -3891,7 +3891,7 @@
     "id": "custom-dragon-pulse",
     "nome": "Dragon Pulse",
     "nomeOriginal": "Dragon Pulse",
-    "tipo": "Normal",
+    "tipo": "Dragão",
     "pp": 10,
     "descricao": ""
   },
@@ -3899,23 +3899,23 @@
     "id": "custom-dragon-dance",
     "nome": "Dragon Dance",
     "nomeOriginal": "Dragon Dance",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Dragão",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-waterfall",
     "nome": "Waterfall",
     "nomeOriginal": "Waterfall",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Água",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-guard-swap",
     "nome": "Guard Swap",
     "nomeOriginal": "Guard Swap",
-    "tipo": "Normal",
+    "tipo": "Psíquico",
     "pp": 10,
     "descricao": ""
   },
@@ -3923,8 +3923,8 @@
     "id": "custom-magical-leaf",
     "nome": "Magical Leaf",
     "nomeOriginal": "Magical Leaf",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Grama",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -3932,7 +3932,7 @@
     "nome": "Copycat",
     "nomeOriginal": "Copycat",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -3956,7 +3956,7 @@
     "nome": "Baton Pass",
     "nomeOriginal": "Baton Pass",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 40,
     "descricao": ""
   },
   {
@@ -3971,24 +3971,24 @@
     "id": "custom-powder-snow",
     "nome": "Powder Snow",
     "nomeOriginal": "Powder Snow",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Gelo",
+    "pp": 25,
     "descricao": ""
   },
   {
     "id": "custom-heart-stamp",
     "nome": "Heart Stamp",
     "nomeOriginal": "Heart Stamp",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Psíquico",
+    "pp": 25,
     "descricao": ""
   },
   {
     "id": "custom-fake-tears",
     "nome": "Fake Tears",
     "nomeOriginal": "Fake Tears",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Sombrio",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -3996,38 +3996,38 @@
     "nome": "Perish Song",
     "nomeOriginal": "Perish Song",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-blizzard",
     "nome": "Blizzard",
     "nomeOriginal": "Blizzard",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Gelo",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-shock-wave",
     "nome": "Shock Wave",
     "nomeOriginal": "Shock Wave",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Elétrico",
+    "pp": 20,
     "descricao": ""
   },
   {
     "id": "custom-lava-plume",
     "nome": "Lava Plume",
     "nomeOriginal": "Lava Plume",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fogo",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-storm-throw",
     "nome": "Storm Throw",
     "nomeOriginal": "Storm Throw",
-    "tipo": "Normal",
+    "tipo": "Lutador",
     "pp": 10,
     "descricao": ""
   },
@@ -4036,7 +4036,7 @@
     "nome": "Work Up",
     "nomeOriginal": "Work Up",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -4044,7 +4044,7 @@
     "nome": "Giga Impact",
     "nomeOriginal": "Giga Impact",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -4052,7 +4052,7 @@
     "nome": "Hyper Beam",
     "nomeOriginal": "Hyper Beam",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -4067,8 +4067,8 @@
     "id": "custom-charm",
     "nome": "Charm",
     "nomeOriginal": "Charm",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fada",
+    "pp": 20,
     "descricao": ""
   },
   {
@@ -4076,7 +4076,7 @@
     "nome": "Last Resort",
     "nomeOriginal": "Last Resort",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
@@ -4084,14 +4084,14 @@
     "nome": "Trump Card",
     "nomeOriginal": "Trump Card",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-muddy-water",
     "nome": "Muddy Water",
     "nomeOriginal": "Muddy Water",
-    "tipo": "Normal",
+    "tipo": "Água",
     "pp": 10,
     "descricao": ""
   },
@@ -4100,7 +4100,7 @@
     "nome": "Conversion 2",
     "nomeOriginal": "Conversion 2",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 30,
     "descricao": ""
   },
   {
@@ -4108,22 +4108,22 @@
     "nome": "Sharpen",
     "nomeOriginal": "Sharpen",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 30,
     "descricao": ""
   },
   {
     "id": "custom-iron-head",
     "nome": "Iron Head",
     "nomeOriginal": "Iron Head",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Aço",
+    "pp": 15,
     "descricao": ""
   },
   {
     "id": "custom-sky-drop",
     "nome": "Sky Drop",
     "nomeOriginal": "Sky Drop",
-    "tipo": "Normal",
+    "tipo": "Voador",
     "pp": 10,
     "descricao": ""
   },
@@ -4139,7 +4139,7 @@
     "id": "custom-high-horsepower",
     "nome": "High Horsepower",
     "nomeOriginal": "High Horsepower",
-    "tipo": "Normal",
+    "tipo": "Terra",
     "pp": 10,
     "descricao": ""
   },
@@ -4148,22 +4148,22 @@
     "nome": "Block",
     "nomeOriginal": "Block",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-burn-up",
     "nome": "Burn Up",
     "nomeOriginal": "Burn Up",
-    "tipo": "Normal",
-    "pp": 10,
+    "tipo": "Fogo",
+    "pp": 5,
     "descricao": ""
   },
   {
     "id": "custom-dragon-tail",
     "nome": "Dragon Tail",
     "nomeOriginal": "Dragon Tail",
-    "tipo": "Normal",
+    "tipo": "Dragão",
     "pp": 10,
     "descricao": ""
   },
@@ -4171,7 +4171,7 @@
     "id": "custom-dragon-rush",
     "nome": "Dragon Rush",
     "nomeOriginal": "Dragon Rush",
-    "tipo": "Normal",
+    "tipo": "Dragão",
     "pp": 10,
     "descricao": ""
   },
@@ -4180,7 +4180,7 @@
     "nome": "Laser Focus",
     "nomeOriginal": "Laser Focus",
     "tipo": "Normal",
-    "pp": 10,
+    "pp": 30,
     "descricao": ""
   }
 ]
