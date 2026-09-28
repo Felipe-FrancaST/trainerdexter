@@ -1,6 +1,7 @@
 const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
 const DEFAULT={campaign:{name:"Minha Campanha Pokémon"},master:{user:"mestre",pass:"king"},trainers:[],dex:{},encounter:{round:1,active:0,notes:"",combatants:[]},notes:[]};
 const state=structuredClone(DEFAULT);
+const SOURCE_DATA_VERSION=4;
 
 // O Supabase é a fonte única de dados. Não usamos localStorage para guardar campanha,
 // Pokémon, ataques ou imagens. O cache offline também não deve conter dados do jogo.
@@ -16,9 +17,70 @@ function dbConfigured(){
   else console.warn("TrainerDex: Supabase não está configurado ou não foi carregado.");
   return dbConfiguredCache;
 }
-function save(){  if(!dbConfigured() || !dbReady) return;
-  queueDbSave();
+async function migrateLegacyStateInSupabase(){
+  if(!dbConfigured()) return false;
+  try{
+    const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_migrate_legacy");
+    if(error){console.error("Supabase: migração do estado antigo falhou:",error);return false;}
+    return !!data;
+  }catch(error){console.error("Supabase: erro ao migrar estado antigo:",error);return false;}
 }
+async function loadStateFromSupabase(){
+  if(!dbConfigured()) return false;
+  await migrateLegacyStateInSupabase();
+  const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_load_state");
+  if(error){console.error("Supabase: erro ao carregar estado organizado:",error);return false;}
+  dbReady=true;
+  if(data && typeof data==="object"){
+    // O catálogo possui tabela própria. Nunca deixe um estado antigo/vazio
+    // substituir o catálogo que acabou de ser carregado do Supabase.
+    const preservedCatalog=Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length?state.pokemonCatalog:null;
+    Object.keys(state).forEach(k=>delete state[k]);
+    Object.assign(state,data);
+    if(preservedCatalog && (!Array.isArray(state.pokemonCatalog)||state.pokemonCatalog.length===0)){
+      state.pokemonCatalog=preservedCatalog;
+    }
+    return true;
+  }
+  return false;
+}
+
+async function loadPokemonCatalogFromSupabase(){
+  if(!dbConfigured()) return null;
+  const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_load_pokemon_catalog");
+  if(error){
+    console.error("Supabase: não foi possível carregar o catálogo de Pokémon:",error);
+    return null;
+  }
+  return Array.isArray(data?.pokemon) ? data.pokemon : null;
+}
+
+async function savePokemonCatalogToSupabase(list){
+  if(!Array.isArray(list) || list.length===0){
+    console.warn("TrainerDex: bloqueado salvamento de catálogo vazio para evitar apagar os Pokémon do Supabase.");
+    return false;
+  }
+  const {error}=await window.trainerdexSupabase.rpc("trainerdex_save_pokemon_catalog",{payload:list});
+  if(error) throw error;
+  console.info(`TrainerDex: catálogo de Pokémon salvo (${list.length} registros).`);
+  return true;
+}
+
+async function loadMoveLibraryFromSupabase(){
+  if(!dbConfigured()) return null;
+  const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_load_move_library");
+  if(error){
+    console.error("Supabase: não foi possível carregar a biblioteca de ataques:",error);
+    return null;
+  }
+  return Array.isArray(data?.moves) ? data.moves : null;
+}
+
+async function saveMoveLibraryToSupabase(list){
+  const {error}=await window.trainerdexSupabase.rpc("trainerdex_save_move_library",{payload:list});
+  if(error) throw error;
+}
+
 function dataUrlToBlob(dataUrl){
   const parts=String(dataUrl||"").split(",");
   if(parts.length!==2 || !parts[0].includes("base64")) throw new Error("Imagem inválida.");
@@ -845,7 +907,7 @@ async function init(){
  try{
   if(!dbConfigured()) throw new Error("Supabase não configurado.");
 
-  // Nesta versão o Supabase é a única fonte dos dados.
+  // A partir desta versão, o Supabase é a única fonte de dados.
   // Não existe fallback para JSON, imagens ou qualquer outro arquivo local.
   const loadedFromDb=await loadStateFromSupabase();
   if(!loadedFromDb) throw new Error("Não foi possível carregar os dados do Supabase.");
@@ -853,18 +915,17 @@ async function init(){
   const remoteCatalog=await loadPokemonCatalogFromSupabase();
   const currentMoves=await loadMoveLibraryFromSupabase();
 
-  pokemons=Array.isArray(remoteCatalog)&&remoteCatalog.length
-    ? structuredClone(remoteCatalog)
-    : (Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length
-      ? structuredClone(state.pokemonCatalog)
-      : []);
+  if(!Array.isArray(remoteCatalog) || remoteCatalog.length===0){
+    throw new Error("O catálogo de Pokémon do Supabase está vazio ou não pôde ser carregado.");
+  }
 
-  if(!pokemons.length) throw new Error("Catálogo de Pokémon vazio no Supabase.");
-
-  moves=Array.isArray(currentMoves)?structuredClone(currentMoves):[];
-  console.info(`TrainerDex: Pokédex carregada do Supabase com ${pokemons.length} Pokémon.`);
-
+  pokemons=structuredClone(remoteCatalog);
   state.pokemonCatalog=pokemons;
+  moves=Array.isArray(currentMoves)?structuredClone(currentMoves):[];
+
+  console.info(`TrainerDex: catálogo carregado do Supabase (${pokemons.length} Pokémon).`);
+  console.info(`TrainerDex: biblioteca de ataques carregada do Supabase (${moves.length} ataques).`);
+
   pokemons.forEach(p=>{
     normalizeAbilities(p);
     p.hp=Math.max(1,Number(p.hp)||50);
@@ -906,11 +967,12 @@ async function init(){
   pokemons.forEach(p=>(p.ataques||[]).forEach(a=>ensureMoveForAttack(a)));
   state.pokemonCatalog=pokemons;
 
-  // Persiste apenas normalizações; nunca substitui o catálogo por vazio.
+  // Persiste apenas a normalização do que já veio do Supabase.
+  // Nunca cria/substitui catálogo vazio.
   save();
   loginUI();
  }catch(e){
-  console.error(e);
+  console.error("TrainerDex: falha na inicialização",e);
   toast("Não foi possível carregar a Pokédex. Verifique a conexão com o Supabase.");
  }
 }

@@ -9,3 +9,7 @@ Alterações desta versão:
 - Ao subir de nível, o HP máximo aumenta automaticamente e o HP atual recebe o mesmo aumento, mantendo o dano já sofrido.
 - NPCs também usam automaticamente a vida calculada pelo nível e dado de vida.
 - Mantidos os sistemas anteriores de habilidades, ataques, capturas, evolução e batalha.
+
+
+## Armazenamento
+Esta versão usa exclusivamente o Supabase para catálogo, ataques, campanha e imagens. Não depende de data/ ou img/.
