@@ -49,11 +49,11 @@ A versão atual do aplicativo faz uma migração inicial automática dos arquivo
 
 ### Ordem correta
 
-1. Execute `SUPABASE_MIGRATION_LOCAL_ASSETS.sql` no SQL Editor.
+1. Execute `SUPABASE_MIGRATION_LOCAL_ASSETS.sql` no SQL Editor. **Essa versão também cria as políticas do Storage necessárias para o frontend enviar as imagens.**
 2. Publique a versão **com os arquivos locais**.
 3. Abra o site e entre normalmente.
 4. Aguarde a migração terminar e recarregue a página. A partir daí, o catálogo e as imagens devem continuar aparecendo mesmo que os arquivos locais sejam removidos.
 5. Se tudo estiver correto, publique a versão **sem os arquivos locais**. Nessa versão `data/` e `img/pokemon/` já não existem.
 6. Não apague os arquivos locais antes do primeiro carregamento bem-sucedido da migração.
 
-A migração usa `upsert` no Storage, então recarregar durante uma tentativa incompleta não duplica as imagens.
+A migração usa `upsert` no Storage, então recarregar durante uma tentativa incompleta não duplica as imagens. Se aparecer erro HTTP 400 no upload, as políticas do Storage não foram aplicadas: execute novamente o SQL completo.

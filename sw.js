@@ -1,4 +1,4 @@
-const CACHE="trainerdex-v26";
+const CACHE="trainerdex-v27";
 const CORE_ASSETS=["./","./index.html","./style.css","./app.js","./supabase-config.js","./manifest.json"];
 
 self.addEventListener("install", event => {
