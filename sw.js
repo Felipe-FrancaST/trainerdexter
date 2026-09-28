@@ -1,4 +1,4 @@
-const CACHE="trainerdex-v33";
+const CACHE="trainerdex-v34";
 const CORE_ASSETS = [
   "./",
   "./index.html",

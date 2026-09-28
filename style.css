@@ -329,3 +329,690 @@ input,select,textarea{max-width:100%;min-width:0}
   .team{grid-template-columns:1fr}
   .battle-target-grid{grid-template-columns:1fr}
 }
+
+/* =========================================================
+   MOBILE POLISH — camada final de responsividade
+   ========================================================= */
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover,
+  .pokemon:hover,
+  .battle-attack-mini:hover,
+  .battle-target-card:hover,
+  .battle-choice:hover,
+  .battle-npc-attack-btn:hover {
+    transform: none;
+    box-shadow: none;
+    filter: none;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --radius: 15px;
+  }
+
+  html {
+    min-height: 100%;
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-width: 0;
+    overflow-x: clip;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .app {
+    width: 100%;
+    min-height: 100svh;
+  }
+
+  .content {
+    width: 100%;
+    min-width: 0;
+    padding: 14px 10px calc(88px + env(safe-area-inset-bottom));
+    overflow: visible;
+  }
+
+  /* Cabeçalhos passam a empilhar de forma previsível. */
+  .topbar {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .topbar > div,
+  .top-actions {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .topbar h1 {
+    font-size: clamp(21px, 6vw, 24px);
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+  }
+
+  .topbar p {
+    max-width: 100%;
+    font-size: 12px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .top-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .top-actions .btn,
+  .top-actions > .btn {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+  }
+
+  /* Todos os controles principais ficam confortáveis para toque. */
+  .btn,
+  .nav button,
+  .mobile-nav button,
+  summary,
+  .type-choice,
+  .skill-edit,
+  .battle-choice,
+  .battle-attack-card,
+  .battle-target-card,
+  .battle-attack-mini {
+    touch-action: manipulation;
+  }
+
+  .btn {
+    min-height: 44px;
+  }
+
+  .btn.small {
+    min-height: 40px;
+  }
+
+  .input,
+  .select,
+  .textarea {
+    min-width: 0;
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  .card {
+    min-width: 0;
+    padding: 13px;
+    border-radius: 15px;
+  }
+
+  .section-title {
+    width: 100%;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-bottom: 11px;
+  }
+
+  .section-title > div {
+    min-width: 0;
+    flex: 1 1 180px;
+  }
+
+  .section-title h2 {
+    font-size: 17px;
+    overflow-wrap: anywhere;
+  }
+
+  .section-title p {
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  .section-title > .btn,
+  .section-title > .top-actions {
+    width: 100%;
+  }
+
+  /* Listas com ações não podem empurrar a página horizontalmente. */
+  .row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .row-main {
+    flex: 1 1 160px;
+    min-width: 0;
+  }
+
+  .row > .btn,
+  .row > .top-actions {
+    flex: 1 1 120px;
+    min-width: 0;
+  }
+
+  .tags,
+  .relation-tags,
+  .battle-npc-attacks {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .tag,
+  .type-tag,
+  .status {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  /* Cards do time: duas colunas pequenas não comportam a imagem desktop de 96px. */
+  .team-card {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 7px;
+    text-align: center;
+  }
+
+  .team-card img {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto;
+  }
+
+  .team-card .health-wrap {
+    max-width: none;
+  }
+
+  .team-card .tags {
+    justify-content: center;
+  }
+
+  .team-card h3 {
+    font-size: 15px;
+    overflow-wrap: anywhere;
+  }
+
+  .pokemon,
+  .pokemon > div,
+  .pokemon-detail,
+  .pokemon-detail > div,
+  .battle-main,
+  .battle-combatant,
+  .battle-choice,
+  .battle-attack-card,
+  .battle-target-card,
+  .attack-card,
+  .move-library-card {
+    min-width: 0;
+  }
+
+  .pokemon {
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 9px;
+    padding: 9px;
+  }
+
+  .pokemon img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .pokemon h3,
+  .pokemon small,
+  .pokemon .muted {
+    overflow-wrap: anywhere;
+  }
+
+  .pokemon h3 {
+    font-size: 14px;
+  }
+
+  /* Busca e filtros ocupam a largura inteira sem criar scroll lateral. */
+  .toolbar {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 7px;
+  }
+
+  .toolbar .search,
+  .toolbar .select {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0;
+  }
+
+  /* Tabelas continuam utilizáveis: rolagem apenas dentro do contêiner. */
+  .table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .table {
+    min-width: 560px;
+  }
+
+  /* Navegação inferior respeita notch/home indicator do iPhone. */
+  .mobile-nav {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 66px;
+    padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
+    gap: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .mobile-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-nav button {
+    flex: 0 0 72px;
+    min-width: 72px;
+    min-height: 44px;
+    border-radius: 10px;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .mobile-nav button.active {
+    background: #24313f;
+  }
+
+  /* Modais viram bottom sheets no celular, aproveitando melhor a altura disponível. */
+  .modal {
+    align-items: flex-end;
+    padding: 0;
+    overscroll-behavior: contain;
+  }
+
+  .modal-box {
+    width: 100%;
+    max-width: none;
+    max-height: min(94svh, 94dvh);
+    padding: 15px;
+    border-radius: 20px 20px 0 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: calc(15px + env(safe-area-inset-bottom));
+  }
+
+  .modal-head {
+    position: sticky;
+    top: -15px;
+    z-index: 2;
+    padding: 0 0 10px;
+    background: #fff;
+  }
+
+  .modal-head h2 {
+    min-width: 0;
+    font-size: 19px;
+    overflow-wrap: anywhere;
+  }
+
+  .modal-head > div {
+    min-width: 0;
+  }
+
+  /* Formulários administrativos: uma coluna e controles fáceis de tocar. */
+  .form-grid,
+  .inline-fields,
+  .pokemon-admin-grid,
+  .two,
+  .three,
+  .encounter-grid,
+  .attack-fields {
+    grid-template-columns: 1fr !important;
+  }
+
+  .field {
+    min-width: 0;
+  }
+
+  .field label {
+    line-height: 1.3;
+  }
+
+  .type-picker {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px;
+  }
+
+  .type-choice {
+    min-height: 42px;
+    padding: 7px 6px;
+    text-align: center;
+  }
+
+  .attribute-editor,
+  .skills-edit-grid,
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .skill-edit,
+  .ability-check {
+    min-height: 44px;
+  }
+
+  /* Batalha: prioridade para leitura e toque. */
+  .battle-summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    padding: 10px;
+  }
+
+  .battle-summary > div {
+    min-width: 0;
+    padding: 9px 7px;
+  }
+
+  .battle-summary > div:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .battle-summary strong {
+    font-size: 14px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  .battle-head {
+    align-items: flex-start;
+  }
+
+  .battle-avatar {
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
+  }
+
+  .battle-main h3 {
+    font-size: 15px;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .battle-meta {
+    font-size: 11px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .battle-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .battle-actions .btn {
+    width: 100%;
+    min-width: 0;
+    min-height: 40px;
+    padding: 8px 6px;
+    font-size: 11px;
+  }
+
+  .battle-player-layout,
+  .battle-attack-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .battle-attack-list {
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    gap: 7px;
+  }
+
+  .battle-attack-mini {
+    min-height: 48px;
+    padding: 9px;
+  }
+
+  .battle-attack-mini > span {
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  .battle-target-grid,
+  .battle-choice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .battle-target-card,
+  .battle-choice {
+    min-height: 96px;
+    padding: 8px;
+  }
+
+  .battle-target-card img,
+  .battle-choice img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .battle-log {
+    max-height: 180px;
+    overflow: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .initiative-row {
+    grid-template-columns: 28px minmax(0, 1fr) 62px 54px;
+    gap: 5px;
+  }
+
+  .initiative-row input,
+  .initiative-row select {
+    min-width: 0;
+  }
+
+  .end-battle-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .end-battle-actions .btn {
+    width: 100%;
+  }
+
+  .toast {
+    left: 10px;
+    right: 10px;
+    bottom: calc(76px + env(safe-area-inset-bottom));
+    width: auto;
+    text-align: center;
+  }
+
+  /* A tela de login também precisa funcionar com teclado virtual e landscape. */
+  .login-screen {
+    min-height: 100svh;
+    padding: 16px 12px calc(16px + env(safe-area-inset-bottom));
+    align-items: start;
+    overflow-y: auto;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 430px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .login-tabs .btn {
+    min-height: 44px;
+  }
+
+  .login-panel {
+    gap: 12px;
+  }
+
+  /* Animação de evolução não pode ficar maior que a viewport. */
+  .evolution-stage {
+    width: 94vw;
+    height: 76svh;
+    max-height: 620px;
+  }
+
+  .evolution-old img,
+  .evolution-new img {
+    width: min(62vw, 280px);
+    height: min(62vw, 280px);
+  }
+
+  .evolution-new h2 {
+    max-width: 90vw;
+    font-size: clamp(24px, 7vw, 32px);
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 420px) {
+  .content {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .card {
+    padding: 11px;
+  }
+
+  .stats {
+    gap: 7px;
+  }
+
+  .stat {
+    padding: 10px;
+  }
+
+  .stat strong {
+    font-size: 21px;
+  }
+
+  .team {
+    gap: 6px;
+  }
+
+  .team-card {
+    padding: 9px;
+  }
+
+  .battle-attack-list,
+  .battle-target-grid,
+  .battle-choice-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .battle-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .modal-box {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .modal-head {
+    top: -12px;
+  }
+}
+
+@media (max-width: 340px) {
+  .content {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .team {
+    grid-template-columns: 1fr;
+  }
+
+  .battle-target-grid,
+  .battle-choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-nav button {
+    flex-basis: 64px;
+    min-width: 64px;
+    font-size: 9px;
+  }
+
+  .battle-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) and (max-width: 900px) {
+  .content {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+
+  .mobile-nav {
+    min-height: 58px;
+    padding-top: 3px;
+    padding-bottom: calc(3px + env(safe-area-inset-bottom));
+  }
+
+  .mobile-nav button {
+    min-height: 42px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .login-screen {
+    align-items: start;
+  }
+
+  .login-card {
+    margin: 8px auto;
+  }
+
+  .modal-box {
+    max-height: 98svh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover,
+  .pokemon:hover,
+  .battle-attack-mini:hover,
+  .battle-target-card:hover,
+  .battle-choice:hover,
+  .battle-npc-attack-btn:hover {
+    transform: none;
+  }
+
+  .evolution-overlay,
+  .evolution-old,
+  .evolution-new,
+  .evolution-glow,
+  .evolution-flash {
+    animation: none !important;
+    transition: none !important;
+  }
+}

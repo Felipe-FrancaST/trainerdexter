@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#121922"><meta name="description" content="TrainerDex - Mestre e Jogadores">
+<meta name="theme-color" content="#121922"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="description" content="TrainerDex - Mestre e Jogadores">
 <link rel="manifest" href="manifest.json"><link rel="icon" href="https://kytbkjigsapdhxpdchqz.supabase.co/storage/v1/object/public/trainerdex-images/assets/trainerdex-home.png">
 <link rel="stylesheet" href="style.css"><title>TrainerDex</title>
 </head>
@@ -116,12 +116,12 @@
 <div class="modal" id="modal"><div class="modal-box" id="modalContent"></div></div><div class="toast" id="toast"></div>
 <!-- Dependências: Supabase → configuração → persistência → aplicação. -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-config.js?v=33"></script>
-<script src="supabase-store.js?v=33"></script>
-<script src="app.js?v=33"></script>
+<script src="supabase-config.js?v=34"></script>
+<script src="supabase-store.js?v=34"></script>
+<script src="app.js?v=34"></script>
 <script>
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js?v=33").catch((error) => {
+    navigator.serviceWorker.register("sw.js?v=34").catch((error) => {
       console.warn("TrainerDex: service worker não pôde ser registrado.", error);
     });
   }
