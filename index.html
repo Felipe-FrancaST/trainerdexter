@@ -32,7 +32,7 @@
   <nav class="nav" id="desktopNav"></nav>
   <div class="sidebar-bottom"><button class="btn danger" id="logout">Sair</button></div>
 </aside>
-<main class="content">
+<main class="content" id="mainContent">
 <section class="page" id="page-dashboard">
   <div class="topbar"><div><h1>Visão geral</h1><p id="campaignSubtitle"></p></div><div class="top-actions"><button class="btn primary" data-page="encounter" id="newEncounterBtn">Nova batalha</button></div></div>
   <div class="grid stats">
@@ -114,7 +114,16 @@
   </div>
 </div>
 <div class="modal" id="modal"><div class="modal-box" id="modalContent"></div></div><div class="toast" id="toast"></div>
+<!-- Dependências: Supabase → configuração → persistência → aplicação. -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-config.js?v=31"></script>
-<script src="app.js?v=32"></script><script>if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js?v=31");</script>
+<script src="supabase-config.js?v=33"></script>
+<script src="supabase-store.js?v=33"></script>
+<script src="app.js?v=33"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js?v=33").catch((error) => {
+      console.warn("TrainerDex: service worker não pôde ser registrado.", error);
+    });
+  }
+</script>
 </body></html>
