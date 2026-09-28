@@ -92,6 +92,7 @@ function isLocalAsset(value){
 
 async function migrateBundledAssetsToSupabase(basePokemon,movesFromFile){
   if(!dbConfigured()) throw new Error("Supabase não está configurado.");
+  if(!Array.isArray(basePokemon) || !basePokemon.length) throw new Error("Catálogo local de Pokémon vazio.");
 
   const currentMoves=await loadMoveLibraryFromSupabase();
   const needsMoveMigration=!Array.isArray(currentMoves) || currentMoves.length===0;
@@ -115,23 +116,23 @@ async function migrateBundledAssetsToSupabase(basePokemon,movesFromFile){
   });
   currentCatalog.filter(p=>!basePokemon.some(base=>Number(base.id)===Number(p.id))).forEach(p=>merged.push(p));
 
+  // Sempre repara as imagens dos Pokémon-base enquanto os arquivos locais ainda existem.
+  // Isso também corrige registros que foram salvos anteriormente apontando para
+  // /pokemon/<id>/cover (objeto antigo que pode ter retornado 404).
   const homeImage=await uploadAssetFromUrl("img/icons/trainerdex-home.png","assets/trainerdex-home.png");
+  for(const base of basePokemon){
+    const p=merged.find(x=>Number(x.id)===Number(base.id));
+    if(!p) continue;
+    const localImage=String(base.imagem||"");
+    const filename=localImage.split("/").pop();
+    if(!filename) { p.imagem=homeImage; continue; }
+    const path=`pokemon/${encodeURIComponent(String(p.id))}/cover.png`;
+    // Não usamos o valor remoto como fonte da imagem: o arquivo local original
+    // é a fonte da migração e é sobrescrito no Storage com o mesmo conteúdo.
+    p.imagem=await uploadAssetFromUrl(`img/pokemon/${filename}`,path);
+  }
   for(const p of merged){
-    const image=p.imagem;
-    if(isLocalAsset(image)){
-      const filename=String(image).split("/").pop();
-      const path=`pokemon/${encodeURIComponent(String(p.id))}/cover`;
-      try{
-        p.imagem=await uploadAssetFromUrl(`img/pokemon/${filename}`,path);
-      }catch(error){
-        // Alguns Pokémon antigos podem usar nomes de arquivo com capitalização diferente.
-        // O arquivo indicado pelo catálogo é a fonte oficial; se não existir, usa o ícone padrão.
-        console.warn(`TrainerDex: imagem de ${p.nome} não encontrada (${image}).`,error);
-        p.imagem=homeImage;
-      }
-    }else if(!p.imagem){
-      p.imagem=homeImage;
-    }
+    if(!p.imagem) p.imagem=homeImage;
   }
 
   state.pokemonCatalog=merged;
@@ -971,13 +972,19 @@ async function init(){
   let remoteCatalog=await loadPokemonCatalogFromSupabase();
   let currentMoves=await loadMoveLibraryFromSupabase();
   let base=[];
-  if(!Array.isArray(currentMoves) || currentMoves.length===0 || !Array.isArray(remoteCatalog) || remoteCatalog.length===0){
+  const needsCatalogMigration=!Array.isArray(remoteCatalog) || remoteCatalog.length===0;
+  const needsMoveMigration=!Array.isArray(currentMoves) || currentMoves.length===0;
+  const needsImageRepair=Array.isArray(remoteCatalog) && remoteCatalog.some(p=>{
+    const img=String(p?.imagem||"");
+    return !img || /\/storage\/v1\/object\/public\/trainerdex-images\/pokemon\/[^/]+\/cover(?:$|[?#])/i.test(img);
+  });
+  if(needsCatalogMigration || needsMoveMigration || needsImageRepair){
     const baseResult=await fetch("data/pokemon.json");
     const movesResult=await fetch("data/moves.json");
-    if(!baseResult.ok || !movesResult.ok) throw new Error("Os arquivos necessários para a migração inicial não foram encontrados.");
+    if(!baseResult.ok || !movesResult.ok) throw new Error("Os arquivos necessários para a migração/reparo inicial não foram encontrados.");
     base=await baseResult.json();
     const movesFromFile=await movesResult.json();
-    // A função também salva o catálogo na nova tabela dedicada.
+    // Também repara imagens antigas que apontavam para /cover sem extensão.
     await migrateBundledAssetsToSupabase(base,movesFromFile);
     remoteCatalog=await loadPokemonCatalogFromSupabase();
     currentMoves=await loadMoveLibraryFromSupabase();

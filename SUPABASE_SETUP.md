@@ -57,3 +57,7 @@ A versão atual do aplicativo faz uma migração inicial automática dos arquivo
 6. Não apague os arquivos locais antes do primeiro carregamento bem-sucedido da migração.
 
 A migração usa `upsert` no Storage, então recarregar durante uma tentativa incompleta não duplica as imagens. Se aparecer erro HTTP 400 no upload, as políticas do Storage não foram aplicadas: execute novamente o SQL completo.
+
+
+### Reparo de imagens
+A migração usa `img/pokemon/*.png` como fonte e grava os objetos em `pokemon/<id>/cover.png`. Registros antigos que apontavam para `pokemon/<id>/cover` são reparados automaticamente enquanto os arquivos locais ainda estiverem presentes.
