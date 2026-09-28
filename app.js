@@ -39,6 +39,21 @@ async function loadStateFromSupabase(){
   return false;
 }
 
+async function loadPokemonCatalogFromSupabase(){
+  if(!dbConfigured()) return null;
+  const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_load_pokemon_catalog");
+  if(error){
+    console.error("Supabase: não foi possível carregar o catálogo de Pokémon:",error);
+    return null;
+  }
+  return Array.isArray(data?.pokemon) ? data.pokemon : null;
+}
+
+async function savePokemonCatalogToSupabase(list){
+  const {error}=await window.trainerdexSupabase.rpc("trainerdex_save_pokemon_catalog",{payload:Array.isArray(list)?list:[]});
+  if(error) throw error;
+}
+
 async function loadMoveLibraryFromSupabase(){
   if(!dbConfigured()) return null;
   const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_load_move_library");
@@ -91,7 +106,8 @@ async function migrateBundledAssetsToSupabase(basePokemon,movesFromFile){
 
   // O catálogo base é incorporado ao catálogo salvo. Dados já editados no banco têm prioridade,
   // exceto os campos de ficha que a versão atual do aplicativo atualiza a partir da fonte.
-  const currentCatalog=Array.isArray(state.pokemonCatalog)?state.pokemonCatalog:[];
+  const remoteCatalog=await loadPokemonCatalogFromSupabase();
+  const currentCatalog=Array.isArray(remoteCatalog) ? remoteCatalog : (Array.isArray(state.pokemonCatalog)?state.pokemonCatalog:[]);
   const byId=new Map(currentCatalog.map(p=>[Number(p.id),p]));
   const merged=basePokemon.map(base=>{
     const existing=byId.get(Number(base.id));
@@ -119,8 +135,9 @@ async function migrateBundledAssetsToSupabase(basePokemon,movesFromFile){
   }
 
   state.pokemonCatalog=merged;
+  await savePokemonCatalogToSupabase(merged);
   const {error:stateError}=await window.trainerdexSupabase.rpc("trainerdex_save_state",{payload:structuredClone(state)});
-  if(stateError) throw stateError;
+  if(stateError) console.warn("TrainerDex: estado geral não pôde ser salvo durante a migração; o catálogo já foi salvo no Supabase.",stateError);
   return {homeImage};
 }
 
@@ -172,6 +189,7 @@ function queueDbSave(){
       try{
         await uploadPendingPokemonImages();
         await saveMoveLibraryToSupabase(moves);
+        await savePokemonCatalogToSupabase(state.pokemonCatalog||pokemons);
         const snapshot=structuredClone(state);
         const {error}=await window.trainerdexSupabase.rpc("trainerdex_save_state",{payload:snapshot});
         if(error) throw error;
@@ -948,26 +966,28 @@ async function init(){
   const loadedFromDb=await loadStateFromSupabase();
   if(!loadedFromDb) throw new Error("Não foi possível carregar os dados do Supabase.");
 
-  // Os arquivos locais só são consultados se a migração ainda não estiver concluída.
-  // Depois dela, data/*.json e img/pokemon/* podem ser removidos do projeto.
+  // O catálogo de Pokémon tem sua própria tabela/RPC. Isso evita depender do formato
+  // interno de trainerdex_save_state e garante que os 151 Pokémon sejam carregados.
+  let remoteCatalog=await loadPokemonCatalogFromSupabase();
   let currentMoves=await loadMoveLibraryFromSupabase();
   let base=[];
-  if(!Array.isArray(currentMoves) || currentMoves.length===0 ||
-     !Array.isArray(state.pokemonCatalog) ||
-     state.pokemonCatalog.some(p=>isLocalAsset(p?.imagem))){
+  if(!Array.isArray(currentMoves) || currentMoves.length===0 || !Array.isArray(remoteCatalog) || remoteCatalog.length===0){
     const baseResult=await fetch("data/pokemon.json");
     const movesResult=await fetch("data/moves.json");
     if(!baseResult.ok || !movesResult.ok) throw new Error("Os arquivos necessários para a migração inicial não foram encontrados.");
     base=await baseResult.json();
     const movesFromFile=await movesResult.json();
+    // A função também salva o catálogo na nova tabela dedicada.
     await migrateBundledAssetsToSupabase(base,movesFromFile);
+    remoteCatalog=await loadPokemonCatalogFromSupabase();
     currentMoves=await loadMoveLibraryFromSupabase();
   }
   moves=Array.isArray(currentMoves)?structuredClone(currentMoves):[];
 
-  pokemons=Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length>=1
-    ? state.pokemonCatalog
-    : base;
+  pokemons=Array.isArray(remoteCatalog)&&remoteCatalog.length>=1
+    ? remoteCatalog
+    : (Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length>=1 ? state.pokemonCatalog : base);
+  state.pokemonCatalog=pokemons;
 
   const baseById=Object.fromEntries(base.map(p=>[Number(p.id),p]));
   pokemons.forEach(p=>{
