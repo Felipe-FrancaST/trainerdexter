@@ -118,6 +118,11 @@ async function uploadPendingPokemonImages(){
     delete p._newImage;
   }
 }
+function save(){
+  // Compatibilidade com o restante da aplicação: o armazenamento agora é somente Supabase.
+  // A sincronização é enfileirada para evitar gravações concorrentes.
+  queueDbSave();
+}
 function queueDbSave(){
   if(!dbConfigured() || !dbReady) return;
   clearTimeout(dbSaveTimer);
