@@ -35,3 +35,25 @@ O projeto atual ainda usa o login Mestre/Jogador implementado no frontend, porqu
 
 ## Correção Time + PC
 Se a coluna `in_team` já foi criada, rode `SUPABASE_PC_CORRECAO.sql` no SQL Editor do Supabase para atualizar as RPCs de carregamento e salvamento do Time/PC.
+
+
+## Migração dos arquivos locais para o Supabase
+
+A versão atual do aplicativo faz uma migração inicial automática dos arquivos que antes eram locais:
+
+- `data/pokemon.json` → catálogo de Pokémon persistido no Supabase.
+- `data/moves.json` → `trainerdex_move_library`.
+- `img/pokemon/*.png` → bucket `trainerdex-images`, pasta `pokemon/`.
+- `img/icons/trainerdex-home.png` → bucket `trainerdex-images`, pasta `assets/`.
+- `localStorage` → não é mais usado como armazenamento da campanha.
+
+### Ordem correta
+
+1. Execute `SUPABASE_MIGRATION_LOCAL_ASSETS.sql` no SQL Editor.
+2. Publique a versão **com os arquivos locais**.
+3. Abra o site e entre normalmente.
+4. Aguarde a migração terminar e recarregue a página. A partir daí, o catálogo e as imagens devem continuar aparecendo mesmo que os arquivos locais sejam removidos.
+5. Se tudo estiver correto, publique a versão **sem os arquivos locais**. Nessa versão `data/` e `img/pokemon/` já não existem.
+6. Não apague os arquivos locais antes do primeiro carregamento bem-sucedido da migração.
+
+A migração usa `upsert` no Storage, então recarregar durante uma tentativa incompleta não duplica as imagens.

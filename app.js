@@ -1,19 +1,10 @@
 const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
-const KEY="trainerdex_mestre_v2";
 const DEFAULT={campaign:{name:"Minha Campanha Pokémon"},master:{user:"mestre",pass:"king"},trainers:[],dex:{},encounter:{round:1,active:0,notes:"",combatants:[]},notes:[]};
-let LOCAL_STATE=null;
-try{
- const raw=localStorage.getItem(KEY);
- LOCAL_STATE=raw?JSON.parse(raw):null;
-}catch(error){
- console.warn("TrainerDex: estado local inválido; iniciando estado padrão.",error);
-}
-const state=LOCAL_STATE&&typeof LOCAL_STATE==="object"?LOCAL_STATE:structuredClone(DEFAULT);
+const state=structuredClone(DEFAULT);
 const SOURCE_DATA_VERSION=3;
 
-// Persistência: localStorage continua como cache/offline, enquanto o Supabase
-// guarda os dados em tabelas organizadas. O formato de estado do frontend é mantido
-// para que as telas existentes continuem funcionando sem uma reescrita completa.
+// O Supabase é a fonte única de dados. Não usamos localStorage para guardar campanha,
+// Pokémon, ataques ou imagens. O cache offline também não deve conter dados do jogo.
 const DB_BUCKET="trainerdex-images";
 let dbReady=false;
 let dbSaveChain=Promise.resolve();
@@ -43,10 +34,95 @@ async function loadStateFromSupabase(){
   if(data && typeof data==="object"){
     Object.keys(state).forEach(k=>delete state[k]);
     Object.assign(state,data);
-    persistLocalState();
     return true;
   }
   return false;
+}
+
+async function loadMoveLibraryFromSupabase(){
+  if(!dbConfigured()) return null;
+  const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_load_move_library");
+  if(error){
+    console.error("Supabase: não foi possível carregar a biblioteca de ataques:",error);
+    return null;
+  }
+  return Array.isArray(data?.moves) ? data.moves : null;
+}
+
+async function saveMoveLibraryToSupabase(list){
+  const {error}=await window.trainerdexSupabase.rpc("trainerdex_save_move_library",{payload:list});
+  if(error) throw error;
+}
+
+async function uploadAssetFromUrl(url,path){
+  const response=await fetch(url);
+  if(!response.ok) throw new Error(`Falha ao carregar o arquivo local: ${url} (${response.status})`);
+  const blob=await response.blob();
+  if(blob.size>8*1024*1024) throw new Error(`O arquivo ${url} é maior que 8 MB.`);
+  const {error}=await window.trainerdexSupabase.storage.from(DB_BUCKET).upload(path,blob,{
+    upsert:true,
+    contentType:blob.type||"application/octet-stream",
+    cacheControl:"31536000"
+  });
+  if(error) throw error;
+  return publicImageUrl(path);
+}
+
+function isLocalAsset(value){
+  return typeof value==="string" && /^(?:\.\/)?(?:img|data)\//i.test(value);
+}
+
+async function migrateBundledAssetsToSupabase(basePokemon,movesFromFile){
+  if(!dbConfigured()) throw new Error("Supabase não está configurado.");
+
+  const currentMoves=await loadMoveLibraryFromSupabase();
+  const needsMoveMigration=!Array.isArray(currentMoves) || currentMoves.length===0;
+
+  // Faz a migração dos ataques uma única vez. Depois disso moves.json pode ser apagado.
+  if(needsMoveMigration){
+    await saveMoveLibraryToSupabase(movesFromFile);
+    moves=structuredClone(movesFromFile);
+  }else{
+    moves=structuredClone(currentMoves);
+  }
+
+  // O catálogo base é incorporado ao catálogo salvo. Dados já editados no banco têm prioridade,
+  // exceto os campos de ficha que a versão atual do aplicativo atualiza a partir da fonte.
+  const currentCatalog=Array.isArray(state.pokemonCatalog)?state.pokemonCatalog:[];
+  const byId=new Map(currentCatalog.map(p=>[Number(p.id),p]));
+  const merged=basePokemon.map(base=>{
+    const existing=byId.get(Number(base.id));
+    return existing ? {...base,...existing} : structuredClone(base);
+  });
+  currentCatalog.filter(p=>!basePokemon.some(base=>Number(base.id)===Number(p.id))).forEach(p=>merged.push(p));
+
+  const homeImage=await uploadAssetFromUrl(publicImageUrl("assets/trainerdex-home.png"),"assets/trainerdex-home.png");
+  for(const p of merged){
+    const image=p.imagem;
+    if(isLocalAsset(image)){
+      const filename=String(image).split("/").pop();
+      const path=`pokemon/${encodeURIComponent(String(p.id))}/cover`;
+      try{
+        p.imagem=await uploadAssetFromUrl(`img/pokemon/${filename}`,path);
+      }catch(error){
+        // Alguns Pokémon antigos podem usar nomes de arquivo com capitalização diferente.
+        // O arquivo indicado pelo catálogo é a fonte oficial; se não existir, usa o ícone padrão.
+        console.warn(`TrainerDex: imagem de ${p.nome} não encontrada (${image}).`,error);
+        p.imagem=homeImage;
+      }
+    }else if(!p.imagem){
+      p.imagem=homeImage;
+    }
+  }
+
+  state.pokemonCatalog=merged;
+  const {error:stateError}=await window.trainerdexSupabase.rpc("trainerdex_save_state",{payload:structuredClone(state)});
+  if(stateError) throw stateError;
+  return {homeImage};
+}
+
+function save(){  if(!dbConfigured() || !dbReady) return;
+  queueDbSave();
 }
 function dataUrlToBlob(dataUrl){
   const parts=String(dataUrl||"").split(",");
@@ -92,31 +168,18 @@ function queueDbSave(){
     dbSaveChain=dbSaveChain.then(async()=>{
       try{
         await uploadPendingPokemonImages();
+        await saveMoveLibraryToSupabase(moves);
         const snapshot=structuredClone(state);
         const {error}=await window.trainerdexSupabase.rpc("trainerdex_save_state",{payload:snapshot});
         if(error) throw error;
-        persistLocalState();
         console.info("TrainerDex: dados sincronizados com Supabase.");
       }catch(error){
         console.error("Supabase: falha ao salvar dados:",error);
-        toast("Não foi possível sincronizar com o Supabase. Os dados continuam salvos localmente.");
+        toast("Não foi possível sincronizar com o Supabase. Tente novamente.");
       }
     });
   },300);
 }
-const persistLocalState=()=>{
-  try{
-    localStorage.setItem(KEY,JSON.stringify(state));
-    return true;
-  }catch(error){
-    console.warn("TrainerDex: não foi possível salvar o cache local.",error);
-    return false;
-  }
-};
-const save=()=>{
-  persistLocalState();
-  queueDbSave();
-};
 
 state.masterPasswordVersion??=0;
 state.moveDescriptions??={};
@@ -470,7 +533,7 @@ function openPokemonMaster(p){
  };
 }
 
-function newPokemon(){const id=Math.max(0,...pokemons.map(x=>Number(x.id)))+1;const p={id,numero:"#"+String(id).padStart(3,"0"),nome:"Novo Pokémon",tipo:"Normal",descricao:"",imagem:"img/icons/trainerdex-home.png",hp:50,dadoVida:10,sr:"",ca:0,status:{forca:10,destreza:10,constituicao:10,inteligencia:10,sabedoria:10,carisma:10},pericias:{},bonusProficiencia:2,vulnerabilidades:[],resistencia:[],ataques:[],evolutionType:"basic",evolutionStage:1,habilidades:[{nome:"",descricao:""},{nome:"",descricao:""}]};pokemons.push(p);openPokemonMaster(p)}
+function newPokemon(){const id=Math.max(0,...pokemons.map(x=>Number(x.id)))+1;const p={id,numero:"#"+String(id).padStart(3,"0"),nome:"Novo Pokémon",tipo:"Normal",descricao:"",imagem:publicImageUrl("assets/trainerdex-home.png"),hp:50,dadoVida:10,sr:"",ca:0,status:{forca:10,destreza:10,constituicao:10,inteligencia:10,sabedoria:10,carisma:10},pericias:{},bonusProficiencia:2,vulnerabilidades:[],resistencia:[],ataques:[],evolutionType:"basic",evolutionStage:1,habilidades:[{nome:"",descricao:""},{nome:"",descricao:""}]};pokemons.push(p);openPokemonMaster(p)}
 $("#newPokemonBtn").onclick=newPokemon;
 
 function renderMoves(){
@@ -749,7 +812,7 @@ function battleHpInfo(c){
  const max=Math.max(1,Number(c?.maxHp)||Number(battlePokemonForParticipant(c)?.hp)||1),current=Math.max(0,Math.min(max,Number(c?.currentHp??max)));return {current,max,pct:Math.round(current/max*100)};
 }
 function battleName(c){return c?.name||battlePokemonForParticipant(c)?.nome||"Combatente"}
-function battleAvatar(c){return battlePokemonForParticipant(c)?.imagem||"img/icons/trainerdex-home.png"}
+function battleAvatar(c){return battlePokemonForParticipant(c)?.imagem||publicImageUrl("assets/trainerdex-home.png")}
 
 $("#dexSearch").oninput=renderDex;$("#dexStatus").onchange=renderDex;$("#dexTypeFilter").onchange=renderDex;
 $("#moveSearch").oninput=renderMoves;$("#moveTypeFilter").onchange=renderMoves;
@@ -874,28 +937,76 @@ function openEndBattleConfirm(){
 }
 $("#clearEncounter").onclick=openEndBattleConfirm;
 
-// Atualização em tempo real entre abas do mesmo navegador/dispositivo.
-window.addEventListener('storage',e=>{if(e.key!==KEY||!e.newValue)return;try{const incoming=JSON.parse(e.newValue);Object.keys(incoming).forEach(k=>state[k]=incoming[k]);setupNav();renderAll();}catch(err){console.warn('Falha ao sincronizar estado',err)}});
 
 async function init(){
  try{
+  if(!dbConfigured()) throw new Error("Supabase não configurado.");
+
   const loadedFromDb=await loadStateFromSupabase();
-  if(dbConfigured()) dbReady=true;
-  const [r,mr]=await Promise.all([fetch("data/pokemon.json"),fetch("data/moves.json")]);const base=await r.json();moves=await mr.json();pokemons=(Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length>=1&&state.pokemonCatalog.some(p=>p&&p.id&&p.nome))?state.pokemonCatalog:base;
- const baseById=Object.fromEntries(base.map(p=>[Number(p.id),p]));
- pokemons.forEach(p=>{const source=baseById[Number(p.id)];if(source&&Number(p._dadosFichaVersion||0)<SOURCE_DATA_VERSION){p.ca=source.ca;p.sr=source.sr;p.hp=source.hp;p.dadoVida=source.dadoVida;p.status=source.status;p.pericias=source.pericias;p.ataques=source.ataques;p._dadosFichaVersion=SOURCE_DATA_VERSION;}normalizeAbilities(p);p.hp=Math.max(1,Number(p.hp)||50);p.dadoVida=normalizeLifeDice(p.dadoVida);p.sr??="";p.ca=Math.max(0,Number(p.ca)||0);delete p.nivel;p.status=normalizePokemonStats(p.status||{});p.pericias=normalizeSkills(p.pericias||{});p.bonusProficiencia=Math.max(0,Math.min(20,Number(p.bonusProficiencia ?? proficiencyBonus(1))||0));p.vulnerabilidades??=[];p.resistencia??=[];p.ataques??=[];if((!p.vulnerabilidades||p.vulnerabilidades.length===0)&&(!p.resistencia||p.resistencia.length===0)){const rel=calcTypeRelations(p.tipo);p.vulnerabilidades=rel.vulnerabilidades;p.resistencia=rel.resistencia}});state.trainers.forEach(t=>{normalizeTrainerStorage(t);[...t.team,...t.pc].forEach(a=>{const p=pokemonById(a.pokemonId);if(!p)return;a.level=Math.max(1,Number(a.level)||1);const max=hpMaxForLevel(p,a.level);const legacyBase=Math.max(1,Number(p.hp)||1);if(!Number.isFinite(Number(a.currentHp))|| (a.level>1&&Number(a.currentHp)===legacyBase))a.currentHp=max;else a.currentHp=Math.max(0,Math.min(max,Number(a.currentHp)));a.abilityIndexes=Array.isArray(a.abilityIndexes)?a.abilityIndexes.map(Number).filter(x=>x===0||x===1).slice(0,2):[];a.natureza=pokemonNature(a.natureza).id})});applyKnownEvolutionStructure();
- if(Number(state.moveLibraryVersion||0)<3){
-   state.moveLibraryVersion=3;
+  if(!loadedFromDb) throw new Error("Não foi possível carregar os dados do Supabase.");
+
+  // Os arquivos locais só são consultados se a migração ainda não estiver concluída.
+  // Depois dela, data/*.json e img/pokemon/* podem ser removidos do projeto.
+  let currentMoves=await loadMoveLibraryFromSupabase();
+  let base=[];
+  if(!Array.isArray(currentMoves) || currentMoves.length===0 ||
+     !Array.isArray(state.pokemonCatalog) ||
+     state.pokemonCatalog.some(p=>isLocalAsset(p?.imagem))){
+    const baseResult=await fetch("data/pokemon.json");
+    const movesResult=await fetch("data/moves.json");
+    if(!baseResult.ok || !movesResult.ok) throw new Error("Os arquivos necessários para a migração inicial não foram encontrados.");
+    base=await baseResult.json();
+    const movesFromFile=await movesResult.json();
+    await migrateBundledAssetsToSupabase(base,movesFromFile);
+    currentMoves=await loadMoveLibraryFromSupabase();
+  }
+  moves=Array.isArray(currentMoves)?structuredClone(currentMoves):[];
+
+  pokemons=Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length>=1
+    ? state.pokemonCatalog
+    : base;
+
+  const baseById=Object.fromEntries(base.map(p=>[Number(p.id),p]));
+  pokemons.forEach(p=>{
+    const source=baseById[Number(p.id)];
+    if(source&&Number(p._dadosFichaVersion||0)<SOURCE_DATA_VERSION){
+      p.ca=source.ca;p.sr=source.sr;p.hp=source.hp;p.dadoVida=source.dadoVida;
+      p.status=source.status;p.pericias=source.pericias;p.ataques=source.ataques;
+      p._dadosFichaVersion=SOURCE_DATA_VERSION;
+    }
+    normalizeAbilities(p);p.hp=Math.max(1,Number(p.hp)||50);p.dadoVida=normalizeLifeDice(p.dadoVida);
+    p.sr??="";p.ca=Math.max(0,Number(p.ca)||0);delete p.nivel;
+    p.status=normalizePokemonStats(p.status||{});p.pericias=normalizeSkills(p.pericias||{});
+    p.bonusProficiencia=Math.max(0,Math.min(20,Number(p.bonusProficiencia ?? proficiencyBonus(1))||0));
+    p.vulnerabilidades??=[];p.resistencia??=[];p.ataques??=[];
+    if((!p.vulnerabilidades||p.vulnerabilidades.length===0)&&(!p.resistencia||p.resistencia.length===0)){
+      const rel=calcTypeRelations(p.tipo);p.vulnerabilidades=rel.vulnerabilidades;p.resistencia=rel.resistencia
+    }
+  });
+  state.trainers.forEach(t=>{
+    normalizeTrainerStorage(t);
+    [...t.team,...t.pc].forEach(a=>{
+      const p=pokemonById(a.pokemonId);if(!p)return;
+      a.level=Math.max(1,Number(a.level)||1);const max=hpMaxForLevel(p,a.level);
+      const legacyBase=Math.max(1,Number(p.hp)||1);
+      if(!Number.isFinite(Number(a.currentHp))||(a.level>1&&Number(a.currentHp)===legacyBase))a.currentHp=max;
+      else a.currentHp=Math.max(0,Math.min(max,Number(a.currentHp)));
+      a.abilityIndexes=Array.isArray(a.abilityIndexes)?a.abilityIndexes.map(Number).filter(x=>x===0||x===1).slice(0,2):[];
+      a.natureza=pokemonNature(a.natureza).id
+    })
+  });
+  applyKnownEvolutionStructure();
+  if(Number(state.moveLibraryVersion||0)<3) state.moveLibraryVersion=3;
+  normalizeMoveLibrary();
+  pokemons.forEach(p=>(p.ataques||[]).forEach(a=>ensureMoveForAttack(a)));
+  state.pokemonCatalog=pokemons;
+
+  // Salva qualquer normalização feita acima diretamente no Supabase.
+  save();
+  loginUI();
+ }catch(e){
+  console.error(e);
+  toast("Não foi possível carregar a Pokédex. Verifique a conexão com o Supabase.");
  }
- normalizeMoveLibrary();
- pokemons.forEach(p=>(p.ataques||[]).forEach(a=>ensureMoveForAttack(a)));
- state.pokemonCatalog=pokemons;
- save();
- if(dbConfigured() && !dbReady){
-   dbReady=true;
-   queueDbSave();
- }
- loginUI();
- }catch(e){console.error(e);toast("Não foi possível carregar a Pokédex.")}
 }
 init().catch(e=>{console.error(e);toast("Não foi possível carregar a Pokédex.")});

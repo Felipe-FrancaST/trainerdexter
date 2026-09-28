@@ -1,10 +1,10 @@
-const CACHE="trainerdex-v25";
-const ASSETS=["./","./index.html","./style.css","./app.js","./data/pokemon.json","./data/moves.json","./img/icons/trainerdex-home.png"];
+const CACHE="trainerdex-v26";
+const CORE_ASSETS=["./","./index.html","./style.css","./app.js","./supabase-config.js","./manifest.json"];
 
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE)
-      .then(cache => cache.addAll(ASSETS))
+      .then(cache => cache.addAll(CORE_ASSETS))
       .then(() => self.skipWaiting())
   );
 });
@@ -23,12 +23,8 @@ self.addEventListener("fetch", event => {
 
   const url = new URL(request.url);
 
-  // Nunca cacheie configuração, Service Worker ou chamadas externas.
-  if (
-    url.pathname.endsWith("/sw.js") ||
-    url.pathname.endsWith("/supabase-config.js") ||
-    url.origin !== self.location.origin
-  ) {
+  // Supabase/Storage e arquivos externos devem ser buscados pela rede.
+  if (url.origin !== self.location.origin) {
     event.respondWith(fetch(request));
     return;
   }
@@ -42,7 +38,7 @@ self.addEventListener("fetch", event => {
           caches.open(CACHE).then(cache => cache.put(request, copy));
         }
         return response;
-      }).catch(() => caches.match("./index.html"));
+      });
     })
   );
 });
