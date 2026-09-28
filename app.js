@@ -1,7 +1,7 @@
 const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
 const DEFAULT={campaign:{name:"Minha Campanha Pokémon"},master:{user:"mestre",pass:"king"},trainers:[],dex:{},encounter:{round:1,active:0,notes:"",combatants:[]},notes:[]};
 const state=structuredClone(DEFAULT);
-const SOURCE_DATA_VERSION=3;
+const SOURCE_DATA_VERSION=4;
 
 // O Supabase é a fonte única de dados. Não usamos localStorage para guardar campanha,
 // Pokémon, ataques ou imagens. O cache offline também não deve conter dados do jogo.
@@ -55,8 +55,11 @@ async function saveMoveLibraryToSupabase(list){
 }
 
 async function uploadAssetFromUrl(url,path){
-  const response=await fetch(url);
-  if(!response.ok) throw new Error(`Falha ao carregar o arquivo local: ${url} (${response.status})`);
+  // A origem da migração é o arquivo que ainda está no projeto, e não o
+  // public URL do Storage (o objeto ainda não existe na primeira execução).
+  const localUrl=new URL(url,window.location.href).href;
+  const response=await fetch(localUrl);
+  if(!response.ok) throw new Error(`Falha ao carregar o arquivo local: ${localUrl} (${response.status})`);
   const blob=await response.blob();
   if(blob.size>8*1024*1024) throw new Error(`O arquivo ${url} é maior que 8 MB.`);
   const {error}=await window.trainerdexSupabase.storage.from(DB_BUCKET).upload(path,blob,{
@@ -96,7 +99,7 @@ async function migrateBundledAssetsToSupabase(basePokemon,movesFromFile){
   });
   currentCatalog.filter(p=>!basePokemon.some(base=>Number(base.id)===Number(p.id))).forEach(p=>merged.push(p));
 
-  const homeImage=await uploadAssetFromUrl(publicImageUrl("assets/trainerdex-home.png"),"assets/trainerdex-home.png");
+  const homeImage=await uploadAssetFromUrl("img/icons/trainerdex-home.png","assets/trainerdex-home.png");
   for(const p of merged){
     const image=p.imagem;
     if(isLocalAsset(image)){
