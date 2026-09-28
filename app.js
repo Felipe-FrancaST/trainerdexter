@@ -1,7 +1,6 @@
 const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
 const DEFAULT={campaign:{name:"Minha Campanha Pokémon"},master:{user:"mestre",pass:"king"},trainers:[],dex:{},encounter:{round:1,active:0,notes:"",combatants:[]},notes:[]};
 const state=structuredClone(DEFAULT);
-const SOURCE_DATA_VERSION=4;
 
 // O Supabase é a fonte única de dados. Não usamos localStorage para guardar campanha,
 // Pokémon, ataques ou imagens. O cache offline também não deve conter dados do jogo.
@@ -17,143 +16,6 @@ function dbConfigured(){
   else console.warn("TrainerDex: Supabase não está configurado ou não foi carregado.");
   return dbConfiguredCache;
 }
-async function migrateLegacyStateInSupabase(){
-  if(!dbConfigured()) return false;
-  try{
-    const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_migrate_legacy");
-    if(error){console.error("Supabase: migração do estado antigo falhou:",error);return false;}
-    return !!data;
-  }catch(error){console.error("Supabase: erro ao migrar estado antigo:",error);return false;}
-}
-async function loadStateFromSupabase(){
-  if(!dbConfigured()) return false;
-  await migrateLegacyStateInSupabase();
-  const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_load_state");
-  if(error){console.error("Supabase: erro ao carregar estado organizado:",error);return false;}
-  dbReady=true;
-  if(data && typeof data==="object"){
-    // O catálogo possui tabela própria. Nunca deixe um estado antigo/vazio
-    // substituir o catálogo que acabou de ser carregado do Supabase.
-    const preservedCatalog=Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length?state.pokemonCatalog:null;
-    Object.keys(state).forEach(k=>delete state[k]);
-    Object.assign(state,data);
-    if(preservedCatalog && (!Array.isArray(state.pokemonCatalog)||state.pokemonCatalog.length===0)){
-      state.pokemonCatalog=preservedCatalog;
-    }
-    return true;
-  }
-  return false;
-}
-
-async function loadPokemonCatalogFromSupabase(){
-  if(!dbConfigured()) return null;
-  const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_load_pokemon_catalog");
-  if(error){
-    console.error("Supabase: não foi possível carregar o catálogo de Pokémon:",error);
-    return null;
-  }
-  return Array.isArray(data?.pokemon) ? data.pokemon : null;
-}
-
-async function savePokemonCatalogToSupabase(list){
-  if(!Array.isArray(list) || list.length===0){
-    console.warn("TrainerDex: bloqueado salvamento de catálogo vazio para evitar apagar os Pokémon do Supabase.");
-    return false;
-  }
-  const {error}=await window.trainerdexSupabase.rpc("trainerdex_save_pokemon_catalog",{payload:list});
-  if(error) throw error;
-  console.info(`TrainerDex: catálogo de Pokémon salvo (${list.length} registros).`);
-  return true;
-}
-
-async function loadMoveLibraryFromSupabase(){
-  if(!dbConfigured()) return null;
-  const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_load_move_library");
-  if(error){
-    console.error("Supabase: não foi possível carregar a biblioteca de ataques:",error);
-    return null;
-  }
-  return Array.isArray(data?.moves) ? data.moves : null;
-}
-
-async function saveMoveLibraryToSupabase(list){
-  const {error}=await window.trainerdexSupabase.rpc("trainerdex_save_move_library",{payload:list});
-  if(error) throw error;
-}
-
-async function uploadAssetFromUrl(url,path){
-  // A origem da migração é o arquivo que ainda está no projeto, e não o
-  // public URL do Storage (o objeto ainda não existe na primeira execução).
-  const localUrl=new URL(url,window.location.href).href;
-  const response=await fetch(localUrl);
-  if(!response.ok) throw new Error(`Falha ao carregar o arquivo local: ${localUrl} (${response.status})`);
-  const blob=await response.blob();
-  if(blob.size>8*1024*1024) throw new Error(`O arquivo ${url} é maior que 8 MB.`);
-  const {error}=await window.trainerdexSupabase.storage.from(DB_BUCKET).upload(path,blob,{
-    upsert:true,
-    contentType:blob.type||"application/octet-stream",
-    cacheControl:"31536000"
-  });
-  if(error) throw error;
-  return publicImageUrl(path);
-}
-
-function isLocalAsset(value){
-  return typeof value==="string" && /^(?:\.\/)?(?:img|data)\//i.test(value);
-}
-
-async function migrateBundledAssetsToSupabase(basePokemon,movesFromFile){
-  if(!dbConfigured()) throw new Error("Supabase não está configurado.");
-  if(!Array.isArray(basePokemon) || !basePokemon.length) throw new Error("Catálogo local de Pokémon vazio.");
-
-  const currentMoves=await loadMoveLibraryFromSupabase();
-  const needsMoveMigration=!Array.isArray(currentMoves) || currentMoves.length===0;
-
-  // Faz a migração dos ataques uma única vez. Depois disso moves.json pode ser apagado.
-  if(needsMoveMigration){
-    await saveMoveLibraryToSupabase(movesFromFile);
-    moves=structuredClone(movesFromFile);
-  }else{
-    moves=structuredClone(currentMoves);
-  }
-
-  // O catálogo base é incorporado ao catálogo salvo. Dados já editados no banco têm prioridade,
-  // exceto os campos de ficha que a versão atual do aplicativo atualiza a partir da fonte.
-  const remoteCatalog=await loadPokemonCatalogFromSupabase();
-  const currentCatalog=Array.isArray(remoteCatalog) ? remoteCatalog : (Array.isArray(state.pokemonCatalog)?state.pokemonCatalog:[]);
-  const byId=new Map(currentCatalog.map(p=>[Number(p.id),p]));
-  const merged=basePokemon.map(base=>{
-    const existing=byId.get(Number(base.id));
-    return existing ? {...base,...existing} : structuredClone(base);
-  });
-  currentCatalog.filter(p=>!basePokemon.some(base=>Number(base.id)===Number(p.id))).forEach(p=>merged.push(p));
-
-  // Sempre repara as imagens dos Pokémon-base enquanto os arquivos locais ainda existem.
-  // Isso também corrige registros que foram salvos anteriormente apontando para
-  // /pokemon/<id>/cover (objeto antigo que pode ter retornado 404).
-  const homeImage=await uploadAssetFromUrl("img/icons/trainerdex-home.png","assets/trainerdex-home.png");
-  for(const base of basePokemon){
-    const p=merged.find(x=>Number(x.id)===Number(base.id));
-    if(!p) continue;
-    const localImage=String(base.imagem||"");
-    const filename=localImage.split("/").pop();
-    if(!filename) { p.imagem=homeImage; continue; }
-    const path=`pokemon/${encodeURIComponent(String(p.id))}/cover.png`;
-    // Não usamos o valor remoto como fonte da imagem: o arquivo local original
-    // é a fonte da migração e é sobrescrito no Storage com o mesmo conteúdo.
-    p.imagem=await uploadAssetFromUrl(`img/pokemon/${filename}`,path);
-  }
-  for(const p of merged){
-    if(!p.imagem) p.imagem=homeImage;
-  }
-
-  state.pokemonCatalog=merged;
-  await savePokemonCatalogToSupabase(merged);
-  const {error:stateError}=await window.trainerdexSupabase.rpc("trainerdex_save_state",{payload:structuredClone(state)});
-  if(stateError) console.warn("TrainerDex: estado geral não pôde ser salvo durante a migração; o catálogo já foi salvo no Supabase.",stateError);
-  return {homeImage};
-}
-
 function save(){  if(!dbConfigured() || !dbReady) return;
   queueDbSave();
 }
@@ -983,86 +845,68 @@ async function init(){
  try{
   if(!dbConfigured()) throw new Error("Supabase não configurado.");
 
+  // Nesta versão o Supabase é a única fonte dos dados.
+  // Não existe fallback para JSON, imagens ou qualquer outro arquivo local.
   const loadedFromDb=await loadStateFromSupabase();
   if(!loadedFromDb) throw new Error("Não foi possível carregar os dados do Supabase.");
 
-  // O catálogo de Pokémon tem sua própria tabela/RPC. Isso evita depender do formato
-  // interno de trainerdex_save_state e garante que os 151 Pokémon sejam carregados.
-  let remoteCatalog=await loadPokemonCatalogFromSupabase();
-  let currentMoves=await loadMoveLibraryFromSupabase();
-  let base=[];
-  const needsCatalogMigration=!Array.isArray(remoteCatalog) || remoteCatalog.length===0;
-  const needsMoveMigration=!Array.isArray(currentMoves) || currentMoves.length===0;
-  const needsImageRepair=Array.isArray(remoteCatalog) && remoteCatalog.length>0 && remoteCatalog.some(p=>{
-    const img=String(p?.imagem||"");
-    return !img || /\/storage\/v1\/object\/public\/trainerdex-images\/pokemon\/[^/]+\/cover(?:$|[?#])/i.test(img);
-  });
-  if(needsCatalogMigration || needsMoveMigration || needsImageRepair){
-    const baseResult=await fetch("data/pokemon.json",{cache:"no-store"});
-    const movesResult=await fetch("data/moves.json",{cache:"no-store"});
-    if(!baseResult.ok || !movesResult.ok) throw new Error("Os arquivos necessários para a migração/reparo inicial não foram encontrados.");
-    base=await baseResult.json();
-    const movesFromFile=await movesResult.json();
-    console.info(`TrainerDex: migração/reparo necessário — catálogo remoto: ${Array.isArray(remoteCatalog)?remoteCatalog.length:0}, imagens a reparar: ${needsImageRepair}.`);
-    await migrateBundledAssetsToSupabase(base,movesFromFile);
-    remoteCatalog=await loadPokemonCatalogFromSupabase();
-    currentMoves=await loadMoveLibraryFromSupabase();
-  }
-  // Se a RPC do catálogo falhar temporariamente, nunca renderize uma lista vazia
-  // se ainda houver uma cópia válida carregada na memória.
-  if(!Array.isArray(remoteCatalog) || remoteCatalog.length===0){
-    if(Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length){
-      remoteCatalog=state.pokemonCatalog;
-    }else if(!base.length){
-      const baseResult=await fetch("data/pokemon.json",{cache:"no-store"});
-      if(baseResult.ok) base=await baseResult.json();
-    }
-  }
+  const remoteCatalog=await loadPokemonCatalogFromSupabase();
+  const currentMoves=await loadMoveLibraryFromSupabase();
+
+  pokemons=Array.isArray(remoteCatalog)&&remoteCatalog.length
+    ? structuredClone(remoteCatalog)
+    : (Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length
+      ? structuredClone(state.pokemonCatalog)
+      : []);
+
+  if(!pokemons.length) throw new Error("Catálogo de Pokémon vazio no Supabase.");
+
   moves=Array.isArray(currentMoves)?structuredClone(currentMoves):[];
+  console.info(`TrainerDex: Pokédex carregada do Supabase com ${pokemons.length} Pokémon.`);
 
-  pokemons=Array.isArray(remoteCatalog)&&remoteCatalog.length>=1
-    ? remoteCatalog
-    : (Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length>=1 ? state.pokemonCatalog : base);
-  if(!Array.isArray(pokemons)||pokemons.length===0) throw new Error("Catálogo de Pokémon vazio após carregamento/migração.");
-  console.info(`TrainerDex: Pokédex carregada com ${pokemons.length} Pokémon.`);
   state.pokemonCatalog=pokemons;
-
-  const baseById=Object.fromEntries(base.map(p=>[Number(p.id),p]));
   pokemons.forEach(p=>{
-    const source=baseById[Number(p.id)];
-    if(source&&Number(p._dadosFichaVersion||0)<SOURCE_DATA_VERSION){
-      p.ca=source.ca;p.sr=source.sr;p.hp=source.hp;p.dadoVida=source.dadoVida;
-      p.status=source.status;p.pericias=source.pericias;p.ataques=source.ataques;
-      p._dadosFichaVersion=SOURCE_DATA_VERSION;
-    }
-    normalizeAbilities(p);p.hp=Math.max(1,Number(p.hp)||50);p.dadoVida=normalizeLifeDice(p.dadoVida);
-    p.sr??="";p.ca=Math.max(0,Number(p.ca)||0);delete p.nivel;
-    p.status=normalizePokemonStats(p.status||{});p.pericias=normalizeSkills(p.pericias||{});
+    normalizeAbilities(p);
+    p.hp=Math.max(1,Number(p.hp)||50);
+    p.dadoVida=normalizeLifeDice(p.dadoVida);
+    p.sr??="";
+    p.ca=Math.max(0,Number(p.ca)||0);
+    delete p.nivel;
+    p.status=normalizePokemonStats(p.status||{});
+    p.pericias=normalizeSkills(p.pericias||{});
     p.bonusProficiencia=Math.max(0,Math.min(20,Number(p.bonusProficiencia ?? proficiencyBonus(1))||0));
-    p.vulnerabilidades??=[];p.resistencia??=[];p.ataques??=[];
+    p.vulnerabilidades??=[];
+    p.resistencia??=[];
+    p.ataques??=[];
     if((!p.vulnerabilidades||p.vulnerabilidades.length===0)&&(!p.resistencia||p.resistencia.length===0)){
-      const rel=calcTypeRelations(p.tipo);p.vulnerabilidades=rel.vulnerabilidades;p.resistencia=rel.resistencia
+      const rel=calcTypeRelations(p.tipo);
+      p.vulnerabilidades=rel.vulnerabilidades;
+      p.resistencia=rel.resistencia;
     }
   });
+
   state.trainers.forEach(t=>{
     normalizeTrainerStorage(t);
     [...t.team,...t.pc].forEach(a=>{
-      const p=pokemonById(a.pokemonId);if(!p)return;
-      a.level=Math.max(1,Number(a.level)||1);const max=hpMaxForLevel(p,a.level);
+      const p=pokemonById(a.pokemonId);
+      if(!p)return;
+      a.level=Math.max(1,Number(a.level)||1);
+      const max=hpMaxForLevel(p,a.level);
       const legacyBase=Math.max(1,Number(p.hp)||1);
       if(!Number.isFinite(Number(a.currentHp))||(a.level>1&&Number(a.currentHp)===legacyBase))a.currentHp=max;
       else a.currentHp=Math.max(0,Math.min(max,Number(a.currentHp)));
       a.abilityIndexes=Array.isArray(a.abilityIndexes)?a.abilityIndexes.map(Number).filter(x=>x===0||x===1).slice(0,2):[];
-      a.natureza=pokemonNature(a.natureza).id
-    })
+      a.natureza=pokemonNature(a.natureza).id;
+    });
   });
+
   applyKnownEvolutionStructure();
   if(Number(state.moveLibraryVersion||0)<3) state.moveLibraryVersion=3;
   normalizeMoveLibrary();
   pokemons.forEach(p=>(p.ataques||[]).forEach(a=>ensureMoveForAttack(a)));
   state.pokemonCatalog=pokemons;
 
-  // Salva qualquer normalização feita acima diretamente no Supabase.
+  // Persiste apenas normalizações; nunca substitui o catálogo por vazio.
   save();
   loginUI();
  }catch(e){
