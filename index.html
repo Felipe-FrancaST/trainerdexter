@@ -73,7 +73,7 @@
 
 <section class="page" id="page-pokedex">
   <div class="topbar"><div><h1>Pokédex</h1><p id="dexIntro"></p></div><div class="top-actions"><button class="btn primary" id="newPokemonBtn">+ Novo Pokémon</button></div></div>
-  <div class="card"><div class="toolbar"><input class="input search" id="dexSearch" placeholder="Buscar por nome, número ou tipo..."><select class="select" id="dexTypeFilter" style="max-width:180px"></select><select class="select" id="dexStatus" style="max-width:190px"></select></div><div id="dexGrid" class="pokemon-grid"></div></div>
+  <div class="card"><div id="globalProficiencyPanel" class="global-proficiency-panel hidden"><div><strong>Bônus de Proficiência Global</strong><p class="muted" id="globalProficiencyStatus">Bônus global desativado. Cada Pokémon usa seu próprio bônus de proficiência.</p></div><div class="global-proficiency-controls"><label class="toggle-label"><input id="globalProficiencyEnabled" type="checkbox"><span>Ativar para todos</span></label><div class="field"><label for="globalProficiencyValue">Bônus global</label><input class="input" id="globalProficiencyValue" type="number" min="0" max="20" value="2"></div></div></div><div class="toolbar"><input class="input search" id="dexSearch" placeholder="Buscar por nome, número ou tipo..."><select class="select" id="dexTypeFilter" style="max-width:180px"></select><select class="select" id="dexStatus" style="max-width:190px"></select></div><div id="dexGrid" class="pokemon-grid"></div></div>
 </section>
 
 <section class="page" id="page-moves">

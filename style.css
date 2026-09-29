@@ -1016,3 +1016,14 @@ input,select,textarea{max-width:100%;min-width:0}
     transition: none !important;
   }
 }
+
+
+/* Controle global de proficiência na Pokédex do Mestre */
+.global-proficiency-panel{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px;margin-bottom:16px;border:1px solid var(--border, #2c3a50);border-radius:14px;background:var(--panel, rgba(255,255,255,.025))}
+.global-proficiency-panel p{margin:5px 0 0;font-size:.88rem}
+.global-proficiency-controls{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.global-proficiency-controls .field{margin:0;min-width:120px}
+.global-proficiency-controls .field label{display:block;margin-bottom:6px}
+.toggle-label{display:flex;align-items:center;gap:9px;white-space:nowrap;cursor:pointer}
+#globalProficiencyValue{width:120px}
+@media(max-width:640px){.global-proficiency-panel{align-items:stretch;flex-direction:column}.global-proficiency-controls{align-items:stretch;justify-content:space-between}.global-proficiency-controls .field{min-width:100px;flex:1}}

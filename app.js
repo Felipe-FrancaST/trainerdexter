@@ -19,30 +19,32 @@ const typeTags=types=>String(types||"").split(/\s*\/\s*|,\s*/).map(x=>x.trim()).
 const uid=()=>crypto.randomUUID();
 const POKEMON_TYPES=["Normal","Fogo","Água","Elétrico","Grama","Gelo","Lutador","Veneno","Terrestre","Voador","Psíquico","Inseto","Pedra","Fantasma","Dragão","Sombrio","Aço","Fada"];
 const POKEMON_NATURES=[
- {id:"rebelde",name:"Rebelde",effects:{forca:2,destreza:-2}},
- {id:"impulsivo",name:"Impulsivo",effects:{forca:2,constituicao:-2}},
- {id:"corajoso",name:"Corajoso",effects:{forca:2,sabedoria:-2}},
- {id:"arrogante",name:"Arrogante",effects:{forca:2,carisma:-2}},
- {id:"arisco",name:"Arisco",effects:{destreza:2,forca:-2}},
- {id:"apressado",name:"Apressado",effects:{destreza:2,constituicao:-2}},
- {id:"energetico",name:"Energético",effects:{destreza:2,carisma:-2}},
- {id:"desajeitado",name:"Desajeitado",effects:{destreza:2,sabedoria:-2}},
- {id:"apatetico",name:"Apático",effects:{constituicao:2,destreza:-2}},
- {id:"teimoso",name:"Teimoso",effects:{constituicao:2,sabedoria:-2}},
- {id:"ranzinza",name:"Ranzinza",effects:{constituicao:2,carisma:-2}},
- {id:"relaxado",name:"Relaxado",effects:{constituicao:2,forca:-2}},
- {id:"cuidadoso",name:"Cuidadoso",effects:{sabedoria:2,forca:-2}},
- {id:"curioso",name:"Curioso",effects:{sabedoria:2,constituicao:-2}},
- {id:"travesso",name:"Travesso",effects:{sabedoria:2,carisma:-2}},
- {id:"alegre",name:"Alegre",effects:{carisma:2,forca:-2}},
- {id:"atrevido",name:"Atrevido",effects:{carisma:2,destreza:-2}},
- {id:"inocente",name:"Inocente",effects:{carisma:2,sabedoria:-2}},
- {id:"resistente",name:"Resistente",effects:{ca:1,destreza:-2}},
- {id:"esperto",name:"Esperto",effects:{ca:1,forca:-2}}
+ {id:"rebelde",number:1,name:"Rebelde",effects:{forca:2,destreza:-2}},
+ {id:"impulsivo",number:2,name:"Impulsivo",effects:{forca:2,constituicao:-2}},
+ {id:"corajoso",number:3,name:"Corajoso",effects:{forca:2,sabedoria:-2}},
+ {id:"arrogante",number:4,name:"Arrogante",effects:{forca:2,carisma:-2}},
+ {id:"arisco",number:5,name:"Arisco",effects:{destreza:2,forca:-2}},
+ {id:"apressado",number:6,name:"Apressado",effects:{destreza:2,constituicao:-2}},
+ {id:"energetico",number:7,name:"Energético",effects:{destreza:2,carisma:-2}},
+ {id:"desajeitado",number:8,name:"Desajeitado",effects:{destreza:2,sabedoria:-2}},
+ {id:"apatetico",number:9,name:"Apático",effects:{constituicao:2,destreza:-2}},
+ {id:"teimoso",number:10,name:"Teimoso",effects:{constituicao:2,sabedoria:-2}},
+ {id:"ranzinza",number:11,name:"Ranzinza",effects:{constituicao:2,carisma:-2}},
+ {id:"relaxado",number:12,name:"Relaxado",effects:{constituicao:2,forca:-2}},
+ {id:"cuidadoso",number:13,name:"Cuidadoso",effects:{sabedoria:2,forca:-2}},
+ {id:"curioso",number:14,name:"Curioso",effects:{sabedoria:2,constituicao:-2}},
+ {id:"travesso",number:15,name:"Travesso",effects:{sabedoria:2,carisma:-2}},
+ {id:"alegre",number:16,name:"Alegre",effects:{carisma:2,forca:-2}},
+ {id:"atrevido",number:17,name:"Atrevido",effects:{carisma:2,destreza:-2}},
+ {id:"inocente",number:18,name:"Inocente",effects:{carisma:2,sabedoria:-2}},
+ {id:"resistente",number:19,name:"Resistente",effects:{ca:1,destreza:-2}},
+ {id:"esperto",number:20,name:"Esperto",effects:{ca:1,forca:-2}}
 ];
 const DEFAULT_POKEMON_NATURE="rebelde";
 function pokemonNature(id){return POKEMON_NATURES.find(n=>n.id===id)||POKEMON_NATURES[0];}
-function pokemonNatureOptions(selected=DEFAULT_POKEMON_NATURE){const value=pokemonNature(selected).id;return POKEMON_NATURES.map(n=>{const effects=Object.entries(n.effects).map(([k,v])=>`${k==='ca'?'CA':statLabel(k)} ${v>0?'+':''}${v}`).join(', ');return `<option value="${n.id}" ${n.id===value?"selected":""}>${esc(n.name)} — ${esc(effects)}</option>`}).join("");}
+function pokemonNatureLabel(id){const n=pokemonNature(id);return `${n.number} - ${n.name}`;}
+function activeProficiencyBonus(p,level=1){const cfg=state.globalProficiency||{};return cfg.enabled?Math.max(0,Math.min(20,Number(cfg.value)||0)):Math.max(0,Math.min(20,Number(p?.bonusProficiencia ?? proficiencyBonus(level))||0));}
+function pokemonNatureOptions(selected=DEFAULT_POKEMON_NATURE){const value=pokemonNature(selected).id;return POKEMON_NATURES.map(n=>{const effects=Object.entries(n.effects).map(([k,v])=>`${k==='ca'?'CA':statLabel(k)} ${v>0?'+':''}${v}`).join(', ');return `<option value="${n.id}" ${n.id===value?"selected":""}>${n.number} - ${esc(n.name)} — ${esc(effects)}</option>`}).join("");}
 function natureAdjustedStats(stats,natureId){const base=normalizePokemonStats(stats);const nature=pokemonNature(natureId);const adjusted={...base};Object.entries(nature.effects||{}).forEach(([key,value])=>{if(key!=="ca"&&key in adjusted)adjusted[key]=Math.max(1,Math.min(30,adjusted[key]+Number(value)||0));});return adjusted;}
 function natureAdjustedCa(baseCa,natureId){const nature=pokemonNature(natureId);return Math.max(0,Number(baseCa)||0)+(Number(nature.effects?.ca)||0);}
 function natureEffectsText(natureId){const nature=pokemonNature(natureId);return Object.entries(nature.effects||{}).map(([k,v])=>`${k==='ca'?'CA':statLabel(k)} ${v>0?'+':''}${v}`).join(', ');}
@@ -66,7 +68,7 @@ const DND_SKILL_MAP=Object.fromEntries(DND_SKILLS.map(([key,name,attr])=>[key,{k
 function proficiencyBonus(level=1){return 2+Math.floor((Math.max(1,Number(level)||1)-1)/4)}
 function normalizeSkills(s={}){return Object.fromEntries(DND_SKILLS.map(([k])=>[k,!!(s?.[k]?.proficiente ?? s?.[k])]))}
 let currentSkillSource=null;
-function skillsHtml(p,level=1,natureId=null){const attrs=natureAdjustedStats(p.status||{},natureId),skills=normalizeSkills(p.pericias||{}),pb=Math.max(0,Number(p.bonusProficiencia ?? proficiencyBonus(level))||0);const proficient=DND_SKILLS.filter(([k])=>skills[k]);if(!proficient.length)return `<div class="attribute-section skills-section"><div class="section-kicker">Perícias</div><p class="muted">Nenhuma perícia com proficiência.</p></div>`;return `<div class="attribute-section skills-section"><div class="section-kicker">Perícias • Bônus de Proficiência +${pb}</div><div class="skills-grid">${proficient.map(([k,name,attr])=>{const mod=abilityModifier(attrs[attr])+pb;return `<div class="skill-card proficient"><span class="skill-dot">●</span><div><strong>${name}</strong><small>${statLabel(attr)} • Proficiência</small></div><b>${mod>=0?'+':''}${mod}</b></div>`}).join('')}</div></div>`}
+function skillsHtml(p,level=1,natureId=null){const attrs=natureAdjustedStats(p.status||{},natureId),skills=normalizeSkills(p.pericias||{}),pb=activeProficiencyBonus(p,level);const proficient=DND_SKILLS.filter(([k])=>skills[k]);if(!proficient.length)return `<div class="attribute-section skills-section"><div class="section-kicker">Perícias</div><p class="muted">Nenhuma perícia com proficiência.</p></div>`;return `<div class="attribute-section skills-section"><div class="section-kicker">Perícias • Bônus de Proficiência +${pb}</div><div class="skills-grid">${proficient.map(([k,name,attr])=>{const mod=abilityModifier(attrs[attr])+pb;return `<div class="skill-card proficient"><span class="skill-dot">●</span><div><strong>${name}</strong><small>${statLabel(attr)} • Proficiência</small></div><b>${mod>=0?'+':''}${mod}</b></div>`}).join('')}</div></div>`}
 function skillsEditorHtml(p){const skills=normalizeSkills(p.pericias||{});return `<div class="skills-editor"><p class="field-help">Marque as perícias em que este Pokémon possui proficiência. O bônus é calculado automaticamente conforme o nível e o atributo relacionado.</p><div class="skills-edit-grid">${DND_SKILLS.map(([k,name,attr])=>`<label class="skill-edit"><input type="checkbox" class="pokemon-skill" data-skill="${k}" ${skills[k]?'checked':''}><span><strong>${name}</strong><small>${statLabel(attr)}</small></span></label>`).join('')}</div></div>`}
 function collectSkills(){return Object.fromEntries(DND_SKILLS.map(([k])=>[k,{proficiente:!!$(`.pokemon-skill[data-skill="${k}"]`)?.checked}]))}
 function abilityModifier(score){const n=Math.max(1,Math.min(30,Number(score)||10));return Math.floor((n-10)/2)}
@@ -320,6 +322,7 @@ function renderDex(){
  if(!grid)return;
  const searchEl=$("#dexSearch"), statusEl=$("#dexStatus"), typeEl=$("#dexTypeFilter");
  const t=me();
+ state.globalProficiency??={enabled:false,value:2};
  const q=norm(searchEl?.value||"");
  const filter=statusEl?.value||"all";
  const typeFilter=typeEl?.value||"all";
@@ -342,6 +345,17 @@ function renderDex(){
  const intro=$("#dexIntro");
  if(intro)intro.textContent=isMaster()?"Banco de dados da campanha. Use os filtros para localizar rapidamente os Pokémon.":"Todos os Pokémon aparecem na Pokédex. Os não descobertos ficam ocultos; avistados mostram informações básicas; capturados mostram a ficha completa e o nível definido pelo Mestre.";
  const newBtn=$("#newPokemonBtn");if(newBtn)newBtn.classList.toggle("hidden",!isMaster());
+ const proficiencyPanel=$("#globalProficiencyPanel");
+ if(proficiencyPanel){
+   proficiencyPanel.classList.toggle("hidden",!isMaster());
+   const cfg=state.globalProficiency;
+   const toggle=$("#globalProficiencyEnabled"),value=$("#globalProficiencyValue"),status=$("#globalProficiencyStatus");
+   if(toggle)toggle.checked=!!cfg.enabled;
+   if(value){value.value=String(Number(cfg.value)||0);value.disabled=!cfg.enabled;}
+   if(status)status.textContent=cfg.enabled?`Bônus global ativo: +${Number(cfg.value)||0}. O bônus individual de cada Pokémon será ignorado.`:"Bônus global desativado. Cada Pokémon usa seu próprio bônus de proficiência.";
+   if(toggle)toggle.onchange=()=>{state.globalProficiency.enabled=toggle.checked;save();renderDex();toast(toggle.checked?"Bônus de proficiência global ativado.":"Bônus global desativado; usando bônus individuais.");};
+   if(value)value.onchange=()=>{state.globalProficiency.value=Math.max(0,Math.min(20,Number(value.value)||0));save();renderDex();toast("Bônus global atualizado.");};
+ }
  if(typeEl){
    const oldType=typeEl.value||"all";
    typeEl.innerHTML=`<option value="all">Todos os tipos</option>`+POKEMON_TYPES.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("");
@@ -359,7 +373,7 @@ function npcAttacksPreviewHtml(p,level){const attacks=npcAttacksForLevel(p,level
 function openPokemonPlayer(p){
  const t=me();if(!t||!p)return;normalizeTrainerStorage(t);const st=getStatusForPlayer(p,t);if(st==="hidden")return;const a=getAssignment(t,p.id);const level=a?.level||playerLevel(p,t);
  if(st==="seen"){$("#modalContent").innerHTML=`<div class="modal-head"><h2>${esc(p.nome)}</h2><button class="btn" data-close>Fechar</button></div><div class="pokemon-detail"><img src="${p.imagem}"><div><div class="muted">${esc(p.numero)}</div><div class="tags detail-types">${typeTags(p.tipo)}</div><p>${esc(p.descricao||"")}</p><p><strong>Tipo:</strong> ${esc(p.tipo||"—")}</p><span class="status seen">👁 Avistado</span></div></div>`;}
- else {const hp=hpData(a,p),note=getPokemonNote(t,p.id);$("#modalContent").innerHTML=`<div class="modal-head"><h2>${esc(p.nome)}</h2><button class="btn" data-close>Fechar</button></div><div class="pokemon-detail"><img src="${p.imagem}"><div><div class="muted">${esc(p.numero)} • Nível ${level} • HP ${hp.current}/${hp.max}</div><div class="tags detail-types"><span class="tag">Natureza: ${esc(pokemonNature(a?.natureza).name)}</span><span class="tag">${esc(natureEffectsText(a?.natureza))}</span><span class="tag">SR: ${esc(p.sr||"—")}</span><span class="tag">CA: ${natureAdjustedCa(p.ca,a?.natureza)}</span><span class="tag">Dado de Vida: d${normalizeLifeDice(p.dadoVida)}</span></div><div class="health-wrap detail-health"><div class="health-label"><span>Vida</span><strong>${hp.current}/${hp.max}</strong></div><div class="health-bar"><span style="width:${hp.pct}%"></span></div></div><div class="tags detail-types">${typeTags(p.tipo)}</div><p>${esc(p.descricao||"")}</p><div class="attribute-section"><div class="section-kicker">Atributos</div>${statsHtml(p.status,a?.natureza)}</div>${skillsHtml(p,level,a?.natureza)}<div class="relation-block"><strong>Vulnerabilidades:</strong><div class="tags relation-tags">${typeTags((p.vulnerabilidades||[]).join(" / "))||`<span class="muted">Nenhuma</span>`}</div></div><div class="relation-block"><strong>Resistências:</strong><div class="tags relation-tags">${typeTags((p.resistencia||[]).join(" / "))||`<span class="muted">Nenhuma</span>`}</div></div>${abilitiesHtml(p,a)}<h3>Ataques atuais no nível ${level}</h3><ul class="attack-list">${attacksHtml(p,level)}</ul><span class="status caught">🎒 Capturado • Nível ${level} • ${t.team.some(x=>Number(x.pokemonId)===Number(p.id))?"No time":"No PC"}</span><div class="top-actions" style="margin-top:12px"><button class="btn" id="swapLocationAction">${t.team.some(x=>Number(x.pokemonId)===Number(p.id))?"🔄 Trocar com um Pokémon do PC":"🔄 Trocar com um Pokémon do time"}</button></div><div class="pokemon-notes"><h3>Anotações</h3><textarea class="textarea" id="pokemonNote" placeholder="Escreva uma anotação sobre este Pokémon...">${esc(note)}</textarea><small class="muted" id="noteSaved">As anotações são salvas automaticamente.</small></div></div></div>`;}
+ else {const hp=hpData(a,p),note=getPokemonNote(t,p.id);$("#modalContent").innerHTML=`<div class="modal-head"><h2>${esc(p.nome)}</h2><button class="btn" data-close>Fechar</button></div><div class="pokemon-detail"><img src="${p.imagem}"><div><div class="muted">${esc(p.numero)} • Nível ${level} • HP ${hp.current}/${hp.max}</div><div class="tags detail-types"><span class="tag">Natureza: ${esc(pokemonNatureLabel(a?.natureza))}</span><span class="tag">${esc(natureEffectsText(a?.natureza))}</span><span class="tag">SR: ${esc(p.sr||"—")}</span><span class="tag">CA: ${natureAdjustedCa(p.ca,a?.natureza)}</span><span class="tag">Dado de Vida: d${normalizeLifeDice(p.dadoVida)}</span></div><div class="health-wrap detail-health"><div class="health-label"><span>Vida</span><strong>${hp.current}/${hp.max}</strong></div><div class="health-bar"><span style="width:${hp.pct}%"></span></div></div><div class="tags detail-types">${typeTags(p.tipo)}</div><p>${esc(p.descricao||"")}</p><div class="attribute-section"><div class="section-kicker">Atributos</div>${statsHtml(p.status,a?.natureza)}</div>${skillsHtml(p,level,a?.natureza)}<div class="relation-block"><strong>Vulnerabilidades:</strong><div class="tags relation-tags">${typeTags((p.vulnerabilidades||[]).join(" / "))||`<span class="muted">Nenhuma</span>`}</div></div><div class="relation-block"><strong>Resistências:</strong><div class="tags relation-tags">${typeTags((p.resistencia||[]).join(" / "))||`<span class="muted">Nenhuma</span>`}</div></div>${abilitiesHtml(p,a)}<h3>Ataques atuais no nível ${level}</h3><ul class="attack-list">${attacksHtml(p,level)}</ul><span class="status caught">🎒 Capturado • Nível ${level} • ${t.team.some(x=>Number(x.pokemonId)===Number(p.id))?"No time":"No PC"}</span><div class="top-actions" style="margin-top:12px"><button class="btn" id="swapLocationAction">${t.team.some(x=>Number(x.pokemonId)===Number(p.id))?"🔄 Trocar com um Pokémon do PC":"🔄 Trocar com um Pokémon do time"}</button></div><div class="pokemon-notes"><h3>Anotações</h3><textarea class="textarea" id="pokemonNote" placeholder="Escreva uma anotação sobre este Pokémon...">${esc(note)}</textarea><small class="muted" id="noteSaved">As anotações são salvas automaticamente.</small></div></div></div>`;}
  $("#modal").classList.add("open");$("[data-close]").onclick=closeModal;
  const swapBtn=$("#swapLocationAction");if(swapBtn){swapBtn.onclick=()=>{const inPc=t.pc?.some(x=>Number(x.pokemonId)===Number(p.id));openSwapPokemon(t,p.id,!!inPc);};}
  const noteEl=$("#pokemonNote");if(noteEl){noteEl.oninput=()=>{t.pokemonNotes??={};t.pokemonNotes[String(p.id)]=noteEl.value;save();$("#noteSaved").textContent="Anotação salva.";clearTimeout(window.__noteTimer);window.__noteTimer=setTimeout(()=>{$("#noteSaved").textContent="As anotações são salvas automaticamente."},1200);}}
@@ -428,7 +442,7 @@ function renderMoves(){
 
 function renderTrainers(){
  if(!isMaster()){$("#trainerGrid").innerHTML=`<div class="empty">A área de jogadores é exclusiva do Mestre.</div>`;return}
- $("#trainerGrid").innerHTML=state.trainers.map(t=>`<article class="card"><div class="section-title"><div><h2>${esc(t.name)}</h2><p>@${esc(t.username)} • senha: ${esc(t.password)}</p></div><button class="btn danger small" data-del="${t.id}">Excluir</button></div><div class="permission-summary"><span>👁 ${t.visible.length} avistados</span><span>🎒 ${t.captured.length} capturados</span></div><div class="team">${[0,1,2,3,4,5].map(i=>{const a=t.team[i],p=a&&pokemonById(a.pokemonId);return p?`<button class="slot filled" data-pokemon-action="${t.id}:${p.id}"><img src="${p.imagem}"><small>${esc(p.nome)} • Nv. ${a.level||1}<br>${esc(pokemonNature(a.natureza).name)}</small></button>`:`<div class="slot"><span class="muted">Vazio</span></div>`}).join("")}</div>${(t.pc||[]).length?`<div class="field-help" style="margin-top:10px">PC: ${(t.pc||[]).map(a=>{const p=pokemonById(a.pokemonId);return p?`<button class="btn small" data-pokemon-action="${t.id}:${p.id}">${esc(p.nome)} • Nv. ${a.level||1} • ${esc(pokemonNature(a.natureza).name)}</button>`:""}).join(" ")}</div>`:""}<div class="toolbar"><button class="btn small" data-editplayer="${t.id}">Editar acesso</button><button class="btn small" data-addpoke="${t.id}">Adicionar Pokémon</button></div></article>`).join("")||`<div class="empty">Cadastre o primeiro jogador.</div>`;
+ $("#trainerGrid").innerHTML=state.trainers.map(t=>`<article class="card"><div class="section-title"><div><h2>${esc(t.name)}</h2><p>@${esc(t.username)} • senha: ${esc(t.password)}</p></div><button class="btn danger small" data-del="${t.id}">Excluir</button></div><div class="permission-summary"><span>👁 ${t.visible.length} avistados</span><span>🎒 ${t.captured.length} capturados</span></div><div class="team">${[0,1,2,3,4,5].map(i=>{const a=t.team[i],p=a&&pokemonById(a.pokemonId);return p?`<button class="slot filled" data-pokemon-action="${t.id}:${p.id}"><img src="${p.imagem}"><small>${esc(p.nome)} • Nv. ${a.level||1}<br>${esc(pokemonNatureLabel(a.natureza))}</small></button>`:`<div class="slot"><span class="muted">Vazio</span></div>`}).join("")}</div>${(t.pc||[]).length?`<div class="field-help" style="margin-top:10px">PC: ${(t.pc||[]).map(a=>{const p=pokemonById(a.pokemonId);return p?`<button class="btn small" data-pokemon-action="${t.id}:${p.id}">${esc(p.nome)} • Nv. ${a.level||1} • ${esc(pokemonNatureLabel(a.natureza))}</button>`:""}).join(" ")}</div>`:""}<div class="toolbar"><button class="btn small" data-editplayer="${t.id}">Editar acesso</button><button class="btn small" data-addpoke="${t.id}">Adicionar Pokémon</button></div></article>`).join("")||`<div class="empty">Cadastre o primeiro jogador.</div>`;
  $$('[data-del]').forEach(b=>b.onclick=()=>{if(confirm("Excluir este jogador?")){state.trainers=state.trainers.filter(t=>t.id!==b.dataset.del);save();loginUI();renderTrainers();renderDashboard()}});
  $$('[data-editplayer]').forEach(b=>b.onclick=()=>editTrainer(b.dataset.editplayer));
  $$('[data-addpoke]').forEach(b=>b.onclick=()=>openTeamPicker(b.dataset.addpoke));
@@ -439,7 +453,7 @@ function openPokemonPlayerAdmin(key){
  const next=nextEvolutions(p.id);
  $("#modalContent").innerHTML=`<div class="modal-head"><h2>${esc(p.nome)}</h2><button class="btn" data-close>Fechar</button></div><p class="muted">${esc(t.name)} • Nível <strong>${a.level}</strong></p><div class="pokemon-detail compact-admin"><img src="${p.imagem}"><div><div class="tags detail-types">${typeTags(p.tipo)}</div><p>Estágio evolutivo: <strong>${p.evolutionStage||1}</strong></p>${next.length?`<div class="field"><label>Próxima evolução</label><select class="select" id="evolveTarget">${next.map(x=>`<option value="${x.id}">${esc(x.nome)} — estágio ${x.evolutionStage||((p.evolutionStage||1)+1)}</option>`).join("")}</select></div>`:`<p class="muted">Este Pokémon não possui evolução cadastrada.</p>`}<div class="field"><label>Natureza</label><select class="select" id="adminPokemonNature">${pokemonNatureOptions(a.natureza)}</select><small class="muted">Editável pelo Mestre e preservada entre Time e PC. Efeito: ${esc(natureEffectsText(a.natureza))}.</small></div><div class="top-actions"><button class="btn primary" id="savePokemonNature">Salvar natureza</button><button class="btn" id="levelUpAction">Subir nível</button>${next.length?`<button class="btn success" id="evolveAction">Evoluir</button>`:""}${getPokemonNote(t,p.id).trim()?`<button class="btn" id="viewPokemonNote">Ver anotações</button>`:`<button class="btn" id="viewPokemonNote">Ver anotações</button>`}</div></div></div>`;
  $("#modal").classList.add("open");$("[data-close]").onclick=closeModal;
- $("#savePokemonNature").onclick=()=>{a.natureza=pokemonNature($("#adminPokemonNature").value).id;save();closeModal();renderTrainers();renderDashboard();renderDex();renderTeam();renderPC();toast(`Natureza de ${p.nome} definida como ${pokemonNature(a.natureza).name}.`)};
+ $("#savePokemonNature").onclick=()=>{a.natureza=pokemonNature($("#adminPokemonNature").value).id;save();closeModal();renderTrainers();renderDashboard();renderDex();renderTeam();renderPC();toast(`Natureza de ${p.nome} definida como ${pokemonNatureLabel(a.natureza)}.`)};
  $("#levelUpAction").onclick=()=>{closeModal();openLevelUp(key)};
  if(next.length)$("#evolveAction").onclick=()=>evolvePlayerPokemon(t,a,p,Number($("#evolveTarget").value));
  $("#viewPokemonNote").onclick=()=>{const note=getPokemonNote(t,p.id);$("#modalContent").innerHTML=`<div class="modal-head"><h2>Anotações — ${esc(p.nome)}</h2><button class="btn" data-close>Fechar</button></div><p class="muted">Anotações feitas por ${esc(t.name)}.</p><div class="note-view">${note.trim()?esc(note).replace(/\n/g,"<br>"):`<span class="muted">Nenhuma anotação feita para este Pokémon.</span>`}</div>`;$("#modal").classList.add("open");$("[data-close]").onclick=closeModal};
