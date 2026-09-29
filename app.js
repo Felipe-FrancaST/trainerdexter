@@ -353,8 +353,19 @@ function renderDex(){
    if(toggle)toggle.checked=!!cfg.enabled;
    if(value){value.value=String(Number(cfg.value)||0);value.disabled=!cfg.enabled;}
    if(status)status.textContent=cfg.enabled?`Bônus global ativo: +${Number(cfg.value)||0}. O bônus individual de cada Pokémon será ignorado.`:"Bônus global desativado. Cada Pokémon usa seu próprio bônus de proficiência.";
-   if(toggle)toggle.onchange=()=>{state.globalProficiency.enabled=toggle.checked;save();renderDex();toast(toggle.checked?"Bônus de proficiência global ativado.":"Bônus global desativado; usando bônus individuais.");};
-   if(value)value.onchange=()=>{state.globalProficiency.value=Math.max(0,Math.min(20,Number(value.value)||0));save();renderDex();toast("Bônus global atualizado.");};
+   if(toggle)toggle.onchange=async()=>{
+     state.globalProficiency.enabled=toggle.checked;
+     if(value)value.disabled=!toggle.checked;
+     if(status)status.textContent=toggle.checked?`Bônus global ativo: +${Number(cfg.value)||0}. O bônus individual de cada Pokémon será ignorado.`:"Bônus global desativado. Cada Pokémon usa seu próprio bônus de proficiência.";
+     try{await saveGlobalProficiencyToSupabase(state.globalProficiency);save();toast(toggle.checked?"Bônus global ativado e salvo.":"Bônus global desativado e salvo.");}
+     catch(e){toast("Não foi possível salvar o bônus global. Confira a configuração SQL do Supabase.");}
+   };
+   if(value)value.onchange=async()=>{
+     state.globalProficiency.value=Math.max(0,Math.min(20,Number(value.value)||0));
+     if(status)status.textContent=cfg.enabled?`Bônus global ativo: +${Number(cfg.value)||0}. O bônus individual de cada Pokémon será ignorado.`:"Bônus global desativado. Cada Pokémon usa seu próprio bônus de proficiência.";
+     try{await saveGlobalProficiencyToSupabase(state.globalProficiency);save();toast("Bônus global salvo.");}
+     catch(e){toast("Não foi possível salvar o bônus global. Confira a configuração SQL do Supabase.");}
+   };
  }
  if(typeEl){
    const oldType=typeEl.value||"all";
@@ -821,6 +832,9 @@ async function init(){
   // Não existe fallback para JSON, imagens ou qualquer outro arquivo local.
   const loadedFromDb=await loadStateFromSupabase();
   if(!loadedFromDb) throw new Error("Não foi possível carregar os dados do Supabase.");
+  state.globalProficiency??={enabled:false,value:2};
+  const savedGlobalProficiency=await loadGlobalProficiencyFromSupabase();
+  if(savedGlobalProficiency) state.globalProficiency=savedGlobalProficiency;
 
   const remoteCatalog=await loadPokemonCatalogFromSupabase();
   const currentMoves=await loadMoveLibraryFromSupabase();

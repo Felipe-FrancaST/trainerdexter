@@ -51,6 +51,33 @@ async function loadStateFromSupabase(){
   return false;
 }
 
+// Configuração global fica em tabela própria: o RPC trainerdex_save_state não
+// persiste campos arbitrários adicionados ao objeto state.
+async function loadGlobalProficiencyFromSupabase(){
+  if(!dbConfigured()) return null;
+  const {data,error}=await window.trainerdexSupabase
+    .from("trainerdex_global_settings")
+    .select("enabled,value")
+    .eq("id",1)
+    .maybeSingle();
+  if(error){
+    console.error("Supabase: não foi possível carregar o bônus global de proficiência. Execute GLOBAL_PROFICIENCY_SETUP.sql:",error);
+    return null;
+  }
+  return data ? {enabled:!!data.enabled,value:Math.max(0,Math.min(20,Number(data.value)||0))} : null;
+}
+async function saveGlobalProficiencyToSupabase(config){
+  if(!dbConfigured()) throw new Error("Supabase não configurado.");
+  const payload={id:1,enabled:!!config.enabled,value:Math.max(0,Math.min(20,Number(config.value)||0)),updated_at:new Date().toISOString()};
+  const {error}=await window.trainerdexSupabase.from("trainerdex_global_settings").upsert(payload,{onConflict:"id"});
+  if(error){
+    console.error("Supabase: não foi possível salvar o bônus global de proficiência:",error);
+    throw error;
+  }
+  console.info("TrainerDex: bônus global de proficiência salvo.");
+  return true;
+}
+
 async function loadPokemonCatalogFromSupabase(){
   if(!dbConfigured()) return null;
   const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_load_pokemon_catalog");
