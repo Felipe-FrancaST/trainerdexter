@@ -1027,3 +1027,5 @@ input,select,textarea{max-width:100%;min-width:0}
 .toggle-label{display:flex;align-items:center;gap:9px;white-space:nowrap;cursor:pointer}
 #globalProficiencyValue{width:120px}
 @media(max-width:640px){.global-proficiency-panel{align-items:stretch;flex-direction:column}.global-proficiency-controls{align-items:stretch;justify-content:space-between}.global-proficiency-controls .field{min-width:100px;flex:1}}
+
+.trainer-subtabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}.trainer-subtabs .active{background:var(--primary);border-color:var(--primary);color:#fff}.trainer-tool-row{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:#fff}.trainer-tool-row input[type=checkbox]{width:18px;height:18px;flex:0 0 auto}.trainer-tool-row img{width:48px;height:48px;object-fit:contain}.trainer-tool-row>div{flex:1;min-width:0}.trainer-tool-row small{display:block;color:var(--muted)}

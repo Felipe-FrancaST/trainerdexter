@@ -451,14 +451,43 @@ function renderMoves(){
  });
 }
 
+let activeTrainerSubtab="players";
+function renderTrainerSubtab(){
+ $$("[data-trainer-tab]").forEach(b=>b.classList.toggle("active",b.dataset.trainerTab===activeTrainerSubtab));
+ $("#trainerPlayersPanel")?.classList.toggle("hidden",activeTrainerSubtab!=="players");
+ $("#trainerHealPanel")?.classList.toggle("hidden",activeTrainerSubtab!=="heal");
+ $("#trainerSightPanel")?.classList.toggle("hidden",activeTrainerSubtab!=="sight");
+}
+function renderTrainerTools(){
+ if(!isMaster())return;
+ const healItems=[];
+ state.trainers.forEach(t=>{normalizeTrainerStorage(t);[...(t.team||[]),...(t.pc||[])].forEach(a=>{const p=pokemonById(a.pokemonId);if(!p)return;const hp=hpData(a,p);healItems.push({t,a,p,hp,loc:(t.team||[]).includes(a)?"Time":"PC"})})});
+ $("#trainerHealList").innerHTML=healItems.map(({t,a,p,hp,loc})=>`<label class="trainer-tool-row"><input type="checkbox" class="heal-pokemon-check" value="${esc(t.id)}:${Number(p.id)}"><img src="${p.imagem}" alt="${esc(p.nome)}"><div><strong>${esc(p.nome)} — ${esc(t.name)}</strong><small>${loc} • Nv. ${a.level||1} • HP ${hp.current}/${hp.max}</small></div>${hp.current>=hp.max?`<span class="status caught">Vida cheia</span>`:`<span class="status seen">Ferido</span>`}</label>`).join("")||`<div class="empty">Nenhum Pokémon capturado para curar.</div>`;
+ const current=$("#sightPokemon")?.value;
+ $("#sightPokemon").innerHTML=[...pokemons].sort((a,b)=>String(a.nome).localeCompare(String(b.nome),"pt-BR")).map(p=>`<option value="${p.id}">${esc(p.numero||"")} — ${esc(p.nome)}</option>`).join("");
+ if(current&&$("#sightPokemon").querySelector(`option[value="${CSS.escape(current)}"]`))$("#sightPokemon").value=current;
+ const pid=Number($("#sightPokemon").value);
+ $("#trainerSightList").innerHTML=state.trainers.map(t=>`<label class="trainer-tool-row"><input type="checkbox" class="sight-trainer-check" value="${esc(t.id)}"><div><strong>${esc(t.name)}</strong><small>@${esc(t.username)} • ${(t.visible||[]).includes(pid)?"Já avistou este Pokémon":"Ainda não avistou este Pokémon"}</small></div></label>`).join("")||`<div class="empty">Cadastre jogadores antes de usar esta ferramenta.</div>`;
+}
+function bindTrainerTools(){
+ $$('[data-trainer-tab]').forEach(b=>b.onclick=()=>{activeTrainerSubtab=b.dataset.trainerTab;renderTrainerSubtab();renderTrainerTools()});
+ $("#selectAllHeal").onclick=()=>{$$(".heal-pokemon-check").forEach(c=>c.checked=true)};
+ $("#healSelectedPokemon").onclick=()=>{const checks=$$(".heal-pokemon-check:checked");if(!checks.length)return toast("Selecione pelo menos um Pokémon para curar.");let count=0;checks.forEach(c=>{const [tid,pid]=c.value.split(":");const t=state.trainers.find(x=>x.id===tid),a=getAssignment(t,pid),p=pokemonById(pid);if(!t||!a||!p)return;a.currentHp=hpMaxForLevel(p,a.level||1);count++});if(!count)return toast("Não foi possível localizar os Pokémon selecionados.");save();renderTrainerTools();renderTrainers();renderTeam();renderPC();renderDex();toast(`${count} Pokémon ${count===1?"curado":"curados"} com vida completa.`)};
+ $("#selectAllSight").onclick=()=>{$$(".sight-trainer-check").forEach(c=>c.checked=true)};
+ $("#clearAllSight").onclick=()=>{$$(".sight-trainer-check").forEach(c=>c.checked=false)};
+ $("#sightPokemon").onchange=()=>renderTrainerTools();
+ $("#applySightPokemon").onclick=()=>{const pid=Number($("#sightPokemon").value),p=pokemonById(pid),checks=$$(".sight-trainer-check:checked");if(!p)return toast("Selecione um Pokémon.");if(!checks.length)return toast("Selecione pelo menos um jogador.");let count=0;checks.forEach(c=>{const t=state.trainers.find(x=>x.id===c.value);if(!t)return;t.visible??=[];if(!t.visible.includes(pid))t.visible.push(pid);count++});if(!count)return toast("Não foi possível localizar os jogadores selecionados.");save();renderTrainerTools();renderTrainers();renderDashboard();renderDex();toast(`${p.nome} foi avistado por ${count} ${count===1?"jogador":"jogadores"}.`)};
+}
 function renderTrainers(){
- if(!isMaster()){$("#trainerGrid").innerHTML=`<div class="empty">A área de jogadores é exclusiva do Mestre.</div>`;return}
+ if(!isMaster()){$("#trainerGrid").innerHTML=`<div class="empty">A área de jogadores é exclusiva do Mestre.</div>`;$(".trainer-subtabs")?.classList.add("hidden");$("#trainerPlayersPanel")?.classList.remove("hidden");$("#trainerHealPanel")?.classList.add("hidden");$("#trainerSightPanel")?.classList.add("hidden");return}
  $("#trainerGrid").innerHTML=state.trainers.map(t=>`<article class="card"><div class="section-title"><div><h2>${esc(t.name)}</h2><p>@${esc(t.username)} • senha: ${esc(t.password)}</p></div><button class="btn danger small" data-del="${t.id}">Excluir</button></div><div class="permission-summary"><span>👁 ${t.visible.length} avistados</span><span>🎒 ${t.captured.length} capturados</span></div><div class="team">${[0,1,2,3,4,5].map(i=>{const a=t.team[i],p=a&&pokemonById(a.pokemonId);return p?`<button class="slot filled" data-pokemon-action="${t.id}:${p.id}"><img src="${p.imagem}"><small>${esc(p.nome)} • Nv. ${a.level||1}<br>${esc(pokemonNatureLabel(a.natureza))}</small></button>`:`<div class="slot"><span class="muted">Vazio</span></div>`}).join("")}</div>${(t.pc||[]).length?`<div class="field-help" style="margin-top:10px">PC: ${(t.pc||[]).map(a=>{const p=pokemonById(a.pokemonId);return p?`<button class="btn small" data-pokemon-action="${t.id}:${p.id}">${esc(p.nome)} • Nv. ${a.level||1} • ${esc(pokemonNatureLabel(a.natureza))}</button>`:""}).join(" ")}</div>`:""}<div class="toolbar"><button class="btn small" data-editplayer="${t.id}">Editar acesso</button><button class="btn small" data-addpoke="${t.id}">Adicionar Pokémon</button></div></article>`).join("")||`<div class="empty">Cadastre o primeiro jogador.</div>`;
- $$('[data-del]').forEach(b=>b.onclick=()=>{if(confirm("Excluir este jogador?")){state.trainers=state.trainers.filter(t=>t.id!==b.dataset.del);save();loginUI();renderTrainers();renderDashboard()}});
+ $$('[data-del]').forEach(b=>b.onclick=()=>{if(confirm("Excluir este jogador?")){state.trainers=state.trainers.filter(t=>t.id!==b.dataset.del);save();loginUI();renderTrainers();renderDashboard();renderTrainerTools()}});
  $$('[data-editplayer]').forEach(b=>b.onclick=()=>editTrainer(b.dataset.editplayer));
  $$('[data-addpoke]').forEach(b=>b.onclick=()=>openTeamPicker(b.dataset.addpoke));
  $$('[data-pokemon-action]').forEach(b=>b.onclick=()=>openPokemonPlayerAdmin(b.dataset.pokemonAction));
+ $(".trainer-subtabs")?.classList.remove("hidden");renderTrainerTools();renderTrainerSubtab();
 }
+
 function openPokemonPlayerAdmin(key){
  const [tid,pid]=key.split(":");const t=state.trainers.find(x=>x.id===tid),a=getAssignment(t,pid),p=pokemonById(pid);if(!t||!a||!p)return;
  const next=nextEvolutions(p.id);
@@ -488,6 +517,7 @@ t.pendingEvolutionEvents.push({id:uid(),oldPokemonId:oldId,newPokemonId:Number(t
 function editTrainer(id){const t=state.trainers.find(x=>x.id===id);$("#modalContent").innerHTML=`<div class="modal-head"><h2>Editar acesso</h2><button class="btn" data-close>Fechar</button></div><div class="form-grid"><div class="field"><label>Nome</label><input class="input" id="trName" value="${esc(t.name)}"></div><div class="field"><label>Usuário</label><input class="input" id="trUser" value="${esc(t.username)}"></div><div class="field"><label>Senha</label><input class="input" id="trPass" value="${esc(t.password)}"></div><button class="btn primary" id="saveTrainer">Salvar</button></div>`;$("#modal").classList.add("open");$("[data-close]").onclick=closeModal;$("#saveTrainer").onclick=()=>{t.name=$("#trName").value.trim();t.username=$("#trUser").value.trim();t.password=$("#trPass").value;save();loginUI();closeModal();renderTrainers();renderDashboard();toast("Acesso atualizado.")}}
 $("#addTrainer").onclick=()=>{$("#modalContent").innerHTML=`<div class="modal-head"><h2>Novo jogador</h2><button class="btn" data-close>Fechar</button></div><div class="form-grid"><div class="field"><label>Nome</label><input class="input" id="trName"></div><div class="field"><label>Usuário</label><input class="input" id="trUser"></div><div class="field"><label>Senha</label><input class="input" id="trPass" value="1234"></div><button class="btn primary" id="saveTrainer">Criar jogador</button></div>`;$("#modal").classList.add("open");$("[data-close]").onclick=closeModal;$("#saveTrainer").onclick=()=>{const name=$("#trName").value.trim(),username=$("#trUser").value.trim(),password=$("#trPass").value;if(!name||!username||!password)return toast("Preencha todos os campos.");if(state.trainers.some(t=>t.username===username))return toast("Este usuário já existe.");state.trainers.push({id:uid(),name,username,password,team:[],pc:[],captured:[],visible:[]});save();loginUI();closeModal();renderTrainers();renderDashboard();toast("Jogador criado.")}};
 
+bindTrainerTools();
 function openTeamPicker(tid){
  const t=state.trainers.find(x=>x.id===tid);
  $("#modalContent").innerHTML=`<div class="modal-head"><h2>Adicionar Pokémon para ${esc(t.name)}</h2><button class="btn" data-close>Fechar</button></div><p class="muted">Avistados são ilimitados e não ocupam o time. Capturados ocupam o time até completar 6; os demais vão automaticamente para o PC.</p><div class="toolbar"><input class="input" id="teamSearch" placeholder="Buscar Pokémon..."></div><div class="pokemon-grid" id="teamPicker"></div>`;

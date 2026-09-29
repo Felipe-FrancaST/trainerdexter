@@ -90,7 +90,24 @@
 
 <section class="page" id="page-trainers">
   <div class="topbar"><div><h1>Jogadores</h1><p>Crie acessos e controle as capturas e a Pokédex de cada jogador.</p></div><button class="btn primary" id="addTrainer">Adicionar jogador</button></div>
-  <div id="trainerGrid" class="grid three"></div>
+  <div class="trainer-subtabs" role="tablist" aria-label="Ferramentas de jogadores">
+    <button class="btn active" data-trainer-tab="players">👥 Jogadores</button>
+    <button class="btn" data-trainer-tab="heal">💚 Curar</button>
+    <button class="btn" data-trainer-tab="sight">👁 Avistar</button>
+  </div>
+  <section id="trainerPlayersPanel"><div id="trainerGrid" class="grid three"></div></section>
+  <section id="trainerHealPanel" class="card hidden">
+    <div class="section-title"><div><h2>Curar Pokémon capturados</h2><p>Selecione vários Pokémon do time ou do PC para restaurar toda a vida de uma vez.</p></div></div>
+    <div id="trainerHealList" class="list"></div>
+    <div class="top-actions" style="margin-top:14px"><button class="btn success" id="healSelectedPokemon">Curar selecionados</button><button class="btn" id="selectAllHeal">Selecionar todos</button></div>
+  </section>
+  <section id="trainerSightPanel" class="card hidden">
+    <div class="section-title"><div><h2>Avistar Pokémon para jogadores</h2><p>Escolha um Pokémon e vários jogadores. Todos os selecionados passarão a avistá-lo.</p></div></div>
+    <div class="field" style="margin-bottom:14px"><label for="sightPokemon">Pokémon para avistar</label><select class="select" id="sightPokemon"></select></div>
+    <div class="toolbar"><button class="btn small" id="selectAllSight">Selecionar todos os jogadores</button><button class="btn small" id="clearAllSight">Limpar seleção</button></div>
+    <div id="trainerSightList" class="list"></div>
+    <div class="top-actions" style="margin-top:14px"><button class="btn primary" id="applySightPokemon">Avistar para jogadores selecionados</button></div>
+  </section>
 </section>
 
 <section class="page" id="page-notes">
