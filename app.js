@@ -464,7 +464,8 @@ function renderTrainerTools(){
  state.trainers.forEach(t=>{normalizeTrainerStorage(t);[...(t.team||[]),...(t.pc||[])].forEach(a=>{const p=pokemonById(a.pokemonId);if(!p)return;const hp=hpData(a,p);healItems.push({t,a,p,hp,loc:(t.team||[]).includes(a)?"Time":"PC"})})});
  $("#trainerHealList").innerHTML=healItems.map(({t,a,p,hp,loc})=>`<label class="trainer-tool-row"><input type="checkbox" class="heal-pokemon-check" value="${esc(t.id)}:${Number(p.id)}"><img src="${p.imagem}" alt="${esc(p.nome)}"><div><strong>${esc(p.nome)} — ${esc(t.name)}</strong><small>${loc} • Nv. ${a.level||1} • HP ${hp.current}/${hp.max}</small></div>${hp.current>=hp.max?`<span class="status caught">Vida cheia</span>`:`<span class="status seen">Ferido</span>`}</label>`).join("")||`<div class="empty">Nenhum Pokémon capturado para curar.</div>`;
  const current=$("#sightPokemon")?.value;
- $("#sightPokemon").innerHTML=[...pokemons].sort((a,b)=>String(a.nome).localeCompare(String(b.nome),"pt-BR")).map(p=>`<option value="${p.id}">${esc(p.numero||"")} — ${esc(p.nome)}</option>`).join("");
+ const dexNumber=p=>{const m=String(p?.numero??"").match(/\d+/);return m?Number(m[0]):Number(p?.id)||Number.MAX_SAFE_INTEGER};
+ $("#sightPokemon").innerHTML=[...pokemons].sort((a,b)=>dexNumber(a)-dexNumber(b)||(Number(a.id)||0)-(Number(b.id)||0)).map(p=>`<option value="${p.id}">${esc(p.numero||("#"+String(p.id).padStart(3,"0")))} — ${esc(p.nome)}</option>`).join("");
  if(current&&$("#sightPokemon").querySelector(`option[value="${CSS.escape(current)}"]`))$("#sightPokemon").value=current;
  const pid=Number($("#sightPokemon").value);
  $("#trainerSightList").innerHTML=state.trainers.map(t=>`<label class="trainer-tool-row"><input type="checkbox" class="sight-trainer-check" value="${esc(t.id)}"><div><strong>${esc(t.name)}</strong><small>@${esc(t.username)} • ${(t.visible||[]).includes(pid)?"Já avistou este Pokémon":"Ainda não avistou este Pokémon"}</small></div></label>`).join("")||`<div class="empty">Cadastre jogadores antes de usar esta ferramenta.</div>`;
@@ -873,7 +874,16 @@ async function init(){
     throw new Error("O catálogo de Pokémon do Supabase está vazio ou não pôde ser carregado.");
   }
 
-  pokemons=structuredClone(remoteCatalog);
+  // Mescla catálogo remoto e catálogo já salvo na campanha para evitar omissões.
+  // Quando o mesmo ID existe nos dois, os dados remotos prevalecem.
+  const catalogById=new Map();
+  [...(Array.isArray(state.pokemonCatalog)?state.pokemonCatalog:[]),...remoteCatalog].forEach(p=>{
+    if(!p || p.id===undefined || p.id===null)return;
+    catalogById.set(String(p.id),p);
+  });
+  pokemons=structuredClone([...catalogById.values()]);
+  const dexNumber=p=>{const m=String(p?.numero??'').match(/\d+/);return m?Number(m[0]):Number(p?.id)||Number.MAX_SAFE_INTEGER};
+  pokemons.sort((a,b)=>dexNumber(a)-dexNumber(b)||(Number(a.id)||0)-(Number(b.id)||0));
   // Primeira carga: preenche os campos de habilidades existentes com a lista fornecida pelo Mestre.
   // Depois disso, as edições feitas no painel são preservadas no Supabase.
   if(Number(state.abilityDataVersion||0)<1){
