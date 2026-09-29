@@ -1,9 +1,10 @@
-const CACHE="trainerdex-v34";
+const CACHE="trainerdex-v35";
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./style.css",
   "./app.js",
+  "./abilities-data.js",
   "./supabase-store.js",
   "./supabase-config.js",
   "./manifest.json",
