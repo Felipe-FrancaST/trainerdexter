@@ -24,3 +24,9 @@ A separação da camada de persistência evita que a lógica de banco fique mist
 
 ## Armazenamento
 Esta versão usa exclusivamente o Supabase para catálogo, ataques, campanha e imagens. Não depende de data/ ou img/.
+
+## Atualização v40 — Jogadores e ensino de ataques
+
+O Mestre pode ensinar, excluir e restaurar ataques individuais em **Jogadores → Pokémon → Ensinar**. A ficha do jogador e a batalha respeitam essas escolhas. A aba Jogadores também ganhou pesquisa, filtros, HP nos cartões e PC recolhível.
+
+**Antes de usar o ensino**, execute `ENSINAR_ATAQUES_SETUP.sql` no SQL Editor do seu Supabase. Consulte `CHANGELOG_JOGADORES_V40.md` para instalação e detalhes.

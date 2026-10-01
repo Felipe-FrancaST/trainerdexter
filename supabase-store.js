@@ -16,6 +16,42 @@ let dbReady=false;
 let dbSaveChain=Promise.resolve();
 let dbSaveTimer=null;
 let dbConfiguredCache=null;
+let personalMovesReady=false;
+const personalMovesRecords=new Map();
+
+function personalMovesRecordKey(trainerId,pokemonId){return `${trainerId}:${Number(pokemonId)}`;}
+function normalizePersonalMoves(data={}){
+  return {
+    learnedMoves:(Array.isArray(data.learnedMoves)?data.learnedMoves:[]).filter(a=>a&&a.moveId).map(a=>({moveId:String(a.moveId),nivel:Math.max(1,Math.min(100,Number(a.nivel)||1)),dano:Math.max(0,Number(a.dano)||0)})),
+    excludedMoves:[...new Set((Array.isArray(data.excludedMoves)?data.excludedMoves:[]).map(String))]
+  };
+}
+async function loadPersonalMovesFromSupabase(){
+  personalMovesReady=false;personalMovesRecords.clear();
+  try{
+    const {data,error}=await window.trainerdexSupabase.from('trainerdex_personal_moves').select('trainer_id,pokemon_id,learned_moves,excluded_moves');
+    if(error)throw error;
+    for(const row of data||[]){
+      const value=normalizePersonalMoves({learnedMoves:row.learned_moves,excludedMoves:row.excluded_moves});
+      personalMovesRecords.set(personalMovesRecordKey(row.trainer_id,row.pokemon_id),value);
+    }
+    state.trainers.forEach(t=>[...(t.team||[]),...(t.pc||[])].forEach(a=>{
+      a.personalMoves=structuredClone(personalMovesRecords.get(personalMovesRecordKey(t.id,a.pokemonId))||{learnedMoves:[],excludedMoves:[]});
+    }));
+    personalMovesReady=true;
+  }catch(error){
+    console.warn('TrainerDex: ataques individuais indisponíveis. Execute ENSINAR_ATAQUES_SETUP.sql no Supabase.',error);
+  }
+}
+async function savePersonalMovesToSupabase(t,a,data){
+  if(!personalMovesReady)throw new Error('Execute ENSINAR_ATAQUES_SETUP.sql no Supabase e recarregue o site.');
+  const value=normalizePersonalMoves(data);
+  const {error}=await window.trainerdexSupabase.from('trainerdex_personal_moves').upsert({trainer_id:String(t.id),pokemon_id:Number(a.pokemonId),learned_moves:value.learnedMoves,excluded_moves:value.excludedMoves,updated_at:new Date().toISOString()},{onConflict:'trainer_id,pokemon_id'});
+  if(error)throw error;
+  a.personalMoves=value;
+  personalMovesRecords.set(personalMovesRecordKey(t.id,a.pokemonId),structuredClone(value));
+  return value;
+}
 function dbConfigured(){
   if(dbConfiguredCache!==null)return dbConfiguredCache;
   dbConfiguredCache=!!(window.trainerdexSupabase&&window.TRAINERDEX_SUPABASE_CONFIG?.enabled);
@@ -183,4 +219,3 @@ function queueDbSave(){
     });
   },300);
 }
-

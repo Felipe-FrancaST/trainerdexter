@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#121922"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="description" content="TrainerDex - Mestre e Jogadores">
 <link rel="manifest" href="manifest.json"><link rel="icon" href="https://kytbkjigsapdhxpdchqz.supabase.co/storage/v1/object/public/trainerdex-images/assets/trainerdex-home.png">
-<link rel="stylesheet" href="style.css?v=39"><title>TrainerDex</title>
+<link rel="stylesheet" href="style.css?v=40"><title>TrainerDex</title>
 </head>
 <body>
 <div id="loginScreen" class="login-screen">
@@ -95,7 +95,11 @@
     <button class="btn" data-trainer-tab="heal">💚 Curar</button>
     <button class="btn" data-trainer-tab="sight">👁 Avistar</button>
   </div>
-  <section id="trainerPlayersPanel"><div id="trainerGrid" class="grid three"></div></section>
+  <section id="trainerPlayersPanel">
+    <div class="trainer-overview" id="trainerOverview"></div>
+    <div class="trainer-directory-toolbar"><div class="field"><label for="trainerSearch">Buscar jogador ou Pokémon</label><input class="input" id="trainerSearch" type="search" placeholder="Nome, usuário ou Pokémon"></div><div class="field"><label for="trainerFilter">Exibir</label><select class="select" id="trainerFilter"><option value="all">Todos os jogadores</option><option value="injured">Com Pokémon feridos</option><option value="empty">Sem Pokémon capturados</option></select></div></div>
+    <p class="muted" id="trainerResults" aria-live="polite"></p><div id="trainerGrid" class="trainer-grid"></div>
+  </section>
   <section id="trainerHealPanel" class="card hidden">
     <div class="section-title"><div><h2>Curar Pokémon capturados</h2><p>Selecione vários Pokémon do time ou do PC para restaurar toda a vida de uma vez.</p></div></div>
     <div id="trainerHealList" class="list"></div>
@@ -134,12 +138,12 @@
 <!-- Dependências: Supabase → configuração → persistência → aplicação. -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js?v=34"></script>
-<script src="supabase-store.js?v=35"></script>
+<script src="supabase-store.js?v=40"></script>
 <script src="abilities-data.js?v=35"></script>
-<script src="app.js?v=39"></script>
+<script src="app.js?v=40"></script>
 <script>
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js?v=39").catch((error) => {
+    navigator.serviceWorker.register("sw.js?v=40").catch((error) => {
       console.warn("TrainerDex: service worker não pôde ser registrado.", error);
     });
   }
