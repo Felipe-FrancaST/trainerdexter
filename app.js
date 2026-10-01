@@ -271,7 +271,7 @@ $$("[data-login-role]").forEach(b=>b.onclick=()=>{ $$("[data-login-role]").forEa
 function start(role,id=null){if(!appReady)return;if(role!=='master'&&(role!=='player'||!state.trainers.some(t=>t.id===id)))return;closeModal();$('#dexStatus').value='all';$('#dexSearch').value='';session={role,trainerId:id};$("#loginScreen").classList.add("hidden");$("#app").classList.remove("hidden");$("#roleLabel").textContent=role==="master"?"Painel do Mestre":`Jogador: ${state.trainers.find(t=>t.id===id)?.name||""}`;setupNav();renderAll();nav("dashboard")}
 $("#masterLoginBtn").onclick=()=>{if($("#masterUser").value===state.master.user&&$("#masterPass").value===state.master.pass)start("master");else $("#loginError").textContent="Usuário ou senha do Mestre inválidos."};
 $("#playerLoginBtn").onclick=()=>{const t=state.trainers.find(x=>x.id===$("#playerSelect").value);if(t&&$("#playerPass").value===t.password)start("player",t.id);else $("#loginError").textContent="Jogador ou senha inválidos."};
-$("#logout").onclick=()=>{closeModal();cancelEvolutionAnimation();session=null;$("#app").classList.add("hidden");$("#loginScreen").classList.remove("hidden");$("#masterPass").value="";$("#playerPass").value="";loginUI()};
+$("#logout").onclick=()=>{closeMobileMenu(false);closeModal();cancelEvolutionAnimation();session=null;$("#app").classList.add("hidden");$("#loginScreen").classList.remove("hidden");$("#masterPass").value="";$("#playerPass").value="";loginUI()};
 function isMaster(){return session?.role==="master"} function me(){return state.trainers.find(t=>t.id===session?.trainerId)}
 function getAssignment(t,pid){
  const id=Number(pid);
@@ -468,6 +468,39 @@ function openPokemonMaster(p,isNew=false){
 function newPokemon(){if(!isMaster())return;const id=Math.max(0,...pokemons.map(x=>Number(x.id)),...[...personalMovesRecords.keys()].map(key=>Number(key.split(":").pop())||0))+1;const p={id,numero:"#"+String(id).padStart(3,"0"),nome:"Novo Pokémon",tipo:"Normal",descricao:"",imagem:publicImageUrl("assets/trainerdex-home.png"),hp:50,dadoVida:10,sr:"",ca:0,status:{forca:10,destreza:10,constituicao:10,inteligencia:10,sabedoria:10,carisma:10},pericias:{},bonusProficiencia:2,vulnerabilidades:[],resistencia:[],ataques:[],evolutionType:"basic",evolutionStage:1,habilidades:[{nome:"",descricao:""},{nome:"",descricao:""}]};openPokemonMaster(p,true)}
 $("#newPokemonBtn").onclick=newPokemon;
 
+function moveNameConflict(nomeOriginal,nome,ignoreId=null){
+ const keys=[moveKey(nomeOriginal),moveKey(nome)].filter(Boolean);
+ return moves.map(m=>moveById(m.id)).find(m=>String(m.id)!==String(ignoreId)&&[moveKey(m.nomeOriginal||m.nome),moveKey(m.nome)].some(key=>key&&keys.includes(key)));
+}
+function openNewMove(){
+ if(!isMaster())return;
+ $("#modalContent").innerHTML=`<div class="modal-head"><h2>Novo ataque</h2><button type="button" class="btn" data-close>Fechar</button></div>
+ <p class="muted">Crie um ataque para usar nas fichas dos Pokémon e na opção Ensinar.</p>
+ <form id="newMoveForm" class="form-grid new-move-form">
+  <div class="field"><label for="newMoveName">Nome do ataque *</label><input class="input" id="newMoveName" maxlength="100" required placeholder="Ex.: Chama Estelar"></div>
+  <div class="field"><label for="newMoveOriginal">Nome original (opcional)</label><input class="input" id="newMoveOriginal" maxlength="100" placeholder="Ex.: Star Flame"><small class="muted">Se ficar vazio, será usado o nome do ataque.</small></div>
+  <div class="inline-fields"><div class="field"><label for="newMoveType">Tipo</label><select class="select" id="newMoveType">${POKEMON_TYPES.map(t=>`<option value="${esc(t)}">${esc(t)}</option>`).join('')}</select></div><div class="field"><label for="newMovePP">PP máximo *</label><input class="input" id="newMovePP" type="number" min="0" step="1" inputmode="numeric" required value="10"></div></div>
+  <div class="field"><label for="newMoveDescription">Descrição e regras</label><textarea class="textarea" id="newMoveDescription" placeholder="Descreva o efeito, dano, condições e regras do ataque…"></textarea></div>
+  <p class="form-error" id="newMoveError" role="alert"></p>
+  <div class="new-move-actions"><button type="button" class="btn" id="cancelNewMove">Cancelar</button><button type="submit" class="btn primary" id="saveNewMove">Criar ataque</button></div>
+ </form>`;
+ showModal();$('[data-close]').onclick=closeModal;$('#cancelNewMove').onclick=closeModal;
+ $('#newMoveForm').onsubmit=event=>{
+  event.preventDefault();if(!isMaster())return;
+  const nome=$('#newMoveName').value.trim(),nomeOriginal=$('#newMoveOriginal').value.trim()||nome,tipo=$('#newMoveType').value,ppInput=$('#newMovePP'),pp=Number(ppInput.value),descricao=$('#newMoveDescription').value.trim();
+  const invalid=(message,selector)=>{$('#newMoveError').textContent=message;$(selector)?.focus?.();};
+  if(!nome)return invalid('Preencha o nome do ataque.','#newMoveName');
+  if(!moveKey(nomeOriginal))return invalid('Inclua letras ou números no nome original do ataque.','#newMoveOriginal');
+  if(moveNameConflict(nomeOriginal,nome))return invalid('Já existe um ataque com esse nome na biblioteca. Busque o ataque para editá-lo.','#newMoveName');
+  if(!POKEMON_TYPES.includes(tipo))return invalid('Selecione um tipo válido.','#newMoveType');
+  if(!ppInput.value.trim()||!ppInput.checkValidity()||!Number.isSafeInteger(pp)||pp<0)return invalid('Informe um PP máximo inteiro igual ou maior que zero.','#newMovePP');
+  const m={id:'custom-'+uid(),nome,nomeOriginal,tipo,pp,descricao};
+  moves.push(m);state.moveDescriptions[m.id]=descricao;save();closeModal();
+  $('#moveSearch').value='';$('#moveTypeFilter').value='all';renderMoves();
+  toast('Ataque criado. Acompanhe o salvamento no rodapé.');
+ };
+}
+$('#newMoveBtn').onclick=openNewMove;
 function renderMoves(){
  if(!isMaster())return;
  const q=norm($("#moveSearch")?.value||""); const type=$("#moveTypeFilter")?.value||"all";
@@ -487,10 +520,13 @@ function renderMoves(){
   <button class="btn primary small move-save" data-move-id="${esc(m.id)}">Salvar ataque</button></details>
  </article>`).join("")||`<div class="empty">Nenhum ataque encontrado.</div>`;
  $$('[data-move-id].move-save').forEach(btn=>btn.onclick=()=>{
+   if(!isMaster())return;
    const id=String(btn.dataset.moveId); const get=c=>document.querySelector(`.${c}[data-move-id="${CSS.escape(id)}"]`);
    const nomeOriginal=get('move-original-input')?.value.trim()||""; const nome=get('move-name-input')?.value.trim()||""; const tipo=get('move-type-input')?.value||"Normal"; const pp=Math.max(0,Number(get('move-pp-input')?.value)||0); const descricao=get('move-description-input')?.value.trim()||"";
    if(!nomeOriginal||!nome)return toast("Preencha o nome original e o nome do ataque.");
-   const ppInput=get("move-pp-input");if(!ppInput.value.trim()||!ppInput.checkValidity())return toast("Informe um PP máximo válido.");
+   if(!moveKey(nomeOriginal))return toast('Inclua letras ou números no nome original do ataque.');
+   if(moveNameConflict(nomeOriginal,nome,id))return toast('Esse nome já pertence a outro ataque. Use um nome diferente.');
+   const ppInput=get("move-pp-input");if(!ppInput.value.trim()||!ppInput.checkValidity()||!Number.isSafeInteger(pp))return toast("Informe um PP máximo válido.");
    state.moveOverrides[id]={nomeOriginal,nome,tipo,pp}; state.moveDescriptions[id]=descricao;
    const m=moves.find(x=>String(x.id)===id); if(m){m.nomeOriginal=nomeOriginal;m.nome=nome;m.tipo=tipo;m.pp=pp;m.descricao=descricao;}
    pokemons.forEach(p=>(p.ataques||[]).forEach(a=>{if(String(a.moveId)===id){a.nomeOriginal=nomeOriginal;a.nome=nome;a.tipo=tipo;a.pp=pp;a.ppMax=pp;a.ppAtual=Math.max(0,Math.min(Number(a.ppAtual??pp)||0,pp));a.descricao=descricao;}}));
@@ -747,7 +783,7 @@ function openNote(n=null){
 $('#notesSearch').oninput=renderNotes;$('#notesSort').onchange=renderNotes;
 $("#addNote").onclick=()=>openNote();
 let modalReturnFocus=null;
-function showModal(){const modal=$('#modal');if(!modal.classList.contains('open'))modalReturnFocus=document.activeElement;modal.classList.add('open');document.body.classList.add('modal-open');$('#modalContent input:not([type="hidden"]):not([type="checkbox"]), #modalContent select, #modalContent textarea, #modalContent [data-close]')?.focus?.();}
+function showModal(){closeMobileMenu();const modal=$('#modal');if(!modal.classList.contains('open'))modalReturnFocus=document.activeElement;modal.classList.add('open');document.body.classList.add('modal-open');$('#modalContent input:not([type="hidden"]):not([type="checkbox"]), #modalContent select, #modalContent textarea, #modalContent [data-close]')?.focus?.();}
 function closeModal(){clearTimeout(window.__noteTimer);$("#modal").classList.remove("open");document.body.classList.remove("modal-open");if(modalReturnFocus?.isConnected)modalReturnFocus.focus?.();modalReturnFocus=null}
 document.addEventListener("keydown",event=>{if(event.key==="Escape"&&$("#modal").classList.contains("open"))closeModal()});$("#modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
 // Controlador delegado para abrir Pokémon do Time e do PC.
@@ -863,6 +899,31 @@ $('#clearMoveFilters').onclick=()=>{$('#moveSearch').value='';$('#moveTypeFilter
 $("#dexSearch").oninput=renderDex;$("#dexStatus").onchange=renderDex;$("#dexTypeFilter").onchange=renderDex;
 $("#moveSearch").oninput=renderMoves;$("#moveTypeFilter").onchange=renderMoves;
 
+function openMobileMenu(){
+ if(!session)return;
+ $('#mobileMenu').classList.add('open');$('#mobileMenu').setAttribute('aria-hidden','false');$('#mobileMenu').removeAttribute('inert');
+ $('#mobileMenuBackdrop').classList.remove('hidden');$('#mobileMenuToggle').setAttribute('aria-expanded','true');
+ $('#mainContent').setAttribute('inert','');$('#mobileTopbar').setAttribute('inert','');document.body.classList.add('mobile-menu-open');
+ ($('#mobileNav button.active')||$('#mobileMenuClose'))?.focus?.();
+}
+function closeMobileMenu(restoreFocus=true){
+ const menu=$('#mobileMenu'),wasOpen=menu?.classList.contains('open');
+ menu?.classList.remove('open');menu?.setAttribute('aria-hidden','true');menu?.setAttribute('inert','');
+ $('#mobileMenuBackdrop')?.classList.add('hidden');$('#mobileMenuToggle')?.setAttribute('aria-expanded','false');
+ $('#mainContent')?.removeAttribute('inert');$('#mobileTopbar')?.removeAttribute('inert');document.body.classList.remove('mobile-menu-open');
+ if(wasOpen&&restoreFocus)$('#mobileMenuToggle')?.focus?.();
+}
+$('#mobileMenuToggle').onclick=openMobileMenu;$('#mobileMenuClose').onclick=()=>closeMobileMenu();$('#mobileMenuBackdrop').onclick=()=>closeMobileMenu();
+document.addEventListener('keydown',event=>{
+ if(!$('#mobileMenu').classList.contains('open'))return;
+ if(event.key==='Escape'){event.preventDefault();closeMobileMenu();}
+ if(event.key==='Tab'){
+  const buttons=$$('#mobileMenu button:not([disabled])'),first=buttons[0],last=buttons[buttons.length-1];
+  if(event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus?.();}
+  else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus?.();}
+ }
+});
+window.addEventListener?.('resize',()=>{if(window.innerWidth>900)closeMobileMenu(false)});
 function setupNav(){
  const master=session?.role==="master";
  const playerBattle=!master&&battleIsPlayerIn();
@@ -871,17 +932,22 @@ function setupNav(){
    :[["dashboard","🏠 Início"],["pokedex","📖 Minha Pokédex"],["team","🎒 Meu Time"],["pc","💻 Meu PC"]].concat(playerBattle?[["encounter","⚔️ Batalha"]]:[]);
  const desktop=$("#desktopNav"),mobile=$("#mobileNav");
  if(desktop)desktop.innerHTML=items.map(x=>`<button data-page="${x[0]}">${x[1]}</button>`).join("");
- if(mobile)mobile.innerHTML=items.map(x=>`<button data-page="${x[0]}">${x[1].split(" ")[0]}<br>${x[1].split(" ").slice(1).join(" ")}</button>`).join("")+`<button class="mobile-logout" data-mobile-logout>🚪<br>Sair</button>`;
+ if(mobile)mobile.innerHTML=items.map(x=>`<button data-page="${x[0]}"><span class="mobile-nav-icon" aria-hidden="true">${x[1].split(' ')[0]}</span><span>${x[1].split(' ').slice(1).join(' ')}</span><span class="mobile-nav-arrow" aria-hidden="true">›</span></button>`).join('')+`<button class="mobile-logout" data-mobile-logout><span class="mobile-nav-icon" aria-hidden="true">🚪</span><span>Sair da campanha</span></button>`;
+ $('#mobileRoleLabel').textContent=master?'Painel do Mestre':`Jogador · ${me()?.name||'Treinador'}`;
  $$("[data-page]").forEach(b=>b.onclick=()=>nav(b.dataset.page));
+ const activePage=$('.page.active')?.id.replace('page-','')||'dashboard';
+ $$('[data-page]').forEach(b=>{b.classList.toggle('active',b.dataset.page===activePage);if(b.dataset.page===activePage)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
  const logout=$("[data-mobile-logout]");
  if(logout)logout.onclick=()=>$("#logout")?.click();
 }
 function allowedPages(){return isMaster()?['dashboard','pokedex','moves','encounter','trainers','notes','settings']:session?['dashboard','pokedex','team','pc',...(battleIsPlayerIn()?['encounter']:[])]:[];}
 function nav(page){
  if(!allowedPages().includes(page))page='dashboard';
+ closeMobileMenu();
  closeModal();
  $$(".page").forEach(x=>x.classList.toggle("active",x.id==="page-"+page));
- $$("[data-page]").forEach(x=>x.classList.toggle("active",x.dataset.page===page));
+ $$("[data-page]").forEach(x=>{x.classList.toggle("active",x.dataset.page===page);if(x.dataset.page===page)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current')});
+ $('#mobilePageTitle').textContent=$(`#page-${page} h1`)?.textContent||'Campanha';
  history.replaceState(null,"","#"+page);
  if(page==="team"&&!isMaster())setTimeout(playNextEvolution,180);
  if(page==="encounter")setTimeout(renderBattleAll,0);

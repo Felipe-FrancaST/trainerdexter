@@ -1,4 +1,8 @@
-# TrainerDex v24 — SR, CA e Vida por Dado
+# TrainerDex v42
+
+Última atualização: cadastro de ataques pelo Mestre e menu lateral no celular. Consulte `CHANGELOG_MOBILE_ATAQUES_V42.md`.
+
+## SR, CA e Vida por Dado (v24)
 
 Alterações desta versão:
 - Cada Pokémon possui **SR (raridade)** e **CA** editáveis pelo Mestre.
@@ -36,3 +40,11 @@ O Mestre pode ensinar, excluir e restaurar ataques individuais em **Jogadores �
 Veja `CHANGELOG_REVISAO_V41.md` para as correções em Pokédex, Ataques, captura, evolução, HP/PP, imagens, Time/PC, Notas, login e salvamento. O indicador no rodapé confirma quando as alterações chegaram ao banco. A v41 mantém o ensino individual da v40.
 
 O arquivo `GLOBAL_PROFICIENCY_SETUP.sql` agora acompanha o projeto; ele só é necessário se o bônus global ainda não estiver configurado.
+
+## Atualização v42 — ataques e celular
+
+Em **Ataques → + Novo ataque**, o Mestre informa nome, nome original opcional, tipo, PP e descrição. O novo ataque fica disponível para as fichas e para **Jogadores → Pokémon → Ensinar**. Nomes repetidos são recusados; PP deve ser inteiro e pode ser zero. A biblioteca usa o salvamento existente, sem SQL adicional para o cadastro.
+
+Em telas de até 900 px, o botão ☰ abre um menu lateral com ícones, nomes das abas e indicação da aba atual. O menu respeita o acesso do Mestre/jogador e pode ser fechado pela navegação, pelo fundo, pelo botão Fechar ou pela tecla Escape. Os formulários, os cartões e as janelas foram ajustados para telas pequenas.
+
+Publique todos os arquivos da pasta `app` e recarregue a página. O cache estático foi atualizado para a v42. Aguarde o indicador **Tudo salvo** antes de fechar a página após alterações.

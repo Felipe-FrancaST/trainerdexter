@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
 <meta name="theme-color" content="#121922"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="description" content="TrainerDex - Mestre e Jogadores">
 <link rel="manifest" href="manifest.json"><link rel="icon" href="https://kytbkjigsapdhxpdchqz.supabase.co/storage/v1/object/public/trainerdex-images/assets/trainerdex-home.png">
-<link rel="stylesheet" href="style.css?v=41"><title>TrainerDex</title>
+<link rel="stylesheet" href="style.css?v=42"><title>TrainerDex</title>
 </head>
 <body>
 <div id="loginScreen" class="login-screen">
@@ -32,7 +32,18 @@
   <nav class="nav" id="desktopNav"></nav>
   <div class="sidebar-bottom"><button class="btn danger" id="logout">Sair</button></div>
 </aside>
-<main class="content" id="mainContent">
+<header class="mobile-topbar" id="mobileTopbar">
+  <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false"><span aria-hidden="true">☰</span></button>
+  <div class="mobile-page-heading"><strong>TrainerDex</strong><small id="mobilePageTitle">Visão geral</small></div>
+  <span class="mobile-topbar-mark" aria-hidden="true">◉</span>
+</header>
+<button class="mobile-menu-backdrop hidden" id="mobileMenuBackdrop" aria-label="Fechar menu" tabindex="-1"></button>
+<aside class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle" aria-hidden="true" inert>
+  <div class="mobile-menu-heading"><div><strong id="mobileMenuTitle">TrainerDex</strong><small id="mobileRoleLabel">Painel</small></div><button class="mobile-menu-close" id="mobileMenuClose" aria-label="Fechar menu">✕</button></div>
+  <p class="mobile-menu-caption">Sua campanha, sempre à mão</p>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu da campanha"></nav>
+</aside>
+<main class="content" id="mainContent" tabindex="-1">
 <section class="page" id="page-dashboard">
   <div class="topbar"><div><h1>Visão geral</h1><p id="campaignSubtitle"></p></div><div class="top-actions"><button class="btn primary" data-page="encounter" id="newEncounterBtn">Nova batalha</button></div></div>
   <div class="grid stats">
@@ -58,7 +69,7 @@
         <button class="btn primary" type="submit">Salvar nova senha</button>
       </form>
     </section>
-    <section class="card settings-help"><h2>Dados da campanha</h2><p>As alterações são salvas automaticamente. O indicador no rodapé mostra quando tudo foi salvo.</p><p>Se houver uma falha, use <strong>Tentar salvar novamente</strong> no indicador. Seus dados atuais permanecem na tela durante a tentativa.</p><div class="settings-version">TrainerDex v41</div></section>
+    <section class="card settings-help"><h2>Dados da campanha</h2><p>As alterações são salvas automaticamente. O indicador no rodapé mostra quando tudo foi salvo.</p><p>Se houver uma falha, use <strong>Tentar salvar novamente</strong> no indicador. Seus dados atuais permanecem na tela durante a tentativa.</p><div class="settings-version">TrainerDex v42</div></section>
   </div>
 </section>
 
@@ -80,7 +91,7 @@
 </section>
 
 <section class="page" id="page-moves">
-  <div class="topbar"><div><h1>Biblioteca de Ataques</h1><p>Consulte os ataques da campanha. Abra “Editar ataque” para alterar nome, tipo, PP e descrição.</p></div><div class="top-actions"><strong id="movesCount">0 Moves</strong></div></div>
+  <div class="topbar"><div><h1>Biblioteca de Ataques</h1><p>Crie ataques para a campanha ou abra “Editar ataque” para ajustar os existentes.</p></div><div class="top-actions moves-top-actions"><strong id="movesCount" aria-live="polite">0 ataques</strong><button class="btn primary" id="newMoveBtn">+ Novo ataque</button></div></div>
   <div class="card"><div class="toolbar"><input class="input search" id="moveSearch" placeholder="Buscar por nome, tradução ou tipo..."><select class="select" id="moveTypeFilter" style="max-width:180px"><option value="all">Todos os tipos</option></select></div><div class="results-toolbar"><span class="muted">Busque pelo nome original, tradução ou tipo.</span><button class="btn small" id="clearMoveFilters">Limpar filtros</button></div><div id="movesGrid" class="grid three"></div></div>
 </section>
 
@@ -121,7 +132,6 @@
   <div class="topbar"><div><h1>Notas da campanha</h1><p>NPCs, locais, pistas, acontecimentos e tudo que não pode ser esquecido.</p></div><button class="btn primary" id="addNote">Nova nota</button></div><div class="collection-toolbar notes-toolbar"><div class="field"><label for="notesSearch">Buscar nas notas</label><input class="input" id="notesSearch" type="search" placeholder="Título ou conteúdo"></div><div class="field"><label for="notesSort">Ordenar</label><select class="select" id="notesSort"><option value="recent">Mais recentes</option><option value="title">Título (A–Z)</option></select></div></div><p class="muted" id="notesCount" aria-live="polite"></p><div id="notesList" class="notes-grid"></div>
 </section>
 <div class="sync-bar" id="syncBar" data-status="loading" role="status" aria-live="polite"><span class="sync-dot" aria-hidden="true"></span><span id="syncStatus">Carregando dados…</span><button class="btn small hidden" id="syncRetryBtn">Tentar salvar novamente</button></div></main></div>
-<nav class="mobile-nav" id="mobileNav"></nav>
 <div class="evolution-overlay hidden" id="evolutionOverlay" aria-hidden="true">
   <div class="evolution-stage">
     <div class="evolution-glow"></div>
@@ -143,10 +153,10 @@
 <script src="supabase-config.js?v=34"></script>
 <script src="supabase-store.js?v=41"></script>
 <script src="abilities-data.js?v=35"></script>
-<script src="app.js?v=41"></script>
+<script src="app.js?v=42"></script>
 <script>
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js?v=41").catch((error) => {
+    navigator.serviceWorker.register("sw.js?v=42").catch((error) => {
       console.warn("TrainerDex: service worker não pôde ser registrado.", error);
     });
   }
