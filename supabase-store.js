@@ -15,6 +15,17 @@ const DB_BUCKET = "trainerdex-images";
 let dbReady=false;
 let dbSaveChain=Promise.resolve();
 let dbSaveTimer=null;
+let dbChangeVersion=0;
+let dbSyncStatus='loading';
+const pendingImageRemovals=new Set();
+function setSyncStatus(status){
+  dbSyncStatus=status;
+  const labels={loading:'Carregando dados…',pending:'Alterações pendentes',saving:'Salvando…',saved:'Tudo salvo',error:'Não foi possível salvar',loaderror:'Não foi possível carregar os dados'};
+  const bar=document.querySelector('#syncBar'),text=document.querySelector('#syncStatus'),retry=document.querySelector('#syncRetryBtn');
+  if(bar)bar.dataset.status=status;
+  if(text)text.textContent=labels[status]||status;
+  if(retry){retry.classList.toggle('hidden',status!=='error');retry.disabled=!dbReady;}
+}
 let dbConfiguredCache=null;
 let personalMovesReady=false;
 const personalMovesRecords=new Map();
@@ -72,7 +83,6 @@ async function loadStateFromSupabase(){
   await migrateLegacyStateInSupabase();
   const {data,error}=await window.trainerdexSupabase.rpc("trainerdex_load_state");
   if(error){console.error("Supabase: erro ao carregar estado organizado:",error);return false;}
-  dbReady=true;
   if(data && typeof data==="object"){
     // O catálogo possui tabela própria. Nunca deixe um estado antigo/vazio
     // substituir o catálogo que acabou de ser carregado do Supabase.
@@ -97,7 +107,7 @@ async function loadGlobalProficiencyFromSupabase(){
     .eq("id",1)
     .maybeSingle();
   if(error){
-    console.error("Supabase: não foi possível carregar o bônus global de proficiência. Execute GLOBAL_PROFICIENCY_SETUP.sql:",error);
+    console.warn("Supabase: bônus global indisponível. Execute GLOBAL_PROFICIENCY_SETUP.sql:",error);
     return null;
   }
   return data ? {enabled:!!data.enabled,value:Math.max(0,Math.min(20,Number(data.value)||0))} : null;
@@ -194,10 +204,13 @@ function save(){
 }
 function queueDbSave(){
   if(!dbConfigured() || !dbReady) return;
+  const version=++dbChangeVersion;
+  setSyncStatus('pending');
   clearTimeout(dbSaveTimer);
   dbSaveTimer=setTimeout(()=>{
     dbSaveChain=dbSaveChain.then(async()=>{
       try{
+        setSyncStatus('saving');
         await uploadPendingPokemonImages();
         await saveMoveLibraryToSupabase(moves);
         const catalog=Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length
@@ -211,8 +224,17 @@ function queueDbSave(){
         const snapshot=structuredClone(state);
         const {error}=await window.trainerdexSupabase.rpc("trainerdex_save_state",{payload:snapshot});
         if(error) throw error;
+        // Remove arquivos somente depois de a exclusão ter sido salva no banco.
+        for(const image of [...pendingImageRemovals]){
+          if(!pokemons.some(p=>p.imagem===image)){
+            try{await removePokemonStorageImage(image);}catch(error){console.warn('TrainerDex: limpeza de imagem pendente.',error);continue;}
+          }
+          pendingImageRemovals.delete(image);
+        }
+        setSyncStatus(version===dbChangeVersion?'saved':'pending');
         console.info("TrainerDex: dados sincronizados com Supabase.");
       }catch(error){
+        setSyncStatus('error');
         console.error("Supabase: falha ao salvar dados:",error);
         toast("Não foi possível sincronizar com o Supabase. Tente novamente.");
       }

@@ -30,3 +30,9 @@ Esta versão usa exclusivamente o Supabase para catálogo, ataques, campanha e i
 O Mestre pode ensinar, excluir e restaurar ataques individuais em **Jogadores → Pokémon → Ensinar**. A ficha do jogador e a batalha respeitam essas escolhas. A aba Jogadores também ganhou pesquisa, filtros, HP nos cartões e PC recolhível.
 
 **Antes de usar o ensino**, execute `ENSINAR_ATAQUES_SETUP.sql` no SQL Editor do seu Supabase. Consulte `CHANGELOG_JOGADORES_V40.md` para instalação e detalhes.
+
+## Atualização v41 — revisão geral
+
+Veja `CHANGELOG_REVISAO_V41.md` para as correções em Pokédex, Ataques, captura, evolução, HP/PP, imagens, Time/PC, Notas, login e salvamento. O indicador no rodapé confirma quando as alterações chegaram ao banco. A v41 mantém o ensino individual da v40.
+
+O arquivo `GLOBAL_PROFICIENCY_SETUP.sql` agora acompanha o projeto; ele só é necessário se o bônus global ainda não estiver configurado.
