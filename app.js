@@ -709,6 +709,8 @@ function battleSort(){
  state.encounter.combatants.sort((a,b)=>Number(b.initiative||0)-Number(a.initiative||0));
  if(activeId&&state.encounter.combatants.some(c=>c.id===activeId))state.encounter.activeParticipantId=activeId;
  else if(state.encounter.combatants.length)state.encounter.activeParticipantId=state.encounter.combatants[0].id;
+ else state.encounter.activeParticipantId=null;
+ state.encounter.active=Math.max(0,state.encounter.combatants.findIndex(c=>c.id===state.encounter.activeParticipantId));
 }
 function battleCurrent(){return battleParticipantById(state.encounter.activeParticipantId)}
 function battleNextTurn(){
@@ -754,7 +756,33 @@ function nav(page){
  if(page==="team"&&!isMaster())setTimeout(playNextEvolution,180);
  if(page==="encounter")setTimeout(renderBattleAll,0);
 }
+function openBattleStart(){
+ if(!isMaster())return;
+ const e=state.encounter,reconfigure=!!e.battleActive;
+ const rows=state.trainers.map((t,i)=>{
+  const c=(e.combatants||[]).find(x=>x.kind==='player'&&x.trainerId===t.id);
+  return `<div class="battle-start-row" data-battle-trainer="${i}"><label class="battle-start-player"><input type="checkbox" data-battle-include ${c?'checked':''}><span>${esc(t.name)}</span></label><div class="field"><label for="battleInit${i}">Iniciativa</label><input class="input battle-init" id="battleInit${i}" type="number" step="1" value="${Number(c?.initiative)||0}"></div></div>`;
+ }).join('');
+ $("#modalContent").innerHTML=`<div class="modal-head"><h2>${reconfigure?'Reconfigurar batalha':'Iniciar batalha'}</h2><button class="btn" data-close>Fechar</button></div><div class="form-grid"><div class="field"><label for="battleNameInput">Nome da batalha</label><input class="input" id="battleNameInput" maxlength="120" value="${esc(reconfigure?e.battleName||'Batalha':'Batalha')}"></div><p class="muted">Selecione os jogadores e informe a iniciativa. Cada jogador escolherá um Pokémon do seu time. Você também pode iniciar sem jogadores e adicionar Pokémon NPC.</p><div>${rows||'<p class="muted">Nenhum jogador cadastrado. Você pode adicionar NPCs depois de iniciar.</p>'}</div>${reconfigure?'<p class="muted">Os NPCs, as escolhas dos jogadores mantidos, a rodada e as notas serão preservados.</p>':''}<button class="btn primary" id="confirmStartBattle">${reconfigure?'Salvar batalha':'Iniciar batalha'}</button></div>`;
+ $("#modal").classList.add('open');$('[data-close]').onclick=closeModal;
+ $("#confirmStartBattle").onclick=()=>{
+  if(!isMaster())return;
+  const selected=$$('[data-battle-trainer]').filter(row=>$('[data-battle-include]',row).checked);
+  if(selected.some(row=>{const input=$('.battle-init',row);return !input.value.trim()||!input.checkValidity()||!Number.isFinite(Number(input.value))}))return toast('Informe uma iniciativa válida para cada jogador selecionado.');
+  const players=selected.map(row=>{
+   const t=state.trainers[Number(row.dataset.battleTrainer)];
+   const existing=reconfigure?(e.combatants||[]).find(c=>c.kind==='player'&&c.trainerId===t.id):null;
+   return {...(existing||{id:uid(),kind:'player',trainerId:t.id,pokemonId:null}),name:t.name,initiative:Number($('.battle-init',row).value)};
+  });
+  const npcs=reconfigure?(e.combatants||[]).filter(c=>c.kind==='npc'):[];
+  state.encounter={...e,battleActive:true,battleId:reconfigure?(e.battleId||uid()):uid(),battleName:$('#battleNameInput').value.trim()||'Batalha',round:reconfigure?Math.max(1,Number(e.round)||1):1,active:0,activeParticipantId:reconfigure?e.activeParticipantId:null,combatants:[...players,...npcs],notes:e.notes||'',battleLog:reconfigure?(e.battleLog||[]):[]};
+  battleSort();battleLog(`${reconfigure?'Batalha reconfigurada':'Batalha iniciada'}: ${state.encounter.battleName}.`);
+  save();closeModal();setupNav();renderBattleAll();nav('encounter');toast(reconfigure?'Batalha atualizada.':'Batalha iniciada.');
+ };
+}
 function addNpcBattle(){
+ if(!isMaster()||!state.encounter.battleActive)return;
+ if(!pokemons.length)return toast('Aguarde o carregamento da Pokédex para adicionar um NPC.');
  const opts=pokemons.map(p=>`<option value="${p.id}">${esc(p.numero)} — ${esc(p.nome)}</option>`).join("");
  const base=pokemons[0];
  $("#modalContent").innerHTML=`<div class="modal-head"><h2>Adicionar Pokémon NPC</h2><button class="btn" data-close>Fechar</button></div><div class="form-grid"><div class="field"><label>Pokémon da Pokédex</label><select class="select" id="npcPokemon">${opts}</select></div><div class="inline-fields"><div class="field"><label>Nível</label><input class="input" id="npcLevel" type="number" min="1" max="100" value="${base?.nivel||1}"></div><div class="field"><label>Iniciativa</label><input class="input" id="npcInit" type="number" value="10"></div></div><div class="inline-fields"><div class="field"><label>HP máximo</label><input class="input" id="npcHp" type="number" min="1" value="${hpMaxForLevel(base,Number(base?.nivel)||1)}"></div><div class="field"><label>Nome do NPC</label><input class="input" id="npcName" value="${esc(base?.nome||"NPC")}"></div></div><div class="field"><label>Atributos</label><div class="inline-fields">${DND_ATTRIBUTES.map(([k,label])=>`<input class="input npc-attr" data-attr="${k}" type="number" min="1" max="30" placeholder="${label}" value="${Number(normalizePokemonStats(base?.status||{})[k])||10}">`).join("")}</div></div><div class="field"><div class="section-title"><div><label>Ataques do NPC</label><p class="muted">Os ataques são carregados da Pokédex conforme o nível escolhido.</p></div></div><div id="npcAttackPreview">${npcAttacksPreviewHtml(base,Number(base?.nivel)||1)}</div></div><button class="btn primary" id="saveNpcBattle">Adicionar NPC</button></div>`;
@@ -808,13 +836,15 @@ function openBattleAttackPicker(){
 }
 
 function renderBattleMaster(){
+ if(!isMaster())return;
+ $$('#startBattleBtn, #nextTurn, #addNpcBtn, #clearEncounter').forEach(b=>b.classList.remove('hidden'));
  $("#encounterNotes").closest(".card")?.classList.remove("hidden");
- const e=state.encounter;if(!isMaster())return;$("#battleStatus").textContent=e.battleActive?e.battleName||"Batalha ativa":"Nenhuma batalha ativa";$("#battleRound").textContent=e.battleActive?e.round:1;const cur=battleCurrent();$("#battleTurn").textContent=cur?battleName(cur):"—";$("#turnInfo").textContent=e.battleActive&&cur?`Rodada ${e.round} • vez de ${battleName(cur)} • iniciativa ${cur.initiative}`:"Inicie uma batalha para montar a ordem de iniciativa.";$("#encounterNotes").value=e.notes||"";
- $("#initiativeList").innerHTML=e.battleActive?(e.combatants.map(c=>{const h=battleHpInfo(c),p=battlePokemonForParticipant(c),f=h.current<=0;return `<article class="battle-combatant ${c.id===e.activeParticipantId?'active':''} ${f?'fainted':''} ${c.kind==='player'?'battle-player':'battle-npc'}"><div class="battle-head"><img class="battle-avatar" src="${battleAvatar(c)}"><div class="battle-main"><h3>${c.id===e.activeParticipantId?'▶ ':''}${esc(battleName(c))}</h3><div class="battle-meta">${c.kind==='player'?`Jogador: ${esc(state.trainers.find(t=>t.id===c.trainerId)?.name||'')} • Pokémon: <strong>${esc(p?.nome||'Aguardando escolha')}</strong>`:`NPC • Pokémon: <strong>${esc(p?.nome||'')}</strong> • Nv. ${c.level}`}${p?` • ${typeTags(p.tipo)}`:''}</div>${c.kind==='npc'&&npcAttacksForLevel(p,c.level).length?`<div class="battle-npc-attacks"><strong>⚔️ Ataques:</strong>${c.id===e.activeParticipantId&&h.current>0?npcAttacksForLevel(p,c.level).map((a,i)=>`<button class="battle-npc-attack battle-npc-attack-btn" data-npc-attack="${c.id}" data-npc-attack-index="${i}">${esc(a.nome)} · ${Number(a.dano)||0}</button>`).join(''):npcAttacksForLevel(p,c.level).map(a=>`<span class="tag battle-npc-attack">${esc(a.nome)} · ${Number(a.dano)||0}</span>`).join('')}</div>`:''}<div class="battle-hp"><div class="health-label"><span>HP</span><strong>${h.current}/${h.max}</strong></div><div class="health-bar"><span style="width:${h.pct}%"></span></div></div></div></div><div class="battle-actions"><button class="btn small" data-battle-dmg="${c.id}">Dar dano</button><button class="btn small" data-battle-heal="${c.id}">Curar</button>${c.kind==='npc'?`<button class="btn small" data-battle-editnpc="${c.id}">Editar NPC</button>`:''}${f?`<span class="status" style="color:#c33;font-weight:900">💀 0 HP</span>`:''}</div></article>`}).join('')):`<div class="battle-empty">Nenhuma batalha ativa. Clique em <strong>Iniciar batalha</strong> para selecionar os jogadores e a iniciativa.</div>`;
+ const e=state.encounter;$("#battleStatus").textContent=e.battleActive?e.battleName||"Batalha ativa":"Nenhuma batalha ativa";$("#battleRound").textContent=e.battleActive?e.round:1;const cur=battleCurrent();$("#battleTurn").textContent=cur?battleName(cur):"—";$("#turnInfo").textContent=e.battleActive&&cur?`Rodada ${e.round} • vez de ${battleName(cur)} • iniciativa ${cur.initiative}`:e.battleActive?"Adicione jogadores ou Pokémon NPC para montar a ordem de iniciativa.":"Inicie uma batalha para montar a ordem de iniciativa.";$("#encounterNotes").value=e.notes||"";
+ $("#initiativeList").innerHTML=e.battleActive?(e.combatants.map(c=>{const h=battleHpInfo(c),p=battlePokemonForParticipant(c),f=h.current<=0;return `<article class="battle-combatant ${c.id===e.activeParticipantId?'active':''} ${f?'fainted':''} ${c.kind==='player'?'battle-player':'battle-npc'}"><div class="battle-head"><img class="battle-avatar" src="${battleAvatar(c)}"><div class="battle-main"><h3>${c.id===e.activeParticipantId?'▶ ':''}${esc(battleName(c))}</h3><div class="battle-meta">${c.kind==='player'?`Jogador: ${esc(state.trainers.find(t=>t.id===c.trainerId)?.name||'')} • Pokémon: <strong>${esc(p?.nome||'Aguardando escolha')}</strong>`:`NPC • Pokémon: <strong>${esc(p?.nome||'')}</strong> • Nv. ${c.level}`}${p?` • ${typeTags(p.tipo)}`:''}</div>${c.kind==='npc'&&npcAttacksForLevel(p,c.level).length?`<div class="battle-npc-attacks"><strong>⚔️ Ataques:</strong>${c.id===e.activeParticipantId&&h.current>0?npcAttacksForLevel(p,c.level).map((a,i)=>`<button class="battle-npc-attack battle-npc-attack-btn" data-npc-attack="${c.id}" data-npc-attack-index="${i}">${esc(a.nome)} · ${Number(a.dano)||0}</button>`).join(''):npcAttacksForLevel(p,c.level).map(a=>`<span class="tag battle-npc-attack">${esc(a.nome)} · ${Number(a.dano)||0}</span>`).join('')}</div>`:''}<div class="battle-hp"><div class="health-label"><span>HP</span><strong>${h.current}/${h.max}</strong></div><div class="health-bar"><span style="width:${h.pct}%"></span></div></div></div></div><div class="battle-actions"><button class="btn small" data-battle-dmg="${c.id}">Dar dano</button><button class="btn small" data-battle-heal="${c.id}">Curar</button>${c.kind==='npc'?`<button class="btn small" data-battle-editnpc="${c.id}">Editar NPC</button>`:''}${f?`<span class="status" style="color:#c33;font-weight:900">💀 0 HP</span>`:''}</div></article>`}).join('')||'<div class="battle-empty">Adicione um Pokémon NPC ou reconfigure a batalha para selecionar jogadores.</div>'):`<div class="battle-empty">Nenhuma batalha ativa. Clique em <strong>Iniciar batalha</strong> para selecionar os jogadores e a iniciativa.</div>`;
  const log=e.battleLog||[];const notesHtml=log.map(x=>`<p><small>${new Date(x.at).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}</small> — ${esc(x.msg)}</p>`).join('');
  const oldLog=$("#battleLog");if(oldLog)oldLog.innerHTML=notesHtml||'<p class="muted">Sem eventos ainda.</p>';else {const sec=$("#encounterNotes").closest('.card');if(sec){sec.insertAdjacentHTML('beforeend',`<div class="battle-log" id="battleLog">${notesHtml||'<p class="muted">Sem eventos ainda.</p>'}</div>`)}}
  $$("[data-battle-dmg]").forEach(b=>b.onclick=()=>adjustBattleHp(b.dataset.battleDmg,'damage'));$$("[data-battle-heal]").forEach(b=>b.onclick=()=>adjustBattleHp(b.dataset.battleHeal,'heal'));$$("[data-battle-editnpc]").forEach(b=>b.onclick=()=>editNpcBattle(b.dataset.battleEditnpc));$$("[data-npc-attack]").forEach(b=>b.onclick=()=>openNpcAttackPicker(b.dataset.npcAttack));
- $("#startBattleBtn").textContent=e.battleActive?"Reconfigurar batalha":"Iniciar batalha";$("#nextTurn").disabled=!e.battleActive||!e.combatants.length;$("#addNpcBtn").disabled=!e.battleActive;
+ $("#startBattleBtn").textContent=e.battleActive?"Reconfigurar batalha":"Iniciar batalha";$("#nextTurn").disabled=!e.battleActive||!e.combatants.length;$("#addNpcBtn").disabled=!e.battleActive;$("#clearEncounter").disabled=!e.battleActive;
 }
 function editNpcBattle(id){const c=battleParticipantById(id),p=battlePokemonForParticipant(c);if(!c)return;$("#modalContent").innerHTML=`<div class="modal-head"><h2>Editar NPC</h2><button class="btn" data-close>Fechar</button></div><div class="form-grid"><div class="field"><label>Nome</label><input class="input" id="editNpcName" value="${esc(c.name)}"></div><div class="inline-fields"><div class="field"><label>Nível</label><input class="input" id="editNpcLevel" type="number" value="${c.level}"></div><div class="field"><label>Iniciativa</label><input class="input" id="editNpcInit" type="number" value="${c.initiative}"></div></div><div class="inline-fields"><div class="field"><label>HP máximo</label><input class="input" id="editNpcHp" type="number" value="${c.maxHp}"></div><div class="field"><label>HP atual</label><input class="input" id="editNpcCurrentHp" type="number" value="${c.currentHp}"></div></div><button class="btn primary" id="saveNpcEdit">Salvar</button></div>`;$("#modal").classList.add('open');$('[data-close]').onclick=closeModal;$("#saveNpcEdit").onclick=()=>{c.name=$("#editNpcName").value.trim()||p?.nome||c.name;c.level=Number($("#editNpcLevel").value)||c.level;c.initiative=Number($("#editNpcInit").value)||0;c.maxHp=Math.max(1,Number($("#editNpcHp").value)||c.maxHp);c.currentHp=Math.max(0,Math.min(c.maxHp,Number($("#editNpcCurrentHp").value)||0));battleSort();save();closeModal();renderBattleAll()}}
 function renderBattlePlayer(){
@@ -831,7 +861,7 @@ function renderEncounter(){renderBattleAll()}
 $("#encounterNotes").oninput=e=>{state.encounter.notes=e.target.value;save()};
 $("#startBattleBtn").onclick=()=>openBattleStart();
 $("#addNpcBtn").onclick=()=>{if(!state.encounter.battleActive)return toast("Inicie uma batalha primeiro.");addNpcBattle()};
-$("#nextTurn").onclick=()=>battleNextTurn();
+$("#nextTurn").onclick=()=>{if(isMaster())battleNextTurn()};
 function openEndBattleConfirm(){
  if(!isMaster()||!state.encounter.battleActive)return;
  const e=state.encounter;
@@ -845,7 +875,7 @@ function openEndBattleConfirm(){
    <div class="end-battle-actions"><button class="btn" data-close>Continuar batalha</button><button class="btn end-battle-confirm" id="confirmEndBattle"><span aria-hidden="true">🏁</span> Encerrar batalha</button></div>
  </div>`;
  $("#modal").classList.add("open");
- $("[data-close]").onclick=closeModal;
+ $$("[data-close]").forEach(b=>b.onclick=closeModal);
  $("#confirmEndBattle").onclick=()=>{
    state.encounter={round:1,active:0,notes:'',combatants:[],battleActive:false,battleId:null,battleLog:[],activeParticipantId:null};
    state.trainers.forEach(t=>{delete t._battleChoiceFor});
