@@ -121,10 +121,10 @@ test('jogador em batalha não pode ser excluído; sair aguarda alterações e ma
 test('Service Worker guarda somente estáticos versionados e preserva caches alheios',async()=>{
  const events={},deleted=[],cacheMap=new Map(),fetches=[],pending=[];
  const cache={async addAll(paths){for(const file of paths)cacheMap.set(new URL(file,'https://trainerdex.test/app/').href,new Response('asset'));},async match(req){return cacheMap.get(req.url);},async put(req,response){cacheMap.set(req.url,response);}};
- const sandbox={URL,Response,Promise,Set,self:{registration:{scope:'https://trainerdex.test/app/'},addEventListener:(key,fn)=>events[key]=fn,skipWaiting:async()=>{},clients:{claim:async()=>{}}},caches:{open:async()=>cache,keys:async()=>['trainerdex-v42','trainerdex-v43','outro-app'],delete:async key=>{deleted.push(key);}},fetch:async req=>{fetches.push(req.url);return new Response('network');}};
+ const sandbox={URL,Response,Promise,Set,self:{registration:{scope:'https://trainerdex.test/app/'},addEventListener:(key,fn)=>events[key]=fn,skipWaiting:async()=>{},clients:{claim:async()=>{}}},caches:{open:async()=>cache,keys:async()=>['trainerdex-v43','trainerdex-v44','outro-app'],delete:async key=>{deleted.push(key);}},fetch:async req=>{fetches.push(req.url);return new Response('network');}};
  vm.runInNewContext(fs.readFileSync(path.join(ROOT,'sw.js'),'utf8'),sandbox);
- events.install({waitUntil:p=>pending.push(p)});await Promise.all(pending);events.activate({waitUntil:p=>pending.push(p)});await Promise.all(pending);assert.deepEqual(deleted,['trainerdex-v42']);
- for(const url of ['https://trainerdex.test/app/api/private','https://trainerdex.test/app/dados.json','https://outro.test/app.js','https://trainerdex.test/app/style.css?v=42']){
+ events.install({waitUntil:p=>pending.push(p)});await Promise.all(pending);events.activate({waitUntil:p=>pending.push(p)});await Promise.all(pending);assert.deepEqual(deleted,['trainerdex-v43']);
+ for(const url of ['https://trainerdex.test/app/api/private','https://trainerdex.test/app/dados.json','https://outro.test/app.js','https://trainerdex.test/app/style.css?v=43']){
   let intercepted=false;events.fetch({request:new Request(url),respondWith(){intercepted=true;}});assert.equal(intercepted,false,url);
  }
  let response;events.fetch({request:new Request('https://trainerdex.test/app/account.js?v=43'),respondWith:p=>response=p,waitUntil:p=>pending.push(p)});assert.equal(await (await response).text(),'asset');assert.equal(fetches.length,0);

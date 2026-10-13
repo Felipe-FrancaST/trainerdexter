@@ -1,11 +1,11 @@
 {
   "name": "trainerdex",
-  "version": "43.0.0",
+  "version": "44.0.0",
   "private": true,
   "description": "TrainerDex — site estático e verificações locais",
   "scripts": {
     "test": "node --test tests/*.test.cjs",
-    "check": "node --check app.js && node --check account.js && node --check battle-actions.js && node --check supabase-store.js && node --check supabase-config.js && node --check abilities-data.js && node --check sw.js"
+    "check": "node --check app.js && node --check account.js && node --check battle-actions.js && node --check supabase-store.js && node --check supabase-config.js && node --check abilities-data.js && node --check move-attributes-data.js && node --check move-attributes.js && node --check sw.js"
   },
   "devDependencies": {"jsdom": "26.1.0"}
 }

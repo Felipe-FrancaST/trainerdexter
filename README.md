@@ -1,19 +1,24 @@
-# TrainerDex v43
+# TrainerDex v44
+
+Atualização v44: os atributos dos 675 moves da lista fornecida aparecem junto aos ataques dos Pokémon. Consulte `CHANGELOG_V44.md`.
 
 Site estático para administrar uma campanha Pokémon, jogadores, Time/PC, Pokédex, ataques, notas e batalhas. Os dados e imagens continuam usando o Supabase já configurado em `supabase-config.js`.
 
 ## Atualizar um site existente
 
-1. Extraia o ZIP e substitua os arquivos da hospedagem pelos arquivos da pasta `app/`. Inclua os novos `account.js` e `battle-actions.js`.
+1. Extraia o ZIP e substitua os arquivos da hospedagem pelos arquivos da pasta `app/`. Inclua também `account.js`, `battle-actions.js`, `move-attributes-data.js` e `move-attributes.js`.
 2. Mantenha a configuração do seu projeto Supabase em `supabase-config.js`.
 3. No computador, recarregue com **Ctrl+Shift+R**. No celular, feche e abra novamente o site; se necessário, limpe o cache do site.
-4. Entre como jogador e abra **Minha conta → Alterar minha senha**. Informe a senha atual, uma nova senha de 8 a 128 caracteres e a confirmação. Aguarde **Senha alterada com sucesso**.
+4. Abra uma ficha no **Meu Time** ou **Meu PC**. Cada ataque da referência mostra seu marcador **Atributo**, como **For/Des** ou **Des/For**.
+5. Entre como jogador e abra **Minha conta → Alterar minha senha**. Informe a senha atual, uma nova senha de 8 a 128 caracteres e a confirmação. Aguarde **Senha alterada com sucesso**.
 
-A v43 usa os RPCs e campos de campanha/encontro que o site já utiliza. Não exige uma nova tabela para a troca de senha. As configurações opcionais de ensino de ataques e bônus global continuam dependendo das tabelas instaladas anteriormente.
+A v44 usa os RPCs e campos de campanha/encontro que o site já utiliza. Não exige uma nova tabela para a troca de senha nem para os atributos da referência. As configurações opcionais de ensino de ataques e bônus global continuam dependendo das tabelas instaladas anteriormente.
 
 **Esta entrega é uma atualização do site existente.** O ZIP enviado não continha os SQLs antigos citados nos changelogs. Esses arquivos históricos não foram inventados ou substituídos; para instalar um banco novo, será necessário obter o esquema e os RPCs da instalação original.
 
 ## Mudanças principais
+
+- Atributos dos moves nas fichas e opções de ataque, com 675 referências, alternativas separadas por `/` e os valores especiais da lista.
 
 - Cabeçalhos no celular sem o grande espaço vazio causado pela base flexível fixa; imagens da Pokédex carregam sob demanda.
 - Área **Minha conta**, com acesso pelo painel inicial e menus de desktop/celular.
@@ -26,7 +31,7 @@ A v43 usa os RPCs e campos de campanha/encontro que o site já utiliza. Não exi
 - Uploads de imagem não perdem uma edição feita durante o envio; novas URLs evitam mostrar a capa antiga do cache.
 - Escape de conteúdo em fichas, validação de URLs de imagem, janela com foco contido e cache restrito aos arquivos estáticos conhecidos.
 
-Consulte `CHANGELOG_V43.md` para detalhes e limites da revisão.
+Consulte `CHANGELOG_V44.md` para os atributos dos moves e `CHANGELOG_V43.md` para a revisão anterior.
 
 ## Arquivos de execução
 
@@ -37,6 +42,8 @@ Consulte `CHANGELOG_V43.md` para detalhes e limites da revisão.
 | `app.js` | Navegação, catálogo, campanha, Time/PC e batalha |
 | `account.js` | Formulários de senha do Mestre e jogador |
 | `battle-actions.js` | Seleção de ataque, validação do turno e PP |
+| `move-attributes-data.js` | Referência dos 675 moves fornecidos |
+| `move-attributes.js` | Associação e exibição dos atributos dos moves |
 | `supabase-store.js` | Leitura, fila de salvamento e imagens |
 | `supabase-config.js` | URL e chave pública do projeto |
 | `abilities-data.js` | Referência de habilidades |
@@ -54,7 +61,7 @@ npm run check
 npm test
 ```
 
-Os testes usam DOM e Supabase simulados e não acessam o banco da campanha.
+Os 26 testes usam DOM e Supabase simulados e não acessam o banco da campanha. Uma cópia da referência recebida está em `tests/fixtures/move-attributes-reference.txt`.
 
 ## Limites de segurança e concorrência
 

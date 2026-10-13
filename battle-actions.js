@@ -12,7 +12,7 @@ function battleAttacksForParticipant(combatant) {
       Number(saved.pokemonId ?? combatant.pokemonId) === Number(pokemon.id) &&
       personalMoveKey(saved) === personalMoveKey(attack));
     const max = Math.max(0, Math.trunc(Number(attack.ppMax ?? attack.pp) || 0));
-    return {...attack, pokemonId: pokemon.id, ppMax: max,
+    return {...attack, atributo: moveAttributeValue(attack), pokemonId: pokemon.id, ppMax: max,
       ppAtual: Math.max(0, Math.min(max, Math.trunc(Number(previous?.ppAtual ?? max) || 0)))};
   });
 }
@@ -67,6 +67,7 @@ function openParticipantAttackPicker(combatant, selectedMove = null) {
   $('#modalContent').innerHTML = `<div class="modal-head"><div><h2>Escolher ataque</h2><p class="muted">${esc(pokemon.nome)} • Nível ${combatant.level}</p></div><button class="btn" data-close>Fechar</button></div>
     <div class="battle-attack-grid">${attacks.map(attack => `<button class="battle-attack-card" data-attack-id="${esc(personalMoveKey(attack))}" ${attack.ppAtual <= 0 ? 'disabled' : ''}>
       <span class="battle-attack-top"><strong>${esc(attack.nome)}</strong>${typeTags(attack.tipo)}</span>
+      <span class="battle-attack-attributes">${moveAttributeBadge(attack)}</span>
       <span class="battle-attack-damage">Dano ${Number(attack.dano) || 0} • PP ${attack.ppAtual}/${attack.ppMax}</span>
       <small>${esc(attack.ppAtual <= 0 ? 'Sem PP nesta batalha' : attack.descricao || '')}</small></button>`).join('')}</div>
     <div class="battle-target-section hidden" id="battleTargetSection"><h3>Escolha o alvo</h3><div class="battle-target-grid">${targets.map(target => {

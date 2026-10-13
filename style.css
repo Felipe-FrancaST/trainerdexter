@@ -1186,3 +1186,25 @@ body.mobile-menu-open{overflow:hidden}
 button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #78aef4;outline-offset:3px}
 .battle-attack-mini:disabled,.battle-attack-card:disabled{transform:none;box-shadow:none;opacity:.55;cursor:not-allowed}
 .battle-attack-mini .attack-pp-label{color:var(--muted);font-size:12px;font-weight:600}
+
+/* v44 — atributo do move junto ao ataque */
+.move-attribute{display:inline-flex;align-items:center;font-size:11px;font-weight:800;color:#3f468d;background:#eef0ff;border:1px solid #d9ddff;white-space:nowrap;line-height:1.4}
+.move-attribute-muted{color:#566574;background:#f0f3f6;border-color:#dfe5eb}
+.move-card-attributes{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.attack-detail-item summary{grid-template-columns:minmax(0,1fr) auto auto;gap:7px}
+.attack-detail-item summary>strong{grid-column:1;grid-row:1}
+.attack-detail-item summary>span.attack-detail-pp{grid-column:2;grid-row:1;font-size:12px;white-space:nowrap}
+.attack-detail-item summary::after{grid-column:3;grid-row:1}
+.attack-detail-item summary>span.attack-detail-meta{display:flex;align-items:center;flex-wrap:wrap;gap:6px;grid-column:1/-1;grid-row:2;white-space:normal;font-size:11px}
+.attack-detail-item summary>span.attack-detail-meta .tag{grid-column:auto;grid-row:auto;float:none;max-width:100%}
+.attack-detail-item summary>small{grid-column:1/-1;grid-row:3;margin-top:0}
+.battle-attack-mini>.battle-attack-label{display:grid;gap:6px;min-width:0;flex:1 1 0%}
+.battle-attack-label strong{overflow-wrap:anywhere}
+.battle-attack-tags{display:flex;flex-wrap:wrap;align-items:center;gap:5px;min-width:0}
+.battle-attack-tags .move-attribute,.battle-attack-attributes .move-attribute{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.battle-attack-mini>b{flex-shrink:0;text-align:right}
+.battle-attack-mini .attack-pp-label{display:block;margin-top:3px}
+.battle-attack-attributes{display:flex;flex-wrap:wrap;gap:5px}
+.battle-npc-attack{max-width:100%;white-space:normal}
+.battle-npc-attack>.move-attribute{margin-left:6px;font-size:10px;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.npc-attack-preview-row{flex-wrap:wrap}

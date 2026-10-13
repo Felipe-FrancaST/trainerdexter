@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
 <meta name="theme-color" content="#121922"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="description" content="TrainerDex - Mestre e Jogadores">
 <link rel="manifest" href="manifest.json"><link rel="icon" href="https://kytbkjigsapdhxpdchqz.supabase.co/storage/v1/object/public/trainerdex-images/assets/trainerdex-home.png">
-<link rel="stylesheet" href="style.css?v=43"><title>TrainerDex</title>
+<link rel="stylesheet" href="style.css?v=44"><title>TrainerDex</title>
 </head>
 <body>
 <div id="loginScreen" class="login-screen">
@@ -72,7 +72,7 @@
         <button class="btn primary" id="masterSavePassword" type="submit">Salvar nova senha</button>
       </form>
     </section>
-    <section class="card settings-help"><h2>Dados da campanha</h2><p>As alterações são salvas automaticamente. O indicador no rodapé mostra quando tudo foi salvo.</p><p>Se houver uma falha, use <strong>Tentar salvar novamente</strong> no indicador. Seus dados atuais permanecem na tela durante a tentativa.</p><div class="settings-version">TrainerDex v43</div></section>
+    <section class="card settings-help"><h2>Dados da campanha</h2><p>As alterações são salvas automaticamente. O indicador no rodapé mostra quando tudo foi salvo.</p><p>Se houver uma falha, use <strong>Tentar salvar novamente</strong> no indicador. Seus dados atuais permanecem na tela durante a tentativa.</p><div class="settings-version">TrainerDex v44</div></section>
   </div>
 </section>
 
@@ -92,7 +92,7 @@
         <button class="btn primary" id="playerSavePassword" type="submit">Salvar nova senha</button>
       </form>
     </section>
-    <section class="card settings-help"><h2>Seu acesso</h2><p>Informe a senha atual e confirme a nova senha. Aguarde a mensagem <strong>Senha alterada com sucesso</strong> antes de sair.</p><p>Se aparecer um erro, a troca não foi confirmada. Tente novamente; se necessário, recarregue a página e entre na sua conta.</p><div class="settings-version">TrainerDex v43</div></section>
+    <section class="card settings-help"><h2>Seu acesso</h2><p>Informe a senha atual e confirme a nova senha. Aguarde a mensagem <strong>Senha alterada com sucesso</strong> antes de sair.</p><p>Se aparecer um erro, a troca não foi confirmada. Tente novamente; se necessário, recarregue a página e entre na sua conta.</p><div class="settings-version">TrainerDex v44</div></section>
   </div>
 </section>
 
@@ -177,11 +177,13 @@
 <script src="supabase-store.js?v=43"></script>
 <script src="abilities-data.js?v=35"></script>
 <script src="account.js?v=43"></script>
-<script src="battle-actions.js?v=43"></script>
-<script src="app.js?v=43"></script>
+<script src="battle-actions.js?v=44"></script>
+<script src="move-attributes-data.js?v=44"></script>
+<script src="move-attributes.js?v=44"></script>
+<script src="app.js?v=44"></script>
 <script>
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js?v=43").catch((error) => {
+    navigator.serviceWorker.register("sw.js?v=44").catch((error) => {
       console.warn("TrainerDex: service worker não pôde ser registrado.", error);
     });
   }
