@@ -1137,7 +1137,7 @@ body.mobile-menu-open{overflow:hidden}
   #mobileNav .mobile-logout{margin-top:auto;margin-left:0;border-top:1px solid #ffffff20;border-radius:0;padding-top:20px;color:#ffb5b2}
   #movesGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .content .topbar{flex-wrap:wrap;align-items:flex-start}
-  .content .topbar>div:first-child{min-width:0;flex:1 1 280px}
+  .content .topbar>div:first-child{min-width:0;flex:1 1 auto}
   .content .topbar h1{font-size:24px;overflow-wrap:anywhere}
   .content .topbar p{font-size:14px;line-height:1.5}
   .content .top-actions{max-width:100%}
@@ -1175,3 +1175,14 @@ body.mobile-menu-open{overflow:hidden}
   .modal-head{top:-14px}
 }
 @media(prefers-reduced-motion:reduce){.mobile-menu{transition:none}}
+
+/* v43 — conta e feedback de ações */
+.password-visibility{display:flex;align-items:center;gap:9px;font-size:14px;cursor:pointer;min-height:44px}
+.password-visibility input{width:18px;height:18px;accent-color:var(--blue)}
+.account-status{margin:0;color:#247445;font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+.account-status:empty,.form-grid .login-error:empty{display:none}
+.input[aria-invalid="true"]{border-color:#c74242;box-shadow:0 0 0 2px rgba(199,66,66,.12)}
+.account-card .btn[type="submit"]{width:100%}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #78aef4;outline-offset:3px}
+.battle-attack-mini:disabled,.battle-attack-card:disabled{transform:none;box-shadow:none;opacity:.55;cursor:not-allowed}
+.battle-attack-mini .attack-pp-label{color:var(--muted);font-size:12px;font-weight:600}

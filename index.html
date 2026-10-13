@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
 <meta name="theme-color" content="#121922"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="description" content="TrainerDex - Mestre e Jogadores">
 <link rel="manifest" href="manifest.json"><link rel="icon" href="https://kytbkjigsapdhxpdchqz.supabase.co/storage/v1/object/public/trainerdex-images/assets/trainerdex-home.png">
-<link rel="stylesheet" href="style.css?v=42"><title>TrainerDex</title>
+<link rel="stylesheet" href="style.css?v=43"><title>TrainerDex</title>
 </head>
 <body>
 <div id="loginScreen" class="login-screen">
@@ -19,7 +19,7 @@
     </div>
     <div id="playerLogin" class="login-panel hidden">
       <div class="field"><label>Jogador</label><select class="select" id="playerSelect"></select></div>
-      <div class="field"><label>Senha</label><input class="input" id="playerPass" type="password" placeholder="Senha do jogador"></div>
+      <div class="field"><label for="playerPass">Senha</label><input class="input" id="playerPass" type="password" autocomplete="current-password" placeholder="Senha do jogador"></div>
       <button class="btn primary full" id="playerLoginBtn">Entrar como Jogador</button>
     </div>
     <p class="login-load-status" id="loginLoadStatus" aria-live="polite">Carregando a campanha…</p><button class="btn full hidden" id="retryLoadBtn">Tentar carregar novamente</button><div id="loginError" class="login-error" role="alert"></div>
@@ -62,14 +62,37 @@
     <section class="card">
       <div class="section-title"><div><h2>🔐 Alterar senha</h2><p>Usuário atual: <strong id="masterSettingsUser">mestre</strong></p></div></div>
       <form id="masterPasswordForm" class="form-grid" autocomplete="off">
-        <div class="field"><label>Senha atual</label><input class="input" id="masterCurrentPassword" type="password" autocomplete="current-password" required></div>
-        <div class="field"><label>Nova senha</label><input class="input" id="masterNewPassword" type="password" autocomplete="new-password" minlength="4" required></div>
-        <div class="field"><label>Confirmar nova senha</label><input class="input" id="masterConfirmPassword" type="password" autocomplete="new-password" minlength="4" required></div>
-        <div id="masterPasswordError" class="login-error"></div>
-        <button class="btn primary" type="submit">Salvar nova senha</button>
+        <div class="field"><label for="masterCurrentPassword">Senha atual</label><input class="input" id="masterCurrentPassword" type="password" autocomplete="current-password" required></div>
+        <div class="field"><label for="masterNewPassword">Nova senha</label><input class="input" id="masterNewPassword" type="password" autocomplete="new-password" minlength="8" maxlength="128" aria-describedby="masterPasswordHelp" required></div>
+        <div class="field"><label for="masterConfirmPassword">Confirmar nova senha</label><input class="input" id="masterConfirmPassword" type="password" autocomplete="new-password" minlength="8" maxlength="128" required></div>
+        <p class="field-help" id="masterPasswordHelp">Use de 8 a 128 caracteres. A alteração será confirmada após o salvamento no banco.</p>
+        <label class="password-visibility"><input type="checkbox" id="masterShowPassword"> Mostrar senhas</label>
+        <div id="masterPasswordError" class="login-error" role="alert"></div>
+        <p id="masterPasswordStatus" class="account-status" role="status" aria-live="polite"></p>
+        <button class="btn primary" id="masterSavePassword" type="submit">Salvar nova senha</button>
       </form>
     </section>
-    <section class="card settings-help"><h2>Dados da campanha</h2><p>As alterações são salvas automaticamente. O indicador no rodapé mostra quando tudo foi salvo.</p><p>Se houver uma falha, use <strong>Tentar salvar novamente</strong> no indicador. Seus dados atuais permanecem na tela durante a tentativa.</p><div class="settings-version">TrainerDex v42</div></section>
+    <section class="card settings-help"><h2>Dados da campanha</h2><p>As alterações são salvas automaticamente. O indicador no rodapé mostra quando tudo foi salvo.</p><p>Se houver uma falha, use <strong>Tentar salvar novamente</strong> no indicador. Seus dados atuais permanecem na tela durante a tentativa.</p><div class="settings-version">TrainerDex v43</div></section>
+  </div>
+</section>
+
+<section class="page" id="page-account">
+  <div class="topbar"><div><h1>Minha conta</h1><p>Atualize a senha do seu acesso à campanha.</p></div></div>
+  <div class="grid two">
+    <section class="card account-card">
+      <div class="section-title"><div><h2>🔐 Alterar minha senha</h2><p><strong id="playerAccountName"></strong> · <span id="playerAccountUser"></span></p></div></div>
+      <form id="playerPasswordForm" class="form-grid" autocomplete="off">
+        <div class="field"><label for="playerCurrentPassword">Senha atual</label><input class="input" id="playerCurrentPassword" type="password" autocomplete="current-password" required></div>
+        <div class="field"><label for="playerNewPassword">Nova senha</label><input class="input" id="playerNewPassword" type="password" autocomplete="new-password" minlength="8" maxlength="128" aria-describedby="playerPasswordHelp" required></div>
+        <div class="field"><label for="playerConfirmPassword">Confirmar nova senha</label><input class="input" id="playerConfirmPassword" type="password" autocomplete="new-password" minlength="8" maxlength="128" required></div>
+        <p class="field-help" id="playerPasswordHelp">Use de 8 a 128 caracteres. Você altera apenas a senha da sua conta.</p>
+        <label class="password-visibility"><input type="checkbox" id="playerShowPassword"> Mostrar senhas</label>
+        <div id="playerPasswordError" class="login-error" role="alert"></div>
+        <p id="playerPasswordStatus" class="account-status" role="status" aria-live="polite"></p>
+        <button class="btn primary" id="playerSavePassword" type="submit">Salvar nova senha</button>
+      </form>
+    </section>
+    <section class="card settings-help"><h2>Seu acesso</h2><p>Informe a senha atual e confirme a nova senha. Aguarde a mensagem <strong>Senha alterada com sucesso</strong> antes de sair.</p><p>Se aparecer um erro, a troca não foi confirmada. Tente novamente; se necessário, recarregue a página e entre na sua conta.</p><div class="settings-version">TrainerDex v43</div></section>
   </div>
 </section>
 
@@ -147,16 +170,18 @@
     </div>
   </div>
 </div>
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Detalhes e edição"><div class="modal-box" id="modalContent"></div></div><div class="toast" id="toast"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Detalhes e edição" aria-hidden="true"><div class="modal-box" id="modalContent" tabindex="-1"></div></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
 <!-- Dependências: Supabase → configuração → persistência → aplicação. -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js?v=34"></script>
-<script src="supabase-store.js?v=41"></script>
+<script src="supabase-store.js?v=43"></script>
 <script src="abilities-data.js?v=35"></script>
-<script src="app.js?v=42"></script>
+<script src="account.js?v=43"></script>
+<script src="battle-actions.js?v=43"></script>
+<script src="app.js?v=43"></script>
 <script>
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js?v=42").catch((error) => {
+    navigator.serviceWorker.register("sw.js?v=43").catch((error) => {
       console.warn("TrainerDex: service worker não pôde ser registrado.", error);
     });
   }

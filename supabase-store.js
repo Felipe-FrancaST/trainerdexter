@@ -16,8 +16,10 @@ let dbReady=false;
 let dbSaveChain=Promise.resolve();
 let dbSaveTimer=null;
 let dbChangeVersion=0;
+let dbSavedVersion=0;
 let dbSyncStatus='loading';
 const pendingImageRemovals=new Set();
+const pendingTrainerPasswordEdits=new Map();
 function setSyncStatus(status){
   dbSyncStatus=status;
   const labels={loading:'Carregando dados…',pending:'Alterações pendentes',saving:'Salvando…',saved:'Tudo salvo',error:'Não foi possível salvar',loaderror:'Não foi possível carregar os dados'};
@@ -64,7 +66,7 @@ async function savePersonalMovesToSupabase(t,a,data){
   return value;
 }
 function dbConfigured(){
-  if(dbConfiguredCache!==null)return dbConfiguredCache;
+  if(dbConfiguredCache===true)return true;
   dbConfiguredCache=!!(window.trainerdexSupabase&&window.TRAINERDEX_SUPABASE_CONFIG?.enabled);
   if(dbConfiguredCache) console.info("TrainerDex: Supabase configurado.");
   else console.warn("TrainerDex: Supabase não está configurado ou não foi carregado.");
@@ -175,26 +177,32 @@ function publicImageUrl(path){
 async function removePokemonStorageImage(image){
   if(!dbConfigured() || !image) return;
   const marker=`/storage/v1/object/public/${DB_BUCKET}/`;
-  const index=String(image).indexOf(marker);
-  if(index<0) return;
-  const path=decodeURIComponent(String(image).slice(index+marker.length));
+  let url;try{url=new URL(image);if(url.origin!==new URL(window.TRAINERDEX_SUPABASE_CONFIG.url).origin)return;}catch(error){return;}
+  if(!url.pathname.startsWith(marker))return;
+  const path=decodeURIComponent(url.pathname.slice(marker.length));
   if(!path.startsWith("pokemon/")) return;
   const {error}=await window.trainerdexSupabase.storage.from(DB_BUCKET).remove([path]);
-  if(error) console.warn("TrainerDex: não foi possível remover a imagem antiga:",error);
+  if(error) throw error;
 }
 async function uploadPendingPokemonImages(){
-  const list=Array.isArray(state.pokemonCatalog)?state.pokemonCatalog:[];
-  for(const p of list){
-    if(!p?._newImage) continue;
-    const blob=dataUrlToBlob(p._newImage);
+  // Revê a lista após cada upload: outra edição pode ocorrer enquanto a rede responde.
+  while(true){
+    const p=(state.pokemonCatalog||[]).find(item=>item?._newImage);
+    if(!p)break;
+    const image=p._newImage,blob=dataUrlToBlob(image);
     if(blob.size>8*1024*1024) throw new Error(`A imagem de ${p.nome||"Pokémon"} é maior que 8 MB.`);
-    const path=`pokemon/${encodeURIComponent(String(p.id))}/cover`;
+    const extension={'image/png':'png','image/jpeg':'jpg','image/webp':'webp','image/gif':'gif'}[blob.type];
+    if(!extension)throw new Error('Use uma imagem PNG, JPEG, WebP ou GIF.');
+    // Caminhos únicos impedem que o navegador continue exibindo a capa antiga.
+    const path=`pokemon/${encodeURIComponent(String(p.id))}/cover-${crypto.randomUUID()}.${extension}`;
     const {error}=await window.trainerdexSupabase.storage.from(DB_BUCKET).upload(path,blob,{
-      upsert:true,contentType:blob.type||"image/png",cacheControl:"3600"
+      upsert:false,contentType:blob.type,cacheControl:"3600"
     });
     if(error) throw error;
-    p.imagem=publicImageUrl(path);
-    delete p._newImage;
+    const url=publicImageUrl(path);
+    if(p._newImage===image&&(state.pokemonCatalog||[]).includes(p)){
+      p.imagem=url;delete p._newImage;
+    }else pendingImageRemovals.add(url);
   }
 }
 function save(){
@@ -204,40 +212,117 @@ function save(){
 }
 function queueDbSave(){
   if(!dbConfigured() || !dbReady) return;
-  const version=++dbChangeVersion;
+  ++dbChangeVersion;
   setSyncStatus('pending');
   clearTimeout(dbSaveTimer);
-  dbSaveTimer=setTimeout(()=>{
-    dbSaveChain=dbSaveChain.then(async()=>{
-      try{
-        setSyncStatus('saving');
-        await uploadPendingPokemonImages();
-        await saveMoveLibraryToSupabase(moves);
-        const catalog=Array.isArray(state.pokemonCatalog)&&state.pokemonCatalog.length
-          ? state.pokemonCatalog
-          : (Array.isArray(pokemons)&&pokemons.length ? pokemons : null);
-        if(!catalog){
-          console.warn("TrainerDex: sincronização geral ignorada porque o catálogo ainda não foi carregado.");
-          return;
-        }
-        await savePokemonCatalogToSupabase(catalog);
-        const snapshot=structuredClone(state);
-        const {error}=await window.trainerdexSupabase.rpc("trainerdex_save_state",{payload:snapshot});
-        if(error) throw error;
-        // Remove arquivos somente depois de a exclusão ter sido salva no banco.
-        for(const image of [...pendingImageRemovals]){
-          if(!pokemons.some(p=>p.imagem===image)){
-            try{await removePokemonStorageImage(image);}catch(error){console.warn('TrainerDex: limpeza de imagem pendente.',error);continue;}
-          }
-          pendingImageRemovals.delete(image);
-        }
-        setSyncStatus(version===dbChangeVersion?'saved':'pending');
-        console.info("TrainerDex: dados sincronizados com Supabase.");
-      }catch(error){
-        setSyncStatus('error');
-        console.error("Supabase: falha ao salvar dados:",error);
-        toast("Não foi possível sincronizar com o Supabase. Tente novamente.");
-      }
-    });
-  },300);
+  dbSaveTimer=setTimeout(()=>{dbSaveTimer=null;enqueuePendingDbSave();},300);
 }
+
+function enqueuePendingDbSave(){
+  const write=async()=>{
+    if(dbSavedVersion>=dbChangeVersion)return true;
+    try{
+      setSyncStatus('saving');
+      await uploadPendingPokemonImages();
+      const catalog=state.pokemonCatalog?.length?state.pokemonCatalog:pokemons;
+      if(!Array.isArray(catalog)||!catalog.length)throw new Error('Catálogo não carregado.');
+      // Os três RPCs recebem a mesma fotografia dos dados, mesmo com edições durante a rede.
+      const snapshot=structuredClone(state),moveSnapshot=structuredClone(moves),catalogSnapshot=structuredClone(catalog);
+      const originalPasswords=new Map(snapshot.trainers.map(t=>[t.id,t.password]));
+      const originalMasterPassword=snapshot.master?.pass;
+      const version=dbChangeVersion;
+      await saveMoveLibraryToSupabase(moveSnapshot);
+      await savePokemonCatalogToSupabase(catalogSnapshot);
+      // Uma aba antiga não deve desfazer a troca de senha feita em outra conta/aba.
+      // Apenas uma redefinição explícita pelo Mestre pode substituir a senha remota.
+      const {data:remote,error:readError}=await window.trainerdexSupabase.rpc('trainerdex_load_state');
+      if(readError)throw readError;
+      if(!remote||typeof remote!=='object'||!Array.isArray(remote.trainers))throw new Error('Resposta de campanha inválida.');
+      if(typeof remote.master?.pass==='string')snapshot.master.pass=remote.master.pass;
+      for(const trainer of snapshot.trainers){
+        const latest=remote.trainers.find(t=>t.id===trainer.id);
+        if(typeof latest?.password==='string'&&pendingTrainerPasswordEdits.get(trainer.id)!==trainer.password)trainer.password=latest.password;
+      }
+      const {error}=await window.trainerdexSupabase.rpc('trainerdex_save_state',{payload:snapshot});
+      if(error)throw error;
+      if(state.master.pass===originalMasterPassword)state.master.pass=snapshot.master.pass;
+      for(const trainer of snapshot.trainers){
+        const live=state.trainers.find(t=>t.id===trainer.id);
+        if(live?.password===originalPasswords.get(trainer.id))live.password=trainer.password;
+        if(pendingTrainerPasswordEdits.get(trainer.id)===trainer.password)pendingTrainerPasswordEdits.delete(trainer.id);
+      }
+      dbSavedVersion=version;
+      for(const image of [...pendingImageRemovals]){
+        if(catalogSnapshot.some(p=>p.imagem===image)||pokemons.some(p=>p.imagem===image))continue;
+        try{await removePokemonStorageImage(image);pendingImageRemovals.delete(image);}
+        catch(error){console.warn('TrainerDex: limpeza de imagem pendente.',error);}
+      }
+      setSyncStatus(dbSavedVersion===dbChangeVersion?'saved':'pending');
+      return true;
+    }catch(error){
+      setSyncStatus('error');
+      console.error('Supabase: falha ao salvar dados:',error);
+      toast('Não foi possível sincronizar com o Supabase. Tente novamente.');
+      throw error;
+    }
+  };
+  // A rejeição continua disponível para quem aguarda a gravação; a fila pode ser retomada.
+  dbSaveChain=dbSaveChain.then(write,write);
+  dbSaveChain.catch(()=>{});
+  return dbSaveChain;
+}
+
+function flushDbSave(){
+  if(!dbConfigured()||!dbReady)return Promise.reject(new Error('Banco não disponível.'));
+  clearTimeout(dbSaveTimer);dbSaveTimer=null;
+  return enqueuePendingDbSave();
+}
+
+async function changeAccountPassword(role,trainerId,current,next){
+  const fail=message=>Object.assign(new Error(message),{userMessage:message});
+  if(session?.role!==role||(role==='player'&&session.trainerId!==trainerId)||!['master','player'].includes(role)){
+    throw fail('Entre na sua conta para alterar a senha.');
+  }
+  if(typeof next!=='string'||next.length<8||next.length>128||!next.trim()||next===current){
+    throw fail('Escolha uma nova senha de 8 a 128 caracteres, diferente da atual.');
+  }
+  await flushDbSave();
+  const write=async()=>{
+    if(session?.role!==role||(role==='player'&&session.trainerId!==trainerId))throw fail('Entre novamente para alterar a senha.');
+    const local=role==='master'?state.master:state.trainers.find(t=>t.id===trainerId);
+    const field=role==='master'?'pass':'password';
+    if(!local||local[field]!==current)throw fail('A senha atual está incorreta.');
+    setSyncStatus('saving');
+    try{
+      // Atualiza somente a credencial no estado mais recente que o banco retornou.
+      const {data,error:loadError}=await window.trainerdexSupabase.rpc('trainerdex_load_state');
+      if(loadError)throw loadError;
+      if(!data||typeof data!=='object')throw new Error('Resposta de campanha inválida.');
+      const snapshot=structuredClone(data);
+      const target=role==='master'?snapshot.master:snapshot.trainers?.find(t=>t.id===trainerId);
+      if(!target||target[field]!==current)throw fail('A senha atual no banco é diferente. Recarregue a página e entre novamente.');
+      target[field]=next;
+      if(role==='master')snapshot.masterPasswordVersion=1;
+      const {error}=await window.trainerdexSupabase.rpc('trainerdex_save_state',{payload:snapshot});
+      if(error)throw error;
+      // Uma falha não muda a senha local nem deixa uma nova senha pendente na fila.
+      local[field]=next;
+      if(role==='master')state.masterPasswordVersion=1;
+      setSyncStatus(dbSavedVersion===dbChangeVersion?'saved':'pending');
+      return true;
+    }catch(error){setSyncStatus('error');throw error;}
+  };
+  dbSaveChain=dbSaveChain.then(write,write);
+  dbSaveChain.catch(()=>{});
+  return dbSaveChain;
+}
+
+window.addEventListener('beforeunload',event=>{
+  if(dbReady&&(dbChangeVersion>dbSavedVersion||dbSyncStatus==='saving')){
+    event.preventDefault();event.returnValue='';
+  }
+});
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState==='hidden'&&dbReady&&dbChangeVersion>dbSavedVersion)flushDbSave().catch(()=>{});
+});
+window.addEventListener('online',()=>{if(dbReady&&dbSyncStatus==='error')flushDbSave().catch(()=>{});});

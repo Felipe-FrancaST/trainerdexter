@@ -1,50 +1,67 @@
-# TrainerDex v42
+# TrainerDex v43
 
-Última atualização: cadastro de ataques pelo Mestre e menu lateral no celular. Consulte `CHANGELOG_MOBILE_ATAQUES_V42.md`.
+Site estático para administrar uma campanha Pokémon, jogadores, Time/PC, Pokédex, ataques, notas e batalhas. Os dados e imagens continuam usando o Supabase já configurado em `supabase-config.js`.
 
-## SR, CA e Vida por Dado (v24)
+## Atualizar um site existente
 
-Alterações desta versão:
-- Cada Pokémon possui **SR (raridade)** e **CA** editáveis pelo Mestre.
-- Cada Pokémon possui **Dado de Vida** editável (d4, d6, d8, d10, d12 ou d20).
-- A **Vida padrão** é definida para o nível 1.
-- Vida máxima: `Vida do nível 1 + (nível - 1) × valor máximo do Dado de Vida`.
-- Exemplo: Vida 40 + d10 → nível 1 = 40 HP, nível 2 = 50 HP, nível 3 = 60 HP.
-- Ao subir de nível, o HP máximo aumenta automaticamente e o HP atual recebe o mesmo aumento, mantendo o dano já sofrido.
-- NPCs também usam automaticamente a vida calculada pelo nível e dado de vida.
-- Mantidos os sistemas anteriores de habilidades, ataques, capturas, evolução e batalha.
+1. Extraia o ZIP e substitua os arquivos da hospedagem pelos arquivos da pasta `app/`. Inclua os novos `account.js` e `battle-actions.js`.
+2. Mantenha a configuração do seu projeto Supabase em `supabase-config.js`.
+3. No computador, recarregue com **Ctrl+Shift+R**. No celular, feche e abra novamente o site; se necessário, limpe o cache do site.
+4. Entre como jogador e abra **Minha conta → Alterar minha senha**. Informe a senha atual, uma nova senha de 8 a 128 caracteres e a confirmação. Aguarde **Senha alterada com sucesso**.
 
+A v43 usa os RPCs e campos de campanha/encontro que o site já utiliza. Não exige uma nova tabela para a troca de senha. As configurações opcionais de ensino de ataques e bônus global continuam dependendo das tabelas instaladas anteriormente.
 
-## Organização do código
+**Esta entrega é uma atualização do site existente.** O ZIP enviado não continha os SQLs antigos citados nos changelogs. Esses arquivos históricos não foram inventados ou substituídos; para instalar um banco novo, será necessário obter o esquema e os RPCs da instalação original.
 
-- `index.html` — estrutura das telas e pontos de montagem da interface.
-- `style.css` — estilos responsivos da aplicação.
-- `app.js` — interface, regras da campanha, Pokédex e batalha.
-- `supabase-store.js` — persistência, fila de salvamento e Storage do Supabase.
-- `supabase-config.js` — configuração do cliente Supabase.
-- `sw.js` — cache dos arquivos estáticos do aplicativo.
+## Mudanças principais
 
-A separação da camada de persistência evita que a lógica de banco fique misturada com a interface e facilita futuras alterações no armazenamento.
+- Cabeçalhos no celular sem o grande espaço vazio causado pela base flexível fixa; imagens da Pokédex carregam sob demanda.
+- Área **Minha conta**, com acesso pelo painel inicial e menus de desktop/celular.
+- Senha do jogador e do Mestre confirmada após a resposta do banco; formulário bloqueado durante a operação e confirmação duplicada evitada.
+- Validação de senha atual, confirmação, tamanho, senha repetida e senha formada apenas por espaços. As senhas antigas continuam sendo aceitas no login.
+- Salvamento com uma fotografia consistente dos dados, tentativa após erro, envio das alterações ao sair e indicação de pendências.
+- Ataque clicado fica selecionado; PP é descontado e ataques sem PP são bloqueados. PP fica separado por combatente/Pokémon **durante a batalha** e é armazenado no JSON de ataques do encontro já existente. Uma batalha nova inicia um novo controle de PP.
+- Turnos pulam NPCs sem vida e jogadores sem nenhum Pokémon vivo; jogadores com uma reserva viva podem substituir o Pokémon nocauteado.
+- Pokémon excluído não reaparece por causa de um catálogo antigo no estado da campanha.
+- Uploads de imagem não perdem uma edição feita durante o envio; novas URLs evitam mostrar a capa antiga do cache.
+- Escape de conteúdo em fichas, validação de URLs de imagem, janela com foco contido e cache restrito aos arquivos estáticos conhecidos.
 
-## Armazenamento
-Esta versão usa exclusivamente o Supabase para catálogo, ataques, campanha e imagens. Não depende de data/ ou img/.
+Consulte `CHANGELOG_V43.md` para detalhes e limites da revisão.
 
-## Atualização v40 — Jogadores e ensino de ataques
+## Arquivos de execução
 
-O Mestre pode ensinar, excluir e restaurar ataques individuais em **Jogadores → Pokémon → Ensinar**. A ficha do jogador e a batalha respeitam essas escolhas. A aba Jogadores também ganhou pesquisa, filtros, HP nos cartões e PC recolhível.
+| Arquivo | Responsabilidade |
+| --- | --- |
+| `index.html` | Telas e campos da interface |
+| `style.css` | Aparência e adaptação às telas menores |
+| `app.js` | Navegação, catálogo, campanha, Time/PC e batalha |
+| `account.js` | Formulários de senha do Mestre e jogador |
+| `battle-actions.js` | Seleção de ataque, validação do turno e PP |
+| `supabase-store.js` | Leitura, fila de salvamento e imagens |
+| `supabase-config.js` | URL e chave pública do projeto |
+| `abilities-data.js` | Referência de habilidades |
+| `sw.js` / `manifest.json` | Cache estático e instalação do aplicativo |
 
-**Antes de usar o ensino**, execute `ENSINAR_ATAQUES_SETUP.sql` no SQL Editor do seu Supabase. Consulte `CHANGELOG_JOGADORES_V40.md` para instalação e detalhes.
+Não é necessário instalar dependências para hospedar o site. `package.json`, `package-lock.json` e `tests/` servem somente para as verificações locais e não precisam ser publicados.
 
-## Atualização v41 — revisão geral
+## Verificação local
 
-Veja `CHANGELOG_REVISAO_V41.md` para as correções em Pokédex, Ataques, captura, evolução, HP/PP, imagens, Time/PC, Notas, login e salvamento. O indicador no rodapé confirma quando as alterações chegaram ao banco. A v41 mantém o ensino individual da v40.
+Com Node.js 20 ou mais recente, execute na pasta `app/`:
 
-O arquivo `GLOBAL_PROFICIENCY_SETUP.sql` agora acompanha o projeto; ele só é necessário se o bônus global ainda não estiver configurado.
+```sh
+npm ci
+npm run check
+npm test
+```
 
-## Atualização v42 — ataques e celular
+Os testes usam DOM e Supabase simulados e não acessam o banco da campanha.
 
-Em **Ataques → + Novo ataque**, o Mestre informa nome, nome original opcional, tipo, PP e descrição. O novo ataque fica disponível para as fichas e para **Jogadores → Pokémon → Ensinar**. Nomes repetidos são recusados; PP deve ser inteiro e pode ser zero. A biblioteca usa o salvamento existente, sem SQL adicional para o cadastro.
+## Limites de segurança e concorrência
 
-Em telas de até 900 px, o botão ☰ abre um menu lateral com ícones, nomes das abas e indicação da aba atual. O menu respeita o acesso do Mestre/jogador e pode ser fechado pela navegação, pelo fundo, pelo botão Fechar ou pela tecla Escape. Os formulários, os cartões e as janelas foram ajustados para telas pequenas.
+O projeto recebido valida o login no navegador e retorna senhas dentro do estado da campanha. Esta atualização mantém esse modelo por compatibilidade e **não o transforma em autenticação de servidor**. Ocultar abas, mascarar campos e pedir a senha atual são controles da interface; não impedem uma pessoa com acesso às APIs de contornar o frontend.
 
-Publique todos os arquivos da pasta `app` e recarregue a página. O cache estático foi atualizado para a v42. Aguarde o indicador **Tudo salvo** antes de fechar a página após alterações.
+A proteção de produção exige migrar as contas para [Supabase Auth](https://supabase.com/docs/guides/auth/passwords), retirar senhas do estado público e revisar as permissões dos RPCs, tabelas e Storage com [RLS](https://supabase.com/docs/guides/database/postgres/row-level-security). A troca de senha de usuários desse modelo usa [Auth updateUser](https://supabase.com/docs/reference/javascript/auth-updateuser). A chave pública do frontend não substitui essas permissões.
+
+A fila corrigida evita inconsistências dentro de uma aba. O RPC geral ainda salva a campanha inteira, em chamadas separadas para biblioteca, catálogo e estado. Portanto, gravações simultâneas de abas/pessoas diferentes ainda podem sobrescrever dados; resolver isso exige transações/revisões e autorização no servidor. A troca de senha consulta o estado atual antes de gravar, mas a leitura e a gravação ainda são chamadas separadas.
+
+O banco real, seu esquema, as políticas e a hospedagem não foram alterados ou validados nesta revisão. Uma resposta perdida após uma gravação de senha pode deixar a troca sem confirmação no navegador; nesse caso, recarregue e confira o acesso.
