@@ -1218,3 +1218,9 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .type-picker .type-choice:has(input:checked)::before{content:'✓';font-size:15px;margin-right:5px}
 .type-picker .type-choice:has(input:checked) span{text-shadow:none!important}
 .type-picker .type-choice:focus-within{outline:3px solid #67a9f0;outline-offset:2px}
+
+/* v47: os espaços vazios são ações clicáveis e acessíveis */
+button.trainer-empty-slot{width:100%;font:inherit;cursor:pointer;transition:border-color .18s,background .18s,transform .18s;}
+button.trainer-empty-slot:hover{border-color:#3284df;background:#eaf3ff;color:#185a9e;transform:translateY(-2px)}
+button.trainer-empty-slot:focus-visible{outline:3px solid #3185dc;outline-offset:3px}
+button.trainer-empty-slot:active{transform:translateY(0)}
