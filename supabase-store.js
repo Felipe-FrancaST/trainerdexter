@@ -205,6 +205,53 @@ async function uploadPendingPokemonImages(){
     }else pendingImageRemovals.add(url);
   }
 }
+// Atualização entre dispositivos: consulta incremental sem sobrescrever edições locais.
+// Funciona mesmo quando a publicação do Supabase não inclui Realtime.
+let remoteSyncTimer=null, remoteSyncBusy=false, remoteStateFingerprint='';
+function campaignFingerprint(value){return JSON.stringify(value||{});}
+function canApplyRemoteUpdate(){
+  if(!dbReady||!dbConfigured()||document.hidden||dbSyncStatus==='saving'||dbSyncStatus==='pending'||dbSyncStatus==='error'||dbSavedVersion<dbChangeVersion)return false;
+  if(document.querySelector('#modal.open'))return false;
+  const active=document.activeElement;
+  if(active&&/^(INPUT|TEXTAREA|SELECT)$/.test(active.tagName)&&!active.closest('#loginScreen'))return false;
+  return true;
+}
+async function refreshRemoteCampaign(){
+  if(remoteSyncBusy||!canApplyRemoteUpdate())return;
+  remoteSyncBusy=true;
+  try{
+    const {data,error}=await window.trainerdexSupabase.rpc('trainerdex_load_state');
+    if(error)throw error;
+    if(!data||typeof data!=='object'||!Array.isArray(data.trainers))return;
+    const fingerprint=campaignFingerprint(data);
+    if(!remoteStateFingerprint){remoteStateFingerprint=fingerprint;return;}
+    if(fingerprint===remoteStateFingerprint)return;
+    // Revalidar depois da resposta de rede, antes de modificar a interface.
+    if(!canApplyRemoteUpdate())return;
+    const preservedCatalog=state.pokemonCatalog;
+    const preservedProficiency=state.globalProficiency;
+    Object.keys(state).forEach(key=>delete state[key]);
+    Object.assign(state,data);
+    state.pokemonCatalog=preservedCatalog;
+    state.globalProficiency=preservedProficiency;
+    remoteStateFingerprint=fingerprint;
+    if(typeof renderAll==='function'&&session){
+      if(session.role==='player'&&!state.trainers.some(t=>t.id===session.trainerId)){
+        if(typeof logout==='function')logout();
+      }else{
+        renderAll();
+        if(typeof setupNav==='function')setupNav();
+      }
+    }else if(typeof loginUI==='function')loginUI();
+  }catch(error){console.warn('TrainerDex: consulta de atualizações adiada.',error);}
+  finally{remoteSyncBusy=false;}
+}
+function startRemoteCampaignSync(){
+  clearInterval(remoteSyncTimer);
+  remoteSyncTimer=setInterval(refreshRemoteCampaign,12000);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshRemoteCampaign();});
+  window.addEventListener('focus',refreshRemoteCampaign);
+}
 function save(){
   // Compatibilidade com o restante da aplicação: o armazenamento agora é somente Supabase.
   // A sincronização é enfileirada para evitar gravações concorrentes.
@@ -252,6 +299,7 @@ function enqueuePendingDbSave(){
         if(pendingTrainerPasswordEdits.get(trainer.id)===trainer.password)pendingTrainerPasswordEdits.delete(trainer.id);
       }
       dbSavedVersion=version;
+      remoteStateFingerprint=campaignFingerprint(snapshot);
       for(const image of [...pendingImageRemovals]){
         if(catalogSnapshot.some(p=>p.imagem===image)||pokemons.some(p=>p.imagem===image))continue;
         try{await removePokemonStorageImage(image);pendingImageRemovals.delete(image);}
