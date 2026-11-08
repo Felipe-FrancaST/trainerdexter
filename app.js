@@ -431,11 +431,60 @@ function openPokemon(id){
  if(isMaster())openPokemonMaster(p); else openPokemonPlayer(p);
 }
 function personalMoveKey(a){return String(a?.moveId||moveKey(a?.nomeOriginal||a?.nome));}
-function assignmentAttacks(p,a){
+function assignmentAttacks(p,a,includePending=false){
  const level=Math.max(1,Number(a?.level)||1),data=normalizePersonalMoves(a?.personalMoves),excluded=new Set(data.excludedMoves),list=new Map();
  (p?.ataques||[]).filter(m=>Number(m.nivel)<=level).forEach(m=>list.set(personalMoveKey(m),{...m}));
  data.learnedMoves.filter(m=>m.nivel<=level).forEach(ref=>{const m=moveById(ref.moveId);if(m)list.set(String(m.id),{...ref,nome:m.nome,nomeOriginal:m.nomeOriginal,tipo:m.tipo,pp:Number(m.pp)||0,ppMax:Number(m.pp)||0,ppAtual:Number(m.pp)||0,descricao:moveDescription(m),personal:true})});
- return [...list.entries()].filter(([key])=>!excluded.has(key)).map(([,m])=>({...m,atributo:moveAttributeValue(m)})).sort((x,y)=>Number(x.nivel)-Number(y.nivel));
+ const available=[...list.entries()].filter(([key])=>!excluded.has(key)).map(([,m])=>({...m,atributo:moveAttributeValue(m)})).sort((x,y)=>Number(x.nivel)-Number(y.nivel));
+ return includePending?available:available.slice(0,4);
+}
+// Um Pokémon usa no máximo quatro ataques. Os demais aguardam decisão do jogador.
+// A decisão fica no registro individual de ataques do Supabase.
+let moveChoiceBusy=false;
+function pendingTeamMove(){
+ const t=me();if(!t||isMaster())return null;
+ for(const a of t.team||[]){
+  const p=pokemonById(a.pokemonId);if(!p)continue;
+  const available=assignmentAttacks(p,a,true);
+  if(available.length>4)return {t,a,p,current:available.slice(0,4),incoming:available[4]};
+ }
+ return null;
+}
+function checkPendingTeamMoves(){
+ if(isMaster()||moveChoiceBusy||!$('#page-team')?.classList.contains('active')||$('#modal')?.classList.contains('open')||window.__evolutionAnimating)return;
+ const pending=pendingTeamMove();if(!pending)return;
+ const {t,a,p,current,incoming}=pending;
+ const newKey=personalMoveKey(incoming);
+ moveChoiceBusy=true;
+ $('#modalContent').innerHTML=`<div class="modal-head"><div><h2>✨ Novo ataque disponível!</h2><p class="muted">${esc(p.nome)} • Nível ${a.level||1}</p></div></div>
+ <div class="teach-context"><img src="${esc(imageUrl(p.imagem))}" alt=""><p><strong>${esc(p.nome)}</strong> pode aprender <strong>${esc(incoming.nome||incoming.nomeOriginal)}</strong>, mas já conhece quatro ataques. Escolha um para esquecer ou mantenha os atuais.</p></div>
+ <div class="teach-move-preview"><strong>${esc(incoming.nome||incoming.nomeOriginal)}</strong><div class="tags">${incoming.tipo?typeTags(incoming.tipo):''}<span class="tag">PP ${Number(incoming.pp)||0}</span><span class="tag">Nv. ${Number(incoming.nivel)||1}</span></div><p>${esc(incoming.descricao||'Novo ataque aprendido por nível.')}</p></div>
+ <h3>Qual ataque deseja esquecer?</h3><div class="personal-attack-list">${current.map((m,i)=>`<button type="button" class="btn full move-replace-choice" data-replace-index="${i}">Esquecer ${esc(m.nome||m.nomeOriginal)} (PP ${Number(m.pp)||0})</button>`).join('')}</div>
+ <button type="button" class="btn full" id="keepCurrentMoves">Não aprender ${esc(incoming.nome||incoming.nomeOriginal)}</button>
+ <p class="muted" id="moveChoiceStatus">${personalMovesReady?'Sua escolha será salva para este Pokémon.':'O salvamento de ataques individuais precisa estar configurado no Supabase.'}</p>`;
+ showModal();
+ const commit=async forgotten=>{
+  if(!personalMovesReady){toast('O armazenamento de ataques individuais precisa estar configurado no Supabase.');return;}
+  if(!$('#moveChoiceStatus'))return;
+  $$('#modalContent button').forEach(b=>b.disabled=true);
+  $('#moveChoiceStatus').textContent='Salvando escolha…';
+  const data=normalizePersonalMoves(a.personalMoves);
+  data.excludedMoves=[...new Set([...data.excludedMoves,personalMoveKey(forgotten||incoming)])];
+  try{
+   await savePersonalMovesToSupabase(t,a,data);
+   save();closeModal();renderTeam();renderPC();renderDex();renderBattleAll();
+   toast(forgotten?`${p.nome} aprendeu ${incoming.nome||incoming.nomeOriginal}!`:`${p.nome} manteve seus ataques atuais.`);
+  }catch(error){
+   console.error('Erro ao salvar escolha de ataque:',error);
+   $('#moveChoiceStatus').textContent='Não foi possível salvar. Tente novamente.';
+   $$('#modalContent button').forEach(b=>b.disabled=false);
+   return;
+  }
+  moveChoiceBusy=false;
+  setTimeout(checkPendingTeamMoves,150);
+ };
+ $$('[data-replace-index]').forEach(b=>b.onclick=()=>commit(current[Number(b.dataset.replaceIndex)]));
+ $('#keepCurrentMoves').onclick=()=>commit(null);
 }
 function attacksHtml(p,level=null,assignment=null){
  const attacks=assignment?assignmentAttacks(p,assignment):(p.ataques||[]).filter(a=>level==null||Number(a.nivel)<=Number(level));
@@ -784,7 +833,7 @@ function renderStorage(location){
  $(`#${location}Intro`).textContent=location==='team'?`${source.length}/6 no time • ${t.pc.length} no PC. Toque em um Pokémon para abrir sua ficha.`:`${source.length} Pokémon no PC. Toque em um Pokémon para gerenciar o envio ao time.`;
  const count=$(`#${location}CollectionCount`);if(count)count.textContent=`${list.length} de ${entries.length} Pokémon`;
 }
-function renderTeam(){renderStorage('team')}
+function renderTeam(){renderStorage('team');if(!isMaster())setTimeout(checkPendingTeamMoves,200)}
 function renderPC(){renderStorage('pc')}
 ['team','pc'].forEach(location=>{$(`#${location}CollectionSearch`).oninput=()=>renderStorage(location);$(`#${location}CollectionFilter`).onchange=()=>renderStorage(location)});
 function ensureEvolutionOverlay(){
@@ -837,6 +886,7 @@ function showModal(){
  ($('#modalContent input:not([type="hidden"]):not([type="checkbox"]), #modalContent select, #modalContent textarea, #modalContent [data-close]')||$('#modalContent')).focus();
 }
 function closeModal(){
+ if(moveChoiceBusy)moveChoiceBusy=false;
  clearTimeout(window.__noteTimer);$('#modal').classList.remove('open');$('#modal').setAttribute('aria-hidden','true');
  $('#app').removeAttribute('inert');document.body.classList.remove('modal-open');
  if(modalReturnFocus?.isConnected)modalReturnFocus.focus?.();modalReturnFocus=null;
@@ -998,7 +1048,7 @@ function nav(page){
  $$("[data-page]").forEach(x=>{x.classList.toggle("active",x.dataset.page===page);if(x.dataset.page===page)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current')});
  $('#mobilePageTitle').textContent=$(`#page-${page} h1`)?.textContent||'Campanha';
  history.replaceState(null,"","#"+page);
- if(page==="team"&&!isMaster())setTimeout(playNextEvolution,180);
+ if(page==="team"&&!isMaster()){setTimeout(playNextEvolution,180);setTimeout(checkPendingTeamMoves,650);}
  if(page==="encounter")setTimeout(renderBattleAll,0);
 }
 function openBattleStart(){
