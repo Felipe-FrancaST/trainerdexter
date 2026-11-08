@@ -12,7 +12,7 @@ state.moveDescriptions??={};
 state.moveOverrides??={};
 let pokemons=[], moves=[], session=null,appReady=false;
 // Preferência local de acesso: a campanha continua no Supabase, sem armazenar senhas.
-const ACCESS_SESSION_KEY='trainerdex-access-v47';
+const ACCESS_SESSION_KEY='trainerdex-access-v47'; // Mantém sessões existentes da v47
 function rememberAccess(){try{if(session)localStorage.setItem(ACCESS_SESSION_KEY,JSON.stringify(session));}catch(error){console.warn('Não foi possível lembrar o acesso',error)}}
 function forgetAccess(){try{localStorage.removeItem(ACCESS_SESSION_KEY)}catch(error){}}
 function restoreAccess(){
@@ -1223,6 +1223,6 @@ async function init(){
   dbReady=false;setSyncStatus('loaderror');$('#loginLoadStatus').textContent='Não foi possível carregar a campanha. Verifique a conexão e tente novamente.';$('#retryLoadBtn').classList.remove('hidden');
   console.error("TrainerDex: falha na inicialização",e);
   toast("Não foi possível carregar a Pokédex. Verifique a conexão com o Supabase.");
- }finally{initializationBusy=false;}
+ }finally{initializationBusy=false;document.documentElement.classList.remove('trainerdex-booting');}
 }
-init().catch(e=>{console.error(e);toast("Não foi possível carregar a Pokédex.")});
+init().catch(e=>{document.documentElement.classList.remove('trainerdex-booting');console.error(e);toast("Não foi possível carregar a Pokédex.")});
