@@ -1224,3 +1224,16 @@ button.trainer-empty-slot{width:100%;font:inherit;cursor:pointer;transition:bord
 button.trainer-empty-slot:hover{border-color:#3284df;background:#eaf3ff;color:#185a9e;transform:translateY(-2px)}
 button.trainer-empty-slot:focus-visible{outline:3px solid #3185dc;outline-offset:3px}
 button.trainer-empty-slot:active{transform:translateY(0)}
+
+
+/* v50: evolução — imagem original, transição totalmente branca, imagem evoluída */
+.evolution-old h2{color:#273c52;font-size:clamp(21px,4vw,30px);margin:0;font-weight:850}
+.evolution-overlay.flash .evolution-old{opacity:0}
+.evolution-overlay.flash .evolution-flash{background:#fff;opacity:1;animation:none}
+.evolution-overlay.show-new .evolution-flash{opacity:0}
+.evolution-overlay.show-new .evolution-new{z-index:2}
+@media(prefers-reduced-motion:reduce){
+ .evolution-overlay.show-old .evolution-old,
+ .evolution-overlay.show-new .evolution-new,
+ .evolution-overlay.show-new .evolution-glow{animation-duration:.1s}
+}

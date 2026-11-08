@@ -1,9 +1,9 @@
-const CACHE = 'trainerdex-v49';
+const CACHE = 'trainerdex-v50';
 const CORE_ASSETS = [
-  './', './index.html', './style.css?v=49', './app.js?v=49',
-  './account.js?v=49', './battle-actions.js?v=49', './abilities-data.js?v=49',
-  './move-attributes-data.js?v=49', './move-attributes.js?v=49',
-  './supabase-store.js?v=49', './supabase-config.js?v=49', './manifest.json',
+  './', './index.html', './style.css?v=50', './app.js?v=50',
+  './account.js?v=50', './battle-actions.js?v=50', './abilities-data.js?v=50',
+  './move-attributes-data.js?v=50', './move-attributes.js?v=50',
+  './supabase-store.js?v=50', './supabase-config.js?v=50', './manifest.json',
 ];
 const ASSET_URLS = new Set(CORE_ASSETS.map(path => new URL(path, self.registration.scope).href));
 

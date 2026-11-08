@@ -833,32 +833,64 @@ function renderStorage(location){
  $(`#${location}Intro`).textContent=location==='team'?`${source.length}/6 no time • ${t.pc.length} no PC. Toque em um Pokémon para abrir sua ficha.`:`${source.length} Pokémon no PC. Toque em um Pokémon para gerenciar o envio ao time.`;
  const count=$(`#${location}CollectionCount`);if(count)count.textContent=`${list.length} de ${entries.length} Pokémon`;
 }
-function renderTeam(){renderStorage('team');if(!isMaster())setTimeout(checkPendingTeamMoves,200)}
+function renderTeam(){renderStorage('team');if(!isMaster())setTimeout(()=>{if(!me()?.pendingEvolutionEvents?.some(e=>!e.consumed))checkPendingTeamMoves()},200)}
 function renderPC(){renderStorage('pc')}
 ['team','pc'].forEach(location=>{$(`#${location}CollectionSearch`).oninput=()=>renderStorage(location);$(`#${location}CollectionFilter`).onchange=()=>renderStorage(location)});
 function ensureEvolutionOverlay(){
  let overlay=$("#evolutionOverlay");
- if(overlay) return overlay;
- // Compatibilidade com versões antigas/cache do navegador: cria a camada caso o HTML antigo ainda esteja carregado.
- document.body.insertAdjacentHTML("beforeend",`<div class="evolution-overlay hidden" id="evolutionOverlay" aria-hidden="true"><div class="evolution-stage"><div class="evolution-glow"></div><div class="evolution-old"><img id="evolutionOldImage" src="" alt="Pokémon antes da evolução"><p id="evolutionOldName"></p></div><div class="evolution-flash"></div><div class="evolution-new"><img id="evolutionNewImage" src="" alt="Pokémon evoluído"><p>✨ Evolução concluída!</p><h2 id="evolutionNewName"></h2></div></div></div>`);
+ if(overlay)return overlay;
+ document.body.insertAdjacentHTML("beforeend",`<div class="evolution-overlay hidden" id="evolutionOverlay" role="dialog" aria-modal="true" aria-label="Evolução do Pokémon" aria-hidden="true"><div class="evolution-stage"><div class="evolution-glow"></div><div class="evolution-old"><img id="evolutionOldImage" alt="Pokémon antes da evolução"><p id="evolutionOldName"></p><h2>Está evoluindo!</h2></div><div class="evolution-flash"></div><div class="evolution-new"><img id="evolutionNewImage" alt="Pokémon evoluído"><p>✨ Evolução concluída!</p><h2 id="evolutionNewName"></h2></div></div></div>`);
  return $("#evolutionOverlay");
 }
-function cancelEvolutionAnimation(){(window.__evolutionTimers||[]).forEach(clearTimeout);window.__evolutionTimers=[];window.__evolutionAnimating=false;const overlay=$('#evolutionOverlay');if(overlay){overlay.classList.add('hidden');overlay.classList.remove('show-old','flash','show-new','fade-out');overlay.setAttribute('aria-hidden','true')}}
-function evolutionTimeout(callback,delay){window.__evolutionTimers??=[];window.__evolutionTimers.push(setTimeout(callback,delay));}
+function cancelEvolutionAnimation(){
+ (window.__evolutionTimers||[]).forEach(clearTimeout);
+ window.__evolutionTimers=[];
+ window.__evolutionAnimating=false;
+ const overlay=$("#evolutionOverlay");
+ if(overlay){overlay.classList.add("hidden");overlay.classList.remove("show-old","flash","show-new","fade-out");overlay.setAttribute("aria-hidden","true");}
+}
+function evolutionTimeout(callback,delay){
+ window.__evolutionTimers??=[];
+ window.__evolutionTimers.push(setTimeout(callback,delay));
+}
 function playNextEvolution(){
- if(window.__evolutionAnimating||isMaster())return;
- const t=me();const event=t?.pendingEvolutionEvents?.find(e=>!e.consumed);if(!event)return;
- const oldP=pokemonById(event.oldPokemonId),newP=pokemonById(event.newPokemonId);if(!oldP||!newP){event.consumed=true;save();return playNextEvolution()}
+ if(window.__evolutionAnimating||isMaster()||!$("#page-team")?.classList.contains("active"))return;
+ const t=me(),event=t?.pendingEvolutionEvents?.find(e=>!e.consumed);
+ if(!event)return;
+ const oldP=pokemonById(event.oldPokemonId),newP=pokemonById(event.newPokemonId);
+ if(!oldP||!newP){event.consumed=true;save();return playNextEvolution();}
  const overlay=ensureEvolutionOverlay();
  const oldImg=$("#evolutionOldImage",overlay),oldName=$("#evolutionOldName",overlay),newImg=$("#evolutionNewImage",overlay),newName=$("#evolutionNewName",overlay);
- if(!oldImg||!oldName||!newImg||!newName){toast("Não foi possível carregar a animação de evolução.");return;}
- event.consumed=true;save();window.__evolutionAnimating=true;
- oldImg.src=oldP.imagem||"";oldName.textContent=oldP.nome;newImg.src=newP.imagem||"";newName.textContent=newP.nome;
- overlay.classList.remove("hidden","show-old","flash","show-new","fade-out");overlay.classList.add("show-old");overlay.setAttribute("aria-hidden","false");
- const finish=()=>{overlay.classList.add("fade-out");evolutionTimeout(()=>{overlay.classList.add("hidden");overlay.classList.remove("show-old","flash","show-new","fade-out");overlay.setAttribute("aria-hidden","true");window.__evolutionAnimating=false;playNextEvolution()},550)};
- evolutionTimeout(()=>{overlay.classList.remove("show-old");overlay.classList.add("flash")},1700);
- evolutionTimeout(()=>{overlay.classList.remove("flash");overlay.classList.add("show-new")},2550);
- evolutionTimeout(finish,5200);
+ if(!oldImg||!newImg)return;
+ window.__evolutionAnimating=true;
+ oldImg.src=imageUrl(oldP.imagem);
+ newImg.src=imageUrl(newP.imagem);
+ oldName.textContent=oldP.nome;
+ newName.textContent=newP.nome;
+ // Pré-carrega a imagem da evolução antes de iniciar o flash branco.
+ const preload=new Image();
+ preload.src=imageUrl(newP.imagem);
+ overlay.classList.remove("hidden","show-old","flash","show-new","fade-out");
+ overlay.classList.add("show-old");
+ overlay.setAttribute("aria-hidden","false");
+ const finish=()=>{
+  overlay.classList.add("fade-out");
+  evolutionTimeout(()=>{
+   overlay.classList.add("hidden");
+   overlay.classList.remove("show-old","flash","show-new","fade-out");
+   overlay.setAttribute("aria-hidden","true");
+   event.consumed=true;
+   save();
+   window.__evolutionAnimating=false;
+   if($("#page-team")?.classList.contains("active")){
+    playNextEvolution();
+    if(!window.__evolutionAnimating)checkPendingTeamMoves();
+   }
+  },550);
+ };
+ evolutionTimeout(()=>{overlay.classList.remove("show-old");overlay.classList.add("flash");},1900);
+ evolutionTimeout(()=>{overlay.classList.remove("flash");overlay.classList.add("show-new");},2900);
+ evolutionTimeout(finish,5500);
 }
 /* Legacy encounter handlers removed: v14 battle module binds controls after the page is rendered. */
 function renderNotes(){
@@ -1048,7 +1080,7 @@ function nav(page){
  $$("[data-page]").forEach(x=>{x.classList.toggle("active",x.dataset.page===page);if(x.dataset.page===page)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current')});
  $('#mobilePageTitle').textContent=$(`#page-${page} h1`)?.textContent||'Campanha';
  history.replaceState(null,"","#"+page);
- if(page==="team"&&!isMaster()){setTimeout(playNextEvolution,180);setTimeout(checkPendingTeamMoves,650);}
+ if(page==="team"&&!isMaster()){setTimeout(playNextEvolution,180);setTimeout(()=>{if(!me()?.pendingEvolutionEvents?.some(e=>!e.consumed))checkPendingTeamMoves()},650);}
  if(page==="encounter")setTimeout(renderBattleAll,0);
 }
 function openBattleStart(){

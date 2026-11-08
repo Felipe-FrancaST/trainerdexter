@@ -1,0 +1,1 @@
+# TrainerDex v50 — Evolução visual\n\nAo abrir Meu Time pela primeira vez após a evolução, o jogador vê a forma anterior, a mensagem “Está evoluindo!”, uma tela branca e então a nova forma. O evento é marcado como visto após a animação. Eventos múltiplos são exibidos em sequência, antes das escolhas de ataques.\n
