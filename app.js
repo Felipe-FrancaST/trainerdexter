@@ -451,7 +451,7 @@ function pendingTeamMove(){
  return null;
 }
 function checkPendingTeamMoves(){
- if(isMaster()||moveChoiceBusy||!$('#page-team')?.classList.contains('active')||$('#modal')?.classList.contains('open')||window.__evolutionAnimating||me()?.pendingEvolutionEvents?.some(e=>!e.consumed))return;
+ if(isMaster()||moveChoiceBusy||!$('#page-team')?.classList.contains('active')||$('#modal')?.classList.contains('open')||window.__evolutionAnimating||window.__evolutionAnimating||evolutionEventsPending())return;
  const pending=pendingTeamMove();if(!pending)return;
  const {t,a,p,current,incoming}=pending;
  moveChoiceBusy=true;
@@ -747,7 +747,12 @@ async function evolvePlayerPokemon(t,a,current,targetId){
  t.pokemonNotes??={};if(t.pokemonNotes[String(oldId)]){t.pokemonNotes[String(target.id)]=[t.pokemonNotes[String(target.id)],t.pokemonNotes[String(oldId)]].filter(Boolean).join('\n\n');delete t.pokemonNotes[String(oldId)];}
  (state.encounter.combatants||[]).filter(c=>c.kind==='player'&&c.trainerId===t.id&&Number(c.pokemonId)===oldId).forEach(c=>{c.pokemonId=target.id;c.level=a.level;});
 t.pendingEvolutionEvents??=[];
-t.pendingEvolutionEvents.push({id:uid(),oldPokemonId:oldId,newPokemonId:Number(target.id),level:a.level,consumed:false});
+const evolutionEvent={id:uid(),trainerId:t.id,oldPokemonId:oldId,newPokemonId:Number(target.id),level:a.level,consumed:false};
+t.pendingEvolutionEvents.push(evolutionEvent);
+try{await persistEvolutionEvent(evolutionEvent)}catch(error){
+ console.error('Falha ao registrar evolução:',error);
+ toast('Não foi possível registrar a animação. Configure o SQL de evolução no Supabase.');
+}
  state.pokemonCatalog=pokemons;save();closeModal();renderTrainers();renderDashboard();renderDex();renderTeam();renderPC();toast(`${current.nome} evoluiu para ${target.nome}! O nível ${a.level} foi mantido.`);
  }finally{evolutionsInProgress.delete(key)}
 }
@@ -843,9 +848,43 @@ function ensureEvolutionOverlay(){
  document.body.insertAdjacentHTML("beforeend",`<div class="evolution-overlay hidden" id="evolutionOverlay" role="dialog" aria-modal="true" aria-label="Evolução do Pokémon" aria-hidden="true"><div class="evolution-stage"><div class="evolution-glow"></div><div class="evolution-old"><img id="evolutionOldImage" alt="Pokémon antes da evolução"><p id="evolutionOldName"></p><h2>Está evoluindo!</h2></div><div class="evolution-flash"></div><div class="evolution-new"><img id="evolutionNewImage" alt="Pokémon evoluído"><p>✨ Evolução concluída!</p><h2 id="evolutionNewName"></h2></div></div></div>`);
  return $("#evolutionOverlay");
 }
-function runTeamPendingEvents(){
+let evolutionEventQueue=[];
+let evolutionEventLoading=false;
+function evolutionEventsPending(){return evolutionEventQueue.some(e=>!e.consumed)}
+async function persistEvolutionEvent(event){
+ if(!window.trainerdexSupabase)throw new Error('Supabase indisponível');
+ const {error}=await window.trainerdexSupabase.from('trainerdex_evolution_events').insert({
+ id:event.id,trainer_id:String(event.trainerId),old_pokemon_id:Number(event.oldPokemonId),
+ new_pokemon_id:Number(event.newPokemonId),level:Number(event.level)||1,consumed:false
+ });
+ if(error)throw error;
+}
+async function fetchEvolutionEvents(){
+ if(!session||session.role!=='player'||!window.trainerdexSupabase||evolutionEventLoading)return;
+ evolutionEventLoading=true;
+ try{
+  const {data,error}=await window.trainerdexSupabase.from('trainerdex_evolution_events')
+   .select('id,trainer_id,old_pokemon_id,new_pokemon_id,level,consumed')
+   .eq('trainer_id',String(session.trainerId)).eq('consumed',false).order('created_at',{ascending:true});
+  if(error)throw error;
+  evolutionEventQueue=(data||[]).map(e=>({
+   id:e.id,trainerId:e.trainer_id,oldPokemonId:e.old_pokemon_id,
+   newPokemonId:e.new_pokemon_id,level:e.level,consumed:e.consumed
+  }));
+ }catch(error){console.warn('Eventos de evolução indisponíveis. Execute EVOLUTION_EVENTS_SETUP.sql:',error)}
+ finally{evolutionEventLoading=false}
+}
+async function markEvolutionEventConsumed(event){
+ if(!window.trainerdexSupabase)return;
+ const {error}=await window.trainerdexSupabase.from('trainerdex_evolution_events')
+ .update({consumed:true}).eq('id',event.id).eq('trainer_id',String(event.trainerId));
+ if(error)throw error;
+}
+async function runTeamPendingEvents(){
  if(isMaster()||!$('#page-team')?.classList.contains('active')||window.__evolutionAnimating)return;
- if(me()?.pendingEvolutionEvents?.some(e=>!e.consumed)){playNextEvolution();return;}
+ await fetchEvolutionEvents();
+ if(isMaster()||!$('#page-team')?.classList.contains('active')||window.__evolutionAnimating)return;
+ if(evolutionEventsPending()){playNextEvolution();return;}
  checkPendingTeamMoves();
 }
 function cancelEvolutionAnimation(){
@@ -861,10 +900,10 @@ function evolutionTimeout(callback,delay){
 }
 function playNextEvolution(){
  if(window.__evolutionAnimating||isMaster()||!$("#page-team")?.classList.contains("active"))return;
- const t=me(),event=t?.pendingEvolutionEvents?.find(e=>!e.consumed);
+ const t=me(),event=evolutionEventQueue.find(e=>!e.consumed);
  if(!event)return;
  const oldP=pokemonById(event.oldPokemonId),newP=pokemonById(event.newPokemonId);
- if(!oldP||!newP){event.consumed=true;save();return playNextEvolution();}
+ if(!oldP||!newP){event.consumed=true;markEvolutionEventConsumed(event).catch(console.error);return playNextEvolution();}
  const overlay=ensureEvolutionOverlay();
  const oldImg=$("#evolutionOldImage",overlay),oldName=$("#evolutionOldName",overlay),newImg=$("#evolutionNewImage",overlay),newName=$("#evolutionNewName",overlay);
  if(!oldImg||!newImg)return;
@@ -878,15 +917,16 @@ function playNextEvolution(){
  preload.src=imageUrl(newP.imagem);
  overlay.classList.remove("hidden","show-old","flash","show-new","fade-out");
  overlay.classList.add("show-old");
+ overlay.style.display="grid";
  overlay.setAttribute("aria-hidden","false");
  const finish=()=>{
   overlay.classList.add("fade-out");
   evolutionTimeout(()=>{
-   overlay.classList.add("hidden");
+   overlay.classList.add("hidden");overlay.style.display="none";
    overlay.classList.remove("show-old","flash","show-new","fade-out");
    overlay.setAttribute("aria-hidden","true");
    event.consumed=true;
-   save();
+   markEvolutionEventConsumed(event).catch(error=>console.error('Falha ao confirmar animação:',error));
    window.__evolutionAnimating=false;
    if($("#page-team")?.classList.contains("active")){
     playNextEvolution();
