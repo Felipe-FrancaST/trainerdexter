@@ -12,7 +12,7 @@ html.trainerdex-booting #startupScreen{display:grid}
 .startup-spinner{width:32px;height:32px;border:3px solid #4b6179;border-top-color:#eaf3ff;border-radius:50%;animation:startup-spin .8s linear infinite;margin:0 auto 18px}
 @keyframes startup-spin{to{transform:rotate(360deg)}}
 </style>
-<link rel="stylesheet" href="style.css?v=50"><title>TrainerDex</title>
+<link rel="stylesheet" href="style.css?v=51"><title>TrainerDex</title>
 </head>
 <body>
 <div id="startupScreen" role="status" aria-live="polite"><div><div class="startup-spinner" aria-hidden="true"></div><strong>TrainerDex</strong><p>Carregando sua campanha…</p></div></div>
@@ -169,7 +169,7 @@ html.trainerdex-booting #startupScreen{display:grid}
     <div class="evolution-glow"></div>
     <div class="evolution-old">
       <img id="evolutionOldImage" src="" alt="Pokémon antes da evolução">
-      <p id="evolutionOldName"></p>
+      <p id="evolutionOldName"></p><h2>Está evoluindo!</h2>
     </div>
     <div class="evolution-flash"></div>
     <div class="evolution-new">
@@ -182,18 +182,18 @@ html.trainerdex-booting #startupScreen{display:grid}
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Detalhes e edição" aria-hidden="true"><div class="modal-box" id="modalContent" tabindex="-1"></div></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
 <!-- Dependências: Supabase → configuração → persistência → aplicação. -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-config.js?v=50"></script>
-<script src="supabase-store.js?v=50"></script>
-<script src="abilities-data.js?v=50"></script>
-<script src="account.js?v=50"></script>
-<script src="battle-actions.js?v=50"></script>
-<script src="move-attributes-data.js?v=50"></script>
-<script src="move-attributes.js?v=50"></script>
-<script src="app.js?v=50"></script>
+<script src="supabase-config.js?v=51"></script>
+<script src="supabase-store.js?v=51"></script>
+<script src="abilities-data.js?v=51"></script>
+<script src="account.js?v=51"></script>
+<script src="battle-actions.js?v=51"></script>
+<script src="move-attributes-data.js?v=51"></script>
+<script src="move-attributes.js?v=51"></script>
+<script src="app.js?v=51"></script>
 <script>
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.addEventListener("controllerchange", () => { console.info("TrainerDex: nova versão disponível; será usada na próxima abertura."); });
-    navigator.serviceWorker.register("sw.js?v=50", {updateViaCache:"none"}).catch((error) => {
+    navigator.serviceWorker.register("sw.js?v=51", {updateViaCache:"none"}).catch((error) => {
       console.warn("TrainerDex: service worker não pôde ser registrado.", error);
     });
     window.addEventListener("focus", () => navigator.serviceWorker.getRegistration().then(r => r?.update()).catch(()=>{}));

@@ -49,7 +49,13 @@ async function loadPersonalMovesFromSupabase(){
       personalMovesRecords.set(personalMovesRecordKey(row.trainer_id,row.pokemon_id),value);
     }
     state.trainers.forEach(t=>[...(t.team||[]),...(t.pc||[])].forEach(a=>{
-      a.personalMoves=structuredClone(personalMovesRecords.get(personalMovesRecordKey(t.id,a.pokemonId))||{learnedMoves:[],excludedMoves:[]});
+      const remote=personalMovesRecords.get(personalMovesRecordKey(t.id,a.pokemonId));
+      const campaign=normalizePersonalMoves(a.personalMoves);
+      const db=normalizePersonalMoves(remote);
+      a.personalMoves=normalizePersonalMoves({
+        learnedMoves:[...db.learnedMoves,...campaign.learnedMoves].filter((m,i,all)=>all.findIndex(x=>x.moveId===m.moveId)===i),
+        excludedMoves:[...db.excludedMoves,...campaign.excludedMoves]
+      });
     }));
     personalMovesReady=true;
   }catch(error){
@@ -230,10 +236,26 @@ async function refreshRemoteCampaign(){
     if(!canApplyRemoteUpdate())return;
     const preservedCatalog=state.pokemonCatalog;
     const preservedProficiency=state.globalProficiency;
+    const previousTrainers=state.trainers||[];
     Object.keys(state).forEach(key=>delete state[key]);
     Object.assign(state,data);
     state.pokemonCatalog=preservedCatalog;
     state.globalProficiency=preservedProficiency;
+    // A tabela individual pode estar mais atualizada que o snapshot da campanha.
+    for(const trainer of state.trainers||[]){
+      const previous=previousTrainers.find(t=>t.id===trainer.id);
+      for(const assignment of [...(trainer.team||[]),...(trainer.pc||[])]){
+        const prior=[...(previous?.team||[]),...(previous?.pc||[])].find(a=>Number(a.pokemonId)===Number(assignment.pokemonId));
+        const db=personalMovesRecords.get(personalMovesRecordKey(trainer.id,assignment.pokemonId));
+        const fromCampaign=normalizePersonalMoves(assignment.personalMoves);
+        const fromPrevious=normalizePersonalMoves(prior?.personalMoves);
+        const fromDb=normalizePersonalMoves(db);
+        assignment.personalMoves=normalizePersonalMoves({
+          learnedMoves:[...fromCampaign.learnedMoves,...fromPrevious.learnedMoves,...fromDb.learnedMoves].filter((m,i,all)=>all.findIndex(x=>x.moveId===m.moveId)===i),
+          excludedMoves:[...fromCampaign.excludedMoves,...fromPrevious.excludedMoves,...fromDb.excludedMoves]
+        });
+      }
+    }
     remoteStateFingerprint=fingerprint;
     if(typeof renderAll==='function'&&session){
       if(session.role==='player'&&!state.trainers.some(t=>t.id===session.trainerId)){

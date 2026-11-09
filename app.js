@@ -451,10 +451,9 @@ function pendingTeamMove(){
  return null;
 }
 function checkPendingTeamMoves(){
- if(isMaster()||moveChoiceBusy||!$('#page-team')?.classList.contains('active')||$('#modal')?.classList.contains('open')||window.__evolutionAnimating)return;
+ if(isMaster()||moveChoiceBusy||!$('#page-team')?.classList.contains('active')||$('#modal')?.classList.contains('open')||window.__evolutionAnimating||me()?.pendingEvolutionEvents?.some(e=>!e.consumed))return;
  const pending=pendingTeamMove();if(!pending)return;
  const {t,a,p,current,incoming}=pending;
- const newKey=personalMoveKey(incoming);
  moveChoiceBusy=true;
  $('#modalContent').innerHTML=`<div class="modal-head"><div><h2>✨ Novo ataque disponível!</h2><p class="muted">${esc(p.nome)} • Nível ${a.level||1}</p></div></div>
  <div class="teach-context"><img src="${esc(imageUrl(p.imagem))}" alt=""><p><strong>${esc(p.nome)}</strong> pode aprender <strong>${esc(incoming.nome||incoming.nomeOriginal)}</strong>, mas já conhece quatro ataques. Escolha um para esquecer ou mantenha os atuais.</p></div>
@@ -472,6 +471,8 @@ function checkPendingTeamMoves(){
   data.excludedMoves=[...new Set([...data.excludedMoves,personalMoveKey(forgotten||incoming)])];
   try{
    await savePersonalMovesToSupabase(t,a,data);
+   // Também persistir no estado da campanha, evitando reabrir o aviso no próximo login.
+   a.personalMoves=normalizePersonalMoves(data);
    save();closeModal();renderTeam();renderPC();renderDex();renderBattleAll();
    toast(forgotten?`${p.nome} aprendeu ${incoming.nome||incoming.nomeOriginal}!`:`${p.nome} manteve seus ataques atuais.`);
   }catch(error){
@@ -833,7 +834,7 @@ function renderStorage(location){
  $(`#${location}Intro`).textContent=location==='team'?`${source.length}/6 no time • ${t.pc.length} no PC. Toque em um Pokémon para abrir sua ficha.`:`${source.length} Pokémon no PC. Toque em um Pokémon para gerenciar o envio ao time.`;
  const count=$(`#${location}CollectionCount`);if(count)count.textContent=`${list.length} de ${entries.length} Pokémon`;
 }
-function renderTeam(){renderStorage('team');if(!isMaster())setTimeout(()=>{if(!me()?.pendingEvolutionEvents?.some(e=>!e.consumed))checkPendingTeamMoves()},200)}
+function renderTeam(){renderStorage('team');if(!isMaster())setTimeout(()=>{if($('#page-team')?.classList.contains('active'))runTeamPendingEvents()},200)}
 function renderPC(){renderStorage('pc')}
 ['team','pc'].forEach(location=>{$(`#${location}CollectionSearch`).oninput=()=>renderStorage(location);$(`#${location}CollectionFilter`).onchange=()=>renderStorage(location)});
 function ensureEvolutionOverlay(){
@@ -841,6 +842,11 @@ function ensureEvolutionOverlay(){
  if(overlay)return overlay;
  document.body.insertAdjacentHTML("beforeend",`<div class="evolution-overlay hidden" id="evolutionOverlay" role="dialog" aria-modal="true" aria-label="Evolução do Pokémon" aria-hidden="true"><div class="evolution-stage"><div class="evolution-glow"></div><div class="evolution-old"><img id="evolutionOldImage" alt="Pokémon antes da evolução"><p id="evolutionOldName"></p><h2>Está evoluindo!</h2></div><div class="evolution-flash"></div><div class="evolution-new"><img id="evolutionNewImage" alt="Pokémon evoluído"><p>✨ Evolução concluída!</p><h2 id="evolutionNewName"></h2></div></div></div>`);
  return $("#evolutionOverlay");
+}
+function runTeamPendingEvents(){
+ if(isMaster()||!$('#page-team')?.classList.contains('active')||window.__evolutionAnimating)return;
+ if(me()?.pendingEvolutionEvents?.some(e=>!e.consumed)){playNextEvolution();return;}
+ checkPendingTeamMoves();
 }
 function cancelEvolutionAnimation(){
  (window.__evolutionTimers||[]).forEach(clearTimeout);
@@ -1080,7 +1086,7 @@ function nav(page){
  $$("[data-page]").forEach(x=>{x.classList.toggle("active",x.dataset.page===page);if(x.dataset.page===page)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current')});
  $('#mobilePageTitle').textContent=$(`#page-${page} h1`)?.textContent||'Campanha';
  history.replaceState(null,"","#"+page);
- if(page==="team"&&!isMaster()){setTimeout(playNextEvolution,180);setTimeout(()=>{if(!me()?.pendingEvolutionEvents?.some(e=>!e.consumed))checkPendingTeamMoves()},650);}
+ if(page==="team"&&!isMaster())setTimeout(runTeamPendingEvents,180);
  if(page==="encounter")setTimeout(renderBattleAll,0);
 }
 function openBattleStart(){
