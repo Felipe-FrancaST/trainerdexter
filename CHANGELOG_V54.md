@@ -1,0 +1,1 @@
+# TrainerDex v54 — Layout administrativo\n\nEditor de Pokémon reorganizado em seções com espaçamento, grade responsiva, imagem destacada, ações fixas e ataques com campos legíveis. Outros modais não são alterados.\n

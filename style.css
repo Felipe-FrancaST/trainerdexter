@@ -1244,3 +1244,145 @@ button.trainer-empty-slot:active{transform:translateY(0)}
 .evolution-overlay.flash .evolution-flash{opacity:1;background:#fff}
 .evolution-overlay.show-new .evolution-flash{opacity:0;pointer-events:none}
 .evolution-overlay .evolution-old h2{color:#263c54;font-size:clamp(22px,4vw,32px)}
+
+/* v55 — Editor da Pokédex: estilos isolados, sem mudanças de lógica. */
+.modal:has(.pokemon-editor-modal){padding:18px;align-items:center}
+.modal:has(.pokemon-editor-modal) .modal-box{
+ width:min(1120px,100%);max-width:1120px;max-height:min(94dvh,1040px);padding:0;
+ overflow-y:auto;overscroll-behavior:contain;overflow-x:hidden;border-radius:20px;
+ box-shadow:0 28px 85px rgba(10,25,45,.28);scrollbar-gutter:stable;
+}
+.pokemon-editor-modal{--editor-border:#e0e7ef;--editor-soft:#f6f8fb;--editor-ink:#243b56;color:var(--editor-ink)}
+.pokemon-editor-modal .pokemon-editor-head{
+ position:sticky;top:0;z-index:12;display:flex;align-items:center;justify-content:space-between;
+ gap:18px;flex-wrap:wrap;background:rgba(255,255,255,.98);border-bottom:1px solid var(--editor-border);
+ padding:20px 28px;box-shadow:0 2px 12px rgba(25,45,65,.04)
+}
+.pokemon-editor-heading{min-width:0;flex:1}
+.pokemon-editor-eyebrow,.pokemon-editor-preview-label{display:block;color:#4977a4;font-size:10px;font-weight:900;letter-spacing:.1em;margin-bottom:6px}
+.pokemon-editor-heading h2{font-size:clamp(20px,2.2vw,27px);line-height:1.2;overflow-wrap:anywhere;color:#1f344d;margin:0}
+.pokemon-editor-heading p{font-size:12px;line-height:1.5;color:#6a7a8b;margin:6px 0 0}
+.pokemon-editor-header-actions{display:flex;gap:8px;flex-wrap:wrap}
+.pokemon-editor-header-actions .btn{min-height:40px}
+.pokemon-editor-modal .pokemon-admin-grid{
+ display:grid;grid-template-columns:minmax(0,218px) minmax(0,1fr);align-items:start;
+ gap:20px;padding:24px;background:var(--editor-soft);min-width:0
+}
+.pokemon-editor-portrait{
+ position:sticky;top:114px;display:grid;gap:12px;min-width:0;background:#fff;
+ border:1px solid var(--editor-border);border-radius:17px;padding:16px;
+ box-shadow:0 4px 16px rgba(25,45,65,.04)
+}
+.pokemon-editor-portrait .admin-image{
+ width:100%;height:auto;max-height:none;aspect-ratio:1;object-fit:contain;
+ border:1px solid #e5edf5;background:#f5f8fb;padding:14px;border-radius:13px
+}
+.pokemon-editor-portrait .file-btn{margin:0;width:100%;min-height:40px;display:flex;align-items:center;justify-content:center}
+.pokemon-editor-preview{display:grid;gap:5px;padding:4px 2px 13px;border-bottom:1px solid var(--editor-border);min-width:0}
+.pokemon-editor-preview strong{font-size:17px;overflow-wrap:anywhere;color:#203650}
+.pokemon-editor-preview>span:not(.pokemon-editor-preview-label){font-size:12px;color:#697b90}
+.pokemon-editor-preview .tags{display:flex;flex-wrap:wrap;gap:5px;min-height:20px}
+.pokemon-editor-nav{display:grid;gap:9px}
+.pokemon-editor-nav>strong{font-size:11px;color:#718297;text-transform:uppercase;letter-spacing:.08em}
+#pokemonEditorNavLinks{display:grid;gap:3px}
+.pokemon-editor-nav button{display:flex;align-items:center;gap:9px;text-align:left;border:0;border-radius:9px;background:transparent;padding:8px;font-size:12px;font-weight:650;color:#38546d;min-height:34px}
+.pokemon-editor-nav button span{color:#7493b4;font-size:10px;font-weight:850}
+.pokemon-editor-nav button:hover,.pokemon-editor-nav button:focus-visible{background:#eaf3ff;color:#1b5c98}
+.pokemon-editor-modal .form-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:17px;min-width:0}
+.pokemon-editor-section{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;align-items:start;
+ gap:17px 20px;min-width:0;padding:22px 24px;background:#fff;
+ border:1px solid var(--editor-border);border-radius:17px;
+ box-shadow:0 4px 14px rgba(25,45,65,.035);scroll-margin-top:125px
+}
+.pokemon-editor-section-heading{grid-column:1/-1;margin-bottom:2px;padding-bottom:14px;border-bottom:1px solid #e9eef3}
+.pokemon-editor-section-heading h3{font-size:17px;line-height:1.35;margin:0 0 4px;font-weight:850;color:#24405e}
+.pokemon-editor-section-heading p{font-size:12px;line-height:1.55;margin:0;color:#708198}
+.pokemon-editor-section>.field,.pokemon-editor-section>.inline-fields{min-width:0;margin:0}
+.pokemon-editor-section>.field label,.pokemon-editor-section>.inline-fields .field label{font-size:12px;line-height:1.35;font-weight:750;color:#395269;margin:0 0 7px}
+.pokemon-editor-section .field-help{font-size:12px;line-height:1.5;color:#718398;margin:0 0 9px}
+.pokemon-editor-section small{font-size:11px;line-height:1.45}
+.pokemon-editor-section .input,.pokemon-editor-section .select,.pokemon-editor-section .textarea{width:100%;min-width:0;max-width:100%;min-height:43px;border-radius:10px;border-color:#d8e1ea;box-shadow:none;background:#fff}
+.pokemon-editor-section .input:focus-visible,.pokemon-editor-section .select:focus-visible,.pokemon-editor-section .textarea:focus-visible{outline:2px solid #7db0ee;outline-offset:1px;border-color:#72a6e1}
+.pokemon-editor-section .textarea{min-height:95px;resize:vertical}
+.pokemon-editor-section-identity>.field:has(#pkTypePicker),.pokemon-editor-section-identity>.field:has(#pkDescricao){grid-column:1/-1}
+.pokemon-editor-section>.inline-fields,.pokemon-editor-section-abilities>.field,.pokemon-editor-section-types>.field,.pokemon-editor-section-attributes>.field,.pokemon-editor-section-skills>.field:has(.skills-editor),.pokemon-editor-section-moves>.field{grid-column:1/-1}
+.pokemon-editor-section>.inline-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.pokemon-editor-section .type-picker-toggle{width:100%;min-height:44px;text-align:left}
+.pokemon-editor-section .type-picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:12px;margin-top:9px}
+.pokemon-editor-section .type-choice{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.pokemon-editor-section .abilities-builder{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:8px}
+.pokemon-editor-section .ability-card{display:grid;align-content:start;gap:10px;min-width:0;background:#f8fafc;border:1px solid #e1e9f1;border-radius:13px;padding:15px}
+.pokemon-editor-section .ability-card-head{margin:0 0 1px}
+.pokemon-editor-section .ability-card .textarea{min-height:102px}
+.pokemon-editor-section .attribute-editor{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 16px;margin-top:7px}
+.pokemon-editor-section .skills-edit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:11px}
+.pokemon-editor-section .skill-edit{min-width:0}
+.pokemon-editor-section .attack-builder{display:grid;gap:14px;margin:10px 0 15px}
+.pokemon-editor-section .attack-card{min-width:0;background:#f8fafc;border:1px solid #e1e8ef;padding:17px;border-radius:14px}
+.pokemon-editor-section .attack-card-head{margin-bottom:13px}
+.pokemon-editor-section .attack-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 14px;align-items:start}
+.pokemon-editor-section .attack-fields>.field{min-width:0}
+.pokemon-editor-section .attack-fields>.field:has(.attack-level){grid-column:1;grid-row:1}
+.pokemon-editor-section .attack-fields>.field:has(.attack-damage){grid-column:2;grid-row:1}
+.pokemon-editor-section .attack-fields>.field:has(.attack-pp){grid-column:3;grid-row:1}
+.pokemon-editor-section .attack-fields>.attack-name-field{grid-column:1/-1!important;grid-row:2}
+.pokemon-editor-section .attack-search{margin-bottom:8px}
+.pokemon-editor-section .attack-selected-info{margin-top:12px;display:flex;flex-wrap:wrap;gap:7px;overflow-wrap:anywhere}
+.pokemon-editor-section #addAttack{width:100%;border-style:dashed;color:#245b91;background:#f5f9ff;min-height:44px}
+.pokemon-editor-actions{position:sticky;bottom:0;z-index:9;display:flex;justify-content:space-between;align-items:center;gap:14px;
+ min-width:0;border:1px solid var(--editor-border);background:rgba(255,255,255,.99);border-radius:14px;
+ padding:13px 16px;box-shadow:0 -5px 20px rgba(22,43,66,.09)
+}
+.pokemon-editor-actions p{margin:0;color:#6d7e91;font-size:12px;line-height:1.4}
+.pokemon-editor-actions #savePokemon{min-height:45px;min-width:186px;flex-shrink:0}
+/* Shared polish: constrain long text within controls and preserve keyboard focus. */
+.modal-box{overflow-wrap:break-word}
+.modal .field{min-width:0}
+.modal .input,.modal .select,.modal .textarea{max-width:100%}
+.modal .btn:focus-visible{outline:3px solid #69a1e3;outline-offset:2px}
+@media(max-width:930px){
+ .pokemon-editor-modal .pokemon-admin-grid{grid-template-columns:minmax(0,175px) minmax(0,1fr);gap:14px;padding:16px}
+ .pokemon-editor-portrait{top:112px;padding:12px}
+ .pokemon-editor-section{padding:18px;gap:15px}
+ .pokemon-editor-section .abilities-builder{grid-template-columns:1fr}
+ .pokemon-editor-section .type-picker{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:700px){
+ .modal:has(.pokemon-editor-modal){padding:0;align-items:flex-end}
+ .modal:has(.pokemon-editor-modal) .modal-box{width:100%;max-width:none;max-height:96dvh;border-radius:18px 18px 0 0;scrollbar-gutter:auto}
+ .pokemon-editor-modal .pokemon-editor-head{padding:16px;gap:10px;top:0}
+ .pokemon-editor-heading h2{font-size:21px}
+ .pokemon-editor-header-actions{width:100%;justify-content:flex-end}
+ .pokemon-editor-header-actions .btn{min-height:36px;padding:8px 12px}
+ .pokemon-editor-modal .pokemon-admin-grid{display:grid;grid-template-columns:minmax(0,1fr)!important;gap:12px;padding:12px}
+ .pokemon-editor-portrait{position:static;display:grid;grid-template-columns:90px minmax(0,1fr);gap:10px;align-items:center;padding:12px}
+ .pokemon-editor-portrait .admin-image{width:90px;height:90px;grid-column:1;grid-row:1;padding:8px}
+ .pokemon-editor-portrait .file-btn{grid-column:1;grid-row:2;min-height:34px;padding:7px 5px;font-size:11px}
+ .pokemon-editor-preview{grid-column:2;grid-row:1/3;border:0;padding:0}
+ .pokemon-editor-nav{grid-column:1/-1;min-width:0;border-top:1px solid var(--editor-border);padding-top:10px}
+ .pokemon-editor-nav>strong{display:none}
+ #pokemonEditorNavLinks{display:flex;overflow-x:auto;gap:6px;scrollbar-width:thin;padding-bottom:3px}
+ .pokemon-editor-nav button{white-space:nowrap;flex:0 0 auto;background:#f0f5fb;border:1px solid #e1eaf4;padding:7px 10px;font-size:11px;min-height:35px}
+ .pokemon-editor-modal .form-grid{gap:12px!important}
+ .pokemon-editor-section{grid-template-columns:minmax(0,1fr);padding:17px;gap:14px;scroll-margin-top:145px}
+ .pokemon-editor-section-heading{grid-column:1}
+ .pokemon-editor-section>.field,.pokemon-editor-section>.inline-fields{grid-column:1!important}
+ .pokemon-editor-section>.inline-fields{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px}
+ .pokemon-editor-section .attribute-editor{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .pokemon-editor-section .type-picker{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .pokemon-editor-section .skills-edit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .pokemon-editor-section .attack-fields{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .pokemon-editor-section .attack-fields>.attack-name-field{grid-column:1/-1!important}
+ .pokemon-editor-section .attack-card{padding:13px!important}
+ .pokemon-editor-actions{padding:12px;border-radius:12px;flex-direction:column;align-items:stretch;gap:9px}
+ .pokemon-editor-actions p{text-align:center}
+ .pokemon-editor-actions #savePokemon{width:100%;min-width:0}
+}
+@media(max-width:400px){
+ .pokemon-editor-section .skills-edit-grid{grid-template-columns:1fr!important}
+ .pokemon-editor-section .ability-card{padding:12px}
+ .pokemon-editor-section .attack-fields{gap:9px}
+ .pokemon-editor-section .attack-fields .input{padding-left:8px;padding-right:8px}
+ .pokemon-editor-section>.inline-fields{grid-template-columns:1fr!important}
+}

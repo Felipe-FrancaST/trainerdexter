@@ -517,13 +517,79 @@ function openPokemonPlayer(p){
  const noteEl=$("#pokemonNote");if(noteEl){noteEl.oninput=()=>{t.pokemonNotes??={};t.pokemonNotes[String(p.id)]=noteEl.value;save();$("#noteSaved").textContent="Anotação atualizada. Acompanhe o salvamento no rodapé.";clearTimeout(window.__noteTimer);window.__noteTimer=setTimeout(()=>{const saved=$("#noteSaved");if(saved)saved.textContent="As anotações são salvas automaticamente."},1200);}}
 }
 function evolutionOptions(selected){return pokemons.filter(x=>Number(x.id)!==Number(selected.id)).sort((a,b)=>Number(a.id)-Number(b.id)).map(x=>`<option value="${x.id}" ${Number(selected.evolvesFromId)===Number(x.id)?"selected":""}>${esc(x.numero)} — ${esc(x.nome)}</option>`).join("")}
+// Editor visual: os agrupamentos são encontrados pelos IDs dos campos, nunca pela sua posição.
+// A estrutura original dos controles é preservada para não alterar as regras de salvamento.
+function setupPokemonEditorLayout(p,isNew){
+ const editor=$("#modalContent"),grid=$(".pokemon-admin-grid",editor),form=$(".form-grid",grid);
+ if(!grid||!form)return;
+ editor.classList.add("pokemon-editor-modal");
+ const imageColumn=grid.firstElementChild;
+ imageColumn.classList.add("pokemon-editor-portrait");
+ imageColumn.insertAdjacentHTML("beforeend",`<div class="pokemon-editor-preview"><span class="pokemon-editor-preview-label">PRÉVIA DO REGISTRO</span><strong id="pokemonEditorPreviewName"></strong><span id="pokemonEditorPreviewNumber"></span><div id="pokemonEditorPreviewTypes" class="tags"></div></div><nav class="pokemon-editor-nav" aria-label="Navegar pelas seções"><strong>Ir para</strong><div id="pokemonEditorNavLinks"></div></nav>`);
+ const saveButton=$("#savePokemon",form);
+ const initial=[...form.children].filter(el=>el!==saveButton);
+ const moved=new Set();
+ const groups=[
+  {id:"identity",title:"Identificação e evolução",hint:"Informações principais, tipos e linha evolutiva.",keys:["#pkNumero","#pkNome","#pkTypePicker","#pkEvolutionType","#pkParent","#pkDescricao"]},
+  {id:"vitals",title:"Vida e características",hint:"Raridade, classe de armadura e pontos de vida.",keys:["#pkSr","#pkHp"]},
+  {id:"abilities",title:"Habilidades",hint:"Defina a habilidade normal e a habilidade oculta.",keys:[".abilities-builder"]},
+  {id:"types",title:"Relações entre tipos",hint:"Configure vulnerabilidades, resistências e imunidades.",keys:["#pkVulnPicker","#pkResPicker","#pkImmunePicker"]},
+  {id:"attributes",title:"Atributos",hint:"Valores-base usados nos modificadores e testes.",keys:[".pokemon-attr"]},
+  {id:"skills",title:"Perícias e proficiência",hint:"Escolha as perícias treinadas e seu bônus.",keys:[".skills-editor","#pkBonusProf"]},
+  {id:"moves",title:"Ataques por nível",hint:"Pesquise, adicione e ordene os ataques aprendidos.",keys:["#attackBuilder"]}
+ ];
+ const newSection=(id,title,hint)=>{
+  const section=document.createElement("section");section.className="pokemon-editor-section pokemon-editor-section-"+id;
+  section.id="pokemon-editor-"+id;
+  section.innerHTML=`<header class="pokemon-editor-section-heading"><h3>${title}</h3><p>${hint}</p></header>`;
+  return section;
+ };
+ groups.forEach(group=>{
+  const section=newSection(group.id,group.title,group.hint);
+  group.keys.forEach(selector=>{
+   const item=initial.find(el=>!moved.has(el)&&el.querySelector(selector));
+   if(item){moved.add(item);section.appendChild(item);}
+  });
+  if(section.children.length>1){form.insertBefore(section,saveButton);}
+ });
+ // Futuros campos ainda serão visíveis se o formulário for ampliado.
+ const unmatched=initial.filter(el=>!moved.has(el));
+ if(unmatched.length){
+  const extra=newSection("extra","Outras configurações","Campos adicionais deste registro.");
+  unmatched.forEach(el=>extra.appendChild(el));form.insertBefore(extra,saveButton);
+ }
+ const actions=document.createElement("div");actions.className="pokemon-editor-actions";
+ actions.innerHTML='<p>As alterações são aplicadas somente após salvar.</p>';
+ form.insertBefore(actions,saveButton);actions.appendChild(saveButton);
+ const navContainer=$("#pokemonEditorNavLinks",imageColumn);
+ navContainer.innerHTML=groups.map((group,i)=>`<button type="button" data-editor-target="pokemon-editor-${group.id}"><span>${String(i+1).padStart(2,"0")}</span>${group.title}</button>`).join("");
+ $$('[data-editor-target]',navContainer).forEach(button=>button.onclick=()=>{
+  const target=document.getElementById(button.dataset.editorTarget);
+  target?.scrollIntoView({behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'auto':'smooth',block:'start'});
+ });
+ const updatePreview=()=>{
+  $("#pokemonEditorPreviewName",editor).textContent=$("#pkNome",editor).value.trim()||"Sem nome";
+  $("#pokemonEditorPreviewNumber",editor).textContent=$("#pkNumero",editor).value.trim()||"Sem número";
+  $("#pokemonEditorPreviewTypes",editor).innerHTML=typeTags(selectedTypes("#pkTypePicker .type-choice").join(" / "));
+ };
+ $("#pkNome",editor).addEventListener("input",updatePreview);
+ $("#pkNumero",editor).addEventListener("input",updatePreview);
+ $("#pkTypePicker",editor).addEventListener("change",updatePreview);
+ updatePreview();
+ // Associar rótulos aos campos simples para ampliar a área clicável e o suporte a leitores de tela.
+ $$(".pokemon-editor-section .field",editor).forEach(field=>{
+  const label=field.querySelector(":scope > label"),control=field.querySelector(":scope > input:not([type=hidden]), :scope > select, :scope > textarea");
+  if(label&&control?.id)label.htmlFor=control.id;
+ });
+}
+
 function openPokemonMaster(p,isNew=false){
  if(!isMaster())return;
  let pendingImage=p._newImage||null;
  const isEvolution=!!p.evolvesFromId;
  const parent=p.evolvesFromId?pokemonById(p.evolvesFromId):null;
  const vuln=p.vulnerabilidades||[],res=p.resistencia||[],immune=p.imunidades||[];
- $("#modalContent").innerHTML=`<div class="modal-head"><h2>Editar: ${esc(p.nome)}</h2><div><button class="btn" data-close>Fechar</button><button class="btn danger" id="deletePokemon">Excluir</button></div></div>
+ $("#modalContent").innerHTML=`<div class="modal-head pokemon-editor-head"><div class="pokemon-editor-heading"><span class="pokemon-editor-eyebrow">POKÉDEX / ${isNew?"NOVO REGISTRO":"EDIÇÃO"}</span><h2>${isNew?"Adicionar Pokémon":"Editar: "+esc(p.nome)}</h2><p>Organize os dados do Pokémon em seções e salve ao concluir.</p></div><div class="pokemon-editor-header-actions"><button class="btn" data-close type="button">Fechar</button>${isNew?"":'<button class="btn danger" id="deletePokemon" type="button">Excluir</button>'}</div></div>
  <div class="pokemon-admin-grid"><div><img class="admin-image" id="previewImage" src="${esc(imageUrl(pendingImage||p.imagem))}"><label class="btn file-btn">Trocar imagem<input type="file" id="pokemonImage" accept="image/*" hidden></label></div>
  <div class="form-grid"><div class="field"><label>Número</label><input class="input" id="pkNumero" value="${esc(p.numero)}"></div><div class="field"><label>Nome</label><input class="input" id="pkNome" value="${esc(p.nome)}"></div><div class="field type-picker-field"><label>Tipo(s)</label><p class="field-help">Clique para selecionar um ou mais tipos.</p><button type="button" class="type-picker-toggle" data-picker-toggle="pkTypePicker">Selecionar tipos <span>⌄</span></button><div class="type-picker hidden" id="pkTypePicker">${typeOptionsHtml(String(p.tipo||"").split(/\s*\/\s*|,\s*/).filter(Boolean))}</div><input type="hidden" id="pkTipo" value="${esc(p.tipo)}"></div><div class="field"><label>Classificação evolutiva</label><select class="select" id="pkEvolutionType"><option value="basic" ${!isEvolution?"selected":""}>Básico</option><option value="evolution" ${isEvolution?"selected":""}>Evolução</option></select></div><div class="field hidden" id="pkParentField"><label>Evolui de</label><select class="select" id="pkParent"><option value="">Selecione o Pokémon anterior</option>${evolutionOptions(p)}</select><small class="muted">Pode ser um Pokémon básico ou uma evolução existente.</small></div><div class="field"><label>Descrição</label><textarea class="textarea" id="pkDescricao">${esc(p.descricao)}</textarea></div><div class="inline-fields"><div class="field"><label>SR (Raridade)</label><input class="input" id="pkSr" value="${esc(p.sr??"")}" placeholder="Ex.: SR"></div><div class="field"><label>CA</label><input class="input" id="pkCa" type="number" min="0" value="${Number(p.ca)||0}"></div></div><div class="field"><label>Habilidades</label><p class="field-help">Cada Pokémon possui 2 habilidades. Cadastre o nome e a descrição de cada uma.</p>${abilitiesEditorHtml(p)}</div><div class="inline-fields"><div class="field"><label>Vida padrão — Nível 1</label><input class="input" id="pkHp" type="number" min="1" value="${Math.max(1,Number(p.hp)||1)}"><small class="muted">É a vida base no nível 1.</small></div><div class="field"><label>Dado de Vida</label><select class="select" id="pkLifeDie">${LIFE_DICE.map(d=>`<option value="${d}" ${normalizeLifeDice(p.dadoVida)===d?"selected":""}>d${d}</option>`).join("")}</select><small class="muted">O valor máximo do dado é somado a cada nível.</small></div></div>
  <div class="field type-picker-field"><label>Vulnerabilidades</label><p class="field-help">Clique para selecionar os tipos aos quais este Pokémon é vulnerável.</p><button type="button" class="type-picker-toggle" data-picker-toggle="pkVulnPicker">Selecionar tipos <span>⌄</span></button><div class="type-picker hidden" id="pkVulnPicker">${typeOptionsHtml(vuln)}</div></div>
@@ -533,6 +599,7 @@ function openPokemonMaster(p,isNew=false){
  <div class="field"><label>Bônus de Proficiência</label><input class="input" id="pkBonusProf" type="number" min="0" max="20" value="${Math.max(0,Number(p.bonusProficiencia ?? proficiencyBonus(1))||0)}"><small class="muted">Defina manualmente o bônus usado nas perícias proficientes deste Pokémon.</small></div>
  <div class="field"><label>Ataques por nível</label><p class="field-help">Crie cada ataque visualmente. Defina o nível em que ele é aprendido, tipo e dano.</p>${attacksEditorHtml(p.ataques||[])}</div>
  <button class="btn primary" id="savePokemon">Salvar Pokémon</button></div></div>`;
+ setupPokemonEditorLayout(p,isNew);
  showModal();$('[data-close]').onclick=closeModal;bindAttackBuilder();$$("[data-picker-toggle]").forEach(b=>{const box=$("#"+b.dataset.pickerToggle);const refresh=()=>{const vals=selectedTypes("#"+box.id+" .type-choice");b.firstChild.textContent=vals.length?`${vals.length} tipo${vals.length>1?"s":""} selecionado${vals.length>1?"s":""}`:"Selecionar tipos"};refresh();box.addEventListener("change",refresh);b.onclick=()=>{box.classList.toggle("hidden");b.classList.toggle("open");b.querySelector("span").textContent=box.classList.contains("hidden")?"⌄":"⌃"}});
  const toggleParent=()=>$("#pkParentField").classList.toggle("hidden",$("#pkEvolutionType").value!=="evolution");$("#pkEvolutionType").onchange=toggleParent;toggleParent();
  $("#pokemonImage").onchange=e=>{const f=e.target.files[0];if(!f)return;if(!['image/png','image/jpeg','image/webp','image/gif'].includes(f.type)||f.size>8*1024*1024)return toast('Escolha uma imagem PNG, JPEG, WebP ou GIF de até 8 MB.');const preview=$('#previewImage'),button=$('#savePokemon'),r=new FileReader();button.disabled=true;r.onload=()=>{preview.src=r.result;pendingImage=r.result;button.disabled=false};r.onerror=()=>{button.disabled=false;toast('Não foi possível ler a imagem.')};r.readAsDataURL(f)};
@@ -553,7 +620,7 @@ function openPokemonMaster(p,isNew=false){
    applyKnownEvolutionStructure();state.pokemonCatalog=pokemons;save();closeModal();renderAll();toast('Pokémon atualizado. Acompanhe o salvamento no rodapé.');
   }catch(error){console.error('TrainerDex: erro ao validar Pokémon.',error);toast('Não foi possível salvar. Confira os campos da ficha.');}
  };
- $("#deletePokemon").onclick=()=>{
+ $("#deletePokemon")&&($("#deletePokemon").onclick=()=>{
    if(!isMaster())return;if(isNew){closeModal();return;}if(pokemons.length<=1)return toast('Mantenha pelo menos um Pokémon no catálogo.');if(state.trainers.some(t=>getAssignment(t,p.id))||state.encounter.combatants.some(c=>Number(c.pokemonId)===Number(p.id)))return toast('Este Pokémon está em uso por jogadores ou na batalha.');if(pokemons.some(x=>Number(x.evolvesFromId)===Number(p.id)))return toast('Este Pokémon é a origem de uma evolução cadastrada. Altere a evolução antes de excluir.');if(!confirm(`Excluir ${p.nome}?`))return;
    const imageToRemove=p.imagem;
    pokemons=pokemons.filter(x=>x.id!==p.id);
@@ -562,7 +629,7 @@ function openPokemonMaster(p,isNew=false){
    save();
    pendingImageRemovals.add(imageToRemove);
    closeModal();renderDex();toast("Pokémon excluído da campanha.");
- };
+ });
 }
 
 function newPokemon(){if(!isMaster())return;const id=Math.max(0,...pokemons.map(x=>Number(x.id)),...[...personalMovesRecords.keys()].map(key=>Number(key.split(":").pop())||0))+1;const p={id,numero:"#"+String(id).padStart(3,"0"),nome:"Novo Pokémon",tipo:"Normal",descricao:"",imagem:publicImageUrl("assets/trainerdex-home.png"),hp:50,dadoVida:10,sr:"",ca:0,status:{forca:10,destreza:10,constituicao:10,inteligencia:10,sabedoria:10,carisma:10},pericias:{},bonusProficiencia:2,vulnerabilidades:[],resistencia:[],ataques:[],evolutionType:"basic",evolutionStage:1,habilidades:[{nome:"",descricao:""},{nome:"",descricao:""}]};openPokemonMaster(p,true)}
@@ -977,6 +1044,7 @@ $('#notesSearch').oninput=renderNotes;$('#notesSort').onchange=renderNotes;
 $("#addNote").onclick=()=>openNote();
 let modalReturnFocus=null;
 function showModal(){
+ const content=$('#modalContent');content.classList.toggle('pokemon-editor-modal',!!content.querySelector('.pokemon-admin-grid'));
  closeMobileMenu();const modal=$('#modal');if(!modal.classList.contains('open'))modalReturnFocus=document.activeElement;
  modal.classList.add('open');modal.setAttribute('aria-hidden','false');$('#app').setAttribute('inert','');
  document.body.classList.add('modal-open');
@@ -987,7 +1055,7 @@ function closeModal(){
  clearTimeout(window.__noteTimer);$('#modal').classList.remove('open');$('#modal').setAttribute('aria-hidden','true');
  $('#app').removeAttribute('inert');document.body.classList.remove('modal-open');
  if(modalReturnFocus?.isConnected)modalReturnFocus.focus?.();modalReturnFocus=null;
- $('#modalContent').replaceChildren();
+ $('#modalContent').replaceChildren();$('#modalContent').classList.remove('pokemon-editor-modal');
 }
 document.addEventListener('keydown',event=>{
  if(!$('#modal').classList.contains('open'))return;
